@@ -1,0 +1,4 @@
+rootProject.name = "stasbar-app"
+
+include 'backend'
+include 'common'
