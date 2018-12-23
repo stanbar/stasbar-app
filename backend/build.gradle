@@ -29,8 +29,8 @@ dependencies {
     implementation "io.ktor:ktor-server-netty:$ktor_version"
     implementation "io.ktor:ktor-server-servlet:$ktor_version"
     implementation "io.ktor:ktor-html-builder:$ktor_version"
-    implementation "ch.qos.logback:logback-classic:$logback_version"
-
-    providedCompile "com.google.appengine:appengine:$appengine_version"
+    implementation "ch.qos.logback:logback-classic:1.2.1"
+    implementation "com.google.cloud:google-cloud-logging-logback:0.60.0-alpha"
+    providedCompile "com.google.appengine:appengine:1.9.60"
 }
 task run(dependsOn: appengineRun)
