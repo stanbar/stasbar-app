@@ -6,6 +6,9 @@ Backend, Frontend, Android Application are all writen in Kotlin and sharing comm
 ### Backend Server
 - Google App Engine
 - Ktor
+- Retrofit
+- JAXB
+- Goodreads API
 
 ### Frontend WebApp
 - React
