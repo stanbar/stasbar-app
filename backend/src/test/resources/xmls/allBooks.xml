@@ -1,0 +1,1823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GoodreadsResponse>
+    <Request>
+        <authentication>true</authentication>
+        <key><![CDATA[S2go8slpAA3vsJx0SPg]]></key>
+        <method><![CDATA[review_list]]></method>
+    </Request>
+
+    <reviews start="1" end="20" total="135">
+        <review>
+            <id>2642038588</id>
+            <book>
+                <id type="integer">42550144</id>
+                <isbn nil="true"/>
+                <isbn13>9788395235412</isbn13>
+                <text_reviews_count type="integer">0</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1.9H1M6kNNwntu0usbMiMrcw</uri>
+                <title>Moc w gębie. Jak gadać, żeby się dogadać</title>
+                <title_without_series>Moc w gębie. Jak gadać, żeby się dogadać</title_without_series>
+                <image_url>https://images.gr-assets.com/books/1540843485m/42550144.jpg</image_url>
+                <small_image_url>https://images.gr-assets.com/books/1540843485s/42550144.jpg</small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/42550144-moc-w-g-bie-jak-gada-eby-si-dogada</link>
+                <num_pages>304</num_pages>
+                <format>Hardcover</format>
+                <edition_information/>
+                <publisher>Altenberg</publisher>
+                <publication_day>17</publication_day>
+                <publication_year>2018</publication_year>
+                <publication_month>10</publication_month>
+                <average_rating>3.50</average_rating>
+                <ratings_count>2</ratings_count>
+                <description>Próbujesz przekazać ważną rzecz, a masz wrażenie, że mówisz do ściany? Odczuwasz tremę?
+                    Spokojnie, jest na to sposób. Tomasz Kammel zdradza swoje sztuczki, aby każdy potrafił się dogadać i
+                    mógł poczuć MOC W GĘBIE!&lt;br /&gt;&lt;br /&gt;Umiejętność dogadywania się przyda Ci się codziennie
+                    przy niezliczonych okazjach! W sytuacji, gdy przychodzisz coś załatwić i na wstępie słyszysz:
+                    „Proszę stąd wyjść”. Gdy masz świetny pomysł, ale brakuje Ci odwagi, żeby powiedzieć o nim na głos w
+                    pracy lub szkole. Gdy podczas rozmowy machasz rękami i nogami w akompaniamencie „yyy” przerywającego
+                    co drugie zdanie. Gdy na imprezie nie pamiętasz imienia osoby, która przedstawiła Ci się 30 sekund
+                    wcześniej.&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;Źródło: &lt;a target="_blank"
+                    href="https://altenberg.pl/tomasz/" rel="nofollow"&gt;https://altenberg.pl/tomasz/&lt;/a&gt;
+                </description>
+                <authors>
+                    <author>
+                        <id>5762237</id>
+                        <name>Tomasz Kammel</name>
+                        <role></role>
+                        <image_url nophoto='true'>
+                            <![CDATA[https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png]]>
+                        </image_url>
+                        <small_image_url nophoto='true'>
+                            <![CDATA[https://s.gr-assets.com/assets/nophoto/user/u_50x66-632230dc9882b4352d753eedf9396530.png]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/5762237.Tomasz_Kammel]]></link>
+                        <average_rating>2.88</average_rating>
+                        <ratings_count>8</ratings_count>
+                        <text_reviews_count>1</text_reviews_count>
+                    </author>
+                </authors>
+                <published>2018</published>
+                <work>
+                    <id>66258568</id>
+                    <uri>kca://work/amzn1.gr.work.v1.PgA6mzetW06nwGLgAKpmaA</uri>
+                </work>
+            </book>
+
+
+            <rating>0</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+
+                <shelf exclusive='true' id='183390187' name='currently-reading' review_shelf_id='2287079518'
+                       sortable='false'></shelf>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at>Thu Dec 27 18:52:24 -0800 2018</started_at>
+            <read_at></read_at>
+            <date_added>Thu Dec 27 18:52:23 -0800 2018</date_added>
+            <date_updated>Thu Dec 27 18:52:24 -0800 2018</date_updated>
+            <read_count>1</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2642038588]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2642038588]]></link>
+            <owned>0</owned>
+        </review>
+
+        <review>
+            <id>2641808031</id>
+            <book>
+                <id type="integer">23198125</id>
+                <isbn nil="true"/>
+                <isbn13 nil="true"/>
+                <text_reviews_count type="integer">10</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1.fS0AqE9Nuzm0yGUYVGhKVQ</uri>
+                <title>67 Steps Program</title>
+                <title_without_series>67 Steps Program</title_without_series>
+                <image_url>https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+                </image_url>
+                <small_image_url>
+                    https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+                </small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/23198125-67-steps-program</link>
+                <num_pages>67</num_pages>
+                <format>Audiobook</format>
+                <edition_information/>
+                <publisher></publisher>
+                <publication_day></publication_day>
+                <publication_year></publication_year>
+                <publication_month></publication_month>
+                <average_rating>4.23</average_rating>
+                <ratings_count>95</ratings_count>
+                <description>~50 hours</description>
+                <authors>
+                    <author>
+                        <id>7946278</id>
+                        <name>Tai Lopez</name>
+                        <role></role>
+                        <image_url nophoto='true'>
+                            <![CDATA[https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png]]>
+                        </image_url>
+                        <small_image_url nophoto='true'>
+                            <![CDATA[https://s.gr-assets.com/assets/nophoto/user/u_50x66-632230dc9882b4352d753eedf9396530.png]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/7946278.Tai_Lopez]]></link>
+                        <average_rating>3.95</average_rating>
+                        <ratings_count>141</ratings_count>
+                        <text_reviews_count>15</text_reviews_count>
+                    </author>
+                </authors>
+                <published></published>
+                <work>
+                    <id>42742982</id>
+                    <uri>kca://work/amzn1.gr.work.v1.RnDPUhjuiX2ScauCvX0E-Q</uri>
+                </work>
+            </book>
+
+
+            <rating>5</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+                <shelf name="read" exclusive="true" id="183390188" review_shelf_id=""/>
+
+                <shelf exclusive='false' id='296351740' name='life-changers' review_shelf_id='2286864905'
+                       sortable='false'></shelf>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at></started_at>
+            <read_at></read_at>
+            <date_added>Thu Dec 27 16:16:21 -0800 2018</date_added>
+            <date_updated>Thu Dec 27 16:17:21 -0800 2018</date_updated>
+            <read_count>1</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2641808031]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2641808031]]></link>
+            <owned>0</owned>
+        </review>
+
+        <review>
+            <id>2637335142</id>
+            <book>
+                <id type="integer">41221102</id>
+                <isbn>8302014265</isbn>
+                <isbn13 nil="true"/>
+                <text_reviews_count type="integer">0</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1.-PkWrD8GCz94wDM3Ll3aMw</uri>
+                <title>Budowa pojazdów samochodowych</title>
+                <title_without_series>Budowa pojazdów samochodowych</title_without_series>
+                <image_url>https://images.gr-assets.com/books/1534669673m/41221102.jpg</image_url>
+                <small_image_url>https://images.gr-assets.com/books/1534669673s/41221102.jpg</small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/41221102-budowa-pojazd-w-samochodowych</link>
+                <num_pages></num_pages>
+                <format></format>
+                <edition_information/>
+                <publisher></publisher>
+                <publication_day/>
+                <publication_year>1982</publication_year>
+                <publication_month/>
+                <average_rating>5.00</average_rating>
+                <ratings_count>1</ratings_count>
+                <description></description>
+                <authors>
+                    <author>
+                        <id>18320427</id>
+                        <name>Tadeusz Rychter</name>
+                        <role></role>
+                        <image_url nophoto='true'>
+                            <![CDATA[https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png]]>
+                        </image_url>
+                        <small_image_url nophoto='true'>
+                            <![CDATA[https://s.gr-assets.com/assets/nophoto/user/u_50x66-632230dc9882b4352d753eedf9396530.png]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/18320427.Tadeusz_Rychter]]></link>
+                        <average_rating>5.00</average_rating>
+                        <ratings_count>1</ratings_count>
+                        <text_reviews_count>0</text_reviews_count>
+                    </author>
+                </authors>
+                <published>1982</published>
+                <work>
+                    <id>64426623</id>
+                    <uri>kca://work/amzn1.gr.work.v1.mJFKPdUVpKNTKvXU7HffLw</uri>
+                </work>
+            </book>
+
+
+            <rating>5</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+
+                <shelf exclusive='true' id='183390187' name='currently-reading' review_shelf_id='2282657852'
+                       sortable='false'></shelf>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at>Mon Dec 24 15:38:57 -0800 2018</started_at>
+            <read_at></read_at>
+            <date_added>Mon Dec 24 15:38:56 -0800 2018</date_added>
+            <date_updated>Thu Dec 27 15:37:33 -0800 2018</date_updated>
+            <read_count>1</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2637335142]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2637335142]]></link>
+            <owned>0</owned>
+        </review>
+
+        <review>
+            <id>2635391433</id>
+            <book>
+                <id type="integer">9151181</id>
+                <isbn>1605292885</isbn>
+                <isbn13>9781605292885</isbn13>
+                <text_reviews_count type="integer">772</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1.9OKOnYLDPCc_Wt6k24DIgA</uri>
+                <title>Onward: How Starbucks Fought for Its Life without Losing Its Soul</title>
+                <title_without_series>Onward: How Starbucks Fought for Its Life without Losing Its Soul
+                </title_without_series>
+                <image_url>https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+                </image_url>
+                <small_image_url>
+                    https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+                </small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/9151181-onward</link>
+                <num_pages>350</num_pages>
+                <format>Hardcover</format>
+                <edition_information/>
+                <publisher>Rodale Books</publisher>
+                <publication_day>29</publication_day>
+                <publication_year>2011</publication_year>
+                <publication_month>3</publication_month>
+                <average_rating>3.81</average_rating>
+                <ratings_count>15244</ratings_count>
+                <description>&lt;div&gt;&lt;div&gt;In 2008, Howard Schultz, the president and chairman of Starbucks,
+                    made the unprecedented decision to return as the CEO eight years after he stepped down from daily
+                    oversight of the company and became chairman. Concerned that Starbucks had lost its way, Schultz was
+                    determined to help it return to its core values and restore not only its financial health, but also
+                    its soul. In Onward, he shares the remarkable story of his return and the company's ongoing
+                    transformation under his leadership, revealing how, during one of the most tumultuous economic times
+                    in history, Starbucks again achieved profitability and sustainability without sacrificing humanity.&lt;/div&gt;&lt;div&gt; &lt;/div&gt;&lt;div&gt;Offering
+                    readers a snapshot of a moment in history that left no company unscathed, the book zooms in to show,
+                    in riveting detail, how one company struggled and recreated itself in the midst of it all. The
+                    fastpaced narrative is driven by day-to-day tension as conflicts arise and lets readers into
+                    Schultz's psyche as he comes to terms with his limitations and evolving leadership style. Onward is
+                    a compelling, candid narrative documenting the maturing of a brand as well as a businessman.&lt;br /&gt;&lt;br
+                    /&gt;&lt;/div&gt;Onward represents Schultz's central leadership philosophy: It's not just about
+                    winning, but the right way to win. Ultimately, he gives readers what he strives to deliver every day
+                    - sense of hope that, no matter how tough times get, the future can be just as or more successful
+                    than the past, whatever one defines success to be.&lt;/div&gt;
+                </description>
+                <authors>
+                    <author>
+                        <id>53761</id>
+                        <name>Howard Schultz</name>
+                        <role></role>
+                        <image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1341499088p5/53761.jpg]]>
+                        </image_url>
+                        <small_image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1341499088p2/53761.jpg]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/53761.Howard_Schultz]]></link>
+                        <average_rating>3.89</average_rating>
+                        <ratings_count>22950</ratings_count>
+                        <text_reviews_count>1462</text_reviews_count>
+                    </author>
+                </authors>
+                <published>2011</published>
+                <work>
+                    <id>14030099</id>
+                    <uri>kca://work/amzn1.gr.work.v1.UO2o5vr5TqXdgX3fZJTFVw</uri>
+                </work>
+            </book>
+
+
+            <rating>0</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+
+                <shelf exclusive='true' id='183390186' name='to-read' review_shelf_id='2280714769'
+                       sortable='true'></shelf>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at></started_at>
+            <read_at></read_at>
+            <date_added>Sat Dec 22 19:21:20 -0800 2018</date_added>
+            <date_updated>Sat Dec 22 19:21:21 -0800 2018</date_updated>
+            <read_count>0</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2635391433]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2635391433]]></link>
+            <owned>0</owned>
+        </review>
+
+        <review>
+            <id>2635389478</id>
+            <book>
+                <id type="integer">106590</id>
+                <isbn>068482535X</isbn>
+                <isbn13>9780684825359</isbn13>
+                <text_reviews_count type="integer">460</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1.C_P_MRx0uS1jPZmVQerAYw</uri>
+                <title>Lincoln</title>
+                <title_without_series>Lincoln</title_without_series>
+                <image_url>https://images.gr-assets.com/books/1543429790m/106590.jpg</image_url>
+                <small_image_url>https://images.gr-assets.com/books/1543429790s/106590.jpg</small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/106590.Lincoln</link>
+                <num_pages>720</num_pages>
+                <format>Paperback</format>
+                <edition_information/>
+                <publisher>Simon Schuster</publisher>
+                <publication_day>5</publication_day>
+                <publication_year>1996</publication_year>
+                <publication_month>11</publication_month>
+                <average_rating>4.18</average_rating>
+                <ratings_count>31336</ratings_count>
+                <description>A masterful work by Pulitzer Prize–winning author David Herbert Donald, &lt;i&gt;Lincoln&lt;/i&gt;
+                    is a stunning portrait of Abraham Lincoln’s life and presidency.&lt;br /&gt;&lt;br /&gt;Donald
+                    brilliantly depicts Lincoln’s gradual ascent from humble beginnings in rural Kentucky to the
+                    ever-expanding political circles in Illinois, and finally to the presidency of a country divided by
+                    civil war. Donald goes beyond biography, illuminating the gradual development of Lincoln’s
+                    character, chronicling his tremendous capacity for evolution and growth, thus illustrating what made
+                    it possible for a man so inexperienced and so unprepared for the presidency to become a great moral
+                    leader. In the most troubled of times, here was a man who led the country out of slavery and
+                    preserved a shattered Union—in short, one of the greatest presidents this country has ever seen.
+                </description>
+                <authors>
+                    <author>
+                        <id>7922</id>
+                        <name>David Herbert Donald</name>
+                        <role></role>
+                        <image_url nophoto='true'>
+                            <![CDATA[https://s.gr-assets.com/assets/nophoto/user/m_200x266-d279b33f8eec0f27b7272477f09806be.png]]>
+                        </image_url>
+                        <small_image_url nophoto='true'>
+                            <![CDATA[https://s.gr-assets.com/assets/nophoto/user/m_50x66-82093808bca726cb3249a493fbd3bd0f.png]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/7922.David_Herbert_Donald]]></link>
+                        <average_rating>4.16</average_rating>
+                        <ratings_count>33036</ratings_count>
+                        <text_reviews_count>657</text_reviews_count>
+                    </author>
+                </authors>
+                <published>1996</published>
+                <work>
+                    <id>1733479</id>
+                    <uri>kca://work/amzn1.gr.work.v1.XqGjaNIN5hEj_T_aEpjunA</uri>
+                </work>
+            </book>
+
+
+            <rating>0</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+
+                <shelf exclusive='true' id='183390186' name='to-read' review_shelf_id='2280712949'
+                       sortable='true'></shelf>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at></started_at>
+            <read_at></read_at>
+            <date_added>Sat Dec 22 19:19:21 -0800 2018</date_added>
+            <date_updated>Sat Dec 22 19:19:22 -0800 2018</date_updated>
+            <read_count>0</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2635389478]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2635389478]]></link>
+            <owned>0</owned>
+        </review>
+
+        <review>
+            <id>2635388987</id>
+            <book>
+                <id type="integer">41021344</id>
+                <isbn nil="true"/>
+                <isbn13 nil="true"/>
+                <text_reviews_count type="integer">35</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1.yRJBzfC-ehxyTNhk0Oj0Zw</uri>
+                <title>Thomas Jefferson: The Art of Power</title>
+                <title_without_series>Thomas Jefferson: The Art of Power</title_without_series>
+                <image_url>https://images.gr-assets.com/books/1533134287m/41021344.jpg</image_url>
+                <small_image_url>https://images.gr-assets.com/books/1533134287s/41021344.jpg</small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/41021344-thomas-jefferson</link>
+                <num_pages>802</num_pages>
+                <format>Kindle Edition</format>
+                <edition_information/>
+                <publisher>Random House</publisher>
+                <publication_day>13</publication_day>
+                <publication_year>2012</publication_year>
+                <publication_month>11</publication_month>
+                <average_rating>3.99</average_rating>
+                <ratings_count>24326</ratings_count>
+                <description>In this magnificent biography, the Pulitzer Prize–winning author of &lt;i&gt;American Lion&lt;/i&gt;
+                    and &lt;i&gt;Franklin and Winston&lt;/i&gt; brings vividly to life an extraordinary man and his
+                    remarkable times. &lt;i&gt;Thomas Jefferson: The Art of Power&lt;/i&gt; gives us Jefferson the
+                    politician and president, a great and complex human being forever engaged in the wars of his era.
+                    Philosophers think; politicians maneuver. Jefferson’s genius was that he was both and could do both,
+                    often simultaneously. Such is the art of power.&lt;p&gt; Thomas Jefferson hated confrontation, and
+                    yet his understanding of power and of human nature enabled him to move men and to marshal ideas, to
+                    learn from his mistakes, and to prevail. Passionate about many things—women, his family, books,
+                    science, architecture, gardens, friends, Monticello, and Paris—Jefferson loved America most, and he
+                    strove over and over again, despite fierce opposition, to realize his vision: the creation,
+                    survival, and success of popular government in America. Jon Meacham lets us see Jefferson’s world as
+                    Jefferson himself saw it, and to appreciate how Jefferson found the means to endure and win in the
+                    face of rife partisan division, economic uncertainty, and external threat. Drawing on archives in
+                    the United States, England, and France, as well as unpublished Jefferson presidential papers,
+                    Meacham presents Jefferson as the most successful political leader of the early republic, and
+                    perhaps in all of American history.&lt;/p&gt;&lt;p&gt; The father of the ideal of individual
+                    liberty, of the Louisiana Purchase, of the Lewis and Clark expedition, and of the settling of the
+                    West, Jefferson recognized that the genius of humanity—and the genius of the new nation—lay in the
+                    possibility of progress, of discovering the undiscovered and seeking the unknown. From the writing
+                    of the Declaration of Independence to elegant dinners in Paris and in the President’s House; from
+                    political maneuverings in the boardinghouses and legislative halls of Philadelphia and New York to
+                    the infant capital on the Potomac; from his complicated life at Monticello, his breathtaking house
+                    and plantation in Virginia, to the creation of the University of Virginia, Jefferson was central to
+                    the age. Here too is the personal Jefferson, a man of appetite, sensuality, and passion.&lt;/p&gt;&lt;p&gt;
+                    The Jefferson story resonates today not least because he led his nation through ferocious
+                    partisanship and cultural warfare amid economic change and external threats, and also because he
+                    embodies an eternal drama, the struggle of the leadership of a nation to achieve greatness in a
+                    difficult and confounding world.&lt;/p&gt;
+                </description>
+                <authors>
+                    <author>
+                        <id>3041</id>
+                        <name>Jon Meacham</name>
+                        <role></role>
+                        <image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1350679029p5/3041.jpg]]>
+                        </image_url>
+                        <small_image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1350679029p2/3041.jpg]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/3041.Jon_Meacham]]></link>
+                        <average_rating>3.92</average_rating>
+                        <ratings_count>79706</ratings_count>
+                        <text_reviews_count>5568</text_reviews_count>
+                    </author>
+                </authors>
+                <published>2012</published>
+                <work>
+                    <id>19095325</id>
+                    <uri>kca://work/amzn1.gr.work.v1.0eVvXM6UyOjlDr4a5ZC70Q</uri>
+                </work>
+            </book>
+
+
+            <rating>0</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+
+                <shelf exclusive='true' id='183390186' name='to-read' review_shelf_id='2280712472'
+                       sortable='true'></shelf>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at></started_at>
+            <read_at></read_at>
+            <date_added>Sat Dec 22 19:18:50 -0800 2018</date_added>
+            <date_updated>Sat Dec 22 19:18:50 -0800 2018</date_updated>
+            <read_count>0</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2635388987]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2635388987]]></link>
+            <owned>0</owned>
+        </review>
+
+        <review>
+            <id>2635388380</id>
+            <book>
+                <id type="integer">10883</id>
+                <isbn>074325807X</isbn>
+                <isbn13>9780743258074</isbn13>
+                <text_reviews_count type="integer">1506</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1.BeBG0f9per8rAQNs6sfmDg</uri>
+                <title>Benjamin Franklin: An American Life</title>
+                <title_without_series>Benjamin Franklin: An American Life</title_without_series>
+                <image_url>https://images.gr-assets.com/books/1397772877m/10883.jpg</image_url>
+                <small_image_url>https://images.gr-assets.com/books/1397772877s/10883.jpg</small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/10883.Benjamin_Franklin</link>
+                <num_pages>586</num_pages>
+                <format>Paperback</format>
+                <edition_information/>
+                <publisher>Simon &amp; Schuster</publisher>
+                <publication_day/>
+                <publication_year>2004</publication_year>
+                <publication_month>6</publication_month>
+                <average_rating>3.98</average_rating>
+                <ratings_count>92199</ratings_count>
+                <description>Benjamin Franklin is the Founding Father who winks at us. An ambitious urban entrepreneur
+                    who rose up the social ladder, from leather-aproned shopkeeper to dining with kings, he seems made
+                    of flesh rather than of marble. In bestselling author Walter Isaacson's vivid and witty full-scale
+                    biography, we discover why Franklin seems to turn to us from history's stage with eyes that twinkle
+                    from behind his new-fangled spectacles. By bringing Franklin to life, Isaacson shows how he helped
+                    to define both his own time and ours.&lt;br /&gt;&lt;br /&gt;He was, during his 84-year life,
+                    America's best scientist, inventor, diplomat, writer, and business strategist, and he was also one
+                    of its most practical—though not most profound—political thinkers. He proved by flying a kite that
+                    lightning was electricity, and he invented a rod to tame it. He sought practical ways to make stoves
+                    less smoky and commonwealths less corrupt. He organized neighborhood constabularies and
+                    international alliances, local lending libraries and national legislatures. He combined two types of
+                    lenses to create bifocals and two concepts of representation to foster the nation's federal
+                    compromise. He was the only man who shaped all the founding documents of America: the Albany Plan of
+                    Union, the Declaration of Independence, the treaty of alliance with France, the peace treaty with
+                    England, and the Constitution. And he helped invent America's unique style of homespun humor,
+                    democratic values, and philosophical pragmatism.&lt;br /&gt;&lt;br /&gt;But the most interesting
+                    thing that Franklin invented, and continually reinvented, was himself. America's first great
+                    publicist, he was, in his life and in his writings, consciously trying to create a new American
+                    archetype. In the process, he carefully crafted his own persona, portrayed it in public, and
+                    polished it for posterity.&lt;br /&gt;&lt;br /&gt;Through it all, he trusted the hearts and minds of
+                    his fellow "leather-aprons" more than he did those of any inbred elite. He saw middle-class values
+                    as a source of social strength, not as something to be derided. His guiding principle was a "dislike
+                    of everything that tended to debase the spirit of the common people." Few of his fellow founders
+                    felt this comfort with democracy so fully, and none so intuitively.&lt;br /&gt;&lt;br /&gt;In this
+                    colorful and intimate narrative, Isaacson provides the full sweep of Franklin's amazing life, from
+                    his days as a runaway printer to his triumphs as a statesman, scientist, and Founding Father. He
+                    chronicles Franklin's tumultuous relationship with his illegitimate son and grandson, his practical
+                    marriage, and his flirtations with the ladies of Paris. He also shows how Franklin helped to create
+                    the American character and why he has a particular resonance in the twenty-first century.
+                </description>
+                <authors>
+                    <author>
+                        <id>7111</id>
+                        <name>Walter Isaacson</name>
+                        <role></role>
+                        <image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1192222433p5/7111.jpg]]>
+                        </image_url>
+                        <small_image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1192222433p2/7111.jpg]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/7111.Walter_Isaacson]]></link>
+                        <average_rating>4.10</average_rating>
+                        <ratings_count>991528</ratings_count>
+                        <text_reviews_count>25339</text_reviews_count>
+                    </author>
+                </authors>
+                <published>2004</published>
+                <work>
+                    <id>750514</id>
+                    <uri>kca://work/amzn1.gr.work.v1.Myt18PfzvCDyO76WsUPjTA</uri>
+                </work>
+            </book>
+
+
+            <rating>0</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+
+                <shelf exclusive='true' id='183390186' name='to-read' review_shelf_id='2280711885'
+                       sortable='true'></shelf>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at></started_at>
+            <read_at></read_at>
+            <date_added>Sat Dec 22 19:18:12 -0800 2018</date_added>
+            <date_updated>Sat Dec 22 19:18:12 -0800 2018</date_updated>
+            <read_count>0</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2635388380]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2635388380]]></link>
+            <owned>0</owned>
+        </review>
+
+        <review>
+            <id>2635388137</id>
+            <book>
+                <id type="integer">17835351</id>
+                <isbn nil="true"/>
+                <isbn13 nil="true"/>
+                <text_reviews_count type="integer">980</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1.jqHNQ0-634v2AqCuVSCKKA</uri>
+                <title>Nikola Tesla: Imagination and the Man That Invented the 20th Century</title>
+                <title_without_series>Nikola Tesla: Imagination and the Man That Invented the 20th Century
+                </title_without_series>
+                <image_url>https://images.gr-assets.com/books/1366561721m/17835351.jpg</image_url>
+                <small_image_url>https://images.gr-assets.com/books/1366561721s/17835351.jpg</small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/17835351-nikola-tesla</link>
+                <num_pages>46</num_pages>
+                <format>Kindle Edition</format>
+                <edition_information/>
+                <publisher>Oculus Publishers</publisher>
+                <publication_day>9</publication_day>
+                <publication_year>2013</publication_year>
+                <publication_month>4</publication_month>
+                <average_rating>3.84</average_rating>
+                <ratings_count>20960</ratings_count>
+                <description>If you want to learn about one of history’s most fascinating minds and uncover some of his
+                    secrets of imagination—secrets that enabled him to invent machines light years ahead of his time and
+                    literally bring light to the world—then you want to read this book.&lt;br /&gt;&lt;br /&gt;Imagination
+                    amplifies and colors every other element of genius, and unlocks our potential for understanding and
+                    ability. &lt;br /&gt;&lt;br /&gt;It’s no coincidence that geniuses not only dare to dream of the
+                    impossible for their work, but do the same for their lives. They’re audacious enough to think that
+                    they’re not just ordinary players. &lt;br /&gt;&lt;br /&gt;Few stories better illustrate this better
+                    than the life of the father of the modern world, a man of legendary imaginative power and wonder:
+                    Nikola Tesla.&lt;br /&gt;&lt;br /&gt;In this book, you’ll be taken on a whirlwind journey through
+                    Tesla’s life and work, and not only learn about the successes and mistakes of one of history’s
+                    greatest inventors, but also how to look at the world in a different, more imaginative way.&lt;br /&gt;&lt;br
+                    /&gt;Read this book now and learn lessons from Nikola Tesla on why imagination is so vital to
+                    awakening your inner genius, and insights into the real “secret” to creativity, as explained by
+                    people like Jobs, Picasso, Dali, and Twain.
+                </description>
+                <authors>
+                    <author>
+                        <id>311368</id>
+                        <name>Sean Patrick</name>
+                        <role></role>
+                        <image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1362149503p5/311368.jpg]]>
+                        </image_url>
+                        <small_image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1362149503p2/311368.jpg]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/311368.Sean_Patrick]]></link>
+                        <average_rating>3.84</average_rating>
+                        <ratings_count>22912</ratings_count>
+                        <text_reviews_count>1115</text_reviews_count>
+                    </author>
+                </authors>
+                <published>2013</published>
+                <work>
+                    <id>24955642</id>
+                    <uri>kca://work/amzn1.gr.work.v1.y-FZAOmGcZM2NBy9dYgf5w</uri>
+                </work>
+            </book>
+
+
+            <rating>0</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+
+                <shelf exclusive='true' id='183390186' name='to-read' review_shelf_id='2280711635'
+                       sortable='true'></shelf>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at></started_at>
+            <read_at></read_at>
+            <date_added>Sat Dec 22 19:17:58 -0800 2018</date_added>
+            <date_updated>Sat Dec 22 19:17:58 -0800 2018</date_updated>
+            <read_count>0</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2635388137]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2635388137]]></link>
+            <owned>0</owned>
+        </review>
+
+        <review>
+            <id>2635387932</id>
+            <book>
+                <id type="integer">9021</id>
+                <isbn>0349116024</isbn>
+                <isbn13>9780349116020</isbn13>
+                <text_reviews_count type="integer">13</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1.aNN-v66iF-KAwmW1sMb3GQ</uri>
+                <title>Long Walk To Freedom (Volume 1: 1918-1962)</title>
+                <title_without_series>Long Walk To Freedom</title_without_series>
+                <image_url>https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+                </image_url>
+                <small_image_url>
+                    https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+                </small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/9021.Long_Walk_To_Freedom</link>
+                <num_pages>497</num_pages>
+                <format>Mass Market Paperback</format>
+                <edition_information/>
+                <publisher>Abacus</publisher>
+                <publication_day/>
+                <publication_year>2002</publication_year>
+                <publication_month/>
+                <average_rating>4.35</average_rating>
+                <ratings_count>2716</ratings_count>
+                <description>From his birth in a village on the banks of the Mbashe River in the Transkei to his
+                    politicisation and development as a freedom fighter, this first volume of Nelson Mandela's classic
+                    autobiography charts the early years of his life, which culminated in his prison sentence in 1962.
+                    Emotive, compelling and uplifting, &lt;i&gt;Long Walk to Freedom: Volume 1&lt;/i&gt; tells the
+                    beginnings of the story of an epic life, a story of hardship, resilience and ultimate triumph
+                    conveyed with the clarity and eloquence of the outstanding moral and political leader of the
+                    twentieth century.
+                </description>
+                <authors>
+                    <author>
+                        <id>367338</id>
+                        <name>Nelson Mandela</name>
+                        <role></role>
+                        <image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1308928296p5/367338.jpg]]>
+                        </image_url>
+                        <small_image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1308928296p2/367338.jpg]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/367338.Nelson_Mandela]]></link>
+                        <average_rating>4.29</average_rating>
+                        <ratings_count>63078</ratings_count>
+                        <text_reviews_count>3861</text_reviews_count>
+                    </author>
+                </authors>
+                <published>2002</published>
+                <work>
+                    <id>39955315</id>
+                    <uri>kca://work/amzn1.gr.work.v1.NRvPYFrob2yaCyB-O0q-EA</uri>
+                </work>
+            </book>
+
+
+            <rating>0</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+
+                <shelf exclusive='true' id='183390186' name='to-read' review_shelf_id='2280711439'
+                       sortable='true'></shelf>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at></started_at>
+            <read_at></read_at>
+            <date_added>Sat Dec 22 19:17:44 -0800 2018</date_added>
+            <date_updated>Sat Dec 22 19:17:44 -0800 2018</date_updated>
+            <read_count>0</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2635387932]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2635387932]]></link>
+            <owned>0</owned>
+        </review>
+
+        <review>
+            <id>2634851867</id>
+            <book>
+                <id type="integer">11878168</id>
+                <isbn nil="true"/>
+                <isbn13 nil="true"/>
+                <text_reviews_count type="integer">442</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1.GFxjibbDZLIuiCEwwwhyew</uri>
+                <title>Anything You Want</title>
+                <title_without_series>Anything You Want</title_without_series>
+                <image_url>https://images.gr-assets.com/books/1328181572m/11878168.jpg</image_url>
+                <small_image_url>https://images.gr-assets.com/books/1328181572s/11878168.jpg</small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/11878168-anything-you-want</link>
+                <num_pages></num_pages>
+                <format></format>
+                <edition_information/>
+                <publisher></publisher>
+                <publication_day/>
+                <publication_year/>
+                <publication_month/>
+                <average_rating>4.01</average_rating>
+                <ratings_count>12455</ratings_count>
+                <description>The creator of CDBaby.com shares what he has learned over his ten years of starting and
+                    growing CDBaby.com.
+                </description>
+                <authors>
+                    <author>
+                        <id>2766361</id>
+                        <name>Derek Sivers</name>
+                        <role></role>
+                        <image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1346638017p5/2766361.jpg]]>
+                        </image_url>
+                        <small_image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1346638017p2/2766361.jpg]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/2766361.Derek_Sivers]]></link>
+                        <average_rating>4.01</average_rating>
+                        <ratings_count>12821</ratings_count>
+                        <text_reviews_count>590</text_reviews_count>
+                    </author>
+                </authors>
+                <published/>
+                <work>
+                    <id>16836190</id>
+                    <uri>kca://work/amzn1.gr.work.v1.4UfEYiUM37XcQ4kJQseyJA</uri>
+                </work>
+            </book>
+
+
+            <rating>0</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+
+                <shelf exclusive='true' id='183390186' name='to-read' review_shelf_id='2280164511'
+                       sortable='true'></shelf>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at></started_at>
+            <read_at></read_at>
+            <date_added>Sat Dec 22 08:36:38 -0800 2018</date_added>
+            <date_updated>Sat Dec 22 08:36:38 -0800 2018</date_updated>
+            <read_count>0</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2634851867]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2634851867]]></link>
+            <owned>0</owned>
+        </review>
+
+        <review>
+            <id>2634850709</id>
+            <book>
+                <id type="integer">6117142</id>
+                <isbn>0521716535</isbn>
+                <isbn13>9780521716536</isbn13>
+                <text_reviews_count type="integer">1</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1.Rby8kf-Hj1hefukPxlZAHg</uri>
+                <title>Evolutionary Psychology: An Introduction</title>
+                <title_without_series>Evolutionary Psychology: An Introduction</title_without_series>
+                <image_url>https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+                </image_url>
+                <small_image_url>
+                    https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+                </small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/6117142-evolutionary-psychology</link>
+                <num_pages>486</num_pages>
+                <format>Paperback</format>
+                <edition_information/>
+                <publisher>Cambridge University Press</publisher>
+                <publication_day>1</publication_day>
+                <publication_year>2008</publication_year>
+                <publication_month>6</publication_month>
+                <average_rating>3.96</average_rating>
+                <ratings_count>71</ratings_count>
+                <description>Evolutionary psychology starts from the premise that the human brain is the product of
+                    natural selection; therefore, by adopting an evolutionary stance, we might come to better understand
+                    the mind and behaviour. The second edition of this highly acclaimed textbook gives an introduction
+                    to the fascinating science of evolutionary psychology covering its history, from the Ancient Greeks
+                    to the present day, and discusses how evolution can illuminate many of the topics taught in
+                    psychology departments. This new edition, now in 2 colour, includes an additional chapter on
+                    'Evolution and Individual Differences' which discusses how evolution might account for differences
+                    in personality and intelligence. With an engaging style and user-friendly format featuring
+                    end-of-chapter summaries, critical thinking questions and guides to further reading, this is a
+                    stand-alone textbook for undergraduates studying evolutionary psychology.
+                </description>
+                <authors>
+                    <author>
+                        <id>2790620</id>
+                        <name>Lance Workman</name>
+                        <role></role>
+                        <image_url nophoto='true'>
+                            <![CDATA[https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png]]>
+                        </image_url>
+                        <small_image_url nophoto='true'>
+                            <![CDATA[https://s.gr-assets.com/assets/nophoto/user/u_50x66-632230dc9882b4352d753eedf9396530.png]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/2790620.Lance_Workman]]></link>
+                        <average_rating>3.97</average_rating>
+                        <ratings_count>74</ratings_count>
+                        <text_reviews_count>2</text_reviews_count>
+                    </author>
+                </authors>
+                <published>2008</published>
+                <work>
+                    <id>6371211</id>
+                    <uri>kca://work/amzn1.gr.work.v1.MkYCCajRFgzPCjgmICU5DQ</uri>
+                </work>
+            </book>
+
+
+            <rating>0</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+
+                <shelf exclusive='true' id='183390186' name='to-read' review_shelf_id='2280163433'
+                       sortable='true'></shelf>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at></started_at>
+            <read_at></read_at>
+            <date_added>Sat Dec 22 08:35:22 -0800 2018</date_added>
+            <date_updated>Sat Dec 22 08:35:22 -0800 2018</date_updated>
+            <read_count>0</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2634850709]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2634850709]]></link>
+            <owned>0</owned>
+        </review>
+
+        <review>
+            <id>2634849828</id>
+            <book>
+                <id type="integer">54270</id>
+                <isbn>0395083621</isbn>
+                <isbn13>9780395083628</isbn13>
+                <text_reviews_count type="integer">1518</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1.P-x5Tu95gv0WAq02ZGpDWQ</uri>
+                <title>Mein Kampf</title>
+                <title_without_series>Mein Kampf</title_without_series>
+                <image_url>https://images.gr-assets.com/books/1395618385m/54270.jpg</image_url>
+                <small_image_url>https://images.gr-assets.com/books/1395618385s/54270.jpg</small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/54270.Mein_Kampf</link>
+                <num_pages>384</num_pages>
+                <format>Paperback</format>
+                <edition_information/>
+                <publisher>Houghton Mifflin Company</publisher>
+                <publication_day>11</publication_day>
+                <publication_year>1973</publication_year>
+                <publication_month>5</publication_month>
+                <average_rating>3.15</average_rating>
+                <ratings_count>27553</ratings_count>
+                <description>Alternate cover edition of &lt;a
+                    href="https://www.goodreads.com/book/show/54270.Mein_Kampf?ac=1&amp;quot;" rel="nofollow"&gt;this
+                    book&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;Madman, tyrant, animal - history has given Adolf Hitler many
+                    names. In &lt;i&gt;Mein Kampf&lt;/i&gt; (My Struggle), often called the Nazi bible, Hitler describes
+                    his life, frustrations, ideals, and dreams. Born to an impoverished couple in a small town in
+                    Austria, the young Adolf grew up with the fervent desire to become a painter. The death of his
+                    parents and outright rejection from art schools in Vienna forced him into underpaid work as a
+                    laborer. During the First World War, Hitler served in the infantry and was decorated for bravery.
+                    After the war, he became actively involved with socialist political groups and quickly rose to
+                    power, establishing himself as Chairman of the National Socialist German Worker's party. In 1924,
+                    Hitler led a coalition of nationalist groups in a bid to overthrow the Bavarian government in
+                    Munich. The infamous Munich "Beer-hall putsch" was unsuccessful, and Hitler was arrested. During the
+                    nine months he was in prison, an embittered and frustrated Hitler dictated a personal manifesto to
+                    his loyal follower Rudolph Hess. He vented his sentiments against communism and the Jewish people in
+                    this document, which was to become &lt;i&gt;Mein Kampf&lt;/i&gt;, the controversial book that is
+                    seen as the blue-print for Hitler's political and military campaign. In &lt;i&gt;Mein Kampf&lt;/i&gt;,
+                    Hitler describes his strategy for rebuilding Germany and conquering Europe. It is a glimpse into the
+                    mind of a man who destabilized world peace and pursued the genocide now known as the Holocaust.
+                </description>
+                <authors>
+                    <author>
+                        <id>30691</id>
+                        <name>Adolf Hitler</name>
+                        <role></role>
+                        <image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1502617950p5/30691.jpg]]>
+                        </image_url>
+                        <small_image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1502617950p2/30691.jpg]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/30691.Adolf_Hitler]]></link>
+                        <average_rating>3.18</average_rating>
+                        <ratings_count>28892</ratings_count>
+                        <text_reviews_count>2716</text_reviews_count>
+                    </author>
+                </authors>
+                <published>1973</published>
+                <work>
+                    <id>2049624</id>
+                    <uri>kca://work/amzn1.gr.work.v1.Qz4lK5KaukJ2y2fwTpqjRQ</uri>
+                </work>
+            </book>
+
+
+            <rating>3</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+                <shelf name="read" exclusive="true" id="183390188" review_shelf_id=""/>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at></started_at>
+            <read_at></read_at>
+            <date_added>Sat Dec 22 08:34:22 -0800 2018</date_added>
+            <date_updated>Sat Dec 22 08:34:23 -0800 2018</date_updated>
+            <read_count>1</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2634849828]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2634849828]]></link>
+            <owned>0</owned>
+        </review>
+
+        <review>
+            <id>2634849603</id>
+            <book>
+                <id type="integer">944652</id>
+                <isbn>157864366X</isbn>
+                <isbn13>9781578643660</isbn13>
+                <text_reviews_count type="integer">148</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1.xtbEclMPnU3qBOLR471H5Q</uri>
+                <title>Poor Charlie's Almanack: The Wit and Wisdom of Charles T. Munger</title>
+                <title_without_series>Poor Charlie's Almanack: The Wit and Wisdom of Charles T. Munger
+                </title_without_series>
+                <image_url>https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+                </image_url>
+                <small_image_url>
+                    https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+                </small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/944652.Poor_Charlie_s_Almanack</link>
+                <num_pages>512</num_pages>
+                <format>Hardcover</format>
+                <edition_information>Expanded Second Edition</edition_information>
+                <publisher>Donning Company Publishers</publisher>
+                <publication_day>1</publication_day>
+                <publication_year>2006</publication_year>
+                <publication_month>1</publication_month>
+                <average_rating>4.51</average_rating>
+                <ratings_count>4227</ratings_count>
+                <description>EXPANDED THIRD EDITION includes Charlie's 2007 USC Law School Commencement address. Edited
+                    by Peter D. Kaufman. Brand New.
+                </description>
+                <authors>
+                    <author>
+                        <id>236437</id>
+                        <name>Charles T. Munger</name>
+                        <role></role>
+                        <image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1426000604p5/236437.jpg]]>
+                        </image_url>
+                        <small_image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1426000604p2/236437.jpg]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/236437.Charles_T_Munger]]></link>
+                        <average_rating>4.51</average_rating>
+                        <ratings_count>4339</ratings_count>
+                        <text_reviews_count>235</text_reviews_count>
+                    </author>
+                </authors>
+                <published>2006</published>
+                <work>
+                    <id>3406894</id>
+                    <uri>kca://work/amzn1.gr.work.v1.LEggimvqXGbtPiBv7RbsaA</uri>
+                </work>
+            </book>
+
+
+            <rating>0</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+
+                <shelf exclusive='true' id='183390187' name='currently-reading' review_shelf_id='2280162353'
+                       sortable='false'></shelf>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at>Sat Dec 22 08:34:05 -0800 2018</started_at>
+            <read_at></read_at>
+            <date_added>Sat Dec 22 08:34:04 -0800 2018</date_added>
+            <date_updated>Sat Dec 22 08:34:05 -0800 2018</date_updated>
+            <read_count>1</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2634849603]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2634849603]]></link>
+            <owned>0</owned>
+        </review>
+
+        <review>
+            <id>2634849140</id>
+            <book>
+                <id type="integer">28363972</id>
+                <isbn>0812988906</isbn>
+                <isbn13>9780812988901</isbn13>
+                <text_reviews_count type="integer">2499</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1.xzrO4TyauZ3m3-avOXwPjQ</uri>
+                <title>The Last Days of Night</title>
+                <title_without_series>The Last Days of Night</title_without_series>
+                <image_url>https://images.gr-assets.com/books/1470731930m/28363972.jpg</image_url>
+                <small_image_url>https://images.gr-assets.com/books/1470731930s/28363972.jpg</small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/28363972-the-last-days-of-night</link>
+                <num_pages>371</num_pages>
+                <format>Hardcover</format>
+                <edition_information>First Edition</edition_information>
+                <publisher>Random House</publisher>
+                <publication_day>16</publication_day>
+                <publication_year>2016</publication_year>
+                <publication_month>8</publication_month>
+                <average_rating>4.14</average_rating>
+                <ratings_count>21009</ratings_count>
+                <description>New York, 1888. Gas lamps still flicker in the city streets, but the miracle of electric
+                    light is in its infancy. The person who controls the means to turn night into day will make
+                    history--and a vast fortune. A young untested lawyer named Paul Cravath, fresh out of Columbia Law
+                    School, takes a case that seems impossible to win. Paul's client, George Westinghouse, has been sued
+                    by Thomas Edison over a billion-dollar question: Who invented the light bulb and holds the right to
+                    power the country? &lt;br /&gt;&lt;br /&gt;The case affords Paul entry to the heady world of high
+                    society--the glittering parties in Gramercy Park mansions, and the more insidious dealings done
+                    behind closed doors. The task facing him is beyond daunting. Edison is a wily, dangerous opponent
+                    with vast resources at his disposal--private spies, newspapers in his pocket, and the backing of J.
+                    P. Morgan himself. Yet this unknown lawyer shares with his famous adversary a compulsion to win at
+                    all costs. How will he do it?&lt;br /&gt;&lt;br /&gt;In obsessive pursuit of victory, Paul crosses
+                    paths with Nikola Tesla, an eccentric, brilliant inventor who may hold the key to defeating Edison,
+                    and with Agnes Huntington, a beautiful opera singer who proves to be a flawless performer on stage
+                    and off. As Paul takes greater and greater risks, he'll find that everyone in his path is playing
+                    their own game, and no one is quite who they seem.
+                </description>
+                <authors>
+                    <author>
+                        <id>3041690</id>
+                        <name>Graham Moore</name>
+                        <role></role>
+                        <image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1462373687p5/3041690.jpg]]>
+                        </image_url>
+                        <small_image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1462373687p2/3041690.jpg]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/3041690.Graham_Moore]]></link>
+                        <average_rating>3.97</average_rating>
+                        <ratings_count>31624</ratings_count>
+                        <text_reviews_count>4684</text_reviews_count>
+                    </author>
+                </authors>
+                <published>2016</published>
+                <work>
+                    <id>48435714</id>
+                    <uri>kca://work/amzn1.gr.work.v1.-HkmMuQnl5in8YKYn6cJjg</uri>
+                </work>
+            </book>
+
+
+            <rating>0</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+
+                <shelf exclusive='true' id='183390187' name='currently-reading' review_shelf_id='2280161904'
+                       sortable='false'></shelf>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at>Sat Dec 22 08:33:35 -0800 2018</started_at>
+            <read_at></read_at>
+            <date_added>Sat Dec 22 08:33:33 -0800 2018</date_added>
+            <date_updated>Sat Dec 22 08:33:35 -0800 2018</date_updated>
+            <read_count>1</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2634849140]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2634849140]]></link>
+            <owned>0</owned>
+        </review>
+
+        <review>
+            <id>2634848870</id>
+            <book>
+                <id type="integer">402843</id>
+                <isbn>0834800799</isbn>
+                <isbn13>9780834800793</isbn13>
+                <text_reviews_count type="integer">857</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1.RajGbbydGJIGy2eat2xBlA</uri>
+                <title>Zen Mind, Beginner's Mind: Informal Talks on Zen Meditation and Practice</title>
+                <title_without_series>Zen Mind, Beginner's Mind: Informal Talks on Zen Meditation and Practice
+                </title_without_series>
+                <image_url>https://images.gr-assets.com/books/1392992935m/402843.jpg</image_url>
+                <small_image_url>https://images.gr-assets.com/books/1392992935s/402843.jpg</small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/402843.Zen_Mind_Beginner_s_Mind</link>
+                <num_pages>132</num_pages>
+                <format>Paperback</format>
+                <edition_information/>
+                <publisher>Weatherhill</publisher>
+                <publication_day>1</publication_day>
+                <publication_year>1973</publication_year>
+                <publication_month>4</publication_month>
+                <average_rating>4.23</average_rating>
+                <ratings_count>30020</ratings_count>
+                <description></description>
+                <authors>
+                    <author>
+                        <id>62707</id>
+                        <name>Shunryu Suzuki</name>
+                        <role></role>
+                        <image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1433025772p5/62707.jpg]]>
+                        </image_url>
+                        <small_image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1433025772p2/62707.jpg]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/62707.Shunryu_Suzuki]]></link>
+                        <average_rating>4.24</average_rating>
+                        <ratings_count>32139</ratings_count>
+                        <text_reviews_count>1092</text_reviews_count>
+                    </author>
+                </authors>
+                <published>1973</published>
+                <work>
+                    <id>231282</id>
+                    <uri>kca://work/amzn1.gr.work.v1.q-pbnSXkoW_HgeAX1zTh_g</uri>
+                </work>
+            </book>
+
+
+            <rating>0</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+
+                <shelf exclusive='true' id='183390187' name='currently-reading' review_shelf_id='2280161583'
+                       sortable='false'></shelf>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at>Sat Dec 22 08:33:13 -0800 2018</started_at>
+            <read_at></read_at>
+            <date_added>Sat Dec 22 08:33:13 -0800 2018</date_added>
+            <date_updated>Sat Dec 22 08:33:13 -0800 2018</date_updated>
+            <read_count>1</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2634848870]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2634848870]]></link>
+            <owned>0</owned>
+        </review>
+
+        <review>
+            <id>2634848419</id>
+            <book>
+                <id type="integer">10075698</id>
+                <isbn>1591843979</isbn>
+                <isbn13>9781591843979</isbn13>
+                <text_reviews_count type="integer">160</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1.07pdsJp6I_Rayjh_184p4w</uri>
+                <title>Built to Sell: Creating a Business That Can Thrive Without You</title>
+                <title_without_series>Built to Sell: Creating a Business That Can Thrive Without You
+                </title_without_series>
+                <image_url>https://images.gr-assets.com/books/1311705645m/10075698.jpg</image_url>
+                <small_image_url>https://images.gr-assets.com/books/1311705645s/10075698.jpg</small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/10075698-built-to-sell</link>
+                <num_pages>176</num_pages>
+                <format>Hardcover</format>
+                <edition_information/>
+                <publisher>Portfolio</publisher>
+                <publication_day>28</publication_day>
+                <publication_year>2011</publication_year>
+                <publication_month>4</publication_month>
+                <average_rating>4.23</average_rating>
+                <ratings_count>3315</ratings_count>
+                <description>According to John Warrillow, the number one mistake entrepreneurs make is to build a
+                    business that relies too heavily on them. Thus, when the time comes to sell, buyers aren't confident
+                    that the company-even if it's profitable-can stand on its own. To illustrate this, Warrillow
+                    introduces us to a fictional small business owner named Alex who is struggling to sell his
+                    advertising agency. Alex turns to Ted, an entrepreneur and old family friend, who encourages Alex to
+                    pursue three criteria to make his business sellable: * Teachable: focus on products and services
+                    that you can teach employees to deliver. * Valuable: avoid price wars by specialising in doing one
+                    thing better than anyone else. * Repeatable: generate recurring revenue by engineering products that
+                    customers have to repurchase often.
+                </description>
+                <authors>
+                    <author>
+                        <id>3276461</id>
+                        <name>John Warrillow</name>
+                        <role></role>
+                        <image_url nophoto='true'>
+                            <![CDATA[https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png]]>
+                        </image_url>
+                        <small_image_url nophoto='true'>
+                            <![CDATA[https://s.gr-assets.com/assets/nophoto/user/u_50x66-632230dc9882b4352d753eedf9396530.png]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/3276461.John_Warrillow]]></link>
+                        <average_rating>4.20</average_rating>
+                        <ratings_count>4178</ratings_count>
+                        <text_reviews_count>286</text_reviews_count>
+                    </author>
+                </authors>
+                <published>2011</published>
+                <work>
+                    <id>14972309</id>
+                    <uri>kca://work/amzn1.gr.work.v1.McurEWOEKeUgDbOh_gOqWg</uri>
+                </work>
+            </book>
+
+
+            <rating>0</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+
+                <shelf exclusive='true' id='183390187' name='currently-reading' review_shelf_id='2280161114'
+                       sortable='false'></shelf>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at>Sat Dec 22 08:32:39 -0800 2018</started_at>
+            <read_at></read_at>
+            <date_added>Sat Dec 22 08:32:39 -0800 2018</date_added>
+            <date_updated>Sat Dec 22 08:32:39 -0800 2018</date_updated>
+            <read_count>1</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2634848419]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2634848419]]></link>
+            <owned>0</owned>
+        </review>
+
+        <review>
+            <id>2634848151</id>
+            <book>
+                <id type="integer">33410428</id>
+                <isbn nil="true"/>
+                <isbn13>9788377469309</isbn13>
+                <text_reviews_count type="integer">1</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1.eic5WCyKCiMUI7rv3fN1mg</uri>
+                <title>Mit przedsiębiorczości: Dlaczego większość małych firm upada i jak temu zaradzić</title>
+                <title_without_series>Mit przedsiębiorczości: Dlaczego większość małych firm upada i jak temu zaradzić
+                </title_without_series>
+                <image_url>https://images.gr-assets.com/books/1482079343m/33410428.jpg</image_url>
+                <small_image_url>https://images.gr-assets.com/books/1482079343s/33410428.jpg</small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/33410428-mit-przedsi-biorczo-ci</link>
+                <num_pages>9</num_pages>
+                <format>Audiobook</format>
+                <edition_information/>
+                <publisher>Mt Biznes</publisher>
+                <publication_day>10</publication_day>
+                <publication_year>2015</publication_year>
+                <publication_month>4</publication_month>
+                <average_rating>3.98</average_rating>
+                <ratings_count>47690</ratings_count>
+                <description>Ten fenomenalny bestseller rozwiewa powszechny mit o zakładaniu działalności gospodarczej.&lt;br
+                    /&gt;&lt;br /&gt; Mit przedsiębiorczości to mit, w który wierzy większość ludzi zakładających małe
+                    firmy. To tragiczne w skutkach łudzenie się, że jeśli ktoś zna się na pracy technicznej w firmie,
+                    może z powodzeniem prowadzić firmę wykonującą tę pracę.&lt;br /&gt; Michael E. Gerber jest autorem
+                    popularnej serii książek biznesowych E-Myth. W tej książce dzieli się wnioskami płynącymi z
+                    wieloletniego doświadczenia we współpracy z ponad dwudziestoma pięcioma tysiącami małych
+                    przedsiębiorców.&lt;br /&gt; Gerber pokazuje, w jaki sposób błędne, lecz jakże powszechne założenia
+                    i wiedza techniczna przeszkadzają w prowadzeniu własnej firmy.&lt;br /&gt; Przeprowadza nas przez
+                    wszystkie etapy cyklu życia firmy, od fazy zarodkowej do fazy rozkwitu i dojrzałości: światła w
+                    tunelu, które dane jest ujrzeć tylko najlepszym. Pokazuje, jak zastosować bogate doświadczenie sieci
+                    franczyzowych w każdym typie działalności (i niekoniecznie rozwijać firmę na zasadzie franczyzy). Co
+                    najważniejsze, Gerber uświadamia, czym różni się praca nad własną firmą od pracy we własnej firmie.
+                </description>
+                <authors>
+                    <author>
+                        <id>3416</id>
+                        <name>Michael E. Gerber</name>
+                        <role></role>
+                        <image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1256526776p5/3416.jpg]]>
+                        </image_url>
+                        <small_image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1256526776p2/3416.jpg]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/3416.Michael_E_Gerber]]></link>
+                        <average_rating>3.98</average_rating>
+                        <ratings_count>51753</ratings_count>
+                        <text_reviews_count>1822</text_reviews_count>
+                    </author>
+                </authors>
+                <published>2015</published>
+                <work>
+                    <id>79122</id>
+                    <uri>kca://work/amzn1.gr.work.v1.m8sWheOtxyvxSKkYTZpW7A</uri>
+                </work>
+            </book>
+
+
+            <rating>5</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+                <shelf name="read" exclusive="true" id="183390188" review_shelf_id=""/>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at></started_at>
+            <read_at></read_at>
+            <date_added>Sat Dec 22 08:32:22 -0800 2018</date_added>
+            <date_updated>Sat Dec 22 08:32:22 -0800 2018</date_updated>
+            <read_count>1</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2634848151]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2634848151]]></link>
+            <owned>0</owned>
+        </review>
+
+        <review>
+            <id>2634847699</id>
+            <book>
+                <id type="integer">41724721</id>
+                <isbn>8380623258</isbn>
+                <isbn13>9788380623255</isbn13>
+                <text_reviews_count type="integer">4</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1.N8ZDQOwMmfgCUd0fN9qiEQ</uri>
+                <title>Wielka czwórka. Ukryte DNA: Amazon, Apple, Facebook i Google</title>
+                <title_without_series>Wielka czwórka. Ukryte DNA: Amazon, Apple, Facebook i Google
+                </title_without_series>
+                <image_url>https://images.gr-assets.com/books/1536229605m/41724721.jpg</image_url>
+                <small_image_url>https://images.gr-assets.com/books/1536229605s/41724721.jpg</small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/41724721-wielka-czw-rka-ukryte-dna</link>
+                <num_pages>368</num_pages>
+                <format>Paperback</format>
+                <edition_information/>
+                <publisher>Rebis</publisher>
+                <publication_day>2</publication_day>
+                <publication_year>2018</publication_year>
+                <publication_month>10</publication_month>
+                <average_rating>3.89</average_rating>
+                <ratings_count>5104</ratings_count>
+                <description>Amazon, Apple, Facebook i Google to najbardziej wpływowe firmy na świecie.&lt;br /&gt;Prawie
+                    każdy uważa, że wie, jak osiągnęły taką pozycję.&lt;br /&gt;Prawie każdy się myli.&lt;br /&gt;&lt;br
+                    /&gt;Scott Galloway zadaje fundamentalne pytania: jak wielka czwórka infiltruje nasze życie, że nie
+                    sposób jej pominąć ani zbojkotować? Dlaczego rynek i ludzie wybaczają jej grzechy, które pogrążyłyby
+                    inne firmy? I czy ktokolwiek jest w stanie się jej przeciwstawić? Ujawnia skrzętnie skrywane
+                    strategie wielkiej czwórki i to, jak sprawnie manipuluje ona naszymi podstawowymi potrzebami
+                    emocjonalnymi. Pokazuje też, jak wykorzystać wiedzę o niej we własnej drodze na szczyt, bo bez
+                    względu na to, czy chce się być dla wielkiej czwórki konkurencją, partnerem w biznesie czy tylko żyć
+                    w zdominowanym przez nią świecie, trzeba ją zrozumieć.
+                </description>
+                <authors>
+                    <author>
+                        <id>14343275</id>
+                        <name>Scott Galloway</name>
+                        <role></role>
+                        <image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1514575344p5/14343275.jpg]]>
+                        </image_url>
+                        <small_image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1514575344p2/14343275.jpg]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/14343275.Scott_Galloway]]></link>
+                        <average_rating>3.89</average_rating>
+                        <ratings_count>5102</ratings_count>
+                        <text_reviews_count>625</text_reviews_count>
+                    </author>
+                </authors>
+                <published>2018</published>
+                <work>
+                    <id>55533053</id>
+                    <uri>kca://work/amzn1.gr.work.v1.Pib64_PNMhjEbMedJcqI1g</uri>
+                </work>
+            </book>
+
+
+            <rating>4</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+                <shelf name="read" exclusive="true" id="183390188" review_shelf_id=""/>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at></started_at>
+            <read_at></read_at>
+            <date_added>Sat Dec 22 08:31:50 -0800 2018</date_added>
+            <date_updated>Sat Dec 22 08:31:51 -0800 2018</date_updated>
+            <read_count>1</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2634847699]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2634847699]]></link>
+            <owned>0</owned>
+        </review>
+
+        <review>
+            <id>2634846994</id>
+            <book>
+                <id type="integer">40678249</id>
+                <isbn nil="true"/>
+                <isbn13>9788328301153</isbn13>
+                <text_reviews_count type="integer">0</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1._xQAWlAxld-gKDU0rquSvQ</uri>
+                <title>Mininawyki. Małymi krokami do sukcesu</title>
+                <title_without_series>Mininawyki. Małymi krokami do sukcesu</title_without_series>
+                <image_url>https://images.gr-assets.com/books/1530400383m/40678249.jpg</image_url>
+                <small_image_url>https://images.gr-assets.com/books/1530400383s/40678249.jpg</small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/40678249-mininawyki-ma-ymi-krokami-do-sukcesu</link>
+                <num_pages>136</num_pages>
+                <format>Paperback</format>
+                <edition_information/>
+                <publisher>Helion</publisher>
+                <publication_day/>
+                <publication_year>2015</publication_year>
+                <publication_month>8</publication_month>
+                <average_rating>4.06</average_rating>
+                <ratings_count>3248</ratings_count>
+                <description>"Każda trwała zmiana rozpoczyna się zawsze od pojedynczego kroku!&lt;br /&gt;&lt;br /&gt;Jeżeli
+                    zastosujesz strategię mininawyków, szybko zaczniesz dostrzegać ich pozytywny wpływ. Uwierz, że można
+                    dokonywać wielkich rzeczy bez wywoływania poczucia winy, bez zastraszania, bez ciągłego powtarzania
+                    tych samych błędów. Wystarczy przestać walczyć z własnym mózgiem i stworzyć plan działania metodą
+                    małych kroków. Z tej książki dowiesz się, jak aktywnie kształtować drobne przyzwyczajenia, jak
+                    wprowadzać je w życie i dlaczego siła woli jest ważniejsza niż motywacja. Zrozumiesz, co cię
+                    blokuje, i nauczysz się pokonywać te przeszkody dzięki serii niezauważalnych, lecz bardzo
+                    skutecznych nawyków.&lt;br /&gt;&lt;br /&gt;streszczenie założeń strategii mininawyków&lt;br /&gt;siła
+                    woli a motywacja&lt;br /&gt;siła woli a mininawyki&lt;br /&gt;mininawyki a strefa komfortu&lt;br /&gt;mininawyki
+                    a sytuacje oporu&lt;br /&gt;mininawyki jako konkurencja dla obecnych przyzwyczajeń&lt;br /&gt;zwycięski
+                    zespół — drobne kroki i siła woli&lt;br /&gt;osiem zasad strategii mininawyków&lt;br /&gt;Wprowadzaj
+                    w życie zdrowe nawyki!"&lt;br /&gt;&lt;br /&gt;[Źródło: &lt;a target="_blank"
+                    href="http://www.empik.com/mininawyki-malymi-krokami-do-sukcesu-guise-stephen,p1109890147,ksiazka-p"
+                    rel="nofollow"&gt;http://www.empik.com/mininawyki-malym...&lt;/a&gt; ]
+                </description>
+                <authors>
+                    <author>
+                        <id>7709100</id>
+                        <name>Stephen Guise</name>
+                        <role></role>
+                        <image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1388456741p5/7709100.jpg]]>
+                        </image_url>
+                        <small_image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1388456741p2/7709100.jpg]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/7709100.Stephen_Guise]]></link>
+                        <average_rating>4.08</average_rating>
+                        <ratings_count>4488</ratings_count>
+                        <text_reviews_count>528</text_reviews_count>
+                    </author>
+                </authors>
+                <published>2015</published>
+                <work>
+                    <id>28262860</id>
+                    <uri>kca://work/amzn1.gr.work.v1.EduegDeCZO-O04ogJFHHpg</uri>
+                </work>
+            </book>
+
+
+            <rating>3</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+                <shelf name="read" exclusive="true" id="183390188" review_shelf_id=""/>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at></started_at>
+            <read_at></read_at>
+            <date_added>Sat Dec 22 08:31:01 -0800 2018</date_added>
+            <date_updated>Sat Dec 22 19:14:02 -0800 2018</date_updated>
+            <read_count>1</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2634846994]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2634846994]]></link>
+            <owned>0</owned>
+        </review>
+
+        <review>
+            <id>2634846356</id>
+            <book>
+                <id type="integer">97015</id>
+                <isbn>0312320701</isbn>
+                <isbn13>9780312320706</isbn13>
+                <text_reviews_count type="integer">70</text_reviews_count>
+                <uri>kca://book/amzn1.gr.book.v1.ZIBfWcd3bGXCFSvNN7QRQQ</uri>
+                <title>Freedom: The Courage to Be Yourself</title>
+                <title_without_series>Freedom: The Courage to Be Yourself</title_without_series>
+                <image_url>https://images.gr-assets.com/books/1316130376m/97015.jpg</image_url>
+                <small_image_url>https://images.gr-assets.com/books/1316130376s/97015.jpg</small_image_url>
+                <large_image_url/>
+                <link>https://www.goodreads.com/book/show/97015.Freedom</link>
+                <num_pages>192</num_pages>
+                <format>Paperback</format>
+                <edition_information/>
+                <publisher>St. Martin's Griffin</publisher>
+                <publication_day>1</publication_day>
+                <publication_year>2004</publication_year>
+                <publication_month>6</publication_month>
+                <average_rating>4.23</average_rating>
+                <ratings_count>2103</ratings_count>
+                <description>In &lt;i&gt;Freedom&lt;/i&gt;, Osho outlines three stages of freedom. The first is "freedom
+                    from," which is a freedom that comes from breaking out of what he calls the "psychological slavery"
+                    imposed by outside forces such as parents, society, or religion. The next stage is "freedom for," a
+                    positive freedom that comes from embracing and creating something---a fulfilling relationship, for
+                    example, or an artistic or humanitarian vision. And lastly there is "just freedom," the highest and
+                    ultimate freedom. This last freedom is more than being for or against something; it is the freedom
+                    of simply being oneself and responding truthfully to each moment.&lt;br /&gt;&lt;br /&gt;The
+                    Insights for a New Way of Living series aims to shine light on beliefs and attitudes that prevent
+                    individuals from being their true selves. The text is an artful mix of compassion and humor, and
+                    readers are encouraged to confront what they would most like to avoid, which in turn provides the
+                    key to true insight and power.&lt;br /&gt;&lt;br /&gt;&lt;i&gt;Freedom &lt;/i&gt;helps readers to
+                    identify the obstacles to their freedom, both circumstantial and self-imposed, to choose their
+                    battles wisely, and to find the courage to be true to themselves.
+                </description>
+                <authors>
+                    <author>
+                        <id>2856822</id>
+                        <name>Osho</name>
+                        <role></role>
+                        <image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1540742202p5/2856822.jpg]]>
+                        </image_url>
+                        <small_image_url nophoto='false'>
+                            <![CDATA[https://images.gr-assets.com/authors/1540742202p2/2856822.jpg]]>
+                        </small_image_url>
+                        <link><![CDATA[https://www.goodreads.com/author/show/2856822.Osho]]></link>
+                        <average_rating>4.17</average_rating>
+                        <ratings_count>60788</ratings_count>
+                        <text_reviews_count>4064</text_reviews_count>
+                    </author>
+                </authors>
+                <published>2004</published>
+                <work>
+                    <id>345538</id>
+                    <uri>kca://work/amzn1.gr.work.v1.VCAu5c0Q-KX8MywpDS7TJw</uri>
+                </work>
+            </book>
+
+
+            <rating>0</rating>
+            <votes>0</votes>
+            <spoiler_flag>false</spoiler_flag>
+            <spoilers_state>none</spoilers_state>
+
+
+            <shelves>
+
+                <shelf exclusive='true' id='183390186' name='to-read' review_shelf_id='2280158983'
+                       sortable='true'></shelf>
+
+            </shelves>
+
+            <recommended_for></recommended_for>
+            <recommended_by></recommended_by>
+            <started_at></started_at>
+            <read_at></read_at>
+            <date_added>Sat Dec 22 08:30:17 -0800 2018</date_added>
+            <date_updated>Sat Dec 22 08:30:17 -0800 2018</date_updated>
+            <read_count>0</read_count>
+            <body>
+            </body>
+
+
+            <comments_count>0</comments_count>
+            <url><![CDATA[https://www.goodreads.com/review/show/2634846356]]></url>
+            <link><![CDATA[https://www.goodreads.com/review/show/2634846356]]></link>
+            <owned>0</owned>
+        </review>
+
+    </reviews>
+
+</GoodreadsResponse>
