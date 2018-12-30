@@ -37,7 +37,6 @@ dependencies {
     implementation "io.ktor:ktor-html-builder:$ktor_version"
     implementation "io.ktor:ktor-client-core:$ktor_version"
     implementation "io.ktor:ktor-client-apache:$ktor_version"
-    
 
     // Retrofit
     def retrofit_version = "2.5.0"
@@ -52,7 +51,6 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
 
 
-
     // Jackson
     implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.9.4'
     implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8"
@@ -60,7 +58,12 @@ dependencies {
     // App Engine
     implementation "com.google.cloud:google-cloud-logging-logback:0.60.0-alpha"
     providedCompile "com.google.appengine:appengine:1.9.60"
-    
+
+
+    // Misc
+    implementation 'org.jsoup:jsoup:1.11.3'
+    implementation "us.codecraft:xsoup:0.3.1"
+
     testImplementation 'junit:junit:4.12'
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
     testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlin_version"

@@ -4,11 +4,10 @@ All pieces of the application are implemented in *Kotlin*.
 Backend, Frontend, Android Application are all writen in Kotlin and sharing common **kotlin-multiplatform** module.
 
 ### Backend Server
-- Google App Engine
-- Ktor
-- Retrofit
-- JAXB
-- Goodreads API
+- PaaS Google App Engine
+- HTTP Server Ktor
+- HTTP Client Retrofit
+- Books repository from Goodreads API using JAXB and Jsoup
 
 ### Frontend WebApp
 - React
