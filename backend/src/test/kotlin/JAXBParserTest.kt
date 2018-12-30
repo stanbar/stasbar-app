@@ -176,7 +176,7 @@ class JAXBParserTest {
         val response = GoodreadsResponse().apply {
             Request = GoodreadsRequest().apply {
                 authentication = true
-                key = "S2go8slpAA3vsJx0SPg"
+                key = Config.GOODREADS_API_KEY
                 method = "review_list"
             }
             shelf = null

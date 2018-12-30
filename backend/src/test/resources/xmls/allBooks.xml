@@ -2,7 +2,7 @@
 <GoodreadsResponse>
     <Request>
         <authentication>true</authentication>
-        <key><![CDATA[S2go8slpAA3vsJx0SPg]]></key>
+        <key><![CDATA[]]></key>
         <method><![CDATA[review_list]]></method>
     </Request>
 

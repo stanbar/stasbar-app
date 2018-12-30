@@ -28,20 +28,23 @@ class ApiTest {
 
     @Test
     fun getAllBook() = runBlocking {
-        val res = service.getAllBooks("56108604-stanislaw-baranski", "S2go8slpAA3vsJx0SPg").await()
+        val res = service.getAllBooks(
+            id = "56108604-stanislaw-baranski",
+            key = Config.GOODREADS_API_KEY,
+            perPage = 200
+        ).await()
         if (res.isSuccessful.not()) {
             fail(res.errorBody().toString())
         }
         val response = res.body()!!
-        println(response)
-        println(XML.stringify(response))
+        println(response.reviews.reviews.firstOrNull { it.book.isbn13.isNullOrEmpty() }?.book!!.title)
     }
 
     @Test
     fun getAllBookFromRead() = runBlocking {
         val res = service.getAllBooks(
             id = "56108604-stanislaw-baranski",
-            key = "S2go8slpAA3vsJx0SPg",
+            key = Config.GOODREADS_API_KEY,
             shelf = "read"
         ).await()
 
@@ -52,7 +55,6 @@ class ApiTest {
         println(response)
         println(XML.stringify(response))
     }
-
 
 
 }
