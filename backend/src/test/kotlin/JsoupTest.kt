@@ -1,6 +1,29 @@
+/*
+ * Copyright 2019 Stanislaw stasbar Baranski
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *
+ *          __             __
+ *    _____/ /_____ ______/ /_  ____ ______
+ *   / ___/ __/ __ `/ ___/ __ \/ __ `/ ___/
+ *  (__  ) /_/ /_/ (__  ) /_/ / /_/ / /
+ * /____/\__/\__,_/____/_.___/\__,_/_/
+ *            stasbar@stasbar.com
+ */
+
 package com.stasbar.app
 
-import com.stasbar.app.models.Quote
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
@@ -19,7 +42,7 @@ class JsoupTest {
             val tasks = List(pages) { page ->
                 async(Dispatchers.IO) {
                     val doc =
-                        Jsoup.connect("$BASE_URL/quotes/list?key=${Config.GOODREADS_API_KEY}&v=2&id=56108604-stanislaw-baranski&page=${page + 1}")
+                        Jsoup.connect("$BASE_URL/quotes/list?key=${Config.GOODREADS_API_KEY}&v=2&id=${Config.GOODREADS_USER_ID}&page=${page + 1}")
                             .get()
 
                     val quotes = doc.select(".quoteText")
@@ -32,7 +55,7 @@ class JsoupTest {
                 .map { it.await() }
                 .reduce { acc, deferred -> acc.union(deferred) }
 
-            result.forEach { println("${it.content}- ${it.book} ~${it.author} ") }
+            result.forEach { println("${it.text}- ${it.book?.title} ~${it.author?.name} ") }
         }
 
         println("took $time ms")
@@ -49,10 +72,7 @@ class JsoupTest {
 
         val content = quoteElement.ownText().substringAfter("“").substringBeforeLast("”")
         return Quote(
-            content = content,
-            book = book,
-            bookId = bookId,
-            author = author
+            text = content
         )
     }
 

@@ -8,6 +8,9 @@ Backend, Frontend, Android Application are all writen in Kotlin and sharing comm
 - HTTP Server Ktor
 - HTTP Client Retrofit
 - Books repository from Goodreads API using JAXB and Jsoup
+- Database SQLite
+- ORM/DAO Kotlin Exposed
+
 
 ### Frontend WebApp
 - React
@@ -44,7 +47,7 @@ Backend, Frontend, Android Application are all writen in Kotlin and sharing comm
 
 ### Licences
 ```
-Copyright 2018 Stanislaw stasbar Baranski
+Copyright 2019 Stanislaw stasbar Baranski
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -64,7 +67,7 @@ limitations under the License.
   / ___/ __/ __ `/ ___/ __ \/ __ `/ ___/
  (__  ) /_/ /_/ (__  ) /_/ / /_/ / /
 /____/\__/\__,_/____/_.___/\__,_/_/
-           stachu@stasbar.com
+           stasbar@stasbar.com
 ```
 
 
