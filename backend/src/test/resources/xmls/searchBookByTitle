@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2019 Stanislaw stasbar Baranski
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  ~
+  ~          __             __
+  ~    _____/ /_____ ______/ /_  ____ ______
+  ~   / ___/ __/ __ `/ ___/ __ \/ __ `/ ___/
+  ~  (__  ) /_/ /_/ (__  ) /_/ / /_/ / /
+  ~ /____/\__/\__,_/____/_.___/\__,_/_/
+  ~            stasbar@stasbar.com
+  -->
+
+<GoodreadsResponse>
+    <Request>
+        <authentication>true</authentication>
+        <key><![CDATA[S2go8slpAA3vsJx0SPg]]></key>
+        <method><![CDATA[search_index]]></method>
+    </Request>
+    <search>
+        <query><![CDATA[Economics in One Lesson: The Shortest Surest Way to Understand Basic Economics]]></query>
+        <results-start>1</results-start>
+        <results-end>3</results-end>
+        <total-results>3</total-results>
+        <source>Goodreads</source>
+        <query-time-seconds>0.06</query-time-seconds>
+        <results>
+            <work>
+                <id type="integer">6894</id>
+                <books_count type="integer">6</books_count>
+                <ratings_count type="integer">12214</ratings_count>
+                <text_reviews_count type="integer">1012</text_reviews_count>
+                <original_publication_year type="integer">1946</original_publication_year>
+                <original_publication_month type="integer" nil="true"/>
+                <original_publication_day type="integer" nil="true"/>
+                <average_rating>4.21</average_rating>
+                <best_book type="Book">
+                    <id type="integer">3028</id>
+                    <title>Economics in One Lesson: The Shortest &amp; Surest Way to Understand Basic Economics</title>
+                    <author>
+                        <id type="integer">2062</id>
+                        <name>Henry Hazlitt</name>
+                    </author>
+                    <image_url>https://images.gr-assets.com/books/1320423284m/3028.jpg</image_url>
+                    <small_image_url>https://images.gr-assets.com/books/1320423284s/3028.jpg</small_image_url>
+                </best_book>
+            </work>
+
+            <work>
+                <id type="integer">25178529</id>
+                <books_count type="integer">1</books_count>
+                <ratings_count type="integer">2</ratings_count>
+                <text_reviews_count type="integer">0</text_reviews_count>
+                <original_publication_year type="integer">2013</original_publication_year>
+                <original_publication_month type="integer">4</original_publication_month>
+                <original_publication_day type="integer">9</original_publication_day>
+                <average_rating>5.00</average_rating>
+                <best_book type="Book">
+                    <id type="integer">17961435</id>
+                    <title>100 Common Misconceptions about Economics in One Lesson: The Shortest and Surest Way to
+                        Understand Basic Economics
+                    </title>
+                    <author>
+                        <id type="integer">7099661</id>
+                        <name>Jake Palling</name>
+                    </author>
+                    <image_url>https://images.gr-assets.com/books/1369158510m/17961435.jpg</image_url>
+                    <small_image_url>https://images.gr-assets.com/books/1369158510s/17961435.jpg</small_image_url>
+                </best_book>
+            </work>
+
+            <work>
+                <id type="integer">58345465</id>
+                <books_count type="integer">1</books_count>
+                <ratings_count type="integer">0</ratings_count>
+                <text_reviews_count type="integer">0</text_reviews_count>
+                <original_publication_year type="integer" nil="true"/>
+                <original_publication_month type="integer" nil="true"/>
+                <original_publication_day type="integer" nil="true"/>
+                <average_rating type="float">0.0</average_rating>
+                <best_book type="Book">
+                    <id type="integer">36594905</id>
+                    <title>Financial Economics in One Lesson: The shortest and surest way to understand basic financial
+                        economics
+                    </title>
+                    <author>
+                        <id type="integer">15737362</id>
+                        <name>James Brierley</name>
+                    </author>
+                    <image_url>
+                        https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png
+                    </image_url>
+                    <small_image_url>
+                        https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png
+                    </small_image_url>
+                </best_book>
+            </work>
+
+        </results>
+    </search>
+
+</GoodreadsResponse>

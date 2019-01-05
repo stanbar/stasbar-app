@@ -22,28 +22,28 @@
  *            stasbar@stasbar.com
  */
 
-package com.stasbar.app
+package com.stasbar.app.goodreads;
 
-import mu.KotlinLogging
-import java.io.IOException
-import java.util.*
+import com.stasbar.app.utils.AdapterCDATA;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-object Config {
-    private val props = Properties()
-    private val logger = KotlinLogging.logger {}
-    init {
-        val properties = javaClass.getResourceAsStream("/api.properties")
-        try {
-            props.load(properties)
-        } catch (e: IOException) {
-            logger.error("Failed to load properties from /api.properties file")
-        }
+@XmlRootElement(name = "GoodreadsResponse")
+public class GoodreadsSearchAuthorResponse {
+    public GoodreadsRequest Request;
+    public GoodreadsSearchAuthor author;
+
+    @XmlRootElement(name = "author")
+    public static class GoodreadsSearchAuthor {
+        @XmlAttribute
+        public int id;
+        @XmlJavaTypeAdapter(AdapterCDATA.class)
+        @XmlElement
+        public String name;
+        @XmlElement
+        public String link;
     }
-
-    val GOODREADS_API_KEY: String = props.getProperty("GOODREADS_API_KEY")
-    val GOODREADS_USER_ID: String = props.getProperty("GOODREADS_USER_ID")
-    val DATABASE_USER: String = props.getProperty("DATABASE_USER")
-    val DATABASE_PASSWORD: String = props.getProperty("DATABASE_PASSWORD")
-
 }

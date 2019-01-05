@@ -18,6 +18,6 @@
         <!-- Add Console output for local dev -->
         <appender-ref ref="STDOUT"/>
         <!-- Add Cloud Appender to root output-->
-        <appender-ref ref="CLOUD" />
+        <appender-ref ref="CLOUD"/>
     </root>
 </configuration>

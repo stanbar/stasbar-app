@@ -9,11 +9,12 @@ sourceCompatibility = 1.8
 //mainClassName = "io.ktor.server.netty.EngineMain"
 
 sourceSets {
-    main.java.srcDirs += 'src/main'
+    main.java.srcDirs += 'src/main/java'
     main.resources.srcDirs += 'src/main'
     main.kotlin.srcDirs += 'src/main'
-    test.java.srcDirs += 'src/test'
+    test.java.srcDirs += 'src/test/java'
     test.kotlin.srcDirs += 'src/test'
+    main.resources.srcDirs += 'src/test'
 }
 
 compileKotlin.kotlinOptions.jvmTarget = '1.8'
@@ -29,8 +30,14 @@ repositories {
 dependencies {
     implementation project(':common')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation "ch.qos.logback:logback-classic:1.2.1"
-
+    implementation "ch.qos.logback:logback-classic:1.2.3"
+    implementation 'io.github.microutils:kotlin-logging:1.6.22'
+    // https://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j
+    implementation "org.slf4j:jcl-over-slf4j:1.7.25"
+    implementation "org.slf4j:log4j-over-slf4j:1.7.25"
+    implementation "org.slf4j:jul-to-slf4j:1.7.25"
+    implementation "org.apache.logging.log4j:log4j-to-slf4j:2.11.1"
+    
     // Ktor
     implementation "io.ktor:ktor-server-netty:$ktor_version"
     implementation "io.ktor:ktor-server-servlet:$ktor_version"

@@ -29,15 +29,12 @@ import kotlinx.coroutines.ExecutorCoroutineDispatcher
 import kotlinx.coroutines.newFixedThreadPoolContext
 import kotlinx.coroutines.withContext
 import org.jetbrains.exposed.dao.IntIdTable
-import org.jetbrains.exposed.sql.Database
-import org.jetbrains.exposed.sql.ResultRow
-import org.jetbrains.exposed.sql.SchemaUtils
-import org.jetbrains.exposed.sql.selectAll
+import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
 object Quotes : IntIdTable() {
     val text = text("text")
-    val timestamp = varchar("timestamp", 50)
+    val timestamp = integer("timestamp")
     val tag = varchar("tag", 50).nullable()
     val authorId = reference("authorId", Authors).nullable()
     val bookId = reference("bookId", Books).nullable()
@@ -57,7 +54,6 @@ data class Quote(
     //optional
     val author: Author? = null,
     val book: Book? = null
-
 )
 
 object Tags : IntIdTable() {
@@ -66,14 +62,12 @@ object Tags : IntIdTable() {
 
 object Authors : IntIdTable() {
     val name = varchar("name", length = 50)
-    val goodreadsId = varchar("goodreadsId", length = 50).nullable()
-    val link = varchar("link", length = 256).nullable()
+    val goodreadsId = integer("goodreadsId").nullable()
 
     fun from(resultRow: ResultRow) = Author(
         id = resultRow[Authors.id].value,
         name = resultRow[Authors.name],
-        goodreadsId = resultRow[Authors.goodreadsId],
-        link = resultRow[Authors.link]
+        goodreadsId = resultRow[Authors.goodreadsId]
     )
 }
 
@@ -82,16 +76,15 @@ data class Author(
     val name: String,
 
     //goodreads
-    val goodreadsId: String? = null,
-    val link: String? = null,
+    val goodreadsId: Int? = null,
     val imageUrl: String? = null,
     val smallImageUrl: String? = null
 )
 
 object Books : IntIdTable() {
     val title = varchar("title", length = 50)
-    val goodreadsId = varchar("goodreadsId", length = 50)
-    val rating = integer("rating")
+    val rating = integer("rating").nullable()
+    val goodreadsId = integer("goodreadsId").nullable()
 
     fun from(resultRow: ResultRow) = Book(
         id = resultRow[Books.id].value,
@@ -104,7 +97,7 @@ object Books : IntIdTable() {
 data class Book(
     val id: Int? = null,
     val title: String,
-    val rating: Int,
+    val rating: Int? = null,
 
     //nullable
     val isbn10: String? = null,
@@ -114,7 +107,7 @@ data class Book(
     val authors: List<Author> = listOf(),
 
     //goodreads
-    val goodreadsId: String? = null,
+    val goodreadsId: Int? = null,
     val imageUrl: String? = null,
     val smallImageUrl: String? = null,
     val largeImageUrl: String? = null
@@ -161,6 +154,42 @@ class SqliteDatabase(application: Application) {
         transaction {
             (Books).selectAll()
                 .map { Books.from(it) }
+        }
+    }
+
+    suspend fun insertBook(book: Book) = withContext(dispatcher) {
+        transaction {
+            Books.insert {
+                it[Books.title] = book.title
+                it[Books.goodreadsId] = book.goodreadsId
+                it[Books.rating] = book.rating
+            }
+        }
+    }
+
+    suspend fun insertAuthor(author: Author) = withContext(dispatcher) {
+        transaction {
+            Authors.insert {
+                it[Authors.name] = author.name
+                it[Authors.goodreadsId] = author.goodreadsId
+            }
+        }
+    }
+
+    suspend fun insertQuote(quote: Quote) = withContext(dispatcher) {
+        transaction {
+            val author = Authors.select {
+                Authors.id eq quote.author?.id
+            }.firstOrNull()
+            val book = Books.select {
+                Books.id eq quote.book?.id
+            }.firstOrNull()
+
+            Quotes.insert {
+                it[Quotes.text] = quote.text
+                it[Quotes.authorId] = author?.get(Quotes.id)
+                it[Quotes.bookId] = book?.get(Books.id)
+            }
         }
     }
 }

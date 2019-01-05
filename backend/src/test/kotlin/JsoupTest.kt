@@ -24,6 +24,7 @@
 
 package com.stasbar.app
 
+import com.stasbar.app.goodreads.GoodreadsApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
@@ -46,8 +47,7 @@ class JsoupTest {
                             .get()
 
                     val quotes = doc.select(".quoteText")
-
-                    quotes.map(::mapElementToQuote).toSet()
+                    quotes.map { mapElementToQuote(it) }.toSet()
                 }
             }
 
@@ -61,19 +61,59 @@ class JsoupTest {
         println("took $time ms")
     }
 
-    private fun mapElementToQuote(quoteElement: Element): Quote {
-        val author = quoteElement.selectFirst(".authorOrTitle").ownText()
-        val book = quoteElement
+
+    private suspend fun mapElementToQuote(quoteElement: Element): Quote {
+        val authorName = quoteElement.selectFirst(".authorOrTitle").ownText()
+        val bookTitle = quoteElement
             .selectFirst("[id^=quote_book_link]")
             ?.selectFirst(".authorOrTitle")
             ?.ownText()
         val bookId = quoteElement.selectFirst("[id^=quote_book_link_]")
             ?.id()?.substringAfter("quote_book_link_")
+        println("$bookTitle -> $bookId")
+
+        val book = if (bookTitle != null) findBookByTitle(bookTitle) else null
+        val author = if (authorName != null) findAuthorByName(authorName) else null
 
         val content = quoteElement.ownText().substringAfter("“").substringBeforeLast("”")
         return Quote(
-            text = content
+            text = content,
+            author = author,
+            book = book
         )
     }
 
+    @Test
+    fun `test find book by title Economics in One Lesson The Shortest Surest Way to Understand Basic Economics`() =
+        runBlocking {
+            println(findBookByTitle("Economics in One Lesson: The Shortest Surest Way to Understand Basic Economics"))
+        }
+
+    private suspend fun findBookByTitle(bookTitle: String) =
+        GoodreadsApi.findBooksByTitleOrIsbn(bookTitle).await().search.results.firstOrNull()?.bestBook?.let {
+            Book(
+                title = it.title,
+                goodreadsId = it.id.content,
+                authors = listOf(
+                    Author(
+                        goodreadsId = it.author.id.content,
+                        name = it.author.name
+                    )
+                )
+            )
+        }
+
+
+    @Test
+    fun `test find author by name Henry Hazlitt`() = runBlocking {
+        println(findAuthorByName("Henry Hazlitt"))
+    }
+
+    private suspend fun findAuthorByName(authorName: String) =
+        GoodreadsApi.findAuthorByName(authorName).await().author.let {
+            Author(
+                goodreadsId = it.id,
+                name = it.name
+            )
+        }
 }
