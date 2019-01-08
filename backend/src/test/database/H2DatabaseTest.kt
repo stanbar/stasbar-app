@@ -25,25 +25,52 @@
 package database
 
 import com.stasbar.app.database.H2Database
+import com.stasbar.app.models.Book
+import com.stasbar.app.models.Quote
+import kotlinx.coroutines.runBlocking
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class H2DatabaseTest {
 
-    val database = H2Database(4, "jdbc:h2:mem:test")
+    val database = H2Database(4, "jdbc:h2:mem:regular;DB_CLOSE_DELAY=-1;", "root", "")
 
     @Test
-    fun getAllQuotes() {
+    fun getAllQuotes() = runBlocking<Unit> {
+        database.getAllQuotes()
     }
 
-    @Test
-    fun getAllBooks() {
-    }
 
     @Test
-    fun insertBook() {
+    fun getAllBooks() = runBlocking<Unit> {
+        database.getAllBooks()
+
     }
 
+    val the7habbitsBook = Book(
+        title = "The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change ",
+        author = "Stephen R. Covey",
+        rating = 5
+    )
+
     @Test
-    fun insertQuote() {
+    fun insertBook() = runBlocking<Unit> {
+        database.insertBook(the7habbitsBook)
+        val actual = database.getAllBooks()[0]
+        assertEquals(the7habbitsBook, actual)
+    }
+
+    val the7habbitsQuote = Quote(
+        text = "Most people do not listen with the intent to understand; they listen with the intent to reply",
+        author = "Stephen R. Covey",
+        book = the7habbitsBook
+    )
+
+    @Test
+    fun insertQuote() = runBlocking<Unit> {
+        database.insertQuote(the7habbitsQuote)
+        println(database.getAllQuotes())
+        //assertEquals(the7habbitsQuote, actual)
+
     }
 }

@@ -65,8 +65,7 @@ dependencies {
     implementation "com.google.cloud:google-cloud-logging-logback:0.60.0-alpha"
     providedCompile "com.google.appengine:appengine:1.9.60"
 
-    // SQLite
-    implementation "org.xerial:sqlite-jdbc:3.25.2"
+    // H2 Database
     implementation "com.h2database:h2:1.4.197"
     
     // Exposed

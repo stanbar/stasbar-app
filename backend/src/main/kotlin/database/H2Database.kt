@@ -34,20 +34,19 @@ import org.jetbrains.exposed.sql.transactions.transaction
 import java.util.concurrent.Executors
 
 
-class H2Database(poolSize: Int, val jdbcConnectionUrl: String) : BooksDatabase {
+class H2Database(poolSize: Int, jdbcConnectionUrl: String, username: String, password: String) :
+    BooksDatabase {
     val logger = KotlinLogging.logger { }
     private val dispatcher: ExecutorCoroutineDispatcher = Executors.newFixedThreadPool(poolSize).asCoroutineDispatcher()
-    val database = Database.connect(
-        jdbcConnectionUrl,
-        "org.h2.Driver",
-        "root",
-        ""
-
-    )
 
     init {
         logger.info("Using jdbc url: $jdbcConnectionUrl")
-
+        Database.connect(
+            jdbcConnectionUrl,
+            "org.h2.Driver",
+            username,
+            password
+        )
         transaction {
             SchemaUtils.create(Books, Quotes)
         }

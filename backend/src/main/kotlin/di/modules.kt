@@ -25,9 +25,9 @@
 package com.stasbar.app.di
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.stasbar.app.Config
 import com.stasbar.app.database.BooksDatabase
 import com.stasbar.app.database.H2Database
-import com.stasbar.app.database.SqlDatabase
 import com.stasbar.app.goodreads.GoodreadsApi
 import com.stasbar.app.goodreads.GoodreadsRepository
 import com.stasbar.app.goodreads.GoodreadsService
@@ -55,17 +55,15 @@ val goodreadsModule = module {
     }
 
     single { GoodreadsApi(getProperty("goodreads_base_url"), get()) }
-    single<BooksDatabase> {
-        SqlDatabase(
-            getProperty("db_thread_pool", 4),
-            getProperty("jdbc_connection_url", "jdbc:sqlite:./.database/stasbarapp.db")
-        )
-    }
+
     single<BooksDatabase> {
         H2Database(
             getProperty("db_thread_pool", 4),
-            getProperty("jdbc_connection_url_h2", "jdbc:h2:mem:regular;DB_CLOSE_DELAY=-1")
+            getProperty("jdbc_connection_url", "jdbc:h2:file:./.database/stasbarapp.db"),
+            Config.DATABASE_USER,
+            Config.DATABASE_PASSWORD
         )
     }
+
     single { GoodreadsRepository(get(), get()) }
 }
