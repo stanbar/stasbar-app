@@ -34,7 +34,7 @@ class JAXBParserTest {
     val dateformat = SimpleDateFormat("EEE MMM dd HH:mm:ss Z YYYY")
 
     private val exampleBook = GoodreadsBook().apply {
-        id = GoodreadsString("3028")
+        id = GoodreadsInt(3028)
         isbn = "0517548233"
         isbn13 = "9780517548233"
         reviewsCount = GoodreadsInt(840)

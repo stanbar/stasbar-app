@@ -37,7 +37,7 @@ import java.util.Objects;
 @XmlRootElement(name = "book")
 public class GoodreadsBook {
     @XmlElement
-    public GoodreadsString id;
+    public GoodreadsInt id;
     @XmlElement
     public String isbn = "";
     @XmlElement

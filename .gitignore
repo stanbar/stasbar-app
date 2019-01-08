@@ -8,6 +8,7 @@ build
 !.idea/dictionaries/*
 out
 *.iml
+*.log
 .directory
 node_modules
 local.properties

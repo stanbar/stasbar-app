@@ -25,6 +25,8 @@
 package com.stasbar.app
 
 import com.fasterxml.jackson.databind.SerializationFeature
+import com.stasbar.app.di.goodreadsModule
+import com.stasbar.app.goodreads.GoodreadsRepository
 import io.ktor.application.Application
 import io.ktor.application.call
 import io.ktor.application.install
@@ -36,11 +38,15 @@ import io.ktor.html.respondHtml
 import io.ktor.jackson.jackson
 import io.ktor.response.respond
 import io.ktor.routing.get
+import io.ktor.routing.route
 import io.ktor.routing.routing
 import kotlinx.html.body
 import kotlinx.html.head
 import kotlinx.html.p
 import kotlinx.html.title
+import org.koin.core.KoinProperties
+import org.koin.ktor.ext.inject
+import org.koin.ktor.ext.installKoin
 
 enum class Mode {
     PRODUCTION, DEVELOPMENT
@@ -48,15 +54,12 @@ enum class Mode {
 
 lateinit var mode: Mode
 lateinit var config: ApplicationConfig
-fun main(args: Array<String>) = io.ktor.server.netty.EngineMain.main(args)
 
+fun main(args: Array<String>) = io.ktor.server.netty.EngineMain.main(args)
 @Suppress("unused") // Referenced in application.conf
 @kotlin.jvm.JvmOverloads
 fun Application.module(testing: Boolean = false) {
-    mode = Mode.valueOf(environment.config.config("service").property("environment").getString())
-    config = environment.config.config(mode.name.toLowerCase())
-    val database = SqliteDatabase(this)
-
+    installKoin(listOf(goodreadsModule), KoinProperties(useKoinPropertiesFile = true))
     install(DefaultHeaders)
     install(CallLogging)
     install(ContentNegotiation) {
@@ -64,6 +67,13 @@ fun Application.module(testing: Boolean = false) {
             enable(SerializationFeature.INDENT_OUTPUT)
         }
     }
+
+    val modeValue = environment.config.config("service").property("environment").getString().toUpperCase()
+    mode = Mode.valueOf(modeValue)
+    config = environment.config.config(mode.name.toLowerCase())
+
+    val goodreadsRepository: GoodreadsRepository by inject()
+
     // Registers routes
     routing {
         get("/") {
@@ -78,17 +88,18 @@ fun Application.module(testing: Boolean = false) {
                 }
             }
         }
-        get("/test") {
-
-        }
-        get("/quotes") {
-            call.respond(database.getAllQuotes())
-        }
-        get("/authors") {
-            call.respond(database.getAllAuthors())
-        }
-        get("/books") {
-            call.respond(database.getAllBooks())
+        route("/api") {
+            get("/fetchGoodreads") {
+                goodreadsRepository.fetchAllBooks()
+                goodreadsRepository.fetchAllQuotes()
+                call.respond("OK")
+            }
+            get("/quotes") {
+                call.respond(goodreadsRepository.getAllQuotes())
+            }
+            get("/books") {
+                call.respond(goodreadsRepository.getAllBooks())
+            }
         }
     }
 }

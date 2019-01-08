@@ -24,17 +24,14 @@
 
 package com.stasbar.app.goodreads
 
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.stasbar.app.Config
-import kotlinx.coroutines.Deferred
-import kotlinx.coroutines.delay
+import com.stasbar.app.models.Book
+import com.stasbar.app.models.Quote
+import kotlinx.coroutines.*
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import mu.KotlinLogging
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.jaxb.JaxbConverterFactory
+import org.jsoup.Jsoup
+import org.jsoup.nodes.Element
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path
@@ -71,22 +68,70 @@ interface GoodreadsService {
     ): Deferred<GoodreadsSearchBookResponse>
 }
 
-object GoodreadsApi {
-    private val logger = KotlinLogging.logger {}
-    private val client: OkHttpClient = OkHttpClient.Builder()
-        .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
-        .build()
+class GoodreadsApi(private val baseUrl: String, private val service: GoodreadsService) {
 
-    private val service = Retrofit.Builder()
-        .baseUrl("https://www.goodreads.com")
-        .client(client)
-        .addConverterFactory(JaxbConverterFactory.create())
-        .addCallAdapterFactory(CoroutineCallAdapterFactory())
-        .build()
-        .create(GoodreadsService::class.java)
+    suspend fun getAllReviews(): List<GoodreadsReview> {
+        val perPage = 50
+        val initialResponse = getAllBooks(
+            id = Config.GOODREADS_USER_ID,
+            perPage = perPage
+        ).await()
 
+        val totalBooks = initialResponse.reviews.total
+        val booksRemaining = totalBooks - perPage
+        val pages = Math.ceil(booksRemaining.toDouble() / perPage.toDouble())
+        return List(pages.toInt()) { page ->
+            getAllBooks(
+                id = Config.GOODREADS_USER_ID,
+                perPage = perPage,
+                page = page + 2
+            )
+        }
+            .map { it.await() }
+            .union(setOf(initialResponse))
+            .flatMap { it.reviews.reviews }
+    }
 
-    suspend fun getAllBooks(
+    suspend fun getAllQuotes(): List<Quote> = coroutineScope {
+        val pages = 10
+        List(pages) { page ->
+            async(Dispatchers.IO) {
+                val doc =
+                    Jsoup.connect("$baseUrl/quotes/list?key=${Config.GOODREADS_API_KEY}&v=2&id=${Config.GOODREADS_USER_ID}&page=${page + 1}")
+                        .get()
+
+                val quotes = doc.select(".quoteText")
+                quotes.map { mapElementToQuote(it) }.toSet()
+            }
+        }
+            .map { it.await() }
+            .reduce { acc, deferred -> acc.union(deferred) }
+            .also { logger.debug("Fetched ${it.size} books from goodreads api") }
+            .toList()
+
+    }
+
+    private suspend fun mapElementToQuote(quoteElement: Element): Quote {
+        val authorName = quoteElement.selectFirst(".authorOrTitle").ownText()
+        val bookTitle = quoteElement
+            .selectFirst("[id^=quote_book_link]")
+            ?.selectFirst(".authorOrTitle")
+            ?.ownText()
+        val bookId = quoteElement.selectFirst("[id^=quote_book_link_]")
+            ?.id()?.substringAfter("quote_book_link_")
+        logger.debug("$bookTitle -> $bookId")
+
+        val book = if (bookTitle != null) findBookByTitle(bookTitle) else null
+
+        val content = quoteElement.ownText().substringAfter("“").substringBeforeLast("”")
+        return Quote(
+            text = content,
+            author = authorName,
+            book = book
+        )
+    }
+
+    private suspend fun getAllBooks(
         id: String,
         shelf: String? = null,
         sort: String? = null,
@@ -98,17 +143,26 @@ object GoodreadsApi {
         service.getAllBooks(id, Config.GOODREADS_API_KEY, shelf, sort, order, search, page, perPage)
     }
 
-
-    suspend fun findAuthorByName(id: String) = oncePerSecond {
-        service.findAuthorByName(id, Config.GOODREADS_API_KEY)
-    }
-
-    suspend fun findBooksByTitleOrIsbn(
+    private suspend fun findBooksByTitleOrIsbn(
         titleOrIsbn: String,
         field: String? = null
     ) = oncePerSecond {
         service.findBooksByTitleOrIsbn(titleOrIsbn, field, Config.GOODREADS_API_KEY)
     }
+
+
+    private suspend fun findBookByTitle(bookTitle: String) =
+        findBooksByTitleOrIsbn(bookTitle).await().search.results.firstOrNull()?.bestBook?.let {
+            Book(
+                title = it.title,
+                goodreadsId = it.id.content,
+                author = it.author.name,
+                imageUrl = it.imageUrl,
+                smallImageUrl = it.smallImageUrl,
+                rating = 0
+            )
+        }
+
 
     private val oncePerSecondMutex = Mutex()
     private var lastRequestTimestamp = 0L
@@ -118,7 +172,6 @@ object GoodreadsApi {
             val lastRequestMillisDiff = System.currentTimeMillis() - lastRequestTimestamp
             val period = Duration.ofSeconds(1).toMillis()
             if (lastRequestMillisDiff < period) {
-                logger.debug("Delaying ${period - lastRequestMillisDiff} millis")
                 delay(period - lastRequestMillisDiff)
             }
             lastRequestTimestamp = System.currentTimeMillis()

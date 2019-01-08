@@ -12,7 +12,7 @@ sourceSets {
     main.java.srcDirs += 'src/main/java'
     main.resources.srcDirs += 'src/main'
     main.kotlin.srcDirs += 'src/main'
-    test.java.srcDirs += 'src/test/java'
+    test.java.srcDirs += 'src/test'
     test.kotlin.srcDirs += 'src/test'
     main.resources.srcDirs += 'src/test'
 }
@@ -37,12 +37,13 @@ dependencies {
     implementation "org.slf4j:log4j-over-slf4j:1.7.25"
     implementation "org.slf4j:jul-to-slf4j:1.7.25"
     implementation "org.apache.logging.log4j:log4j-to-slf4j:2.11.1"
-    
+
     // Ktor
     implementation "io.ktor:ktor-server-netty:$ktor_version"
     implementation "io.ktor:ktor-server-servlet:$ktor_version"
     implementation "io.ktor:ktor-html-builder:$ktor_version"
     implementation "io.ktor:ktor-jackson:$ktor_version"
+
 
     // Retrofit
     def retrofit_version = "2.5.0"
@@ -55,7 +56,7 @@ dependencies {
     // https://search.maven.org/search?q=g:com.squareup.okhttp3%20a:okhttp
     def okhttp_version = '3.12.1'
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
-    
+
     // Jackson
     implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.9.4'
     implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8"
@@ -63,13 +64,19 @@ dependencies {
     // App Engine
     implementation "com.google.cloud:google-cloud-logging-logback:0.60.0-alpha"
     providedCompile "com.google.appengine:appengine:1.9.60"
-    
+
     // SQLite
     implementation "org.xerial:sqlite-jdbc:3.25.2"
+    implementation "com.h2database:h2:1.4.197"
     
     // Exposed
     implementation 'org.jetbrains.exposed:exposed:0.11.2'
-    
+
+    //Koin 
+    def koin_version = "1.0.2"
+    implementation "org.koin:koin-ktor:$koin_version"
+    testImplementation "org.koin:koin-test:$koin_version"
+
     // Misc
     implementation 'org.jsoup:jsoup:1.11.3'
     implementation "us.codecraft:xsoup:0.3.1"
