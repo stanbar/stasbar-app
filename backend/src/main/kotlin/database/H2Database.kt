@@ -34,9 +34,8 @@ import org.jetbrains.exposed.sql.transactions.transaction
 import java.util.concurrent.Executors
 
 
-class H2Database(poolSize: Int, jdbcConnectionUrl: String, username: String, password: String) :
-    BooksDatabase {
-    val logger = KotlinLogging.logger { }
+class H2Database(poolSize: Int, jdbcConnectionUrl: String, username: String, password: String) : BooksDatabase {
+    private val logger = KotlinLogging.logger { }
     private val dispatcher: ExecutorCoroutineDispatcher = Executors.newFixedThreadPool(poolSize).asCoroutineDispatcher()
 
     init {
@@ -52,13 +51,6 @@ class H2Database(poolSize: Int, jdbcConnectionUrl: String, username: String, pas
         }
     }
 
-    override suspend fun getAllQuotes(): List<Quote> = withContext(dispatcher) {
-        transaction {
-            (Quotes innerJoin Books).selectAll()
-                .map { it.toQuote() }
-        }
-    }
-
     override suspend fun getAllBooks(): List<Book> = withContext(dispatcher) {
         transaction {
             (Books).selectAll()
@@ -66,32 +58,127 @@ class H2Database(poolSize: Int, jdbcConnectionUrl: String, username: String, pas
         }
     }
 
-    override suspend fun insertBook(book: Book) {
+    override suspend fun insertOrUpdateBooks(books: List<Book>) {
         withContext(dispatcher) {
             transaction {
-                this@H2Database.logger.debug("about to insert $book")
-                Books.insert {
-                    it[Books.title] = book.title
-                    it[Books.rating] = book.rating
-                    it[Books.goodreadsId] = book.goodreadsId
-                    it[Books.author] = book.author
+                books.forEach { book ->
+                    if (Books.select { Books.hash eq book.hash }.firstOrNull() == null) {
+                        insertBook(book)
+                    } else {
+                        updateBook(book)
+                    }
                 }
             }
         }
     }
 
-    override suspend fun insertQuote(quote: Quote) {
+
+    override suspend fun insertOrUpdateBook(book: Book) {
         withContext(dispatcher) {
             transaction {
-                val book = quote.book?.goodreadsId?.let {
-                    Books.select { Books.goodreadsId eq it }.firstOrNull()
-                }
-                Quotes.insert {
-                    it[Quotes.text] = quote.text
-                    it[Quotes.author] = quote.author
-                    it[Quotes.bookId] = book?.get(Books.id)
+                if (Books.select { Books.hash eq book.hash }.firstOrNull() == null) {
+                    insertBook(book)
+                } else {
+                    updateBook(book)
                 }
             }
         }
     }
+
+    private fun insertBook(book: Book) {
+        logger.debug("about to insert $book")
+        Books.insert {
+            it[hash] = book.hash
+            it[title] = book.title
+            it[rating] = book.rating
+            it[goodreadsId] = book.goodreadsId
+            it[author] = book.author
+        }
+    }
+
+    private fun updateBook(book: Book) {
+        logger.debug("about to update $book")
+        Books.update {
+            it[hash] = book.hash
+            it[title] = book.title
+            it[rating] = book.rating
+            it[goodreadsId] = book.goodreadsId
+            it[author] = book.author
+        }
+    }
+
+
+    override suspend fun getAllQuotes(): List<Quote> = withContext(dispatcher) {
+        transaction {
+            (Quotes leftJoin Books).selectAll()
+                .also { println("selected ${it.count()} quotes") }
+                .map { it.toQuote() }
+        }
+    }
+
+    override suspend fun insertOrUpdateQuotes(quotes: List<Quote>) {
+        withContext(dispatcher) {
+            transaction {
+                quotes.forEach { quote ->
+                    val book = quote.book?.let {
+                        Books
+                            .select {
+                                (Books.hash eq it.hash) or (Books.title like it.title)
+                            }
+                            .firstOrNull()
+                            ?.toBook()
+                    }
+                    if (Quotes.select { Quotes.hash eq quote.hash }.firstOrNull() == null) {
+                        insertQuote(quote, book)
+                    } else {
+                        updateQuote(quote, book)
+                    }
+                }
+            }
+        }
+    }
+
+    override suspend fun insertOrUpdateQuote(quote: Quote) {
+        withContext(dispatcher) {
+            transaction {
+                val book = quote.book?.let {
+                    Books
+                        .select {
+                            (Books.hash eq it.hash) or (Books.title like it.title)
+                        }
+                        .firstOrNull()
+                        ?.toBook()
+                }
+                if (Quotes.select { Quotes.hash eq quote.hash }.firstOrNull() == null) {
+                    insertQuote(quote, book)
+                } else {
+                    updateQuote(quote, book)
+                }
+            }
+        }
+    }
+
+    private fun updateQuote(quote: Quote, book: Book?) {
+        logger.debug("about to update quote $quote")
+        logger.debug("with book $book")
+
+        Quotes.update {
+            it[hash] = quote.hash
+            it[text] = quote.text
+            it[author] = quote.author
+            it[bookHash] = book?.hash
+        }
+    }
+
+    private fun insertQuote(quote: Quote, book: Book?) {
+        logger.debug("about to insert quote $quote")
+        logger.debug("with book $book")
+        Quotes.insert {
+            it[hash] = quote.hash
+            it[text] = quote.text
+            it[author] = quote.author
+            it[bookHash] = book?.hash
+        }
+    }
+
 }

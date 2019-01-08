@@ -38,7 +38,7 @@ class GoodreadsRepository(private val goodreadsApi: GoodreadsApi, private val da
     suspend fun fetchAllQuotes() {
         goodreadsApi.getAllQuotes().forEach {
             logger.debug(it.toString())
-            database.insertQuote(it)
+            database.insertOrUpdateQuote(it)
         }
     }
 
@@ -46,7 +46,7 @@ class GoodreadsRepository(private val goodreadsApi: GoodreadsApi, private val da
         goodreadsApi.getAllReviews()
             .forEach {
                 val book = it.toBook()
-                database.insertBook(book)
+                database.insertOrUpdateBook(book)
             }
     }
 

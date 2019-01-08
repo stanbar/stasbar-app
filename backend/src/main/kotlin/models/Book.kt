@@ -24,10 +24,12 @@
 
 package com.stasbar.app.models
 
-import org.jetbrains.exposed.dao.IntIdTable
+import org.apache.commons.codec.digest.DigestUtils
 import org.jetbrains.exposed.sql.ResultRow
+import org.jetbrains.exposed.sql.Table
 
-object Books : IntIdTable() {
+object Books : Table() {
+    val hash = varchar("hash", 32).primaryKey()
     val title = varchar("title", 256)
     val author = varchar("author", 64)
     val rating = integer("rating")
@@ -35,7 +37,6 @@ object Books : IntIdTable() {
 }
 
 fun ResultRow.toBook() = Book(
-    id = get(Books.id).value,
     title = get(Books.title),
     rating = get(Books.rating),
     author = get(Books.author),
@@ -43,10 +44,11 @@ fun ResultRow.toBook() = Book(
 )
 
 data class Book(
-    val id: Int? = null,
     val title: String,
     val rating: Int,
     val author: String,
+    //goodreads
+    val goodreadsId: Int? = null,
 
     //nullable
     val isbn10: String? = null,
@@ -54,9 +56,10 @@ data class Book(
     val description: String? = null,
     val uri: String? = null,
 
-    //goodreads
-    val goodreadsId: Int? = null,
+
     val imageUrl: String? = null,
     val smallImageUrl: String? = null,
     val largeImageUrl: String? = null
-)
+) {
+    val hash: String = DigestUtils.md5Hex(title + author)
+}
