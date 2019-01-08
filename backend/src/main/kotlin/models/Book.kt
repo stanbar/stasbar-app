@@ -42,7 +42,6 @@ fun ResultRow.toBook() = Book(
     goodreadsId = get(Books.goodreadsId)
 )
 
-
 data class Book(
     val id: Int? = null,
     val title: String,

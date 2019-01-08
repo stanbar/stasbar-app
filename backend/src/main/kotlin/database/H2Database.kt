@@ -83,10 +83,9 @@ class H2Database(poolSize: Int, jdbcConnectionUrl: String, username: String, pas
     override suspend fun insertQuote(quote: Quote) {
         withContext(dispatcher) {
             transaction {
-                val book = Books.select {
-                    Books.id eq quote.book?.id
-                }.firstOrNull()
-
+                val book = quote.book?.goodreadsId?.let {
+                    Books.select { Books.goodreadsId eq it }.firstOrNull()
+                }
                 Quotes.insert {
                     it[Quotes.text] = quote.text
                     it[Quotes.author] = quote.author

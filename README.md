@@ -1,19 +1,21 @@
 # stasbar pet-project
 
 All pieces of the application are implemented in *Kotlin*.
-Backend, Frontend, Android Application are all writen in Kotlin and sharing common **kotlin-multiplatform** module.
+Backend, Frontend, Android Application are all writen in Kotlin and sharing common [kotlin-multiplatform](https://kotlinlang.org/docs/reference/multiplatform.html) module.
 
 ### Backend Server
-- PaaS Google App Engine
-- HTTP Server Ktor
-- HTTP Client Retrofit
-- Books repository from Goodreads API using JAXB and Jsoup
-- Database SQLite
-- ORM/DAO Kotlin Exposed
+- PaaS [Google App Engine](https://cloud.google.com/appengine/)
+- HTTP Server [Ktor](https://github.com/ktorio/ktor)
+- HTTP Client [Retrofit](https://github.com/square/retrofit)
+- Books repository from [Goodreads API](https://www.goodreads.com/api)
+- XML parser JAXB
+- HTML DOM scraper [Jsoup](https://github.com/jhy/jsoup)
+- Database [H2](https://github.com/h2database/h2database)
+- ORM/DAO [Kotlin Exposed](https://github.com/JetBrains/Exposed)
 
 
 ### Frontend WebApp
-- React
+- [React](https://github.com/facebook/react)
 
 ### Android Application
 - Instant App
@@ -29,7 +31,7 @@ Backend, Frontend, Android Application are all writen in Kotlin and sharing comm
  * Run `./gradlew build`
 
 ### Running the backend
-
+ * Add file `api.properties` with your Goodreads and Database credentials `GOODREADS_API_KEY`, `GOODREADS_USER_ID`, `DATABASE_USER` and `DATABASE_PASSWORD`
  * Run `./gradlew backend:run` from the command line or from Gradle tool window
  * The backend will start serving on localhost:8888
 
