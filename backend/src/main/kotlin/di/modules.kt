@@ -59,7 +59,7 @@ val goodreadsModule = module {
     single<BooksDatabase> {
         H2Database(
             getProperty("db_thread_pool", 4),
-            getProperty("jdbc_connection_url", "jdbc:h2:file:./.database/stasbarapp.db"),
+            getProperty("jdbc_connection_url", "jdbc:h2:file:./.database/stasbarapp"),
             Config.DATABASE_USER,
             Config.DATABASE_PASSWORD
         )

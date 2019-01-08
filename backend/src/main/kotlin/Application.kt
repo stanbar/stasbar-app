@@ -30,7 +30,6 @@ import com.stasbar.app.goodreads.GoodreadsRepository
 import io.ktor.application.Application
 import io.ktor.application.call
 import io.ktor.application.install
-import io.ktor.config.ApplicationConfig
 import io.ktor.features.CallLogging
 import io.ktor.features.ContentNegotiation
 import io.ktor.features.DefaultHeaders
@@ -40,20 +39,10 @@ import io.ktor.response.respond
 import io.ktor.routing.get
 import io.ktor.routing.route
 import io.ktor.routing.routing
-import kotlinx.html.body
-import kotlinx.html.head
-import kotlinx.html.p
-import kotlinx.html.title
+import kotlinx.html.*
 import org.koin.core.KoinProperties
 import org.koin.ktor.ext.inject
 import org.koin.ktor.ext.installKoin
-
-enum class Mode {
-    PRODUCTION, DEVELOPMENT
-}
-
-lateinit var mode: Mode
-lateinit var config: ApplicationConfig
 
 fun main(args: Array<String>) = io.ktor.server.netty.EngineMain.main(args)
 @Suppress("unused") // Referenced in application.conf
@@ -68,10 +57,6 @@ fun Application.module(testing: Boolean = false) {
         }
     }
 
-    val modeValue = environment.config.config("service").property("environment").getString().toUpperCase()
-    mode = Mode.valueOf(modeValue)
-    config = environment.config.config(mode.name.toLowerCase())
-
     val goodreadsRepository: GoodreadsRepository by inject()
 
     // Registers routes
@@ -82,8 +67,17 @@ fun Application.module(testing: Boolean = false) {
                     title { +"Ktor on Google App Engine Standard" }
                 }
                 body {
-                    p {
-                        +"Hello there! This is Ktor running on Google Appengine Standard"
+                    p { +"Hello there! This is Ktor running on Google Appengine Standard" }
+                    ul {
+                        li {
+                            a(href = "/api/fetchGoodreads") { +"Fetch Goodreads" }
+                        }
+                        li {
+                            a(href = "/api/quotes") { +"Quotes" }
+                        }
+                        li {
+                            a(href = "/api/books") { +"Books" }
+                        }
                     }
                 }
             }

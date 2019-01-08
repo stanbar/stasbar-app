@@ -112,7 +112,7 @@ class GoodreadsApi(private val baseUrl: String, private val service: GoodreadsSe
     }
 
     private suspend fun mapElementToQuote(quoteElement: Element): Quote {
-        val authorName = quoteElement.selectFirst(".authorOrTitle").ownText()
+        val authorName = quoteElement.selectFirst(".authorOrTitle").ownText().substringBeforeLast(",")
         val bookTitle = quoteElement
             .selectFirst("[id^=quote_book_link]")
             ?.selectFirst(".authorOrTitle")
@@ -150,18 +150,25 @@ class GoodreadsApi(private val baseUrl: String, private val service: GoodreadsSe
         service.findBooksByTitleOrIsbn(titleOrIsbn, field, Config.GOODREADS_API_KEY)
     }
 
-
-    private suspend fun findBookByTitle(bookTitle: String) =
-        findBooksByTitleOrIsbn(bookTitle).await().search.results.firstOrNull()?.bestBook?.let {
-            Book(
-                title = it.title,
-                goodreadsId = it.id.content,
-                author = it.author.name,
-                imageUrl = it.imageUrl,
-                smallImageUrl = it.smallImageUrl,
-                rating = 0
-            )
+    private val alreadyFoundBooks = mutableMapOf<String, Book?>()
+    private suspend fun findBookByTitle(bookTitle: String): Book? {
+        return if (alreadyFoundBooks.contains(bookTitle))
+            alreadyFoundBooks[bookTitle]
+        else {
+            findBooksByTitleOrIsbn(bookTitle).await().search.results.firstOrNull()?.bestBook?.let {
+                Book(
+                    title = it.title,
+                    goodreadsId = it.id.content,
+                    author = it.author.name,
+                    imageUrl = it.imageUrl,
+                    smallImageUrl = it.smallImageUrl,
+                    rating = 0
+                )
+            }.also {
+                alreadyFoundBooks[bookTitle] = it
+            }
         }
+    }
 
 
     private val oncePerSecondMutex = Mutex()

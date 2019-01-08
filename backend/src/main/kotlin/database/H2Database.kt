@@ -73,37 +73,32 @@ class H2Database(poolSize: Int, jdbcConnectionUrl: String, username: String, pas
     }
 
 
-    override suspend fun insertOrUpdateBook(book: Book) {
-        withContext(dispatcher) {
-            transaction {
-                if (Books.select { Books.hash eq book.hash }.firstOrNull() == null) {
-                    insertBook(book)
-                } else {
-                    updateBook(book)
-                }
-            }
-        }
-    }
-
     private fun insertBook(book: Book) {
         logger.debug("about to insert $book")
         Books.insert {
-            it[hash] = book.hash
-            it[title] = book.title
-            it[rating] = book.rating
-            it[goodreadsId] = book.goodreadsId
-            it[author] = book.author
+            it[Books.hash] = book.hash
+            it[Books.title] = book.title
+            it[Books.rating] = book.rating
+            it[Books.goodreadsId] = book.goodreadsId
+            it[Books.author] = book.author
+            it[Books.isbn10] = book.isbn10
+            it[Books.isbn13] = book.isbn13
+            it[Books.imageUrl] = book.imageUrl
+            it[Books.smallImageUrl] = book.smallImageUrl
         }
     }
 
     private fun updateBook(book: Book) {
         logger.debug("about to update $book")
-        Books.update {
-            it[hash] = book.hash
-            it[title] = book.title
-            it[rating] = book.rating
-            it[goodreadsId] = book.goodreadsId
-            it[author] = book.author
+        Books.update({ Books.hash eq book.hash }) {
+            it[Books.title] = book.title
+            it[Books.rating] = book.rating
+            it[Books.goodreadsId] = book.goodreadsId
+            it[Books.author] = book.author
+            it[Books.isbn10] = book.isbn10
+            it[Books.isbn13] = book.isbn13
+            it[Books.imageUrl] = book.imageUrl
+            it[Books.smallImageUrl] = book.smallImageUrl
         }
     }
 
@@ -138,32 +133,11 @@ class H2Database(poolSize: Int, jdbcConnectionUrl: String, username: String, pas
         }
     }
 
-    override suspend fun insertOrUpdateQuote(quote: Quote) {
-        withContext(dispatcher) {
-            transaction {
-                val book = quote.book?.let {
-                    Books
-                        .select {
-                            (Books.hash eq it.hash) or (Books.title like it.title)
-                        }
-                        .firstOrNull()
-                        ?.toBook()
-                }
-                if (Quotes.select { Quotes.hash eq quote.hash }.firstOrNull() == null) {
-                    insertQuote(quote, book)
-                } else {
-                    updateQuote(quote, book)
-                }
-            }
-        }
-    }
-
     private fun updateQuote(quote: Quote, book: Book?) {
         logger.debug("about to update quote $quote")
         logger.debug("with book $book")
 
-        Quotes.update {
-            it[hash] = quote.hash
+        Quotes.update({ Quotes.hash eq quote.hash }) {
             it[text] = quote.text
             it[author] = quote.author
             it[bookHash] = book?.hash

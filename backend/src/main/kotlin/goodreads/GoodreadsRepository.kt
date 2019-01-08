@@ -36,18 +36,13 @@ class GoodreadsRepository(private val goodreadsApi: GoodreadsApi, private val da
     suspend fun getAllBooks() = database.getAllBooks()
 
     suspend fun fetchAllQuotes() {
-        goodreadsApi.getAllQuotes().forEach {
-            logger.debug(it.toString())
-            database.insertOrUpdateQuote(it)
-        }
+        val quotes = goodreadsApi.getAllQuotes()
+        database.insertOrUpdateQuotes(quotes)
     }
 
     suspend fun fetchAllBooks() {
-        goodreadsApi.getAllReviews()
-            .forEach {
-                val book = it.toBook()
-                database.insertOrUpdateBook(book)
-            }
+        val books = goodreadsApi.getAllReviews().map { it.toBook() }
+        database.insertOrUpdateBooks(books)
     }
 
     private fun GoodreadsReview.toBook() =
@@ -56,12 +51,9 @@ class GoodreadsRepository(private val goodreadsApi: GoodreadsApi, private val da
             rating = rating,
             isbn10 = book.isbn,
             isbn13 = book.isbn13,
-            description = book.description,
-            uri = book.uri,
             author = book.authors[0].name,
             goodreadsId = book.id.content,
             imageUrl = book.imageUrl,
-            smallImageUrl = book.smallImageUrl,
-            largeImageUrl = book.largeImageUrl
+            smallImageUrl = book.smallImageUrl
         )
 }

@@ -24,7 +24,9 @@
 
 package goodreads
 
+import com.stasbar.app.database.H2Database
 import com.stasbar.app.di.goodreadsModule
+import com.stasbar.app.goodreads.GoodreadsApi
 import com.stasbar.app.goodreads.GoodreadsRepository
 import kotlinx.coroutines.runBlocking
 import org.junit.After
@@ -37,12 +39,15 @@ import org.koin.standalone.inject
 import org.koin.test.KoinTest
 
 class GoodreadsRepositoryTest : KoinTest {
-
-    private val goodreadsRepository: GoodreadsRepository by inject()
+    val database = H2Database(4, "jdbc:h2:file:./.database/test-stasbarapp", "root", "")
+    private lateinit var goodreadsRepository: GoodreadsRepository
 
     @Before
     fun setUp() {
         startKoin(listOf(goodreadsModule), properties = KoinProperties(useKoinPropertiesFile = true))
+        val goodreadsApi: GoodreadsApi by inject()
+
+        goodreadsRepository = GoodreadsRepository(goodreadsApi, database)
     }
 
     @After

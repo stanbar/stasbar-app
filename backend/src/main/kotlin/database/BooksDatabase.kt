@@ -32,6 +32,4 @@ interface BooksDatabase {
     suspend fun getAllBooks(): List<Book>
     suspend fun insertOrUpdateBooks(books: List<Book>)
     suspend fun insertOrUpdateQuotes(quotes: List<Quote>)
-    suspend fun insertOrUpdateBook(book: Book)
-    suspend fun insertOrUpdateQuote(quote: Quote)
 }

@@ -37,40 +37,10 @@ import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
+
 class H2DatabaseTest {
     val database = H2Database(4, "jdbc:h2:file:./.database/test-stasbarapp", "root", "")
     //val database = H2Database(4, "jdbc:h2:mem:regular;DB_CLOSE_DELAY=-1;", "root", "")
-
-    @Before
-    fun setUp() {
-        transaction {
-            Quotes.deleteAll()
-            Books.deleteAll()
-        }
-    }
-
-    @Test
-    fun getAllBooks() = runBlocking<Unit> {
-        assertTrue(database.getAllBooks().isEmpty())
-
-        database.insertOrUpdateBook(the7HabitsBook)
-        assertEquals(1, database.getAllBooks().size)
-
-        database.insertOrUpdateBook(the7HabitsBook)
-        assertEquals(1, database.getAllBooks().size)
-    }
-
-    @Test
-    fun getAllQuotes() = runBlocking<Unit> {
-        assertTrue(database.getAllQuotes().isEmpty())
-
-        database.insertOrUpdateQuote(the7HabitsQuote)
-        assertEquals(1, database.getAllQuotes().size)
-
-        database.insertOrUpdateQuote(the7HabitsQuote)
-        assertEquals(1, database.getAllQuotes().size)
-
-    }
 
     private val the7HabitsBook = Book(
         title = "The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change",
@@ -95,9 +65,41 @@ class H2DatabaseTest {
         book = theOneThingBook
     )
 
+    @Before
+    fun setUp() {
+        transaction {
+            Quotes.deleteAll()
+            Books.deleteAll()
+        }
+    }
+
     @Test
-    fun insertBook() = runBlocking<Unit> {
-        database.insertOrUpdateBook(the7HabitsBook)
+    fun `get all books`() = runBlocking<Unit> {
+        assertTrue(database.getAllBooks().isEmpty())
+
+        database.insertOrUpdateBooks(listOf(the7HabitsBook))
+        assertEquals(1, database.getAllBooks().size)
+
+        database.insertOrUpdateBooks(listOf(the7HabitsBook))
+        assertEquals(1, database.getAllBooks().size)
+    }
+
+    @Test
+    fun `get all quotes`() = runBlocking<Unit> {
+        assertTrue(database.getAllQuotes().isEmpty())
+
+        database.insertOrUpdateQuotes(listOf(the7HabitsQuote))
+        assertEquals(1, database.getAllQuotes().size)
+
+        database.insertOrUpdateQuotes(listOf(the7HabitsQuote))
+        assertEquals(1, database.getAllQuotes().size)
+
+    }
+
+
+    @Test
+    fun `insert book`() = runBlocking<Unit> {
+        database.insertOrUpdateBooks(listOf(the7HabitsBook))
         val actual = database.getAllBooks()[0]
 
         assertEquals(the7HabitsBook, actual)
@@ -105,10 +107,10 @@ class H2DatabaseTest {
 
 
     @Test
-    fun insertQuote() = runBlocking<Unit> {
+    fun `insert quote`() = runBlocking<Unit> {
         //database.insertBook(the7HabitsBook)
         assertTrue(database.getAllQuotes().isEmpty())
-        database.insertOrUpdateQuote(the7HabitsQuote)
+        database.insertOrUpdateQuotes(listOf(the7HabitsQuote))
 
         assertEquals(1, database.getAllQuotes().size)
         val actual = database.getAllQuotes()[0]
@@ -119,11 +121,11 @@ class H2DatabaseTest {
     }
 
     @Test
-    fun insertQuoteConnectedToBook() = runBlocking<Unit> {
-        database.insertOrUpdateBook(the7HabitsBook)
+    fun `insert quote connected to book`() = runBlocking<Unit> {
+        database.insertOrUpdateBooks(listOf(the7HabitsBook))
         assertTrue(database.getAllQuotes().isEmpty())
 
-        database.insertOrUpdateQuote(the7HabitsQuote)
+        database.insertOrUpdateQuotes(listOf(the7HabitsQuote))
         assertEquals(1, database.getAllQuotes().size)
 
         val actual = database.getAllQuotes()[0]
@@ -145,5 +147,13 @@ class H2DatabaseTest {
         val quotes = listOf(the7HabitsQuote, theOneThingBookQuote)
         database.insertOrUpdateQuotes(quotes)
         assertEquals(quotes, database.getAllQuotes())
+    }
+
+    @Test
+    fun `update book`() = runBlocking<Unit> {
+        val books = listOf(the7HabitsBook, theOneThingBook)
+        database.insertOrUpdateBooks(books)
+        database.insertOrUpdateBooks(books)
+        assertEquals(books, database.getAllBooks())
     }
 }
