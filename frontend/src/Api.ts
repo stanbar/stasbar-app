@@ -21,18 +21,16 @@
  * /____/\__/\__,_/____/_.___/\__,_/_/
  *            stasbar@stasbar.com
  */
+import {serverHttpUrl} from "./config";
 
-package com.stasbar.app.models
-
-data class Book(
-    val id: Int,
-    val goodreadsId: String,
-    val isbn10: String?,
-    val isbn13: String?,
-    val title : String,
-    val authorName: String,
-
-    val rating : Int,
-    val imageUrl : String?,
-    val smallImageUrl: String?
-)
+export default {
+    async fetchBooks() {
+        console.log(`fetching books`);
+        const response = await fetch(serverHttpUrl + '/api/books');
+        if (response.ok) {
+            return await response.json();
+        } else {
+            console.error(response)
+        }
+    }
+}

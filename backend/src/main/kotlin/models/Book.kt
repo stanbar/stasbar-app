@@ -41,6 +41,7 @@ object Books : Table() {
 }
 
 fun ResultRow.toBook() = Book(
+
     title = get(Books.title),
     rating = get(Books.rating),
     author = get(Books.author),

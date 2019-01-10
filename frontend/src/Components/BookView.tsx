@@ -22,14 +22,23 @@
  *            stasbar@stasbar.com
  */
 
-package com.stasbar.app.models
+import React, {Component} from "react";
+import {RouteComponentProps} from "react-router";
+import Book from "../Models/Book";
 
-data class Author(
-    val id: Int,
-    val name: String,
+interface IBookViewProps extends RouteComponentProps {
+    book: Book;
+}
 
-    val goodreadsId: String?,
-    val link: String?,
-    val imageUrl: String?,
-    val smallImageUrl: String?
-)
+export default class BookView extends Component<IBookViewProps, {}> {
+    render() {
+        const {book} = this.props;
+        return (
+            <div id={book.hash.toString()}>
+                <h3>Title: {book.title}</h3>
+                <h3>Author: {book.authorName}</h3>
+                <h3>Rating: {book.rating}</h3>
+            </div>
+        );
+    }
+}

@@ -22,17 +22,7 @@
  *            stasbar@stasbar.com
  */
 
-package com.stasbar.app.models
-
-data class Book(
-    val id: Int,
-    val goodreadsId: String,
-    val isbn10: String?,
-    val isbn13: String?,
-    val title : String,
-    val authorName: String,
-
-    val rating : Int,
-    val imageUrl : String?,
-    val smallImageUrl: String?
-)
+export const serverHttpUrl =
+    process.env.REACT_APP_STAGE === 'production' ?
+        window.location.origin :
+        "";

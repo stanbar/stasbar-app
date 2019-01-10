@@ -15,7 +15,10 @@ Backend, Frontend, Android Application are all writen in Kotlin and sharing comm
 
 
 ### Frontend WebApp
+- TypeScript
 - [React](https://github.com/facebook/react)
+- [Material-UI](https://material-ui.com/)
+
 
 ### Android Application
 - Instant App

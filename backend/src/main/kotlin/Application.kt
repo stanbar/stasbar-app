@@ -40,14 +40,15 @@ import io.ktor.routing.get
 import io.ktor.routing.route
 import io.ktor.routing.routing
 import kotlinx.html.*
+import mu.KotlinLogging
 import org.koin.core.KoinProperties
 import org.koin.ktor.ext.inject
 import org.koin.ktor.ext.installKoin
 
 fun main(args: Array<String>) = io.ktor.server.netty.EngineMain.main(args)
+private val logger = KotlinLogging.logger {}
 @Suppress("unused") // Referenced in application.conf
-@kotlin.jvm.JvmOverloads
-fun Application.module(testing: Boolean = false) {
+fun Application.module() {
     installKoin(listOf(goodreadsModule), KoinProperties(useKoinPropertiesFile = true))
     install(DefaultHeaders)
     install(CallLogging)
@@ -92,7 +93,9 @@ fun Application.module(testing: Boolean = false) {
                 call.respond(goodreadsRepository.getAllQuotes())
             }
             get("/books") {
-                call.respond(goodreadsRepository.getAllBooks())
+                val books = goodreadsRepository.getAllBooks()
+                logger.info("queried ${books.size} books")
+                call.respond(books)
             }
         }
     }
