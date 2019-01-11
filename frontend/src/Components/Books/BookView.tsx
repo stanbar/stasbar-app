@@ -21,25 +21,24 @@
  * /____/\__/\__,_/____/_.___/\__,_/_/
  *            stasbar@stasbar.com
  */
-import {serverHttpUrl} from "./config";
 
-export default {
-    async fetchBooks() {
-        console.log(`fetching books`);
-        const response = await fetch(serverHttpUrl + '/api/books');
-        if (response.ok) {
-            return await response.json();
-        } else {
-            console.error(response)
-        }
-    },
-    async fetchQuotes() {
-        console.log(`fetching quotes`);
-        const response = await fetch(serverHttpUrl + '/api/quotes');
-        if (response.ok) {
-            return await response.json();
-        } else {
-            console.error(response)
-        }
+import React, {Component} from "react";
+import {RouteComponentProps} from "react-router";
+import Book from "../../Models/Book";
+
+interface IBookViewProps extends RouteComponentProps {
+    book: Book;
+}
+
+export default class BookView extends Component<IBookViewProps, {}> {
+    render() {
+        const {book} = this.props;
+        return (
+            <div id={book.hash.toString()}>
+                <h3>Title: {book.title}</h3>
+                <h3>Author: {book.author}</h3>
+                <h3>Rating: {book.rating}</h3>
+            </div>
+        );
     }
 }

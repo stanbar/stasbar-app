@@ -25,24 +25,26 @@
 
 export default class Book {
     public hash: string;
+    public title: string;
+    public rating: Number;
+    public author: string;
+
+    public goodreadsId: Number | null;
+
     public isbn10: string | null;
     public isbn13: string | null;
-    public title: string;
-    public goodreadsId: string;
-    public authorName: string;
-    public rating: Number;
     public imageUrl: string;
     public smallImageUrl: string;
 
 
-    constructor(hash: string, isbn10: string | null, isbn13: string | null, title: string, goodreadsId: string, authorName: string, rating: Number, imageUrl: string, smallImageUrl: string) {
+    constructor(hash: string, title: string, rating: Number, author: string, goodreadsId: Number | null, isbn10: string | null, isbn13: string | null, imageUrl: string, smallImageUrl: string) {
         this.hash = hash;
+        this.title = title;
+        this.rating = rating;
+        this.author = author;
+        this.goodreadsId = goodreadsId;
         this.isbn10 = isbn10;
         this.isbn13 = isbn13;
-        this.title = title;
-        this.goodreadsId = goodreadsId;
-        this.authorName = authorName;
-        this.rating = rating;
         this.imageUrl = imageUrl;
         this.smallImageUrl = smallImageUrl;
     }

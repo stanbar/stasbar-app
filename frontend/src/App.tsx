@@ -1,36 +1,37 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter as Router, Link, Route} from "react-router-dom";
-import Books from "./Components/Books";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Layout from "./Components/Layout";
+import {createMuiTheme, MuiThemeProvider} from "@material-ui/core";
+import {blue, blueGrey} from "@material-ui/core/colors";
+import Books from "./Components/Books/Books";
+
+const theme = createMuiTheme({
+    palette: {
+        primary: blue,
+        secondary: blueGrey,
+    },
+    typography: {
+        useNextVariants: true,
+    }
+});
 
 const App = () => (
     <Router>
-        <div>
-            <Header/>
-
-            <Route exact path="/" component={Home}/>
-            <Route path="/about" component={About}/>
-            <Route path="/books" component={Books}/>
-        </div>
+        <MuiThemeProvider theme={theme}>
+            <Layout>
+                <Switch>
+                    <Route exact path="/" component={Home}/>
+                    <Route path="/about" component={About}/>
+                    <Route path="/books" component={Books}/>
+                </Switch>
+            </Layout>
+        </MuiThemeProvider>
     </Router>
 );
-
 const Home = () => <h2>Home</h2>;
 const About = () => <h2>About</h2>;
 
-const Header = () => (
-    <ul>
-        <li>
-            <Link to="/">Home</Link>
-        </li>
-        <li>
-            <Link to="/about">About</Link>
-        </li>
-        <li>
-            <Link to="/books">Books</Link>
-        </li>
-    </ul>
-);
 
 export default App;
 

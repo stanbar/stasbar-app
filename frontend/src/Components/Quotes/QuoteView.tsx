@@ -22,12 +22,23 @@
  *            stasbar@stasbar.com
  */
 
-package com.stasbar.app.models
+import {RouteComponentProps} from "react-router";
+import Quote from "../../Models/Quote";
+import React, {Component} from "react";
 
-data class Quote(
-    val id: Int,
-    val text: String,
-    val authorName: String,
-    val bookTitle: String,
-    val bookId: Int
-)
+interface IQuoteViewProps extends RouteComponentProps {
+    quote: Quote;
+}
+
+export default class QuoteView extends Component<IQuoteViewProps, {}> {
+    render() {
+        const {quote} = this.props;
+        return (
+            <div id={quote.hash.toString()}>
+                <h3>Text: {quote.text}</h3>
+                <h3>Author: {quote.author}</h3>
+                {quote.book && <h3>Book: {quote.book.title}</h3>}
+            </div>
+        );
+    }
+}

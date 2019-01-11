@@ -25,6 +25,7 @@
 package com.stasbar.app.goodreads;
 
 import com.stasbar.app.utils.AdapterCDATA;
+import org.jetbrains.annotations.NotNull;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
@@ -61,6 +62,7 @@ public class GoodreadsBook {
     @XmlElement
     public String format = "";
     @XmlElement(name = "small_image_url")
+    @NotNull
     public String smallImageUrl = "";
     @XmlElement
     public String uri = "";
@@ -78,6 +80,7 @@ public class GoodreadsBook {
     @XmlElement(name = "publication_year")
     public int publicationYear;
     @XmlElement(name = "image_url")
+    @NotNull
     public String imageUrl = "";
     @XmlElement
     public String description = "";

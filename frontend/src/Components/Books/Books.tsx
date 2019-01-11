@@ -23,11 +23,11 @@
  */
 
 import React, {Component} from "react";
-import Book from "../Models/Book";
+import Book from "../../Models/Book";
 import {Route, RouteComponentProps} from "react-router";
 import {Link} from "react-router-dom";
 import BookView from "./BookView";
-import Api from "../Api";
+import Api from "../../Api";
 import {GridList, GridListTile, GridListTileBar} from "@material-ui/core";
 
 interface IBooksProps {
@@ -67,7 +67,7 @@ export default class Books extends Component<RouteComponentProps<IBooksProps>, I
                                 <img src={book.imageUrl} alt={book.title}/>
                                 <GridListTileBar
                                     title={book.title}
-                                    subtitle={<span>by: {book.authorName}</span>}
+                                    subtitle={<span>by: {book.author}</span>}
                                 />
                             </GridListTile>
                         </Link>
@@ -79,12 +79,6 @@ export default class Books extends Component<RouteComponentProps<IBooksProps>, I
                 <Route path={`${match.path}/:hash`} component={(props: any) =>
                     <BookView {...props} book={books.find((book: Book) => book.hash === props.match.params.hash)}/>
                 }/>
-
-                {/*<Route*/}
-                {/*exact*/}
-                {/*path={match.path}*/}
-                {/*render={() => <h3>Please select a book.</h3>}*/}
-                {/*/>*/}
             </div>
         );
     }

@@ -1,18 +1,50 @@
-apply plugin: 'kotlin'
+/*
+ * Copyright 2019 Stanislaw stasbar Baranski
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *
+ *          __             __              
+ *    _____/ /_____ ______/ /_  ____ ______
+ *   / ___/ __/ __ `/ ___/ __ \/ __ `/ ___/
+ *  (__  ) /_/ /_/ (__  ) /_/ / /_/ / /    
+ * /____/\__/\__,_/____/_.___/\__,_/_/     
+ *            stasbar@stasbar.com         
+ */
+
+apply plugin: "kotlin"
 
 sourceSets {
-    main.kotlin.srcDirs = ['src/main/kotlin']
-    main.java.srcDirs = ['src/main/java']
-    main.resources.srcDirs = ['src/main/resources']
-    test.kotlin.srcDirs = ['src/test/kotlin']
-    test.java.srcDirs = ['src/test/java']
-    test.resources.srcDirs = ['src/test/resources']
+    main.java.srcDirs += 'src/main/java'
+    main.resources.srcDirs += 'src/main'
+    main.kotlin.srcDirs += 'src/main'
+    test.java.srcDirs += 'src/test'
+    test.kotlin.srcDirs += 'src/test'
+    main.resources.srcDirs += 'src/test'
 }
 
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    testImplementation 'junit:junit:4.12'
-    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
-    testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile "org.apache.commons:commons-crypto:1.0.0"
+}
+sourceCompatibility = 1.8
+compileKotlin.kotlinOptions.jvmTarget = '1.8'
+compileTestKotlin.kotlinOptions.jvmTarget = '1.8'
+compileKotlin {
+    kotlinOptions {
+        apiVersion = "1.3"
+        languageVersion = "1.3"
+    }
 }

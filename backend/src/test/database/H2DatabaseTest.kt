@@ -45,7 +45,9 @@ class H2DatabaseTest {
     private val the7HabitsBook = Book(
         title = "The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change",
         author = "Stephen R. Covey",
-        rating = 5
+        rating = 5,
+        imageUrl = "https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png",
+        smallImageUrl = "https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png"
     )
 
     private val the7HabitsQuote = Quote(
@@ -56,7 +58,9 @@ class H2DatabaseTest {
     private val theOneThingBook = Book(
         title = "The majority of what you want will come from the minority of what you do",
         author = "Gary Keller",
-        rating = 5
+        rating = 5,
+        imageUrl = "https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png",
+        smallImageUrl = "https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png"
     )
 
     private val theOneThingBookQuote = Quote(

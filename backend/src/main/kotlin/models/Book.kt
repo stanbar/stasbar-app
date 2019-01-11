@@ -36,12 +36,11 @@ object Books : Table() {
     val goodreadsId = integer("goodreadsId").nullable()
     val isbn10 = varchar("isbn10", 32).nullable()
     val isbn13 = varchar("isbn13", 32).nullable()
-    val imageUrl = varchar("imageUrl", 256).nullable()
-    val smallImageUrl = varchar("smallImageUrl", 256).nullable()
+    val imageUrl = varchar("imageUrl", 256)
+    val smallImageUrl = varchar("smallImageUrl", 256)
 }
 
 fun ResultRow.toBook() = Book(
-
     title = get(Books.title),
     rating = get(Books.rating),
     author = get(Books.author),
@@ -52,17 +51,17 @@ fun ResultRow.toBook() = Book(
     smallImageUrl = get(Books.smallImageUrl)
 )
 
+
 data class Book(
     val title: String,
     val rating: Int,
     val author: String,
-
-    val goodreadsId: Int? = null,
-
     val isbn10: String? = null,
     val isbn13: String? = null,
-    val imageUrl: String? = null,
-    val smallImageUrl: String? = null
+
+    val goodreadsId: Int? = null,
+    val imageUrl: String,
+    val smallImageUrl: String
 ) {
     val hash: String = DigestUtils.md5Hex(title + author)
 }

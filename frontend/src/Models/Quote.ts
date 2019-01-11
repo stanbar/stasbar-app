@@ -22,17 +22,18 @@
  *            stasbar@stasbar.com
  */
 
-package com.stasbar.app.models
+import Book from "./Book";
 
-data class Book(
-    val id: Int,
-    val goodreadsId: String,
-    val isbn10: String?,
-    val isbn13: String?,
-    val title : String,
-    val authorName: String,
+export default class Quote {
+    public hash: string;
+    public text: string;
+    public author: string;
+    public book: Book | null;
 
-    val rating : Int,
-    val imageUrl : String?,
-    val smallImageUrl: String?
-)
+    constructor(hash: string, text: string, author: string, book: Book | null) {
+        this.hash = hash;
+        this.text = text;
+        this.author = author;
+        this.book = book;
+    }
+}
