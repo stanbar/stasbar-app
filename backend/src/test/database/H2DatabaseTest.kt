@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Stanislaw stasbar Baranski
+ * Copyright 2019 Stanislaw Baranski @stasbar
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,6 @@
  * /____/\__/\__,_/____/_.___/\__,_/_/
  *            stasbar@stasbar.com
  */
-
 package database
 
 import com.stasbar.app.database.H2Database
@@ -36,7 +35,6 @@ import org.junit.Before
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
-
 
 class H2DatabaseTest {
     val database = H2Database(4, "jdbc:h2:file:./.database/test-stasbarapp", "root", "")
@@ -97,9 +95,7 @@ class H2DatabaseTest {
 
         database.insertOrUpdateQuotes(listOf(the7HabitsQuote))
         assertEquals(1, database.getAllQuotes().size)
-
     }
-
 
     @Test
     fun `insert book`() = runBlocking<Unit> {
@@ -108,7 +104,6 @@ class H2DatabaseTest {
 
         assertEquals(the7HabitsBook, actual)
     }
-
 
     @Test
     fun `insert quote`() = runBlocking<Unit> {
@@ -135,7 +130,6 @@ class H2DatabaseTest {
         val actual = database.getAllQuotes()[0]
         assertEquals(the7HabitsQuote, actual)
     }
-
 
     @Test
     fun `add books in batch`() = runBlocking<Unit> {

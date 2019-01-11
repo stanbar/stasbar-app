@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Stanislaw stasbar Baranski
+ * Copyright 2019 Stanislaw Baranski @stasbar
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,27 +14,25 @@
  * limitations under the License.
  *
  *
- *          __             __
+ *          __             __              
  *    _____/ /_____ ______/ /_  ____ ______
  *   / ___/ __/ __ `/ ___/ __ \/ __ `/ ___/
- *  (__  ) /_/ /_/ (__  ) /_/ / /_/ / /
- * /____/\__/\__,_/____/_.___/\__,_/_/
- *            stasbar@stasbar.com
+ *  (__  ) /_/ /_/ (__  ) /_/ / /_/ / /    
+ * /____/\__/\__,_/____/_.___/\__,_/_/     
+ *            stasbar@stasbar.com         
  */
 
-package com.stasbar.app.utils;
+apply plugin: "com.github.ben-manes.versions"
 
-import javax.xml.bind.annotation.adapters.XmlAdapter;
-
-public class AdapterCDATA extends XmlAdapter<String, String> {
-
-  @Override
-  public String marshal(String arg0) throws Exception {
-    return "<![CDATA[" + arg0 + "]]>";
-  }
-
-  @Override
-  public String unmarshal(String arg0) throws Exception {
-    return arg0;
+dependencyUpdates.resolutionStrategy {
+  componentSelection { rules ->
+    rules.all { ComponentSelection selection ->
+      boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm'].any { qualifier ->
+        selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
+      }
+      if (rejected) {
+        selection.reject('Not stable')
+      }
+    }
   }
 }

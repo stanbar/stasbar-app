@@ -31,44 +31,46 @@ import java.util.List;
 
 @XmlRootElement(name = "GoodreadsResponse")
 public class GoodreadsSearchBookResponse {
-    public GoodreadsRequest Request;
-    public GoodreadsSearchBook search;
+  public GoodreadsRequest Request;
+  public GoodreadsSearchBook search;
 
-    @XmlRootElement(name = "search")
-    static public class GoodreadsSearchBook {
-        @XmlElement(name = "work")
-        @XmlElementWrapper(name = "results")
-        public List<GoodreadsSearchWork> results;
+  @XmlRootElement(name = "search")
+  public static class GoodreadsSearchBook {
+    @XmlElement(name = "work")
+    @XmlElementWrapper(name = "results")
+    public List<GoodreadsSearchWork> results;
 
-        @XmlRootElement(name = "work")
-        static public class GoodreadsSearchWork {
-            @XmlElement
-            public GoodreadsInt id;
-            @XmlElement(name = "best_book")
-            public GoodreadsBestBook bestBook;
+    @XmlRootElement(name = "work")
+    public static class GoodreadsSearchWork {
+      @XmlElement
+      public GoodreadsInt id;
 
-            @XmlRootElement(name = "best_book")
-            static public class GoodreadsBestBook {
-                @XmlElement
-                public GoodreadsInt id;
-                @XmlElement
-                public String title;
-                @XmlElement
-                public GoodreadsBestBookAuthor author;
-                @XmlElement(name = "image_url")
-                public String imageUrl;
-                @XmlElement(name = "small_image_url")
-                public String smallImageUrl;
+      @XmlElement(name = "best_book")
+      public GoodreadsBestBook bestBook;
 
-                @XmlRootElement(name = "author")
-                static public class GoodreadsBestBookAuthor {
-                    @XmlElement
-                    public GoodreadsInt id;
-                    @XmlElement
-                    public String name;
-                }
-            }
+      @XmlRootElement(name = "best_book")
+      public static class GoodreadsBestBook {
+        @XmlElement
+        public GoodreadsInt id;
+        @XmlElement
+        public String title;
+        @XmlElement
+        public GoodreadsBestBookAuthor author;
+
+        @XmlElement(name = "image_url")
+        public String imageUrl;
+
+        @XmlElement(name = "small_image_url")
+        public String smallImageUrl;
+
+        @XmlRootElement(name = "author")
+        public static class GoodreadsBestBookAuthor {
+          @XmlElement
+          public GoodreadsInt id;
+          @XmlElement
+          public String name;
         }
+      }
     }
-
+  }
 }

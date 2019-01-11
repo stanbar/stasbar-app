@@ -33,41 +33,49 @@ import java.util.Objects;
 
 @XmlRootElement(name = "reviews")
 public class GoodreadsReviews {
-    @XmlAttribute
-    public int total;
-    @XmlAttribute
-    public int start;
-    @XmlAttribute
-    public int end;
-    @XmlElement(name = "review")
-    public List<GoodreadsReview> reviews = new ArrayList<>();
+  @XmlAttribute
+  public int total;
+  @XmlAttribute
+  public int start;
+  @XmlAttribute
+  public int end;
 
-    public GoodreadsReviews() {
-    }
+  @XmlElement(name = "review")
+  public List<GoodreadsReview> reviews = new ArrayList<>();
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        GoodreadsReviews that = (GoodreadsReviews) o;
-        return Objects.equals(total, that.total) &&
-                Objects.equals(start, that.start) &&
-                Objects.equals(end, that.end) &&
-                Objects.equals(reviews, that.reviews);
-    }
+  public GoodreadsReviews() {
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(total, start, end, reviews);
-    }
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    GoodreadsReviews that = (GoodreadsReviews) o;
+    return Objects.equals(total, that.total)
+      && Objects.equals(start, that.start)
+      && Objects.equals(end, that.end)
+      && Objects.equals(reviews, that.reviews);
+  }
 
-    @Override
-    public String toString() {
-        return "GoodreadsReviews{" +
-                "total='" + total + '\'' +
-                ", start='" + start + '\'' +
-                ", end='" + end + '\'' +
-                ", review=" + reviews +
-                '}';
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(total, start, end, reviews);
+  }
+
+  @Override
+  public String toString() {
+    return "GoodreadsReviews{"
+      + "total='"
+      + total
+      + '\''
+      + ", start='"
+      + start
+      + '\''
+      + ", end='"
+      + end
+      + '\''
+      + ", review="
+      + reviews
+      + '}';
+  }
 }

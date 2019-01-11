@@ -58,12 +58,12 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
 
     // Jackson
-    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.9.4'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.9.8'
     implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8"
 
     // App Engine
     implementation "com.google.cloud:google-cloud-logging-logback:0.60.0-alpha"
-    providedCompile "com.google.appengine:appengine:1.9.60"
+    providedCompile "com.google.appengine:appengine:1.9.71"
 
     // H2 Database
     implementation "com.h2database:h2:1.4.197"
