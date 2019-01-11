@@ -27,18 +27,18 @@ import {RouteComponentProps} from "react-router";
 import Book from "../../Models/Book";
 
 interface IBookViewProps extends RouteComponentProps {
-    book: Book;
+  book: Book;
 }
 
 export default class BookView extends Component<IBookViewProps, {}> {
-    render() {
-        const {book} = this.props;
-        return (
-            <div id={book.hash.toString()}>
-                <h3>Title: {book.title}</h3>
-                <h3>Author: {book.author}</h3>
-                <h3>Rating: {book.rating}</h3>
-            </div>
-        );
-    }
+  public render() {
+    const {book} = this.props;
+    return (
+      <div id={book.hash.toString()}>
+        <h3>Title: {book.title}</h3>
+        <h3>Author: {book.author}</h3>
+        <h3>Rating: {book.rating}</h3>
+      </div>
+    );
+  }
 }

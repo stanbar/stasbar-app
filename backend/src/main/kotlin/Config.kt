@@ -30,20 +30,21 @@ import java.util.*
 
 
 object Config {
-    private val props = Properties()
-    private val logger = KotlinLogging.logger {}
-    init {
-        val properties = javaClass.getResourceAsStream("/api.properties")
-        try {
-            props.load(properties)
-        } catch (e: IOException) {
-            logger.error("Failed to load properties from /api.properties file")
-        }
-    }
+  private val props = Properties()
+  private val logger = KotlinLogging.logger {}
 
-    val GOODREADS_API_KEY: String = props.getProperty("GOODREADS_API_KEY")
-    val GOODREADS_USER_ID: String = props.getProperty("GOODREADS_USER_ID")
-    val DATABASE_USER: String = props.getProperty("DATABASE_USER")
-    val DATABASE_PASSWORD: String = props.getProperty("DATABASE_PASSWORD")
+  init {
+    val properties = javaClass.getResourceAsStream("/api.properties")
+    try {
+      props.load(properties)
+    } catch (e: IOException) {
+      logger.error("Failed to load properties from /api.properties file")
+    }
+  }
+
+  val GOODREADS_API_KEY: String = props.getProperty("GOODREADS_API_KEY")
+  val GOODREADS_USER_ID: String = props.getProperty("GOODREADS_USER_ID")
+  val DATABASE_USER: String = props.getProperty("DATABASE_USER")
+  val DATABASE_PASSWORD: String = props.getProperty("DATABASE_PASSWORD")
 
 }

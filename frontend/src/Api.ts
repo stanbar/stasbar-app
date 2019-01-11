@@ -24,22 +24,22 @@
 import {serverHttpUrl} from "./config";
 
 export default {
-    async fetchBooks() {
-        console.log(`fetching books`);
-        const response = await fetch(serverHttpUrl + '/api/books');
-        if (response.ok) {
-            return await response.json();
-        } else {
-            console.error(response)
-        }
-    },
-    async fetchQuotes() {
-        console.log(`fetching quotes`);
-        const response = await fetch(serverHttpUrl + '/api/quotes');
-        if (response.ok) {
-            return await response.json();
-        } else {
-            console.error(response)
-        }
+  async fetchBooks() {
+    console.log(`fetching books`);
+    const response = await fetch(serverHttpUrl + "/api/books");
+    if (response.ok) {
+      return await response.json();
+    } else {
+      console.error(response);
     }
-}
+  },
+  async fetchQuotes() {
+    console.log(`fetching quotes`);
+    const response = await fetch(serverHttpUrl + "/api/quotes");
+    if (response.ok) {
+      return await response.json();
+    } else {
+      console.error(response);
+    }
+  },
+};

@@ -22,23 +22,23 @@
  *            stasbar@stasbar.com
  */
 
+import React, {Component} from "react";
 import {RouteComponentProps} from "react-router";
 import Quote from "../../Models/Quote";
-import React, {Component} from "react";
 
 interface IQuoteViewProps extends RouteComponentProps {
-    quote: Quote;
+  quote: Quote;
 }
 
 export default class QuoteView extends Component<IQuoteViewProps, {}> {
-    render() {
-        const {quote} = this.props;
-        return (
-            <div id={quote.hash.toString()}>
-                <h3>Text: {quote.text}</h3>
-                <h3>Author: {quote.author}</h3>
-                {quote.book && <h3>Book: {quote.book.title}</h3>}
-            </div>
-        );
-    }
+  public render() {
+    const {quote} = this.props;
+    return (
+      <div id={quote.hash.toString()}>
+        <h3>Text: {quote.text}</h3>
+        <h3>Author: {quote.author}</h3>
+        {quote.book && <h3>Book: {quote.book.title}</h3>}
+      </div>
+    );
+  }
 }

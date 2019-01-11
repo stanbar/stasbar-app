@@ -49,55 +49,55 @@ fun main(args: Array<String>) = io.ktor.server.netty.EngineMain.main(args)
 private val logger = KotlinLogging.logger {}
 @Suppress("unused") // Referenced in application.conf
 fun Application.module() {
-    installKoin(listOf(goodreadsModule), KoinProperties(useKoinPropertiesFile = true))
-    install(DefaultHeaders)
-    install(CallLogging)
-    install(ContentNegotiation) {
-        jackson {
-            enable(SerializationFeature.INDENT_OUTPUT)
-        }
+  installKoin(listOf(goodreadsModule), KoinProperties(useKoinPropertiesFile = true))
+  install(DefaultHeaders)
+  install(CallLogging)
+  install(ContentNegotiation) {
+    jackson {
+      enable(SerializationFeature.INDENT_OUTPUT)
     }
+  }
 
-    val goodreadsRepository: GoodreadsRepository by inject()
+  val goodreadsRepository: GoodreadsRepository by inject()
 
-    // Registers routes
-    routing {
-        get("/") {
-            call.respondHtml {
-                head {
-                    title { +"Ktor on Google App Engine Standard" }
-                }
-                body {
-                    p { +"Hello there! This is Ktor running on Google Appengine Standard" }
-                    ul {
-                        li {
-                            a(href = "/api/fetchGoodreads") { +"Fetch Goodreads" }
-                        }
-                        li {
-                            a(href = "/api/quotes") { +"Quotes" }
-                        }
-                        li {
-                            a(href = "/api/books") { +"Books" }
-                        }
-                    }
-                }
-            }
+  // Registers routes
+  routing {
+    get("/") {
+      call.respondHtml {
+        head {
+          title { +"Ktor on Google App Engine Standard" }
         }
-        route("/api") {
-            get("/fetchGoodreads") {
-                goodreadsRepository.fetchAllBooks()
-                goodreadsRepository.fetchAllQuotes()
-                call.respond("OK")
+        body {
+          p { +"Hello there! This is Ktor running on Google Appengine Standard" }
+          ul {
+            li {
+              a(href = "/api/fetchGoodreads") { +"Fetch Goodreads" }
             }
-            get("/quotes") {
-                call.respond(goodreadsRepository.getAllQuotes())
+            li {
+              a(href = "/api/quotes") { +"Quotes" }
             }
-            get("/books") {
-                val books = goodreadsRepository.getAllBooks()
-                logger.info("queried ${books.size} books")
-                call.respond(books)
+            li {
+              a(href = "/api/books") { +"Books" }
             }
+          }
         }
+      }
     }
+    route("/api") {
+      get("/fetchGoodreads") {
+        goodreadsRepository.fetchAllBooks()
+        goodreadsRepository.fetchAllQuotes()
+        call.respond("OK")
+      }
+      get("/quotes") {
+        call.respond(goodreadsRepository.getAllQuotes())
+      }
+      get("/books") {
+        val books = goodreadsRepository.getAllBooks()
+        logger.info("queried ${books.size} books")
+        call.respond(books)
+      }
+    }
+  }
 }
 

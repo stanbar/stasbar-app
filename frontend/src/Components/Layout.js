@@ -33,73 +33,73 @@ import LibraryBookIcon from '@material-ui/icons/LibraryBooks'
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote'
 
 const styles = (theme) => ({
-    root: {
-        flexGrow: 1,
-    },
-    logoText: {
-        flexGrow: 1,
-        fontSize: 7
-    },
-    menuButton: {
-        marginLeft: -12,
-        marginRight: 20,
-    },
-    rightIcon: {
-        marginLeft: theme.spacing.unit,
-    },
+  root: {
+    flexGrow: 1,
+  },
+  logoText: {
+    flexGrow: 1,
+    fontSize: 7
+  },
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20,
+  },
+  rightIcon: {
+    marginLeft: theme.spacing.unit,
+  },
 });
 
 
 class Layout extends Component {
 
-    render() {
-        const logoString = `
+  render() {
+    const logoString = `
           __             __
     _____/ /_____ ______/ /_  ____ ______
    / ___/ __/ __ \`/ ___/ __ \\/ __ \`/ ___/
   (__  ) /_/ /_/ (__  ) /_/ / /_/ / /
  /____/\\__/\\__,_/____/_.___/\\__,_/_/
             `;
-        const {classes, children} = this.props;
+    const {classes, children} = this.props;
 
-        return (
-            <Fragment>
-                <CssBaseline/>
-                <div className={classes.root}>
-                    <AppBar position="static">
-                        <Toolbar>
+    return (
+      <Fragment>
+        <CssBaseline/>
+        <div className={classes.root}>
+          <AppBar position="static">
+            <Toolbar>
 
-                            <pre className={classes.logoText} color="inherit">{logoString}</pre>
-                            <Button
-                                className={classes.menuButton}
-                                variant="outlined"
-                                component={Link}
-                                to="/books"
-                                color="inherit">
-                                Books
-                                <LibraryBookIcon className={classes.rightIcon}/>
+              <pre className={classes.logoText} color="inherit">{logoString}</pre>
+              <Button
+                className={classes.menuButton}
+                variant="outlined"
+                component={Link}
+                to="/books"
+                color="inherit">
+                Books
+                <LibraryBookIcon className={classes.rightIcon}/>
 
-                            </Button>
-                            <Button
-                                className={classes.menuButton}
-                                variant="outlined"
-                                component={Link}
-                                to="/quotes"
-                                color="inherit">
-                                Quotes
-                                <FormatQuoteIcon className={classes.rightIcon}/>
-                            </Button>
-                        </Toolbar>
-                    </AppBar>
+              </Button>
+              <Button
+                className={classes.menuButton}
+                variant="outlined"
+                component={Link}
+                to="/quotes"
+                color="inherit">
+                Quotes
+                <FormatQuoteIcon className={classes.rightIcon}/>
+              </Button>
+            </Toolbar>
+          </AppBar>
 
-                    <main className={classes.content}>
-                        <div className={classes.toolbar}/>
-                        {children}
-                    </main>
-                </div>
-            </Fragment>
-        )
-    }
+          <main className={classes.content}>
+            <div className={classes.toolbar}/>
+            {children}
+          </main>
+        </div>
+      </Fragment>
+    )
+  }
 }
 
 export default compose(withRouter, withStyles(styles))(Layout)

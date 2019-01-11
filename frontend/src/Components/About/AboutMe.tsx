@@ -23,15 +23,18 @@
  */
 
 import {Typography} from "@material-ui/core";
+import * as React from "react";
 
 class AboutMe {
-    render() {
-        return (
-            <div>
-                <Typography>
-                    Living the life my own way.
-                </Typography>
-            </div>
-        );
-    }
+
+  public render() {
+    const lol = "  ";
+    return (
+      <div>
+        <Typography>
+          Living the life my own way.
+        </Typography>
+      </div>
+    );
+  }
 }

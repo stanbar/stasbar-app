@@ -23,6 +23,6 @@
  */
 
 export const serverHttpUrl =
-    process.env.REACT_APP_STAGE === 'production' ?
-        window.location.origin :
-        "";
+  process.env.REACT_APP_STAGE === 'production' ?
+    window.location.origin :
+    "";

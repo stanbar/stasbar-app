@@ -32,28 +32,28 @@ val logger = KotlinLogging.logger {}
 
 class GoodreadsRepository(private val goodreadsApi: GoodreadsApi, private val database: BooksDatabase) {
 
-    suspend fun getAllQuotes() = database.getAllQuotes()
-    suspend fun getAllBooks() = database.getAllBooks()
+  suspend fun getAllQuotes() = database.getAllQuotes()
+  suspend fun getAllBooks() = database.getAllBooks()
 
-    suspend fun fetchAllQuotes() {
-        val quotes = goodreadsApi.getAllQuotes()
-        database.insertOrUpdateQuotes(quotes)
-    }
+  suspend fun fetchAllQuotes() {
+    val quotes = goodreadsApi.getAllQuotes()
+    database.insertOrUpdateQuotes(quotes)
+  }
 
-    suspend fun fetchAllBooks() {
-        val books = goodreadsApi.getAllReviews().map { it.toBook() }
-        database.insertOrUpdateBooks(books)
-    }
+  suspend fun fetchAllBooks() {
+    val books = goodreadsApi.getAllReviews().map { it.toBook() }
+    database.insertOrUpdateBooks(books)
+  }
 
-    private fun GoodreadsReview.toBook() =
-        Book(
-            title = book.titleWithoutSeries,
-            rating = rating,
-            isbn10 = book.isbn,
-            isbn13 = book.isbn13,
-            author = book.authors[0].name,
-            goodreadsId = book.id.content,
-            imageUrl = book.imageUrl,
-            smallImageUrl = book.smallImageUrl
-        )
+  private fun GoodreadsReview.toBook() =
+    Book(
+      title = book.titleWithoutSeries,
+      rating = rating,
+      isbn10 = book.isbn,
+      isbn13 = book.isbn13,
+      author = book.authors[0].name,
+      goodreadsId = book.id.content,
+      imageUrl = book.imageUrl,
+      smallImageUrl = book.smallImageUrl
+    )
 }

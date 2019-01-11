@@ -22,68 +22,65 @@
  *            stasbar@stasbar.com
  */
 
+import {Card, GridList} from "@material-ui/core";
 import {Component} from "react";
 import {Route, RouteComponentProps} from "react-router";
-import {Card, GridList} from "@material-ui/core";
 import {Link} from "react-router-dom";
 import Api from "../../Api";
-import QuoteView from "./QuoteView";
 import Quote from "../../Models/Quote";
+import QuoteView from "./QuoteView";
 
 interface IQuotesProps {
 
 }
 
 interface IQuotesState {
-    quotes: Array<Quote>;
+  quotes: Quote[];
 }
 
 export default class Quotes extends Component<RouteComponentProps<IQuotesProps>, IQuotesState> {
 
-    public state: IQuotesState = {
-        quotes: new Array<Quote>(),
-    };
+  public state: IQuotesState = {
+    quotes: new Array<Quote>(),
+  };
 
+  constructor(props: Readonly<RouteComponentProps<IQuotesProps>>) {
+    super(props);
+    this.fetchQuotes();
+  }
 
-    constructor(props: Readonly<RouteComponentProps<IQuotesProps>>) {
-        super(props);
-        this.fetchQuotes()
-    }
+  public render() {
+    const {match} = this.props;
+    const {quotes} = this.state;
+    return (
+      <div style={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-around",
+        overflow: "hidden",
+      }}>
+        <GridList cols={4} cellHeight={300} style={{width: 800, height: 800}}>
+          {quotes.map((quote: Quote) =>
+            <Link to={`${match.url}/${quote.hash}`}>
+              <Card>
 
-    public render() {
-        const {match} = this.props;
-        const {quotes} = this.state;
-        return (
-            <div style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'space-around',
-                overflow: 'hidden'
-            }}>
-                <GridList cols={4} cellHeight={300} style={{width: 800, height: 800}}>
-                    {quotes.map((quote: Quote) =>
-                        <Link to={`${match.url}/${quote.hash}`}>
-                            <Card>
+              </Card>
+            </Link>,
+          )}
 
-                            </Card>
-                        </Link>
-                    )}
+        </GridList>
 
+        <Route path={`${match.path}/:hash`} component={(props: any) =>
+          <QuoteView {...props}
+                     quote={quotes.find((quote: Quote) => quote.hash === props.match.params.hash)}/>
+        }/>
+      </div>
+    );
+  }
 
-                </GridList>
-
-                <Route path={`${match.path}/:hash`} component={(props: any) =>
-                    <QuoteView {...props}
-                               quote={quotes.find((quote: Quote) => quote.hash === props.match.params.hash)}/>
-                }/>
-            </div>
-        );
-    }
-
-
-    private async fetchQuotes() {
-        const quotes: Quote[] = await Api.fetchQuotes();
-        console.log(quotes);
-        this.setState({quotes});
-    }
+  private async fetchQuotes() {
+    const quotes: Quote[] = await Api.fetchQuotes();
+    console.log(quotes);
+    this.setState({quotes});
+  }
 }

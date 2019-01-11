@@ -25,15 +25,15 @@
 import Book from "./Book";
 
 export default class Quote {
-    public hash: string;
-    public text: string;
-    public author: string;
-    public book: Book | null;
+  public hash: string;
+  public text: string;
+  public author: string;
+  public book: Book | null;
 
-    constructor(hash: string, text: string, author: string, book: Book | null) {
-        this.hash = hash;
-        this.text = text;
-        this.author = author;
-        this.book = book;
-    }
+  constructor(hash: string, text: string, author: string, book: Book | null) {
+    this.hash = hash;
+    this.text = text;
+    this.author = author;
+    this.book = book;
+  }
 }

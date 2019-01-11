@@ -14,38 +14,37 @@
  * limitations under the License.
  *
  *
- *          __             __              
+ *          __             __
  *    _____/ /_____ ______/ /_  ____ ______
  *   / ___/ __/ __ `/ ___/ __ \/ __ `/ ___/
- *  (__  ) /_/ /_/ (__  ) /_/ / /_/ / /    
- * /____/\__/\__,_/____/_.___/\__,_/_/     
- *            stasbar@stasbar.com         
+ *  (__  ) /_/ /_/ (__  ) /_/ / /_/ / /
+ * /____/\__/\__,_/____/_.___/\__,_/_/
+ *            stasbar@stasbar.com
  */
 
-
 export default class Book {
-    public hash: string;
-    public title: string;
-    public rating: Number;
-    public author: string;
+  public hash: string;
+  public title: string;
+  public rating: number;
+  public author: string;
 
-    public goodreadsId: Number | null;
+  public goodreadsId: number | null;
 
-    public isbn10: string | null;
-    public isbn13: string | null;
-    public imageUrl: string;
-    public smallImageUrl: string;
+  public isbn10: string | null;
+  public isbn13: string | null;
+  public imageUrl: string;
+  public smallImageUrl: string;
 
-
-    constructor(hash: string, title: string, rating: Number, author: string, goodreadsId: Number | null, isbn10: string | null, isbn13: string | null, imageUrl: string, smallImageUrl: string) {
-        this.hash = hash;
-        this.title = title;
-        this.rating = rating;
-        this.author = author;
-        this.goodreadsId = goodreadsId;
-        this.isbn10 = isbn10;
-        this.isbn13 = isbn13;
-        this.imageUrl = imageUrl;
-        this.smallImageUrl = smallImageUrl;
-    }
+  constructor(hash: string, title: string, rating: number, author: string, goodreadsId: number | null,
+              isbn10: string | null, isbn13: string | null, imageUrl: string, smallImageUrl: string) {
+    this.hash = hash;
+    this.title = title;
+    this.rating = rating;
+    this.author = author;
+    this.goodreadsId = goodreadsId;
+    this.isbn10 = isbn10;
+    this.isbn13 = isbn13;
+    this.imageUrl = imageUrl;
+    this.smallImageUrl = smallImageUrl;
+  }
 }

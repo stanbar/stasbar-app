@@ -29,22 +29,22 @@ import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.Table
 
 object Quotes : Table() {
-    val hash = varchar("hash", 32).primaryKey()
-    val text = text("text")
-    val author = varchar("author", 64)
-    val bookHash = (varchar("bookHash", 32) references Books.hash).nullable()
+  val hash = varchar("hash", 32).primaryKey()
+  val text = text("text")
+  val author = varchar("author", 64)
+  val bookHash = (varchar("bookHash", 32) references Books.hash).nullable()
 }
 
 fun ResultRow.toQuote() = Quote(
-    text = get(Quotes.text),
-    author = get(Quotes.author),
-    book = if (hasValue(Books.rating) && this.tryGet(Books.rating) != null) toBook() else null
+  text = get(Quotes.text),
+  author = get(Quotes.author),
+  book = if (hasValue(Books.rating) && this.tryGet(Books.rating) != null) toBook() else null
 )
 
 data class Quote(
-    val text: String,
-    val author: String,
-    val book: Book? = null
+  val text: String,
+  val author: String,
+  val book: Book? = null
 ) {
-    val hash: String = DigestUtils.md5Hex(text)
+  val hash: String = DigestUtils.md5Hex(text)
 }

@@ -29,39 +29,39 @@ import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.Table
 
 object Books : Table() {
-    val hash = varchar("hash", 32).primaryKey()
-    val title = varchar("title", 256)
-    val author = varchar("author", 64)
-    val rating = integer("rating")
-    val goodreadsId = integer("goodreadsId").nullable()
-    val isbn10 = varchar("isbn10", 32).nullable()
-    val isbn13 = varchar("isbn13", 32).nullable()
-    val imageUrl = varchar("imageUrl", 256)
-    val smallImageUrl = varchar("smallImageUrl", 256)
+  val hash = varchar("hash", 32).primaryKey()
+  val title = varchar("title", 256)
+  val author = varchar("author", 64)
+  val rating = integer("rating")
+  val goodreadsId = integer("goodreadsId").nullable()
+  val isbn10 = varchar("isbn10", 32).nullable()
+  val isbn13 = varchar("isbn13", 32).nullable()
+  val imageUrl = varchar("imageUrl", 256)
+  val smallImageUrl = varchar("smallImageUrl", 256)
 }
 
 fun ResultRow.toBook() = Book(
-    title = get(Books.title),
-    rating = get(Books.rating),
-    author = get(Books.author),
-    goodreadsId = get(Books.goodreadsId),
-    isbn10 = get(Books.isbn10),
-    isbn13 = get(Books.isbn13),
-    imageUrl = get(Books.imageUrl),
-    smallImageUrl = get(Books.smallImageUrl)
+  title = get(Books.title),
+  rating = get(Books.rating),
+  author = get(Books.author),
+  goodreadsId = get(Books.goodreadsId),
+  isbn10 = get(Books.isbn10),
+  isbn13 = get(Books.isbn13),
+  imageUrl = get(Books.imageUrl),
+  smallImageUrl = get(Books.smallImageUrl)
 )
 
 
 data class Book(
-    val title: String,
-    val rating: Int,
-    val author: String,
-    val isbn10: String? = null,
-    val isbn13: String? = null,
+  val title: String,
+  val rating: Int,
+  val author: String,
+  val isbn10: String? = null,
+  val isbn13: String? = null,
 
-    val goodreadsId: Int? = null,
-    val imageUrl: String,
-    val smallImageUrl: String
+  val goodreadsId: Int? = null,
+  val imageUrl: String,
+  val smallImageUrl: String
 ) {
-    val hash: String = DigestUtils.md5Hex(title + author)
+  val hash: String = DigestUtils.md5Hex(title + author)
 }

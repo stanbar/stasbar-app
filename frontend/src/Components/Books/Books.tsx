@@ -22,72 +22,75 @@
  *            stasbar@stasbar.com
  */
 
+import {createStyles, GridList, GridListTile, GridListTileBar, WithStyles} from "@material-ui/core";
 import React, {Component} from "react";
-import Book from "../../Models/Book";
 import {Route, RouteComponentProps} from "react-router";
 import {Link} from "react-router-dom";
-import BookView from "./BookView";
 import Api from "../../Api";
-import {GridList, GridListTile, GridListTileBar} from "@material-ui/core";
+import Book from "../../Models/Book";
+import BookView from "./BookView";
 
-interface IBooksProps {
-
-}
+const styles = createStyles({
+  root: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+    overflow: "hidden",
+  },
+});
 
 interface IBooksState {
-    books: Array<Book>;
+  books: Book[];
 }
 
-export default class Books extends Component<RouteComponentProps<IBooksProps>, IBooksState> {
+export default class Books extends Component<RouteComponentProps & WithStyles<typeof styles>, IBooksState> {
 
-    public state: IBooksState = {
-        books: new Array<Book>(),
-    };
+  public state: IBooksState = {
+    books: new Array<Book>(),
+  };
 
+  constructor(props: Readonly<RouteComponentProps & WithStyles<typeof styles>>) {
+    super(props);
+    this.fetchBooks();
+  }
 
-    constructor(props: Readonly<RouteComponentProps<IBooksProps>>) {
-        super(props);
-        this.fetchBooks()
-    }
+  public render() {
+    const {match, classes} = this.props;
+    const {books} = this.state;
+    const bookView = (props: any) =>
+      <BookView
+        {...props}
+        book={books.find((book: Book) => book.hash === props.match.params.hash)}
+      />;
 
-    public render() {
-        const {match} = this.props;
-        const {books} = this.state;
-        return (
-            <div style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'space-around',
-                overflow: 'hidden'
-            }}>
-                <GridList cols={4} cellHeight={300} style={{width: 800, height: 800}}>
-                    {books.map((book: Book) =>
-                        <Link to={`${match.url}/${book.hash}`}>
-                            <GridListTile key={book.hash} style={{height: 300}}>
-                                <img src={book.imageUrl} alt={book.title}/>
-                                <GridListTileBar
-                                    title={book.title}
-                                    subtitle={<span>by: {book.author}</span>}
-                                />
-                            </GridListTile>
-                        </Link>
-                    )}
+    return (
+      <div className={classes.root}>
+        <GridList cols={4} cellHeight={300} style={{width: 800, height: 800}}>
+          {books.map((book: Book) =>
+            <Link to={`${match.url}/${book.hash}`}>
+              <GridListTile key={book.hash} style={{height: 300}}>
+                <img src={book.imageUrl} alt={book.title}/>
+                <GridListTileBar
+                  title={book.title}
+                  subtitle={<span>by: {book.author}</span>}
+                />
+              </GridListTile>
+            </Link>,
+          )}
 
+        </GridList>
 
-                </GridList>
+        <Route
+          path={`${match.path}/:hash`}
+          component={bookView}
+        />
+      </div>
+    );
+  }
 
-                <Route path={`${match.path}/:hash`} component={(props: any) =>
-                    <BookView {...props} book={books.find((book: Book) => book.hash === props.match.params.hash)}/>
-                }/>
-            </div>
-        );
-    }
-
-
-    private async fetchBooks() {
-        const books: Book[] = await Api.fetchBooks();
-        console.log(books);
-        this.setState({books});
-    }
+  private async fetchBooks() {
+    const books: Book[] = await Api.fetchBooks();
+    console.log(books);
+    this.setState({books});
+  }
 }
-
