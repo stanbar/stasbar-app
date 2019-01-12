@@ -22,19 +22,98 @@
  *            stasbar@stasbar.com
  */
 
-import {Typography} from "@material-ui/core";
+import {Button, createStyles, Grid, Theme, Typography, withStyles, WithStyles} from "@material-ui/core";
 import * as React from "react";
+import {Component} from "react";
+import LinkedinIcon from "../../Icons/LinkedinIcon";
+import GithubIcon from "../../Icons/GithubIcon";
+import KeybaseIcon from "../../Svgs/KeybaseLogo.svg";
+import StackOverflowIcon from "../../Svgs/StackOverflowIcon.svg";
+import VapeToolIcon from "../../Svgs/VapeToolLogo.svg";
+import TaxLedgerIcon from "../../Svgs/TaxLedgerLogo.svg";
+import GooglePlayIcon from "../../Svgs/GooglePlayLogo.svg";
 
-class AboutMe {
+const styles = (theme: Theme) => createStyles({
+
+  heroUnit: {
+    backgroundColor: theme.palette.background.paper,
+  },
+  heroContent: {
+    maxWidth: 600,
+    margin: '0 auto',
+    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
+  },
+  heroButtons: {
+    marginTop: theme.spacing.unit * 4,
+  },
+});
+
+class AboutMe extends Component<WithStyles<typeof styles>> {
 
   public render() {
-    const lol = "  ";
+    const {classes} = this.props;
     return (
-      <div>
-        <Typography>
-          Living the life my own way.
-        </Typography>
+      <div className={classes.heroUnit}>
+        <div className={classes.heroContent}>
+          <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom={true}>
+            Stanislaw Baranski
+          </Typography>
+          <Typography variant="h6" align="center" color="textSecondary" paragraph={true}>
+            Something short and leading about the collection below—its contents, the creator, etc.
+            Make it short and sweet, but not too short so folks don&apos;t simply skip over it
+            entirely.
+          </Typography>
+          <div className={classes.heroButtons}>
+            <Grid container={true} spacing={16} justify="center">
+              <Grid item={true}>
+                <Button href={"http://bit.ly/stasbarlinkedin"} variant="contained" color="inherit"
+                        style={{color: "#243641", backgroundColor: "#FFF"}}>
+                  linkedIn
+                  <LinkedinIcon/>
+                </Button>
+              </Grid>
+              <Grid item={true}>
+                <Button variant="contained" color="primary" style={{backgroundColor: "#212529"}}>
+                  Github
+                  <GithubIcon/>
+                </Button>
+              </Grid>
+              <Grid item={true}>
+                <Button variant="contained" color="primary" style={{color: "#343536", backgroundColor: "#F9F9FA"}}>
+                  StackOverflow
+                  <img src={StackOverflowIcon} width={20}/>
+                </Button>
+              </Grid>
+              <Grid item={true}>
+                <Button variant="contained" color="primary" style={{color: "#6E6E6E", backgroundColor: "#EFEFEF"}}>
+                  Google Play
+                  <img src={GooglePlayIcon} width={20}/>
+                </Button>
+              </Grid>
+              <Grid item={true}>
+                <Button variant="contained" color="primary" style={{color: "#FFF", backgroundColor: "#3095F4"}}>
+                  Keybase
+                  <img src={KeybaseIcon} width={20}/>
+                </Button>
+              </Grid>
+              <Grid item={true}>
+                <Button variant="contained" color="primary" style={{color: "#243641", backgroundColor: "#FFF"}}>
+                  TaxLedger
+                  <img src={TaxLedgerIcon} width={20}/>
+                </Button>
+              </Grid>
+              <Grid item={true}>
+                <Button variant="contained" color="primary" style={{backgroundColor: "#3546A7"}}>
+                  VapeTool
+                  <img src={VapeToolIcon} width={20}/>
+                </Button>
+              </Grid>
+            </Grid>
+          </div>
+        </div>
       </div>
     );
   }
 }
+
+export default withStyles(styles)(AboutMe)

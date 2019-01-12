@@ -4,7 +4,8 @@ import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import "./App.css";
 import Books from "./Components/Books/Books";
-import Layout from "./Components/Layout";
+import Layout from "./Components/Layout/Layout";
+import AboutMe from "./Components/About/AboutMe";
 
 const theme = createMuiTheme({
   palette: {
@@ -21,7 +22,7 @@ const App = () => (
     <MuiThemeProvider theme={theme}>
       <Layout>
         <Switch>
-          <Route exact={true} path="/" component={Home}/>
+          <Route exact={true} path="/" component={AboutMe}/>
           <Route path="/about" component={About}/>
           <Route path="/books" component={Books}/>
         </Switch>

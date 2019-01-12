@@ -31,8 +31,12 @@ import {compose} from 'recompose'
 import Button from "@material-ui/core/Button";
 import LibraryBookIcon from '@material-ui/icons/LibraryBooks'
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote'
+import Footer from "./Footer";
 
 const styles = (theme) => ({
+  appBar: {
+    position: 'relative',
+  },
   root: {
     flexGrow: 1,
   },
@@ -47,6 +51,22 @@ const styles = (theme) => ({
   rightIcon: {
     marginLeft: theme.spacing.unit,
   },
+  content: {
+    display: "flex",
+    flexGrow: 1,
+    padding: theme.spacing.unit * 3,
+
+  },
+  mainPaper: {
+    flexGrow: 1,
+    alignSelf: 'center',
+    ...theme.mixins.gutters(),
+    maxWidth: 1200,
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2,
+  },
+
+
 });
 
 
@@ -62,41 +82,41 @@ class Layout extends Component {
             `;
     const {classes, children} = this.props;
 
+    const appBar = <AppBar position="static" className={classes.appBar}>
+      <Toolbar>
+        <pre className={classes.logoText} color="inherit">{logoString}</pre>
+        <Button
+          className={classes.menuButton}
+          variant="outlined"
+          component={Link}
+          to="/books"
+          color="inherit">
+          Books
+          <LibraryBookIcon className={classes.rightIcon}/>
+
+        </Button>
+        <Button
+          className={classes.menuButton}
+          variant="outlined"
+          component={Link}
+          to="/quotes"
+          color="inherit">
+          Quotes
+          <FormatQuoteIcon className={classes.rightIcon}/>
+        </Button>
+      </Toolbar>
+    </AppBar>;
+
     return (
       <Fragment>
         <CssBaseline/>
-        <div className={classes.root}>
-          <AppBar position="static">
-            <Toolbar>
+        {appBar}
 
-              <pre className={classes.logoText} color="inherit">{logoString}</pre>
-              <Button
-                className={classes.menuButton}
-                variant="outlined"
-                component={Link}
-                to="/books"
-                color="inherit">
-                Books
-                <LibraryBookIcon className={classes.rightIcon}/>
+        <main>
+          {children}
+        </main>
 
-              </Button>
-              <Button
-                className={classes.menuButton}
-                variant="outlined"
-                component={Link}
-                to="/quotes"
-                color="inherit">
-                Quotes
-                <FormatQuoteIcon className={classes.rightIcon}/>
-              </Button>
-            </Toolbar>
-          </AppBar>
-
-          <main className={classes.content}>
-            <div className={classes.toolbar}/>
-            {children}
-          </main>
-        </div>
+        <Footer/>
       </Fragment>
     )
   }
