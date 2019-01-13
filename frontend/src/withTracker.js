@@ -22,33 +22,27 @@
  *            stasbar@stasbar.com
  */
 
-import * as React from "react";
-import {Component} from "react";
-import {Button, createStyles, Theme, Typography, withStyles, WithStyles} from "@material-ui/core";
+import React from 'react';
+import GoogleAnalytics from 'react-ga';
 
-const styles = (theme: Theme) => createStyles({
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing.unit * 6,
-  },
-});
+GoogleAnalytics.initialize('UA-0000000-0');
 
-class Footer extends Component<WithStyles<typeof styles>, {}> {
-  public render() {
+const withTracker = (WrappedComponent) => {
+  const trackPage = (page) => {
+    GoogleAnalytics.set({page});
+    GoogleAnalytics.pageview(page);
+  };
+
+  const HOC = (props) => {
+    const page = props.location.pathname;
+    trackPage(page);
+
     return (
-      <footer className={this.props.classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom={true}>
-          stasbar
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          <Button href={"https://github.com/stasbar/stasbar-app"}>
-            Source Code
-          </Button>
-        </Typography>
-      </footer>
+      <WrappedComponent {...props} />
     );
-  }
+  };
 
-}
+  return HOC;
+};
 
-export default withStyles(styles)(Footer)
+export default withTracker;

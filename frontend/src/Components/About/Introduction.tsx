@@ -22,33 +22,37 @@
  *            stasbar@stasbar.com
  */
 
+import {createStyles, Theme, Typography, withStyles, WithStyles} from "@material-ui/core";
 import * as React from "react";
 import {Component} from "react";
-import {Button, createStyles, Theme, Typography, withStyles, WithStyles} from "@material-ui/core";
 
 const styles = (theme: Theme) => createStyles({
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing.unit * 6,
+  heroUnit: {
+    backgroundColor: theme.palette.primary.dark,
+  },
+  heroContent: {
+    maxWidth: 600,
+    margin: '0 auto',
+    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
   },
 });
 
-class Footer extends Component<WithStyles<typeof styles>, {}> {
+class Introduction extends Component<WithStyles<typeof styles>> {
+
   public render() {
+    const {classes} = this.props;
     return (
-      <footer className={this.props.classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom={true}>
-          stasbar
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          <Button href={"https://github.com/stasbar/stasbar-app"}>
-            Source Code
-          </Button>
-        </Typography>
-      </footer>
+      <div className={classes.heroUnit}>
+        <div className={classes.heroContent}>
+          <Typography variant="h6" align="center" color="textSecondary" paragraph={true}>
+            Motivated by the newest technologies and business opportunities. Currently focusing on blockchain
+            technology.
+            Key values in my life: Efficiency, Development, Adaptation, Freedom and Simplicity
+          </Typography>
+        </div>
+      </div>
     );
   }
-
 }
 
-export default withStyles(styles)(Footer)
+export default withStyles(styles)(Introduction)

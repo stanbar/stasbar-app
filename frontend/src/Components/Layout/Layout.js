@@ -32,15 +32,20 @@ import Button from "@material-ui/core/Button";
 import LibraryBookIcon from '@material-ui/icons/LibraryBooks'
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote'
 import Footer from "./Footer";
+import "../../index.css"
+import Typography from "@material-ui/core/Typography";
 
 const styles = (theme) => ({
   appBar: {
     position: 'relative',
   },
-  root: {
+  main: {
     flexGrow: 1,
   },
   logoText: {
+    fontFamily: 'B612Mono, monospace',
+    whiteSpace: 'pre',
+    fontStyle: 'bold',
     flexGrow: 1,
     fontSize: 7
   },
@@ -84,13 +89,13 @@ class Layout extends Component {
 
     const appBar = <AppBar position="static" className={classes.appBar}>
       <Toolbar>
-        <pre className={classes.logoText} color="inherit">{logoString}</pre>
+        <Typography className={classes.logoText} color="secondary">{logoString}</Typography>
         <Button
           className={classes.menuButton}
           variant="outlined"
           component={Link}
           to="/books"
-          color="inherit">
+          color="secondary">
           Books
           <LibraryBookIcon className={classes.rightIcon}/>
 
@@ -100,7 +105,7 @@ class Layout extends Component {
           variant="outlined"
           component={Link}
           to="/quotes"
-          color="inherit">
+          color="secondary">
           Quotes
           <FormatQuoteIcon className={classes.rightIcon}/>
         </Button>
@@ -112,7 +117,7 @@ class Layout extends Component {
         <CssBaseline/>
         {appBar}
 
-        <main>
+        <main className={classes.main}>
           {children}
         </main>
 
