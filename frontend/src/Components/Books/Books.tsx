@@ -22,7 +22,16 @@
  *            stasbar@stasbar.com
  */
 
-import {createStyles, GridList, GridListTile, GridListTileBar, WithStyles} from "@material-ui/core";
+import {
+  createStyles,
+  Grid,
+  GridListTile,
+  GridListTileBar,
+  Theme,
+  Typography,
+  withStyles,
+  WithStyles
+} from "@material-ui/core";
 import React, {Component} from "react";
 import {Route, RouteComponentProps} from "react-router";
 import {Link} from "react-router-dom";
@@ -30,23 +39,41 @@ import Api from "../../Api";
 import Book from "../../Models/Book";
 import BookView from "./BookView";
 
-const styles = createStyles({
+const styles = (theme: Theme) => createStyles({
   root: {
+    width: 'auto',
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
+    [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
+      width: 1100,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+
     display: "flex",
     flexWrap: "wrap",
+    flexGrow: 1,
+    flexDirection: "column",
     justifyContent: "space-around",
     overflow: "hidden",
+    padding: `${theme.spacing.unit * 8}px 0`,
   },
+  img: {
+    width: "100%",
+    height: "auto"
+  }
 });
 
 interface IBooksState {
   books: Book[];
+  loading: boolean;
 }
 
-export default class Books extends Component<RouteComponentProps & WithStyles<typeof styles>, IBooksState> {
+class Books extends Component<RouteComponentProps & WithStyles<typeof styles>, IBooksState> {
 
   public state: IBooksState = {
     books: new Array<Book>(),
+    loading: true
   };
 
   constructor(props: Readonly<RouteComponentProps & WithStyles<typeof styles>>) {
@@ -56,7 +83,7 @@ export default class Books extends Component<RouteComponentProps & WithStyles<ty
 
   public render() {
     const {match, classes} = this.props;
-    const {books} = this.state;
+    const {books, loading} = this.state;
     const bookView = (props: any) =>
       <BookView
         {...props}
@@ -65,20 +92,25 @@ export default class Books extends Component<RouteComponentProps & WithStyles<ty
 
     return (
       <div className={classes.root}>
-        <GridList cols={4} cellHeight={300} style={{width: 800, height: 800}}>
+        <Grid container={true} spacing={40}>
+          {loading && <Grid item={true} sm={12}>
+            <Typography variant="h5">Loading...</Typography>
+          </Grid>
+          }
           {books.map((book: Book) =>
-            <Link to={`${match.url}/${book.hash}`}>
-              <GridListTile key={book.hash} style={{height: 300}}>
-                <img src={book.imageUrl} alt={book.title}/>
+            <Grid key={book.hash} item={true} sm={4} md={3} lg={2} style={{height: "auto", width: "100%"}}>
+              <GridListTile
+                component={(props: any) => <Link {...props} to={`${match.url}/${book.hash}`}/>}>
+                <img src={book.imageUrl} alt={book.title} className={classes.img}/>
                 <GridListTileBar
                   title={book.title}
                   subtitle={<span>by: {book.author}</span>}
                 />
               </GridListTile>
-            </Link>,
+            </Grid>
           )}
 
-        </GridList>
+        </Grid>
 
         <Route
           path={`${match.path}/:hash`}
@@ -89,8 +121,16 @@ export default class Books extends Component<RouteComponentProps & WithStyles<ty
   }
 
   private async fetchBooks() {
-    const books: Book[] = await Api.fetchBooks();
-    console.log(books);
-    this.setState({books});
+    try {
+
+      const books: Book[] = await Api.fetchAllBooks();
+      console.log(books);
+      this.setState({books, loading: false});
+    } catch (e) {
+      console.error(e);
+      this.setState({loading: false});
+    }
   }
 }
+
+export default withStyles(styles)(Books)

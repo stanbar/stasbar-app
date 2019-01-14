@@ -34,25 +34,38 @@ import TaxLedgerIcon from "../../assets/svg/TaxLedgerLogo.svg";
 
 const styles = (theme: Theme) => createStyles({
   nameTitle: {
-    fontFamily: "Roboto ",
+    fontSize: "2rem",
     fontWeight: 600,
-
+    marginBottom: "1rem",
   },
-  heroUnit: {
-    backgroundColor: theme.palette.primary.light,
-  },
-  heroContent: {
+  content: {
     maxWidth: 600,
     margin: '0 auto',
     padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
   },
-  heroButtons: {
+  buttons: {
+    marginTop: theme.spacing.unit * 4,
+  },
+  specs: {
     marginTop: theme.spacing.unit * 4,
   },
   keyword: {
+    color: theme.palette.secondary.main,
     borderBottom: ".1rem solid currentColor",
-    textDecoration: "none"
-  }
+    textDecoration: "none",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap",
+  },
+  specGridItem: {
+    background: "inherit",
+  },
+  specName: {
+    color: theme.palette.secondary.main,
+    margin: theme.spacing.unit,
+    fontSize: "1rem",
+    fontWeight: 700,
+    textAlign: "center"
+  },
 });
 
 const IntentButton: React.FunctionComponent<{
@@ -76,50 +89,77 @@ class Header extends Component<WithStyles<typeof styles>> {
   public render() {
     const {classes} = this.props;
     return (
-      <div className={classes.heroUnit}>
-        <div className={classes.heroContent}>
-          <Typography variant="h3" align="center" color="textPrimary" gutterBottom={true} className={classes.nameTitle}>
-            STANISLAW BARANSKI
-          </Typography>
-          <Typography variant="h5" align="center" color="textPrimary" gutterBottom={true}>
-            <u className={classes.keyword}>full stack software developer</u>, <u className={classes.keyword}>beginner
-            entrepreneur</u>, <u className={classes.keyword}>{new Date().getUTCFullYear() - 1995} years old</u>
-          </Typography>
-          <div className={classes.heroButtons}>
-            <Grid container={true} spacing={16} justify="center">
-              <IntentButton name={"LinkedIn"}
-                            href={"https://www.linkedin.com/in/stasbar/"}
-                            Icon={<LinkedinIcon/>}
-                            textColor={"#243641"}
-                            backgroundColor={"#FFF"}/>
-              <IntentButton name={"Github"}
-                            href={"https://www.linkedin.com/in/stasbar/"}
-                            Icon={<GithubIcon/>}
-                            textColor={"#FFF"}
-                            backgroundColor={"#212529"}/>
-              <IntentButton name={"StackOverflow"}
-                            href={"https://www.linkedin.com/in/stasbar/"}
-                            Icon={<img src={StackOverflowIcon} width={20}/>}
-                            textColor={"#343536"}
-                            backgroundColor={"#F9F9FA"}/>
-              <IntentButton name={"Keybase"}
-                            href={"https://www.linkedin.com/in/stasbar/"}
-                            Icon={<img src={KeybaseIcon} width={20}/>}
-                            textColor={"#FFF"}
-                            backgroundColor={"#3095F4"}/>
-              <IntentButton name={"TaxLedger"}
-                            href={"https://www.linkedin.com/in/stasbar/"}
-                            Icon={<img src={TaxLedgerIcon} width={20}/>}
-                            textColor={"#243641"}
-                            backgroundColor={"#FFF"}/>
-              <IntentButton name={"VapeTool"}
-                            href={"https://www.linkedin.com/in/stasbar/"}
-                            Icon={<img src={VapeToolIcon} width={20}/>}
-                            textColor={"#FFF"}
-                            backgroundColor={"#3546A7"}/>
-            </Grid>
-          </div>
-        </div>
+      <div className={classes.content}>
+        <Typography variant="h1" align="center" color="textPrimary" gutterBottom={true} className={classes.nameTitle}>
+          STANISLAW BARANSKI
+        </Typography>
+        <Typography variant="h6" align="center" gutterBottom={true}>
+          <u className={classes.keyword}>full stack software developer</u>, <u className={classes.keyword}>beginner
+          entrepreneur</u>, <u className={classes.keyword}>B.S. in Computer Science</u>, <u
+          className={classes.keyword}>{new Date().getUTCFullYear() - 1995} years old</u>
+        </Typography>
+
+
+        <Grid container={true} spacing={16} justify="center" className={classes.buttons}>
+          <IntentButton name={"LinkedIn"}
+                        href={"https://www.linkedin.com/in/stasbar/"}
+                        Icon={<LinkedinIcon/>}
+                        textColor={"#243641"}
+                        backgroundColor={"#FFF"}/>
+          <IntentButton name={"Github"}
+                        href={"https://www.linkedin.com/in/stasbar/"}
+                        Icon={<GithubIcon/>}
+                        textColor={"#FFF"}
+                        backgroundColor={"#212529"}/>
+          <IntentButton name={"StackOverflow"}
+                        href={"https://www.linkedin.com/in/stasbar/"}
+                        Icon={<img src={StackOverflowIcon} width={20}/>}
+                        textColor={"#343536"}
+                        backgroundColor={"#F9F9FA"}/>
+          <IntentButton name={"Keybase"}
+                        href={"https://www.linkedin.com/in/stasbar/"}
+                        Icon={<img src={KeybaseIcon} width={20}/>}
+                        textColor={"#FFF"}
+                        backgroundColor={"#3095F4"}/>
+          <IntentButton name={"TaxLedger"}
+                        href={"https://www.linkedin.com/in/stasbar/"}
+                        Icon={<img src={TaxLedgerIcon} width={20}/>}
+                        textColor={"#243641"}
+                        backgroundColor={"#FFF"}/>
+          <IntentButton name={"VapeTool"}
+                        href={"https://www.linkedin.com/in/stasbar/"}
+                        Icon={<img src={VapeToolIcon} width={20}/>}
+                        textColor={"#FFF"}
+                        backgroundColor={"#3546A7"}/>
+        </Grid>
+
+        <Grid container={true} spacing={16} justify="center" className={classes.specs}>
+
+          <Grid item={true} sm={3} md={3} lg={3} className={classes.specGridItem}>
+            <Typography className={classes.specName}>Android</Typography>
+            <Typography component="p" color={"textSecondary"}>My main specialty is mobile applications for Android
+              in Java and <b>Kotlin</b>.</Typography>
+          </Grid>
+
+          <Grid item={true} sm={3} md={3} lg={3}>
+            <Typography className={classes.specName}>Backend</Typography>
+            <Typography component="p" color={"textSecondary"}>I chose Firebase whenever it's possible.
+              Otherwise <b>Kotlin</b> with ktor</Typography>
+          </Grid>
+
+          <Grid item={true} sm={3} md={3} lg={3}>
+            <Typography className={classes.specName}>Frontend</Typography>
+            <Typography component="p" color={"textSecondary"}>I prefer reusability over simplicity, that's why I use
+              React with TypeScript</Typography>
+          </Grid>
+
+          <Grid item={true} sm={3} md={3} lg={3}>
+            <Typography className={classes.specName}>Tools</Typography>
+            <Typography component="p" color={"textSecondary"}>When it comes to tools I love IntelliJ & Android Studio
+              running on macOS</Typography>
+          </Grid>
+
+        </Grid>
       </div>
     );
   }

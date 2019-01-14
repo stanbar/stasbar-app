@@ -93,7 +93,13 @@ fun Application.module() {
         call.respond(goodreadsRepository.getAllQuotes())
       }
       get("/books") {
-        val books = goodreadsRepository.getAllBooks()
+        val shelf = call.parameters["shelf"]
+
+        val books = if (shelf == null)
+          goodreadsRepository.getAllBooks()
+        else
+          goodreadsRepository.getBooksFromShelf(shelf)
+
         logger.info("queried ${books.size} books")
         call.respond(books)
       }

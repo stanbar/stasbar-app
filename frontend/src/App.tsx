@@ -1,4 +1,4 @@
-import {createMuiTheme, MuiThemeProvider} from "@material-ui/core";
+import {createMuiTheme, MuiThemeProvider, Typography} from "@material-ui/core";
 import React from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import "./App.css";
@@ -6,6 +6,7 @@ import Books from "./Components/Books/Books";
 import Layout from "./Components/Layout/Layout";
 import AboutMe from "./Components/About/AboutMe";
 import ReactGA from 'react-ga';
+import Quotes from "./Components/Quotes/Quotes";
 
 const theme = createMuiTheme({
   palette: {
@@ -26,8 +27,8 @@ const logPageView = () => {
 
 const NoMatch = () => (
   <div>
-    <h2>Whoops</h2>
-    <p>Sorry but {location.pathname} didn’t match any pages</p>
+    <Typography variant={"h2"}>Whoops</Typography>
+    <Typography variant={"body1"}>Sorry but {location.pathname} didn’t match any pages</Typography>
   </div>
 );
 
@@ -40,6 +41,7 @@ const App = () => (
           <Route exact={true} path="/" component={AboutMe}/>
           <Route path="/about" component={About}/>
           <Route path="/books" component={Books}/>
+          <Route path="/quotes" component={Quotes}/>
           <Route component={NoMatch}/>
         </Switch>
       </Layout>

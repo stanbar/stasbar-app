@@ -24,8 +24,14 @@
 
 export default interface IApp {
   name: string;
-  href: string;
   imgSrc: string;
   imgWebp: string;
   description: any;
+  platform: "mobile" | "desktop";
+  links: {
+    github: string | null;
+    website: string | null;
+    googlePlay: string | null;
+    appStore: string | null;
+  };
 }

@@ -22,45 +22,47 @@
  *            stasbar@stasbar.com
  */
 
-import {Button, createStyles, Grid, Theme, withStyles, WithStyles} from "@material-ui/core";
+import {createStyles, Theme, withStyles, WithStyles} from "@material-ui/core";
 import * as React from "react";
 import {Component} from "react";
 import Header from "./Header";
 import Introduction from "./Introduction";
-import MyApps from "./MyApps";
-import MyProjects from "./MyProjects";
+import AppsGallery from "./AppsGallery";
 import More from "./More";
+import Apps from "../../MyApps/Apps"
+import Projects from "../../MyApps/Projects"
 
 const styles = (theme: Theme) => createStyles({
-
+  odd: {
+    backgroundColor: theme.palette.primary.light
+  },
+  even: {
+    backgroundColor: theme.palette.primary.dark
+  }
 });
-
-const IntentButton: React.FunctionComponent<{
-  name: string,
-  Icon: any,
-  href: string,
-  textColor: string,
-  backgroundColor: string
-}> = (props) =>
-  <Grid item={true}>
-    <Button href={props.href}
-            variant="contained" color="primary"
-            style={{color: props.textColor, backgroundColor: props.backgroundColor}}>
-      {props.name}
-      {props.Icon}
-    </Button>
-  </Grid>;
 
 class AboutMe extends Component<WithStyles<typeof styles>> {
 
   public render() {
+
+    const {classes} = this.props;
     return (
       <div>
-        <Header/>
-        <Introduction/>
-        <MyApps/>
-        <MyProjects/>
-        <More/>
+        <div className={classes.odd}>
+          <Header/>
+        </div>
+        <div className={classes.even}>
+          <Introduction/>
+        </div>
+        <div className={classes.odd}>
+          <AppsGallery title={"My Apps"} apps={Apps}/>
+        </div>
+        <div className={classes.even}>
+          <AppsGallery title={"Other Projects"} apps={Projects}/>
+        </div>
+        <div className={classes.odd}>
+          <More/>
+        </div>
       </div>
     );
   }

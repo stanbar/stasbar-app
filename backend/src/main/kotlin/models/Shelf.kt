@@ -21,26 +21,24 @@
  * /____/\__/\__,_/____/_.___/\__,_/_/
  *            stasbar@stasbar.com
  */
-import RaspberryWalletFramedPng from "../assets/png/RaspberryWallet/RaspberryWalletFramed.png"
-import RaspberryWalletFramedWebp from "../assets/webp/RaspberryWallet/RaspberryWalletFramed.webp"
 
-import IApp from "./IApp";
+package com.stasbar.app.models
 
+import org.jetbrains.exposed.dao.IntIdTable
+import org.jetbrains.exposed.sql.ResultRow
+import org.jetbrains.exposed.sql.Table
 
-const Projects: IApp[] = [
-  {
-    name: "Raspberry Wallet",
-    imgSrc: RaspberryWalletFramedPng,
-    imgWebp: RaspberryWalletFramedWebp,
-    description: "Bitcoin hardware wallet on Raspberry Pi Zero",
-    platform: "desktop",
-    links: {
-      website: "https://raspberrywallet.github.io/readme.html",
-      github: "https://github.com/RaspberryWallet",
-      googlePlay: null,
-      appStore: null,
-    }
-  }
-];
+object Shelves : IntIdTable() {
+  val value = varchar("value", 32)
+}
 
-export default Projects
+fun ResultRow.toShelf() = Shelf(
+  value = get(Shelves.value)
+)
+
+data class Shelf(val value: String)
+
+object BookShelves : Table() {
+  val shelf = reference("shelf", Shelves).primaryKey(0)
+  val book = reference("bookHash", Books.hash).primaryKey(1)
+}

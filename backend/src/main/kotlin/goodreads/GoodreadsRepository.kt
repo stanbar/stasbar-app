@@ -26,6 +26,7 @@ package com.stasbar.app.goodreads
 
 import com.stasbar.app.database.BooksDatabase
 import com.stasbar.app.models.Book
+import com.stasbar.app.models.Shelf
 import mu.KotlinLogging
 
 val logger = KotlinLogging.logger {}
@@ -34,6 +35,7 @@ class GoodreadsRepository(private val goodreadsApi: GoodreadsApi, private val da
 
   suspend fun getAllQuotes() = database.getAllQuotes()
   suspend fun getAllBooks() = database.getAllBooks()
+  suspend fun getBooksFromShelf(shelf: String) = database.getBooksFromShelf(shelf)
 
   suspend fun fetchAllQuotes() {
     val quotes = goodreadsApi.getAllQuotes()
@@ -54,6 +56,7 @@ class GoodreadsRepository(private val goodreadsApi: GoodreadsApi, private val da
       author = book.authors[0].name,
       goodreadsId = book.id.content,
       imageUrl = book.imageUrl,
-      smallImageUrl = book.smallImageUrl
+      smallImageUrl = book.smallImageUrl,
+      shelves = shelves.map { Shelf(it.name) }
     )
 }

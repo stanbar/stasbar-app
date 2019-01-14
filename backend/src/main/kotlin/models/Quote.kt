@@ -35,10 +35,10 @@ object Quotes : Table() {
   val bookHash = (varchar("bookHash", 32) references Books.hash).nullable()
 }
 
-fun ResultRow.toQuote() = Quote(
+fun ResultRow.toQuote(books: List<Shelf>) = Quote(
   text = get(Quotes.text),
   author = get(Quotes.author),
-  book = if (hasValue(Books.rating) && this.tryGet(Books.rating) != null) toBook() else null
+  book = if (hasValue(Books.rating) && this.tryGet(Books.rating) != null) toBook(books) else null
 )
 
 data class Quote(

@@ -40,7 +40,7 @@ object Books : Table() {
   val smallImageUrl = varchar("smallImageUrl", 256)
 }
 
-fun ResultRow.toBook() = Book(
+fun ResultRow.toBook(shelves: List<Shelf>) = Book(
   title = get(Books.title),
   rating = get(Books.rating),
   author = get(Books.author),
@@ -48,7 +48,8 @@ fun ResultRow.toBook() = Book(
   isbn10 = get(Books.isbn10),
   isbn13 = get(Books.isbn13),
   imageUrl = get(Books.imageUrl),
-  smallImageUrl = get(Books.smallImageUrl)
+  smallImageUrl = get(Books.smallImageUrl),
+  shelves = shelves
 )
 
 
@@ -61,7 +62,8 @@ data class Book(
 
   val goodreadsId: Int? = null,
   val imageUrl: String,
-  val smallImageUrl: String
+  val smallImageUrl: String,
+  val shelves: List<Shelf>
 ) {
   val hash: String = DigestUtils.md5Hex(title + author)
 }

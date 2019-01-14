@@ -23,7 +23,7 @@
  */
 
 
-import IApp from "./App";
+import IApp from "./IApp";
 import VapeToolLongFramedPng from "../assets/png/VapeTool/VapeToolLongFramed.png"
 import GoLureLongFramedPng from "../assets/png/GoLure/GoLureLongFramed.png"
 import Wallpapers4KLongFramedPng from "../assets/png/Wallpapers4K/Wallpapers4KLongFramed.png"
@@ -41,46 +41,82 @@ import TaxLedgerFramedWebp from "../assets/webp/TaxLedger/TaxLedgerFramed.webp"
 
 const Apps: IApp[] = [
   {
-    name: "VapeTool",
-    href: "https://vapetool.stasbar.com",
+    name: "Vape Tool",
     imgSrc: VapeToolLongFramedPng,
     imgWebp: VapeToolLongFramedWebp,
-    description: "fully fledged utility arsenal for every Vaper"
+    description: `Fully fledged utility arsenal and social media for Vapers. Over 1M downloads and 300k active users`,
+    platform: "mobile",
+    links: {
+      website: "https://vapetool.stasbar.com",
+      github: null,
+      googlePlay: "https://play.google.com/store/apps/details?id=com.stasbar.vape_tool",
+      appStore: "https://itunes.apple.com/us/app/coil-builder/id1210289983?mt=8",
+    }
   },
   {
-    name: "TaxLedger",
-    href: "https://tax-ledger.com",
+    name: "Tax Ledger",
     imgSrc: TaxLedgerFramedPng,
     imgWebp: TaxLedgerFramedWebp,
-    description: "desktop application for settle taxes from cryptocurrencies exchanges"
+    description: `Desktop application for settle taxes from cryptocurrencies exchanges`,
+    platform: "desktop",
+    links: {
+      website: "https://tax-ledger.com",
+      github: null,
+      googlePlay: null,
+      appStore: null,
+    }
   },
   {
     name: "4K Wallpapers",
-    href: "https://play.google.com/store/apps/details?id=com.wallpapers.new_wallpapers4k",
     imgSrc: Wallpapers4KLongFramedPng,
     imgWebp: Wallpapers4KLongFramedWebp,
-    description: "4k wallpapers are images in the highest resolutions that have been carefully selected to maximize the screen potential of our phones"
+    description: "High resolution wallpapers",
+    platform: "mobile",
+    links: {
+      website: null,
+      github: null,
+      googlePlay: "https://play.google.com/store/apps/details?id=com.wallpapers.new_wallpapers4k",
+      appStore: null,
+    }
   },
   {
     name: "Go Lure",
-    href: "https://play.google.com/store/apps/details?id=com.stasbar.golure",
     imgSrc: GoLureLongFramedPng,
     imgWebp: GoLureLongFramedWebp,
-    description: "Schedule Pokemon GO Lure Module Party on a map"
+    description: "Catching the Pokemon Go hype, with addon scheduler for lure module party on a map",
+    platform: "mobile",
+    links: {
+      website: null,
+      github: null,
+      googlePlay: "https://play.google.com/store/apps/details?id=com.stasbar.golure",
+      appStore: null,
+    }
   },
   {
-    name: "Wallpapers One Click",
-    href: "https://play.google.com/store/apps/details?id=com.david_wallpapers.city_night",
+    name: "Easy Wallpapers",
     imgSrc: WallpapersOneClickLongFramedPng,
     imgWebp: WallpapersOneClickLongFramedWebp,
-    description: "Just one click, and beautiful landscapes with modern towers and famous skyscrapers will appear on your screen of smartphone"
+    description: `Easy to use wallpaper apps build with many category flavors`,
+    platform: "mobile",
+    links: {
+      website: null,
+      github: null,
+      googlePlay: "https://play.google.com/store/apps/details?id=com.david_wallpapers.city_night",
+      appStore: null,
+    }
   },
   {
-    name: "Christmas Wishes",
-    href: "https://play.google.com/store/apps/details?id=com.allwishes.christmas",
+    name: "Wishes",
     imgSrc: WishesLongFramedPng,
     imgWebp: WishesLongFramedWebp,
-    description: "Christmas Wishes"
+    description: `Wishes application for many occasion flavors`,
+    platform: "mobile",
+    links: {
+      website: null,
+      github: null,
+      googlePlay: "https://play.google.com/store/apps/details?id=com.allwishes.christmas",
+      appStore: null,
+    }
   }
 ];
 

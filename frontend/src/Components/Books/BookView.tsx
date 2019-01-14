@@ -34,7 +34,7 @@ export default class BookView extends Component<IBookViewProps, {}> {
   public render() {
     const {book} = this.props;
     return (
-      <div id={book.hash.toString()}>
+      <div id={book.hash}>
         <h3>Title: {book.title}</h3>
         <h3>Author: {book.author}</h3>
         <h3>Rating: {book.rating}</h3>

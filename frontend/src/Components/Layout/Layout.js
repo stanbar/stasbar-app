@@ -43,6 +43,7 @@ const styles = (theme) => ({
     flexGrow: 1,
   },
   logoText: {
+    textDecoration: "none",
     fontFamily: 'B612Mono, monospace',
     whiteSpace: 'pre',
     fontStyle: 'bold',
@@ -89,7 +90,10 @@ class Layout extends Component {
 
     const appBar = <AppBar position="static" className={classes.appBar}>
       <Toolbar>
-        <Typography className={classes.logoText} color="secondary">{logoString}</Typography>
+        <Typography
+          component={Link}
+          to={"/"}
+          className={classes.logoText} color="secondary">{logoString}</Typography>
         <Button
           className={classes.menuButton}
           variant="outlined"

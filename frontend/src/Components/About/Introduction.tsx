@@ -27,9 +27,7 @@ import * as React from "react";
 import {Component} from "react";
 
 const styles = (theme: Theme) => createStyles({
-  heroUnit: {
-    backgroundColor: theme.palette.primary.dark,
-  },
+
   heroContent: {
     maxWidth: 600,
     margin: '0 auto',
@@ -42,14 +40,12 @@ class Introduction extends Component<WithStyles<typeof styles>> {
   public render() {
     const {classes} = this.props;
     return (
-      <div className={classes.heroUnit}>
-        <div className={classes.heroContent}>
-          <Typography variant="h6" align="center" color="textSecondary" paragraph={true}>
-            Motivated by the newest technologies and business opportunities. Currently focusing on blockchain
-            technology.
-            Key values in my life: Efficiency, Development, Adaptation, Freedom and Simplicity
-          </Typography>
-        </div>
+      <div className={classes.heroContent}>
+        <Typography variant="h6" align="center" color="textSecondary" paragraph={true}>
+          Motivated by the newest technologies and business opportunities. Currently focusing on blockchain
+          technology.
+          Key values in my life: Efficiency, Development, Adaptation, Freedom and Simplicity
+        </Typography>
       </div>
     );
   }

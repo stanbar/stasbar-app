@@ -31,10 +31,11 @@ import FormatQuoteIcon from '@material-ui/icons/FormatQuote'
 
 
 const styles = (theme: Theme) => createStyles({
-  heroUnit: {
-    backgroundColor: theme.palette.primary.dark,
-  },
   heroContent: {
+    display: 'flex',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     maxWidth: 600,
     margin: '0 auto',
     padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
@@ -54,26 +55,24 @@ class More extends Component<WithStyles<typeof styles>> {
     const {classes} = this.props;
 
     return (
-      <div className={classes.heroUnit}>
-        <div className={classes.heroContent}>
-          <Button
-            className={classes.menuButton}
-            variant="outlined"
-            component={(props: any) => <Link {...props} to="/books"/>}
-            color="secondary">
-            Books
-            <LibraryBookIcon className={classes.rightIcon}/>
+      <div className={classes.heroContent}>
+        <Button
+          className={classes.menuButton}
+          variant="outlined"
+          component={(props: any) => <Link {...props} to="/books"/>}
+          color="secondary">
+          Books
+          <LibraryBookIcon className={classes.rightIcon}/>
 
-          </Button>
-          <Button
-            className={classes.menuButton}
-            variant="outlined"
-            component={(props: any) => <Link {...props} to="/quotes"/>}
-            color="secondary">
-            Quotes
-            <FormatQuoteIcon className={classes.rightIcon}/>
-          </Button>
-        </div>
+        </Button>
+        <Button
+          className={classes.menuButton}
+          variant="outlined"
+          component={(props: any) => <Link {...props} to="/quotes"/>}
+          color="secondary">
+          Quotes
+          <FormatQuoteIcon className={classes.rightIcon}/>
+        </Button>
       </div>
     );
   }

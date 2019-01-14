@@ -158,11 +158,11 @@ class GoodreadsApi(private val baseUrl: String, private val service: GoodreadsSe
       findBooksByTitleOrIsbn(bookTitle).await().search.results.firstOrNull()?.bestBook?.let {
         Book(
           title = it.title,
-          goodreadsId = it.id.content,
           author = it.author.name,
           imageUrl = it.imageUrl,
           smallImageUrl = it.smallImageUrl,
-          rating = 0
+          rating = 0,
+          shelves = listOf()
         )
       }.also {
         alreadyFoundBooks[bookTitle] = it

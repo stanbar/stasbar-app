@@ -31,19 +31,25 @@ const styles = (theme: Theme) => createStyles({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing.unit * 6,
   },
+  link: {
+    textDecoration: "none",
+    color: theme.palette.text.primary
+  }
 });
 
 class Footer extends Component<WithStyles<typeof styles>, {}> {
   public render() {
+    const {classes} = this.props;
     return (
       <footer className={this.props.classes.footer}>
         <Typography variant="h6" align="center" gutterBottom={true}>
-          stasbar
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
           <Button href={"https://github.com/stasbar/stasbar-app"}>
             Source Code
           </Button>
+        </Typography>
+        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+          build with <a className={classes.link} href="https://kotlinlang.org/">Kotlin ❤️</a> hosted on <a
+          className={classes.link} href="https://ipfs.io/">IPFS</a>
         </Typography>
       </footer>
     );

@@ -22,13 +22,40 @@
  *            stasbar@stasbar.com
  */
 
-import {Card, GridList} from "@material-ui/core";
+import {Card, createStyles, Grid, Theme, Typography, WithStyles, withStyles} from "@material-ui/core";
+import * as React from "react";
 import {Component} from "react";
-import {Route, RouteComponentProps} from "react-router";
+import {RouteComponentProps} from "react-router";
 import {Link} from "react-router-dom";
 import Api from "../../Api";
 import Quote from "../../Models/Quote";
-import QuoteView from "./QuoteView";
+
+const styles = (theme: Theme) => createStyles({
+  root: {
+    width: 'auto',
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
+    [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
+      width: 1100,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+
+    display: "flex",
+    flexWrap: "wrap",
+    flexGrow: 1,
+    flexDirection: "column",
+    justifyContent: "space-around",
+    overflow: "hidden",
+    padding: `${theme.spacing.unit * 8}px 0`,
+  },
+  cardQuote: {
+    textDecoration: "none",
+    margin: `${theme.spacing.unit}px 0`,
+    padding: `${theme.spacing.unit}px`,
+  }
+});
+
 
 interface IQuotesProps {
 
@@ -36,51 +63,54 @@ interface IQuotesProps {
 
 interface IQuotesState {
   quotes: Quote[];
+  loading: boolean;
 }
 
-export default class Quotes extends Component<RouteComponentProps<IQuotesProps>, IQuotesState> {
+class Quotes extends Component<RouteComponentProps<IQuotesProps> & WithStyles<typeof styles>, IQuotesState> {
 
   public state: IQuotesState = {
     quotes: new Array<Quote>(),
+    loading: true
   };
 
-  constructor(props: Readonly<RouteComponentProps<IQuotesProps>>) {
+  constructor(props: Readonly<RouteComponentProps<IQuotesProps> & WithStyles<typeof styles>>) {
     super(props);
     this.fetchQuotes();
   }
 
   public render() {
-    const {match} = this.props;
-    const {quotes} = this.state;
+    const {match, classes} = this.props;
+    const {quotes, loading} = this.state;
     return (
-      <div style={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "space-around",
-        overflow: "hidden",
-      }}>
-        <GridList cols={4} cellHeight={300} style={{width: 800, height: 800}}>
-          {quotes.map((quote: Quote) =>
-            <Link to={`${match.url}/${quote.hash}`}>
-              <Card>
+      <div className={classes.root}>
 
-              </Card>
-            </Link>,
-          )}
-
-        </GridList>
-
-        <Route path={`${match.path}/:hash`} component={(props: any) =>
-          <QuoteView {...props}
-                     quote={quotes.find((quote: Quote) => quote.hash === props.match.params.hash)}/>
-        }/>
+        {loading && <Grid item={true} sm={12}>
+          <Typography variant="h5">Loading...</Typography>
+        </Grid>
+        }
+        {quotes.map((quote: Quote) =>
+          <Card className={classes.cardQuote}
+                component={(props: any) => <Link {...props} to={`${match.url}/${quote.hash}`}/>}>
+            <Typography variant="body1">
+              {quote.text} ~{quote.author}
+            </Typography>
+          </Card>
+        )}
       </div>
     );
   }
 
   private async fetchQuotes() {
-    const quotes: Quote[] = await Api.fetchQuotes();
-    console.log(quotes);
-    this.setState({quotes});
+    try {
+      const quotes: Quote[] = await Api.fetchAllQuotes();
+      console.log(quotes);
+      this.setState({quotes, loading: false});
+    } catch (e) {
+      console.error(e);
+      this.setState({loading: false});
+
+    }
   }
 }
+
+export default withStyles(styles)(Quotes)
