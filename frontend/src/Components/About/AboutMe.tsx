@@ -28,9 +28,11 @@ import {Component} from "react";
 import Header from "./Header";
 import Introduction from "./Introduction";
 import AppsGallery from "./AppsGallery";
-import More from "./More";
 import Apps from "../../MyApps/Apps"
 import Projects from "../../MyApps/Projects"
+import BestBooks from "./BestBooks";
+import {RouteComponentProps} from "react-router";
+import BestQuotes from "./BestQuotes";
 
 const styles = (theme: Theme) => createStyles({
   odd: {
@@ -41,7 +43,7 @@ const styles = (theme: Theme) => createStyles({
   }
 });
 
-class AboutMe extends Component<WithStyles<typeof styles>> {
+class AboutMe extends Component<RouteComponentProps & WithStyles<typeof styles>> {
 
   public render() {
 
@@ -61,7 +63,10 @@ class AboutMe extends Component<WithStyles<typeof styles>> {
           <AppsGallery title={"Other Projects"} apps={Projects}/>
         </div>
         <div className={classes.odd}>
-          <More/>
+          <BestBooks match={this.props.match} history={this.props.history} location={this.props.location}/>
+        </div>
+        <div className={classes.even}>
+          <BestQuotes match={this.props.match} history={this.props.history} location={this.props.location}/>
         </div>
       </div>
     );

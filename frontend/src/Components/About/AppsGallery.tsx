@@ -30,7 +30,7 @@ import MyApp from "./MyApp";
 
 
 const styles = (theme: Theme) => createStyles({
-  content: {
+  root: {
     margin: '0 auto',
     padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
   },
@@ -68,13 +68,14 @@ class AppsGallery extends Component<IAppsGallery> {
   public render() {
     const {classes} = this.props;
     return (
-      <div className={classes.content}>
+      <div className={classes.root}>
         <Typography variant="h2" align="center" color="textPrimary" gutterBottom={true} className={classes.nameTitle}>
           {this.props.title}
         </Typography>
 
         <div className={classes.layout}>
-          <Grid container={true} spacing={40} style={{alignContent: "flex-start", alignItems: "stretch", flexGrow: 1}}>
+          <Grid container={true} justify={"center"} spacing={40}
+                style={{alignContent: "flex-start", alignItems: "stretch", flexGrow: 1}}>
             {this.props.apps.map((app) => <MyApp app={app}/>)}
           </Grid>
         </div>

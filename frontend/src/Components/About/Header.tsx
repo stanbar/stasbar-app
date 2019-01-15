@@ -88,6 +88,13 @@ class Header extends Component<WithStyles<typeof styles>> {
 
   public render() {
     const {classes} = this.props;
+
+    function getMyAge(): number {
+      const current = new Date();
+      const monthsDiff = Math.sign(current.getUTCMonth() - 3);
+      return current.getUTCFullYear() - 1995 + monthsDiff
+    }
+
     return (
       <div className={classes.content}>
         <Typography variant="h1" align="center" color="textPrimary" gutterBottom={true} className={classes.nameTitle}>
@@ -96,7 +103,7 @@ class Header extends Component<WithStyles<typeof styles>> {
         <Typography variant="h6" align="center" gutterBottom={true}>
           <u className={classes.keyword}>full stack software developer</u>, <u className={classes.keyword}>beginner
           entrepreneur</u>, <u className={classes.keyword}>B.S. in Computer Science</u>, <u
-          className={classes.keyword}>{new Date().getUTCFullYear() - 1995} years old</u>
+          className={classes.keyword}>{getMyAge()} years old</u>
         </Typography>
 
 

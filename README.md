@@ -7,8 +7,8 @@ Backend, Frontend, Android Application are all writen in Kotlin and sharing comm
 - PaaS [Google App Engine](https://cloud.google.com/appengine/)
 - HTTP Server [Ktor](https://github.com/ktorio/ktor)
 - HTTP Client [Retrofit](https://github.com/square/retrofit)
-- Books repository from [Goodreads API](https://www.goodreads.com/api)
-- XML parser JAXB
+- Books and shelves repository from [Goodreads API](https://www.goodreads.com/api)
+- Book covers from [Google Books API](https://developers.google.com/books)
 - HTML DOM scraper [Jsoup](https://github.com/jhy/jsoup)
 - Database [H2](https://github.com/h2database/h2database)
 - ORM/DAO [Kotlin Exposed](https://github.com/JetBrains/Exposed)

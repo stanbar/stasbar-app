@@ -73,9 +73,9 @@ class MyApp extends Component<IAppsGallery> {
 
     return (
       <Grid item={true}
-            sm={app.platform === "mobile" ? 4 : 8}
-            md={app.platform === "mobile" ? 4 : 8}
-            lg={app.platform === "mobile" ? 4 : 8}
+            sm={app.platform === "mobile" ? 3 : 6}
+            md={app.platform === "mobile" ? 3 : 6}
+            lg={app.platform === "mobile" ? 3 : 6}
             className={classes.root}
       >
         <Typography variant={"h4"} color={"secondary"} className={classes.name}>{app.name}</Typography>

@@ -34,9 +34,19 @@ export default {
       throw Error(response.statusText);
     }
   },
-  async fetchFavoriteBooks() {
-    console.log(`fetching books`);
-    const response = await fetch(serverHttpUrl + "/api/books?shelf=favorite");
+  async fetchFeaturedBooks() {
+    console.log(`fetching website books`);
+    const response = await fetch(serverHttpUrl + "/api/books?shelf=featured");
+    if (response.ok) {
+      return await response.json();
+    } else {
+      console.error(response);
+      throw Error(response.statusText);
+    }
+  },
+  async fetchProgrammingBooks() {
+    console.log(`fetching programming books`);
+    const response = await fetch(serverHttpUrl + "/api/books?shelf=programming");
     if (response.ok) {
       return await response.json();
     } else {
@@ -45,6 +55,16 @@ export default {
     }
   },
   async fetchAllQuotes() {
+    console.log(`fetching quotes`);
+    const response = await fetch(serverHttpUrl + "/api/quotes");
+    if (response.ok) {
+      return await response.json();
+    } else {
+      console.error(response);
+      throw Error(response.statusText);
+    }
+  },
+  async fetchFeaturedQuotes() {
     console.log(`fetching quotes`);
     const response = await fetch(serverHttpUrl + "/api/quotes");
     if (response.ok) {

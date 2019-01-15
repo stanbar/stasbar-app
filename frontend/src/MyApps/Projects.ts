@@ -23,7 +23,8 @@
  */
 import RaspberryWalletFramedPng from "../assets/png/RaspberryWallet/RaspberryWalletFramed.png"
 import RaspberryWalletFramedWebp from "../assets/webp/RaspberryWallet/RaspberryWalletFramed.webp"
-
+import MyWebsiteRecurrenceFramedPng from "../assets/png/MyWebsite/MyWebsiteRecurrenceFramed.png"
+import MyWebsiteRecurrenceFramedWebp from "../assets/webp/MyWebsite/MyWebsiteRecurrenceFramed.webp"
 import IApp from "./IApp";
 
 
@@ -37,6 +38,19 @@ const Projects: IApp[] = [
     links: {
       website: "https://raspberrywallet.github.io/readme.html",
       github: "https://github.com/RaspberryWallet",
+      googlePlay: null,
+      appStore: null,
+    }
+  },
+  {
+    name: "website",
+    imgSrc: MyWebsiteRecurrenceFramedPng,
+    imgWebp: MyWebsiteRecurrenceFramedWebp,
+    description: "This website & android app itself are good pieces of software, so I think it's worth mention here",
+    platform: "desktop",
+    links: {
+      website: null,
+      github: "https://github.com/stasbar/stasbar-app",
       googlePlay: null,
       appStore: null,
     }

@@ -63,7 +63,6 @@ class More extends Component<WithStyles<typeof styles>> {
           color="secondary">
           Books
           <LibraryBookIcon className={classes.rightIcon}/>
-
         </Button>
         <Button
           className={classes.menuButton}

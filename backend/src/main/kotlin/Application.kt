@@ -25,8 +25,7 @@
 package com.stasbar.app
 
 import com.fasterxml.jackson.databind.SerializationFeature
-import com.stasbar.app.di.goodreadsModule
-import com.stasbar.app.goodreads.GoodreadsRepository
+import com.stasbar.app.di.prodModules
 import io.ktor.application.Application
 import io.ktor.application.call
 import io.ktor.application.install
@@ -49,7 +48,7 @@ fun main(args: Array<String>) = io.ktor.server.netty.EngineMain.main(args)
 private val logger = KotlinLogging.logger {}
 @Suppress("unused") // Referenced in application.conf
 fun Application.module() {
-  installKoin(listOf(goodreadsModule), KoinProperties(useKoinPropertiesFile = true))
+  installKoin(prodModules, KoinProperties(useKoinPropertiesFile = true))
   install(DefaultHeaders)
   install(CallLogging)
   install(ContentNegotiation) {
@@ -58,7 +57,7 @@ fun Application.module() {
     }
   }
 
-  val goodreadsRepository: GoodreadsRepository by inject()
+  val booksRepository: BooksRepository by inject()
 
   // Registers routes
   routing {
@@ -85,20 +84,20 @@ fun Application.module() {
     }
     route("/api") {
       get("/fetchGoodreads") {
-        goodreadsRepository.fetchAllBooks()
-        goodreadsRepository.fetchAllQuotes()
+        booksRepository.fetchAllBooks()
+        booksRepository.fetchAllQuotes()
         call.respond("OK")
       }
       get("/quotes") {
-        call.respond(goodreadsRepository.getAllQuotes())
+        call.respond(booksRepository.getAllQuotes())
       }
       get("/books") {
         val shelf = call.parameters["shelf"]
 
         val books = if (shelf == null)
-          goodreadsRepository.getAllBooks()
+          booksRepository.getAllBooks()
         else
-          goodreadsRepository.getBooksFromShelf(shelf)
+          booksRepository.getBooksFromShelf(shelf)
 
         logger.info("queried ${books.size} books")
         call.respond(books)

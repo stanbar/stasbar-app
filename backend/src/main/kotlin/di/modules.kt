@@ -25,45 +25,74 @@
 package com.stasbar.app.di
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.stasbar.app.BooksRepository
 import com.stasbar.app.Config
+import com.stasbar.app.Config.GOOGLEBOOKS_API_KEY
 import com.stasbar.app.database.BooksDatabase
 import com.stasbar.app.database.H2Database
 import com.stasbar.app.goodreads.GoodreadsApi
-import com.stasbar.app.goodreads.GoodreadsRepository
 import com.stasbar.app.goodreads.GoodreadsService
+import com.stasbar.app.googlebooks.GoogleBooksApi
+import com.stasbar.app.googlebooks.GoogleBooksService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module.module
 import retrofit2.Retrofit
 import retrofit2.converter.jaxb.JaxbConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 
-val goodreadsModule = module {
-    single<OkHttpClient> {
-        OkHttpClient.Builder()
-            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
-            .build()
-    }
 
-    single<GoodreadsService> {
-        Retrofit.Builder()
-            .baseUrl(getProperty("goodreads_base_url", "https://www.goodreads.com"))
-            .client(get())
-            .addConverterFactory(JaxbConverterFactory.create())
-            .addCallAdapterFactory(CoroutineCallAdapterFactory())
-            .build()
-            .create(GoodreadsService::class.java)
-    }
-
-    single { GoodreadsApi(getProperty("goodreads_base_url"), get()) }
-
-    single<BooksDatabase> {
-        H2Database(
-            getProperty("db_thread_pool", 4),
-            getProperty("jdbc_connection_url", "jdbc:h2:file:./.database/stasbarapp"),
-            Config.DATABASE_USER,
-            Config.DATABASE_PASSWORD
-        )
-    }
-
-    single { GoodreadsRepository(get(), get()) }
+val testCommonModule = module {
+  single<OkHttpClient> {
+    OkHttpClient.Builder()
+      .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
+      .build()
+  }
+  single<BooksDatabase> {
+    H2Database(4, "jdbc:h2:file:./.database/test-stasbarapp", "root", "")
+  }
 }
+val commonModule = module {
+  single<OkHttpClient> {
+    OkHttpClient.Builder()
+      .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
+      .build()
+  }
+  single<BooksDatabase> {
+    H2Database(
+      getProperty("db_thread_pool", 4),
+      getProperty("jdbc_connection_url", "jdbc:h2:file:./.database/stasbarapp"),
+      Config.DATABASE_USER,
+      Config.DATABASE_PASSWORD
+    )
+  }
+}
+val goodreadsModule = module {
+  single<GoodreadsService> {
+    Retrofit.Builder()
+      .baseUrl(getProperty("goodreads_base_url", "https://www.goodreads.com"))
+      .client(get())
+      .addConverterFactory(JaxbConverterFactory.create())
+      .addCallAdapterFactory(CoroutineCallAdapterFactory())
+      .build()
+      .create(GoodreadsService::class.java)
+  }
+
+  single { GoodreadsApi(getProperty("goodreads_base_url"), get()) }
+  single { BooksRepository(get(), get(), get()) }
+}
+
+val googleBooksModule = module {
+  single<GoogleBooksService> {
+    Retrofit.Builder()
+      .baseUrl(getProperty("googlebooks_base_url", "https://www.googleapis.com"))
+      .client(get())
+      .addConverterFactory(MoshiConverterFactory.create())
+      .addCallAdapterFactory(CoroutineCallAdapterFactory())
+      .build()
+      .create(GoogleBooksService::class.java)
+  }
+  single { GoogleBooksApi(get(), GOOGLEBOOKS_API_KEY) }
+}
+val prodModules = listOf(commonModule, goodreadsModule, googleBooksModule)
+val testModules = listOf(testCommonModule, goodreadsModule, googleBooksModule)

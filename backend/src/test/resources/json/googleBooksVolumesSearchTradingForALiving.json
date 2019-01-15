@@ -1,0 +1,78 @@
+{
+  "kind": "books#volumes",
+  "totalItems": 1,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "rB2mIvrHLxMC",
+      "etag": "rhS36jzNaAE",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/rB2mIvrHLxMC",
+      "volumeInfo": {
+        "title": "Trading for a Living",
+        "subtitle": "Psychology, Trading Tactics, Money Management",
+        "authors": [
+          "Alexander Elder"
+        ],
+        "publisher": "John Wiley & Sons",
+        "publishedDate": "1993-03-22",
+        "description": "Trading for a Living Successful trading is based on three M's: Mind, Method, and Money. Trading for a Living helps you master all of those three areas: * How to become a cool, calm, and collected trader * How to profit from reading the behavior of the market crowd * How to use a computer to find good trades * How to develop a powerful trading system * How to find the trades with the best odds of success * How to find entry and exit points, set stops, and take profits Trading for a Living helps you discipline your Mind, shows you the Methods for trading the markets, and shows you how to manage Money in your trading accounts so that no string of losses can kick you out of the game. To help you profit even more from the ideas in Trading for a Living, look for the companion volume--Study Guide for Trading for a Living. It asks over 200 multiple-choice questions, with answers and 11 rating scales for sharpening your trading skills. For example: Question Markets rise when * there are more buyers than sellers * buyers are more aggressive than sellers * sellers are afraid and demand a premium * more shares or contracts are bought than sold * I and II * II and III * II and IV * III and IV Answer B. II and III. Every change in price reflects what happens in the battle between bulls and bears. Markets rise when bulls feel more strongly than bears. They rally when buyers are confident and sellers demand a premium for participating in the game that is going against them. There is a buyer and a seller behind every transaction. The number of stocks or futures bought and sold is equal by definition.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "0471592242"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780471592242"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 304,
+        "printType": "BOOK",
+        "categories": [
+          "Business & Economics"
+        ],
+        "averageRating": 3.5,
+        "ratingsCount": 23,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.0.0.0.preview.1",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=rB2mIvrHLxMC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=rB2mIvrHLxMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.pl/books?id=rB2mIvrHLxMC&printsec=frontcover&dq=isbn:0471592242&hl=&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.pl/books?id=rB2mIvrHLxMC&dq=isbn:0471592242&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Trading_for_a_Living.html?hl=&id=rB2mIvrHLxMC"
+      },
+      "saleInfo": {
+        "country": "PL",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "PL",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=rB2mIvrHLxMC&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "With this book, you are on your way to mastering a new way of trading stocks, futures, currencies, and options. Dr. Alexander Elder helps you embark on an intense pursuit—trading for a living."
+      }
+    }
+  ]
+}

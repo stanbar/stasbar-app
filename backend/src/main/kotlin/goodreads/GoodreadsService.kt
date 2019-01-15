@@ -30,6 +30,7 @@ import com.stasbar.app.models.Quote
 import kotlinx.coroutines.*
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import mu.KotlinLogging
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
 import retrofit2.http.GET
@@ -68,8 +69,9 @@ interface GoodreadsService {
   ): Deferred<GoodreadsSearchBookResponse>
 }
 
-class GoodreadsApi(private val baseUrl: String, private val service: GoodreadsService) {
 
+class GoodreadsApi(private val baseUrl: String, private val service: GoodreadsService) {
+  val logger = KotlinLogging.logger {}
   suspend fun getAllReviews(): List<GoodreadsReview> {
     val perPage = 50
     val initialResponse = getAllBooks(

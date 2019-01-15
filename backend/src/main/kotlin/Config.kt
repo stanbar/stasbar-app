@@ -44,6 +44,7 @@ object Config {
 
   val GOODREADS_API_KEY: String = props.getProperty("GOODREADS_API_KEY")
   val GOODREADS_USER_ID: String = props.getProperty("GOODREADS_USER_ID")
+  val GOOGLEBOOKS_API_KEY: String = props.getProperty("GOOGLEBOOKS_API_KEY")
   val DATABASE_USER: String = props.getProperty("DATABASE_USER")
   val DATABASE_PASSWORD: String = props.getProperty("DATABASE_PASSWORD")
 

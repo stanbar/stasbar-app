@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Stanislaw stasbar Baranski
+ * Copyright 2019 Stanislaw Baranski @stasbar
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@
  *            stasbar@stasbar.com
  */
 
-package goodreads
+package googlebooks
 
 import com.stasbar.app.di.testModules
-import com.stasbar.app.goodreads.GoodreadsApi
+import com.stasbar.app.googlebooks.GoogleBooksApi
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
@@ -35,33 +35,37 @@ import org.koin.standalone.StandAloneContext.startKoin
 import org.koin.standalone.StandAloneContext.stopKoin
 import org.koin.standalone.inject
 import org.koin.test.KoinTest
-import kotlin.test.assertTrue
+import kotlin.test.assertEquals
+import kotlin.test.assertNotNull
 
-class GoodreadsApiTest : KoinTest {
-    private val goodreadsApi: GoodreadsApi by inject()
+class GoogleBooksApiTest : KoinTest {
+  private val googleBooksApi: GoogleBooksApi by inject()
 
-    @Before
-    fun setUp() {
-      startKoin(testModules, properties = KoinProperties(useKoinPropertiesFile = true))
-    }
+  @Before
+  fun setUp() {
+    startKoin(testModules, properties = KoinProperties(useKoinPropertiesFile = true))
+  }
 
 
-    @After
-    fun tearDown() {
-        stopKoin()
-    }
+  @After
+  fun tearDown() {
+    stopKoin()
+  }
 
-    @Test
-    fun getAllReviews() {
-        runBlocking {
-            assertTrue(goodreadsApi.getAllReviews().size >= 167)
-        }
-    }
+  @Test
+  fun getBookByIsbn() = runBlocking<Unit> {
+    val response = googleBooksApi.getBookByIsbn("0471592242").await()
 
-    @Test
-    fun getAllQuotes() {
-        runBlocking {
-            assertTrue(goodreadsApi.getAllQuotes().size >= 71)
-        }
-    }
+    assertNotNull(response.items)
+    val thumbnail = response.items!![0].volumeInfo!!.imageLinks!!.thumbnail!!
+    assertEquals(
+      thumbnail,
+      "http://books.google.com/books/content?id=rB2mIvrHLxMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    )
+    val smallThumbnail = response.items!![0].volumeInfo!!.imageLinks!!.smallThumbnail!!
+    assertEquals(
+      smallThumbnail,
+      "http://books.google.com/books/content?id=rB2mIvrHLxMC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"
+    )
+  }
 }
