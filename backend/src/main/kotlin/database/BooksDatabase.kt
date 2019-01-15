@@ -28,7 +28,7 @@ import com.stasbar.app.models.Book
 import com.stasbar.app.models.Quote
 
 interface BooksDatabase {
-  suspend fun getAllQuotes(): List<Quote>
+  suspend fun getAllQuotes(limit: Int): List<Quote>
   suspend fun getAllBooks(): List<Book>
   suspend fun insertOrUpdateBooks(books: List<Book>)
   suspend fun insertOrUpdateQuotes(quotes: List<Quote>)

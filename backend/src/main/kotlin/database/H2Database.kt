@@ -149,9 +149,11 @@ class H2Database(poolSize: Int, jdbcConnectionUrl: String, username: String, pas
    * Quotes
    */
 
-  override suspend fun getAllQuotes(): List<Quote> = withContext(dispatcher) {
+  override suspend fun getAllQuotes(limit: Int): List<Quote> = withContext(dispatcher) {
     transaction {
       (Quotes leftJoin Books).selectAll()
+        .orderBy(Quotes.position to true)
+        .limit(limit)
         .also { println("selected ${it.count()} quotes") }
         .map {
 
@@ -189,6 +191,7 @@ class H2Database(poolSize: Int, jdbcConnectionUrl: String, username: String, pas
     Quotes.update({ Quotes.hash eq quote.hash }) {
       it[text] = quote.text
       it[author] = quote.author
+      it[position] = quote.position
       it[bookHash] = book?.hash
     }
   }
@@ -200,6 +203,7 @@ class H2Database(poolSize: Int, jdbcConnectionUrl: String, username: String, pas
       it[hash] = quote.hash
       it[text] = quote.text
       it[author] = quote.author
+      it[position] = quote.position
       it[bookHash] = book?.hash
     }
   }

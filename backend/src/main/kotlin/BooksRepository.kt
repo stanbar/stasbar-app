@@ -45,7 +45,7 @@ class BooksRepository(
   private val googleBooksApi: GoogleBooksApi,
   private val database: BooksDatabase
 ) {
-  suspend fun getAllQuotes() = database.getAllQuotes()
+  suspend fun getAllQuotes(limit: Int = -1) = database.getAllQuotes(limit)
   suspend fun getAllBooks() = database.getAllBooks()
   suspend fun getBooksFromShelf(shelf: String) = database.getBooksFromShelf(shelf)
 

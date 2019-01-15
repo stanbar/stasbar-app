@@ -71,6 +71,10 @@ fun Application.module() {
           ul {
             li {
               a(href = "/api/fetchGoodreads") { +"Fetch Goodreads" }
+              ul {
+                li { a(href = "/api/fetchBooks") { +"Fetch Books" } }
+                li { a(href = "/api/fetchQuotes") { +"Fetch Quotes" } }
+              }
             }
             li {
               a(href = "/api/quotes") { +"Quotes" }
@@ -86,10 +90,22 @@ fun Application.module() {
       get("/fetchGoodreads") {
         booksRepository.fetchAllBooks()
         booksRepository.fetchAllQuotes()
-        call.respond("OK")
+        call.respond("Done")
+      }
+      get("/fetchBooks") {
+        booksRepository.fetchAllBooks()
+        call.respond("Done")
+      }
+      get("/fetchQuotes") {
+        booksRepository.fetchAllQuotes()
+        call.respond("Done")
       }
       get("/quotes") {
-        call.respond(booksRepository.getAllQuotes())
+        val limit = call.parameters["limit"]?.toIntOrNull()
+        if (limit != null)
+          call.respond(booksRepository.getAllQuotes(limit))
+        else
+          call.respond(booksRepository.getAllQuotes())
       }
       get("/books") {
         val shelf = call.parameters["shelf"]
@@ -105,4 +121,3 @@ fun Application.module() {
     }
   }
 }
-

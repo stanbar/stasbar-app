@@ -114,6 +114,12 @@ class GoodreadsApi(private val baseUrl: String, private val service: GoodreadsSe
   }
 
   private suspend fun mapElementToQuote(quoteElement: Element): Quote {
+    val position = quoteElement.parent()
+      .selectFirst(".leftAlignedImage")
+      .ownText()
+      .substring(1)
+      .toInt()
+
     val authorName = quoteElement.selectFirst(".authorOrTitle").ownText().substringBeforeLast(",")
     val bookTitle = quoteElement
       .selectFirst("[id^=quote_book_link]")
@@ -129,7 +135,8 @@ class GoodreadsApi(private val baseUrl: String, private val service: GoodreadsSe
     return Quote(
       text = content,
       author = authorName,
-      book = book
+      book = book,
+      position = position
     )
   }
 

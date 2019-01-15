@@ -32,18 +32,21 @@ object Quotes : Table() {
   val hash = varchar("hash", 32).primaryKey()
   val text = text("text")
   val author = varchar("author", 64)
+  val position = integer("position")
   val bookHash = (varchar("bookHash", 32) references Books.hash).nullable()
 }
 
 fun ResultRow.toQuote(books: List<Shelf>) = Quote(
   text = get(Quotes.text),
   author = get(Quotes.author),
+  position = get(Quotes.position),
   book = if (hasValue(Books.rating) && this.tryGet(Books.rating) != null) toBook(books) else null
 )
 
 data class Quote(
   val text: String,
   val author: String,
+  val position: Int,
   val book: Book? = null
 ) {
   val hash: String = DigestUtils.md5Hex(text)

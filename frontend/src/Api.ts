@@ -66,7 +66,7 @@ export default {
   },
   async fetchFeaturedQuotes() {
     console.log(`fetching quotes`);
-    const response = await fetch(serverHttpUrl + "/api/quotes");
+    const response = await fetch(serverHttpUrl + "/api/quotes?limit=10");
     if (response.ok) {
       return await response.json();
     } else {

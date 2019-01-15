@@ -24,9 +24,11 @@
 
 package goodreads
 
+import com.stasbar.app.Config
 import com.stasbar.app.di.testModules
 import com.stasbar.app.goodreads.GoodreadsApi
 import kotlinx.coroutines.runBlocking
+import org.jsoup.Jsoup
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -38,30 +40,54 @@ import org.koin.test.KoinTest
 import kotlin.test.assertTrue
 
 class GoodreadsApiTest : KoinTest {
-    private val goodreadsApi: GoodreadsApi by inject()
+  private val goodreadsApi: GoodreadsApi by inject()
 
-    @Before
-    fun setUp() {
-      startKoin(testModules, properties = KoinProperties(useKoinPropertiesFile = true))
+  @Before
+  fun setUp() {
+    startKoin(testModules, properties = KoinProperties(useKoinPropertiesFile = true))
+  }
+
+
+  @After
+  fun tearDown() {
+    stopKoin()
+  }
+
+  @Test
+  fun getAllReviews() {
+    runBlocking {
+      assertTrue(goodreadsApi.getAllReviews().size >= 167)
     }
+  }
 
-
-    @After
-    fun tearDown() {
-        stopKoin()
+  @Test
+  fun getAllQuotes() {
+    runBlocking {
+      assertTrue(goodreadsApi.getAllQuotes().size >= 71)
     }
+  }
 
-    @Test
-    fun getAllReviews() {
-        runBlocking {
-            assertTrue(goodreadsApi.getAllReviews().size >= 167)
-        }
-    }
+  @Test
+  fun `extract quotes from website`() {
+    val url =
+      "https://www.goodreads.com/quotes/list?key=${Config.GOODREADS_API_KEY}&v=2&id=${Config.GOODREADS_USER_ID}&page=1"
+    println(url)
+    val doc = Jsoup.connect(url).get()
 
-    @Test
-    fun getAllQuotes() {
-        runBlocking {
-            assertTrue(goodreadsApi.getAllQuotes().size >= 71)
-        }
+    val quotes = doc.select(".quoteText")
+    println("found ${quotes.size} quotes")
+
+    quotes.forEach { it ->
+      val parent = it.parent()
+
+      val position = parent
+        .selectFirst(".leftAlignedImage")
+        .ownText().substring(1)
+      println("[$position] ")
+
+
     }
+  }
+
+
 }
