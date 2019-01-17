@@ -26,8 +26,6 @@ package com.stasbar.app.di
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.stasbar.app.BooksRepository
-import com.stasbar.app.Config
-import com.stasbar.app.Config.GOOGLEBOOKS_API_KEY
 import com.stasbar.app.database.BooksDatabase
 import com.stasbar.app.database.H2Database
 import com.stasbar.app.goodreads.GoodreadsApi
@@ -62,8 +60,8 @@ val commonModule = module {
     H2Database(
       getProperty("db_thread_pool", 4),
       getProperty("jdbc_connection_url", "jdbc:h2:file:./.database/stasbarapp"),
-      Config.DATABASE_USER,
-      Config.DATABASE_PASSWORD
+      getProperty("DATABASE_USER"),
+      getProperty("DATABASE_PASSWORD")
     )
   }
 }
@@ -78,7 +76,14 @@ val goodreadsModule = module {
       .create(GoodreadsService::class.java)
   }
 
-  single { GoodreadsApi(getProperty("goodreads_base_url"), get()) }
+  single {
+    GoodreadsApi(
+      get(),
+      getProperty("goodreads_base_url"),
+      getProperty("GOODREADS_USER_ID"),
+      getProperty("GOODREADS_API_KEY")
+    )
+  }
   single { BooksRepository(get(), get(), get()) }
 }
 
@@ -92,7 +97,12 @@ val googleBooksModule = module {
       .build()
       .create(GoogleBooksService::class.java)
   }
-  single { GoogleBooksApi(get(), GOOGLEBOOKS_API_KEY) }
+  single {
+    System.getenv().forEach { t, u ->
+      println("$t -> $u")
+    }
+    GoogleBooksApi(get(), getProperty("GOOGLEBOOKS_API_KEY"))
+  }
 }
 val prodModules = listOf(commonModule, goodreadsModule, googleBooksModule)
 val testModules = listOf(testCommonModule, goodreadsModule, googleBooksModule)

@@ -22,7 +22,7 @@
  *            stasbar@stasbar.com
  */
 
-package com.stasbar.app
+package goodreads
 
 
 import com.stasbar.app.goodreads.*
@@ -32,59 +32,59 @@ import kotlin.test.assertEquals
 
 
 class JAXBParserTest {
-    val dateformat = SimpleDateFormat("EEE MMM dd HH:mm:ss Z YYYY")
+  val dateformat = SimpleDateFormat("EEE MMM dd HH:mm:ss Z YYYY")
 
-    private val exampleBook = GoodreadsBook().apply {
-        id = GoodreadsInt(3028)
-        isbn = "0517548233"
-        isbn13 = "9780517548233"
-        reviewsCount = GoodreadsInt(840)
-        uri = "kca://book/amzn1.gr.book.v1.Z3Z_wYLn5VGxl4WoxZa8_Q"
-        title = "Economics in One Lesson: The Shortest  Surest Way to Understand Basic Economics"
-        titleWithoutSeries = "Economics in One Lesson: The Shortest  Surest Way to Understand Basic\nEconomics"
-        imageUrl = "https://images.gr-assets.com/books/1320423284m/3028.jpg"
-        smallImageUrl = "https://images.gr-assets.com/books/1320423284s/3028.jpg"
-        largeImageUrl = ""
-        link = "https://www.goodreads.com/book/show/3028.Economics_in_One_Lesson"
-        numPages = 218
-        format = "Paperback"
-        editionInformation = ""
-        publisher = "Three Rivers Press"
-        publicationDay = 0
-        publicationYear = 1979
-        publicationMonth = 0
-        averageRating = 4.21
-        ratingsCount = 12163
-        published = "1979"
-        description = """
+  private val exampleBook = GoodreadsBook().apply {
+    id = GoodreadsInt(3028)
+    isbn = "0517548233"
+    isbn13 = "9780517548233"
+    reviewsCount = GoodreadsInt(840)
+    uri = "kca://book/amzn1.gr.book.v1.Z3Z_wYLn5VGxl4WoxZa8_Q"
+    title = "Economics in One Lesson: The Shortest  Surest Way to Understand Basic Economics"
+    titleWithoutSeries = "Economics in One Lesson: The Shortest  Surest Way to Understand Basic\nEconomics"
+    imageUrl = "https://images.gr-assets.com/books/1320423284m/3028.jpg"
+    smallImageUrl = "https://images.gr-assets.com/books/1320423284s/3028.jpg"
+    largeImageUrl = ""
+    link = "https://www.goodreads.com/book/show/3028.Economics_in_One_Lesson"
+    numPages = 218
+    format = "Paperback"
+    editionInformation = ""
+    publisher = "Three Rivers Press"
+    publicationDay = 0
+    publicationYear = 1979
+    publicationMonth = 0
+    averageRating = 4.21
+    ratingsCount = 12163
+    published = "1979"
+    description = """
             A million copy seller Henry Hazlitt’s ltigtEconomics in One Lessonlt/igt is a
                     classic economic primer. But it is also much more having become a fundamental influence on modern
                     “libertarian” economics of the type espoused by Ron Paul and others.ltbr /gtltbr /gtConsidered
                     among the leading economic thinkers of the “Austrian School” which includes Carl Menger Ludwig von
                     Mises Friedrich (F.A.) Hayek and others Henry Hazlitt (1894-1993) was a libertarian philosopher
             """.trimIndent()
-        authors = listOf(
-            GoodreadsAuthor().apply {
-                id = "2062"
-                name = "Henry Hazlitt"
-                role = ""
-                imageUrl =
-                        GoodreadsImageUrl("https://images.gr-assets.com/authors/1243288736p5/2062.jpg")
-                smallImageUrl =
-                        GoodreadsImageUrl("https://images.gr-assets.com/authors/1243288736p2/2062.jpg")
-                link = "https://www.goodreads.com/author/show/2062.Henry_Hazlitt"
-                averageRating = 4.21
-                ratingsCount = 13815
-                reviewsCount = "1121"
-            }
-        )
-        work = GoodreadsWork().apply {
-            id = "6894"
-            uri = "kca://work/amzn1.gr.work.v1.cMKjhXFbc6A6-5YJyXqLoQ"
-        }
+    authors = listOf(
+      GoodreadsAuthor().apply {
+        id = "2062"
+        name = "Henry Hazlitt"
+        role = ""
+        imageUrl =
+          GoodreadsImageUrl("https://images.gr-assets.com/authors/1243288736p5/2062.jpg")
+        smallImageUrl =
+          GoodreadsImageUrl("https://images.gr-assets.com/authors/1243288736p2/2062.jpg")
+        link = "https://www.goodreads.com/author/show/2062.Henry_Hazlitt"
+        averageRating = 4.21
+        ratingsCount = 13815
+        reviewsCount = "1121"
+      }
+    )
+    work = GoodreadsWork().apply {
+      id = "6894"
+      uri = "kca://work/amzn1.gr.work.v1.cMKjhXFbc6A6-5YJyXqLoQ"
     }
+  }
 
-    private val xmlExampleBook = """
+  private val xmlExampleBook = """
             <book>
                 <id type="integer">${exampleBook.id.content}</id>
                 <isbn>${exampleBook.isbn}</isbn>
@@ -128,41 +128,41 @@ class JAXBParserTest {
             </book>
         """
 
-    @Test
-    fun xmlBookToKotlin() {
-        val parsedBook :GoodreadsBook = XML.parse(xmlExampleBook)
-        assertEquals(exampleBook, parsedBook)
-    }
+  @Test
+  fun xmlBookToKotlin() {
+    val parsedBook: GoodreadsBook = XML.parse(xmlExampleBook)
+    assertEquals(exampleBook, parsedBook)
+  }
 
 
-    private val exampleReview = GoodreadsReview().apply {
-        id = "2634851867"
-        rating = 0
-        votes = 0
-        spoilerFlag = false
-        spoilersState = "none"
-        recommendedFor = ""
-        recommendedBy = ""
-        startedAt = ""
-        readAt = ""
-        dateAdded = "Sat Dec 22 08:36:38 -0800 2018"
-        dateUpdated = "Sat Dec 22 08:36:38 -0800 2018"
-        readCount = 0
-        body = ""
-        commentsCount = 0
-        url = "https://www.goodreads.com/review/show/2634851867"
-        link = "https://www.goodreads.com/review/show/2634851867"
-        owned = 0
-        shelves = listOf(GoodreadsShelf().apply {
-            this.exclusive = true
-            this.id = "183390186"
-            name = "to-read"
-            reviewShelfId = "2280164511"
-            sortable = true
-        })
-        this.book = exampleBook
-    }
-    private val xmlExampleReviewContent = """
+  private val exampleReview = GoodreadsReview().apply {
+    id = "2634851867"
+    rating = 0
+    votes = 0
+    spoilerFlag = false
+    spoilersState = "none"
+    recommendedFor = ""
+    recommendedBy = ""
+    startedAt = ""
+    readAt = ""
+    dateAdded = "Sat Dec 22 08:36:38 -0800 2018"
+    dateUpdated = "Sat Dec 22 08:36:38 -0800 2018"
+    readCount = 0
+    body = ""
+    commentsCount = 0
+    url = "https://www.goodreads.com/review/show/2634851867"
+    link = "https://www.goodreads.com/review/show/2634851867"
+    owned = 0
+    shelves = listOf(GoodreadsShelf().apply {
+      this.exclusive = true
+      this.id = "183390186"
+      name = "to-read"
+      reviewShelfId = "2280164511"
+      sortable = true
+    })
+    this.book = exampleBook
+  }
+  private val xmlExampleReviewContent = """
         <review>
             <id>${exampleReview.id}</id>
             <rating>${exampleReview.rating}</rating>
@@ -190,37 +190,36 @@ class JAXBParserTest {
         </review>
         """
 
-    @Test
-    fun xmlReviewToKotlin() {
-        val parsedReview: GoodreadsReview = XML.parse(xmlExampleReviewContent)
-        assertEquals(parsedReview, exampleReview)
-    }
+  @Test
+  fun xmlReviewToKotlin() {
+    val parsedReview: GoodreadsReview = XML.parse(xmlExampleReviewContent)
+    assertEquals(parsedReview, exampleReview)
+  }
 
-    @Test
-    fun xmlResponseToKotlin() {
-        val response = GoodreadsResponse().apply {
-            Request = GoodreadsRequest().apply {
-                authentication = true
-                key = Config.GOODREADS_API_KEY
-                method = "review_list"
-            }
-            shelf = null
-            reviews = GoodreadsReviews().apply {
-                reviews = listOf(
-                    exampleReview,
-                    exampleReview,
-                    exampleReview
-                )
-                start = 1
-                end = reviews.size
-                total = 20
-            }
-        }
-        val responeContent = """
+
+  @Test
+  fun xmlResponseToKotlin() {
+    val response = GoodreadsResponse().apply {
+      Request = GoodreadsRequest().apply {
+        authentication = true
+        method = "review_list"
+      }
+      shelf = null
+      reviews = GoodreadsReviews().apply {
+        reviews = listOf(
+          exampleReview,
+          exampleReview,
+          exampleReview
+        )
+        start = 1
+        end = reviews.size
+        total = 20
+      }
+    }
+    val responeContent = """
         <GoodreadsResponse>
             <Request>
                 <authentication>${response.Request.authentication}</authentication>
-                <key><![CDATA[${response.Request.key}]]></key>
                 <method><![CDATA[${response.Request.method}]]></method>
             </Request>
 
@@ -232,8 +231,8 @@ class JAXBParserTest {
         </GoodreadsResponse>
         """
 
-        val parsedResponse: GoodreadsResponse = XML.parse(responeContent)
-        println(XML.stringify(parsedResponse))
-        assertEquals(response, parsedResponse)
-    }
+    val parsedResponse: GoodreadsResponse = XML.parse(responeContent)
+    println(XML.stringify(parsedResponse))
+    assertEquals(response, parsedResponse)
+  }
 }

@@ -24,7 +24,6 @@
 
 package goodreads
 
-import com.stasbar.app.Config
 import com.stasbar.app.di.testModules
 import com.stasbar.app.goodreads.GoodreadsApi
 import kotlinx.coroutines.runBlocking
@@ -35,16 +34,19 @@ import org.junit.Test
 import org.koin.core.KoinProperties
 import org.koin.standalone.StandAloneContext.startKoin
 import org.koin.standalone.StandAloneContext.stopKoin
+import org.koin.standalone.getProperty
 import org.koin.standalone.inject
 import org.koin.test.KoinTest
 import kotlin.test.assertTrue
 
 class GoodreadsApiTest : KoinTest {
   private val goodreadsApi: GoodreadsApi by inject()
+  private val goodReadsApiKey: String by lazy { getProperty<String>("GOODREADS_API_KEY") }
+  private val goodReadsUserId: String by lazy { getProperty<String>("GOODREADS_USER_ID") }
 
   @Before
   fun setUp() {
-    startKoin(testModules, properties = KoinProperties(useKoinPropertiesFile = true))
+    startKoin(testModules, properties = KoinProperties(useKoinPropertiesFile = true, useEnvironmentProperties = true))
   }
 
 
@@ -70,7 +72,7 @@ class GoodreadsApiTest : KoinTest {
   @Test
   fun `extract quotes from website`() {
     val url =
-      "https://www.goodreads.com/quotes/list?key=${Config.GOODREADS_API_KEY}&v=2&id=${Config.GOODREADS_USER_ID}&page=1"
+      "https://www.goodreads.com/quotes/list?key=$goodReadsApiKey&v=2&id=$goodReadsUserId&page=1"
     println(url)
     val doc = Jsoup.connect(url).get()
 

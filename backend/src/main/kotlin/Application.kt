@@ -49,7 +49,7 @@ fun main(args: Array<String>) = io.ktor.server.netty.EngineMain.main(args)
 private val logger = KotlinLogging.logger {}
 @Suppress("unused") // Referenced in application.conf
 fun Application.module() {
-  installKoin(prodModules, KoinProperties(useKoinPropertiesFile = true))
+  installKoin(prodModules, KoinProperties(useKoinPropertiesFile = true, useEnvironmentProperties = true))
   install(DefaultHeaders)
   install(CallLogging)
   install(ContentNegotiation) {

@@ -24,7 +24,6 @@
 
 package com.stasbar.app.goodreads
 
-import com.stasbar.app.Config
 import com.stasbar.app.models.Book
 import com.stasbar.app.models.Quote
 import kotlinx.coroutines.*
@@ -70,12 +69,17 @@ interface GoodreadsService {
 }
 
 
-class GoodreadsApi(private val baseUrl: String, private val service: GoodreadsService) {
+class GoodreadsApi(
+  private val service: GoodreadsService,
+  private val baseUrl: String,
+  private val goodReadsUserId: String,
+  private val goodreadsApiKey: String
+) {
   val logger = KotlinLogging.logger {}
   suspend fun getAllReviews(): List<GoodreadsReview> {
     val perPage = 50
     val initialResponse = getAllBooks(
-      id = Config.GOODREADS_USER_ID,
+      id = goodReadsUserId,
       perPage = perPage
     ).await()
 
@@ -84,7 +88,7 @@ class GoodreadsApi(private val baseUrl: String, private val service: GoodreadsSe
     val pages = Math.ceil(booksRemaining.toDouble() / perPage.toDouble())
     return List(pages.toInt()) { page ->
       getAllBooks(
-        id = Config.GOODREADS_USER_ID,
+        id = goodReadsUserId,
         perPage = perPage,
         page = page + 2
       )
@@ -99,7 +103,7 @@ class GoodreadsApi(private val baseUrl: String, private val service: GoodreadsSe
     List(pages) { page ->
       async(Dispatchers.IO) {
         val doc =
-          Jsoup.connect("$baseUrl/quotes/list?key=${Config.GOODREADS_API_KEY}&v=2&id=${Config.GOODREADS_USER_ID}&page=${page + 1}")
+          Jsoup.connect("$baseUrl/quotes/list?key=$goodreadsApiKey&v=2&id=${goodReadsUserId}&page=${page + 1}")
             .get()
 
         val quotes = doc.select(".quoteText")
@@ -149,14 +153,14 @@ class GoodreadsApi(private val baseUrl: String, private val service: GoodreadsSe
     page: Int? = null,
     perPage: Int? = null
   ) = oncePerSecond {
-    service.getAllBooks(id, Config.GOODREADS_API_KEY, shelf, sort, order, search, page, perPage)
+    service.getAllBooks(id, goodreadsApiKey, shelf, sort, order, search, page, perPage)
   }
 
   private suspend fun findBooksByTitleOrIsbn(
     titleOrIsbn: String,
     field: String? = null
   ) = oncePerSecond {
-    service.findBooksByTitleOrIsbn(titleOrIsbn, field, Config.GOODREADS_API_KEY)
+    service.findBooksByTitleOrIsbn(titleOrIsbn, field, goodreadsApiKey)
   }
 
   private val alreadyFoundBooks = mutableMapOf<String, Book?>()

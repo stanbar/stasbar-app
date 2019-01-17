@@ -43,7 +43,7 @@ class GoogleBooksApiTest : KoinTest {
 
   @Before
   fun setUp() {
-    startKoin(testModules, properties = KoinProperties(useKoinPropertiesFile = true))
+    startKoin(testModules, properties = KoinProperties(useKoinPropertiesFile = true, useEnvironmentProperties = true))
   }
 
 
