@@ -128,6 +128,7 @@ fun Application.module() {
       resource("index.html")
       resource("manifest.json")
       resource("asset-manifest.json")
+      resource("precache-manifest.dda713ef7b7da8071a67b9f0dfb5a4f8.js")
       resource("service-worker.js")
       defaultResource("index.html")
     }
@@ -138,6 +139,7 @@ fun Application.module() {
       resource("index.html")
       resource("manifest.json")
       resource("asset-manifest.json")
+      resource("precache-manifest.dda713ef7b7da8071a67b9f0dfb5a4f8.js")
       resource("service-worker.js")
       defaultResource("index.html")
     }
