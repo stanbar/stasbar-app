@@ -24,7 +24,10 @@
 
 package com.stasbar.app.database
 
-import com.stasbar.app.models.*
+import com.stasbar.app.database.models.*
+import com.stasbar.app.models.Book
+import com.stasbar.app.models.Quote
+import com.stasbar.app.models.Shelf
 import kotlinx.coroutines.ExecutorCoroutineDispatcher
 import kotlinx.coroutines.asCoroutineDispatcher
 import kotlinx.coroutines.runBlocking

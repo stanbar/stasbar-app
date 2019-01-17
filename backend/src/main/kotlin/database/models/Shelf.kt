@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Stanislaw stasbar Baranski
+ * Copyright 2019 Stanislaw Baranski @stasbar
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,32 +22,22 @@
  *            stasbar@stasbar.com
  */
 
-package com.stasbar.app.models
+package com.stasbar.app.database.models
 
-import org.apache.commons.codec.digest.DigestUtils
+import com.stasbar.app.models.Shelf
+import org.jetbrains.exposed.dao.IntIdTable
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.Table
 
-object Quotes : Table() {
-  val hash = varchar("hash", 32).primaryKey()
-  val text = text("text")
-  val author = varchar("author", 64)
-  val position = integer("position")
-  val bookHash = (varchar("bookHash", 32) references Books.hash).nullable()
+object Shelves : IntIdTable() {
+  val value = varchar("value", 32)
 }
 
-fun ResultRow.toQuote(books: List<Shelf>) = Quote(
-  text = get(Quotes.text),
-  author = get(Quotes.author),
-  position = get(Quotes.position),
-  book = if (hasValue(Books.rating) && this.tryGet(Books.rating) != null) toBook(books) else null
+fun ResultRow.toShelf() = Shelf(
+  value = get(Shelves.value)
 )
 
-data class Quote(
-  val text: String,
-  val author: String,
-  val position: Int,
-  val book: Book? = null
-) {
-  val hash: String = DigestUtils.md5Hex(text)
+object BookShelves : Table() {
+  val shelf = reference("shelf", Shelves).primaryKey(0)
+  val book = reference("bookHash", Books.hash).primaryKey(1)
 }

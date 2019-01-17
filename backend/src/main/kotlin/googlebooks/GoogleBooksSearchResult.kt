@@ -24,146 +24,146 @@
 
 package googlebooks
 
+import com.squareup.moshi.Json
 
-import com.google.gson.annotations.SerializedName
 
 class GoogleBooksSearchResult {
-  @SerializedName("kind")
+  @Json(name = "kind")
   var kind: String? = null
-  @SerializedName("totalItems")
+  @Json(name = "totalItems")
   var totalItems: Int? = null
-  @SerializedName("items")
+  @Json(name = "items")
   var items: List<Item>? = null
 }
 
 class AccessInfo {
-  @SerializedName("country")
+  @Json(name = "country")
   var country: String? = null
-  @SerializedName("viewability")
+  @Json(name = "viewability")
   var viewability: String? = null
-  @SerializedName("embeddable")
+  @Json(name = "embeddable")
   var embeddable: Boolean? = null
-  @SerializedName("publicDomain")
+  @Json(name = "publicDomain")
   var publicDomain: Boolean? = null
-  @SerializedName("textToSpeechPermission")
+  @Json(name = "textToSpeechPermission")
   var textToSpeechPermission: String? = null
-  @SerializedName("epub")
+  @Json(name = "epub")
   var epub: Epub? = null
-  @SerializedName("pdf")
+  @Json(name = "pdf")
   var pdf: Pdf? = null
-  @SerializedName("webReaderLink")
+  @Json(name = "webReaderLink")
   var webReaderLink: String? = null
-  @SerializedName("accessViewStatus")
+  @Json(name = "accessViewStatus")
   var accessViewStatus: String? = null
-  @SerializedName("quoteSharingAllowed")
+  @Json(name = "quoteSharingAllowed")
   var quoteSharingAllowed: Boolean? = null
 }
 
 class Epub {
-  @SerializedName("isAvailable")
+  @Json(name = "isAvailable")
   var isAvailable: Boolean? = null
 }
 
 class ImageLinks {
-  @SerializedName("smallThumbnail")
+  @Json(name = "smallThumbnail")
   var smallThumbnail: String? = null
-  @SerializedName("thumbnail")
+  @Json(name = "thumbnail")
   var thumbnail: String? = null
 }
 
 class IndustryIdentifier {
-  @SerializedName("type")
+  @Json(name = "type")
   var type: String? = null
-  @SerializedName("identifier")
+  @Json(name = "identifier")
   var identifier: String? = null
 }
 
 class Item {
-  @SerializedName("kind")
+  @Json(name = "kind")
   var kind: String? = null
-  @SerializedName("id")
+  @Json(name = "id")
   var id: String? = null
-  @SerializedName("etag")
+  @Json(name = "etag")
   var etag: String? = null
-  @SerializedName("selfLink")
+  @Json(name = "selfLink")
   var selfLink: String? = null
-  @SerializedName("volumeInfo")
+  @Json(name = "volumeInfo")
   var volumeInfo: VolumeInfo? = null
-  @SerializedName("saleInfo")
+  @Json(name = "saleInfo")
   var saleInfo: SaleInfo? = null
-  @SerializedName("accessInfo")
+  @Json(name = "accessInfo")
   var accessInfo: AccessInfo? = null
-  @SerializedName("searchInfo")
+  @Json(name = "searchInfo")
   var searchInfo: SearchInfo? = null
 }
 
 class Pdf {
-  @SerializedName("isAvailable")
+  @Json(name = "isAvailable")
   var isAvailable: Boolean? = null
 }
 
 class ReadingModes {
-  @SerializedName("text")
+  @Json(name = "text")
   var text: Boolean? = null
-  @SerializedName("image")
+  @Json(name = "image")
   var image: Boolean? = null
 }
 
 class SaleInfo {
-  @SerializedName("country")
+  @Json(name = "country")
   var country: String? = null
-  @SerializedName("saleability")
+  @Json(name = "saleability")
   var saleability: String? = null
-  @SerializedName("isEbook")
+  @Json(name = "isEbook")
   var isEbook: Boolean? = null
 }
 
 class SearchInfo {
-  @SerializedName("textSnippet")
+  @Json(name = "textSnippet")
   var textSnippet: String? = null
 }
 
 class VolumeInfo {
-  @SerializedName("title")
+  @Json(name = "title")
   var title: String? = null
-  @SerializedName("subtitle")
+  @Json(name = "subtitle")
   var subtitle: String? = null
-  @SerializedName("authors")
+  @Json(name = "authors")
   var authors: List<String>? = null
-  @SerializedName("publisher")
+  @Json(name = "publisher")
   var publisher: String? = null
-  @SerializedName("publishedDate")
+  @Json(name = "publishedDate")
   var publishedDate: String? = null
-  @SerializedName("description")
+  @Json(name = "description")
   var description: String? = null
-  @SerializedName("industryIdentifiers")
+  @Json(name = "industryIdentifiers")
   var industryIdentifiers: List<IndustryIdentifier>? = null
-  @SerializedName("readingModes")
+  @Json(name = "readingModes")
   var readingModes: ReadingModes? = null
-  @SerializedName("pageCount")
+  @Json(name = "pageCount")
   var pageCount: Int? = null
-  @SerializedName("printType")
+  @Json(name = "printType")
   var printType: String? = null
-  @SerializedName("categories")
+  @Json(name = "categories")
   var categories: List<String>? = null
-  @SerializedName("averageRating")
+  @Json(name = "averageRating")
   var averageRating: Double? = null
-  @SerializedName("ratingsCount")
+  @Json(name = "ratingsCount")
   var ratingsCount: Int? = null
-  @SerializedName("maturityRating")
+  @Json(name = "maturityRating")
   var maturityRating: String? = null
-  @SerializedName("allowAnonLogging")
+  @Json(name = "allowAnonLogging")
   var allowAnonLogging: Boolean? = null
-  @SerializedName("contentVersion")
+  @Json(name = "contentVersion")
   var contentVersion: String? = null
-  @SerializedName("imageLinks")
+  @Json(name = "imageLinks")
   var imageLinks: ImageLinks? = null
-  @SerializedName("language")
+  @Json(name = "language")
   var language: String? = null
-  @SerializedName("previewLink")
+  @Json(name = "previewLink")
   var previewLink: String? = null
-  @SerializedName("infoLink")
+  @Json(name = "infoLink")
   var infoLink: String? = null
-  @SerializedName("canonicalVolumeLink")
+  @Json(name = "canonicalVolumeLink")
   var canonicalVolumeLink: String? = null
 }
