@@ -2,6 +2,7 @@ apply plugin: 'kotlin'
 //apply plugin: 'application'
 apply plugin: 'war'
 apply plugin: 'com.google.cloud.tools.appengine'
+apply plugin: 'com.github.johnrengelman.shadow'
 
 group 'backend'
 version '0.0.1'
@@ -22,9 +23,13 @@ compileTestKotlin.kotlinOptions.jvmTarget = '1.8'
 
 appengine.run.port = 8080
 
-repositories {
-  mavenLocal()
-  jcenter()
+shadowJar {
+  baseName = 'backend'
+  classifier = null
+  version = null
+  manifest {
+    attributes 'Main-Class': 'io.ktor.server.netty.EngineMain'
+  }
 }
 
 dependencies {

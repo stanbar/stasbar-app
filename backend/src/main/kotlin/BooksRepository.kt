@@ -61,9 +61,9 @@ class BooksRepository(
     database.insertOrUpdateBooks(books.awaitAll())
   }
 
-  internal suspend fun connectWithBestBookCover(review: GoodreadsReview): Book {
+  private suspend fun connectWithBestBookCover(review: GoodreadsReview): Book {
     val isbn = review.book.isbn ?: review.book.isbn13
-    val googleBooksCall = googleBooksApi.getBookByIsbn(isbn)
+    val googleBooksCall = lazy { googleBooksApi.getBookByIsbn(isbn) }
     val smallImageUrl = findBestCoverImageAvailable(isbn, "S", googleBooksCall, review)
     val imageUrl = findBestCoverImageAvailable(isbn, "L", googleBooksCall, review)
 
@@ -80,10 +80,10 @@ class BooksRepository(
     )
   }
 
-  internal suspend fun findBestCoverImageAvailable(
+  private suspend fun findBestCoverImageAvailable(
     isbn: String?,
     size: String,
-    googleBooksCall: Deferred<GoogleBooksSearchResult>,
+    googleBooksCall: Lazy<Deferred<GoogleBooksSearchResult>>,
     review: GoodreadsReview
   ): String {
     return try {
@@ -93,7 +93,7 @@ class BooksRepository(
       else throw Exception("Could not find image with this ISBN code")
     } catch (e: Exception) {
       val googleSearchResult = try {
-        googleBooksCall.await()
+        googleBooksCall.value.await()
       } catch (e: HttpException) {
         null
       }

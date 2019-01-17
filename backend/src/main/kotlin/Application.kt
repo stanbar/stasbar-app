@@ -33,6 +33,7 @@ import io.ktor.features.CallLogging
 import io.ktor.features.ContentNegotiation
 import io.ktor.features.DefaultHeaders
 import io.ktor.html.respondHtml
+import io.ktor.http.content.*
 import io.ktor.jackson.jackson
 import io.ktor.response.respond
 import io.ktor.routing.get
@@ -61,32 +62,33 @@ fun Application.module() {
 
   // Registers routes
   routing {
-    get("/") {
-      call.respondHtml {
-        head {
-          title { +"Ktor on Google App Engine Standard" }
-        }
-        body {
-          p { +"Hello there! This is Ktor running on Google Appengine Standard" }
-          ul {
-            li {
-              a(href = "/api/fetchGoodreads") { +"Fetch Goodreads" }
-              ul {
-                li { a(href = "/api/fetchBooks") { +"Fetch Books" } }
-                li { a(href = "/api/fetchQuotes") { +"Fetch Quotes" } }
+
+    route("/api") {
+      get("/") {
+        call.respondHtml {
+          head {
+            title { +"Ktor on Google App Engine Standard" }
+          }
+          body {
+            p { +"Hello there! This is Ktor running on Google Appengine Standard" }
+            ul {
+              li {
+                a(href = "/api/fetchGoodreads") { +"Fetch Goodreads" }
+                ul {
+                  li { a(href = "/api/fetchBooks") { +"Fetch Books" } }
+                  li { a(href = "/api/fetchQuotes") { +"Fetch Quotes" } }
+                }
               }
-            }
-            li {
-              a(href = "/api/quotes") { +"Quotes" }
-            }
-            li {
-              a(href = "/api/books") { +"Books" }
+              li {
+                a(href = "/api/quotes") { +"Quotes" }
+              }
+              li {
+                a(href = "/api/books") { +"Books" }
+              }
             }
           }
         }
       }
-    }
-    route("/api") {
       get("/fetchGoodreads") {
         booksRepository.fetchAllBooks()
         booksRepository.fetchAllQuotes()
@@ -118,6 +120,26 @@ fun Application.module() {
         logger.info("queried ${books.size} books")
         call.respond(books)
       }
+    }
+    static("") {
+      staticBasePackage = "assets"
+      resources("static")
+      resource("favicon.ico")
+      resource("index.html")
+      resource("manifest.json")
+      resource("asset-manifest.json")
+      resource("service-worker.js")
+      defaultResource("index.html")
+    }
+    static("*") {
+      staticBasePackage = "assets"
+      resources("static")
+      resource("favicon.ico")
+      resource("index.html")
+      resource("manifest.json")
+      resource("asset-manifest.json")
+      resource("service-worker.js")
+      defaultResource("index.html")
     }
   }
 }

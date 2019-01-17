@@ -107,8 +107,10 @@ class BestQuotes extends Component<RouteComponentProps & WithStyles<typeof style
           </Grid>
           }
           {quotes.map((quote: Quote) =>
-            <Card className={classes.cardQuote}
-                  component={(props: any) => <Link {...props} to={`${match.url}/${quote.hash}`}/>}>
+            <Card
+              elevation={0}
+              className={classes.cardQuote}
+              component={(props: any) => <Link {...props} to={`${match.url}/${quote.hash}`}/>}>
               <Typography variant="body1">
                 {quote.text} ~{quote.author}
               </Typography>
