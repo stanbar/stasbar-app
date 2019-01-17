@@ -24,7 +24,13 @@
 package database
 
 import com.stasbar.app.database.H2Database
-import com.stasbar.app.models.*
+import com.stasbar.app.database.models.BookShelves
+import com.stasbar.app.database.models.Books
+import com.stasbar.app.database.models.Quotes
+import com.stasbar.app.database.models.Shelves
+import com.stasbar.app.models.Book
+import com.stasbar.app.models.Quote
+import com.stasbar.app.models.Shelf
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.exposed.sql.deleteAll
 import org.jetbrains.exposed.sql.transactions.transaction
