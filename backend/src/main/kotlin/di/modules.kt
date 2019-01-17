@@ -98,9 +98,6 @@ val googleBooksModule = module {
       .create(GoogleBooksService::class.java)
   }
   single {
-    System.getenv().forEach { t, u ->
-      println("$t -> $u")
-    }
     GoogleBooksApi(get(), getProperty("GOOGLEBOOKS_API_KEY"))
   }
 }
