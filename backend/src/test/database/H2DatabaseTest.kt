@@ -49,7 +49,8 @@ class H2DatabaseTest {
   private val the7HabitsQuote = Quote(
     text = "Most people do not listen with the intent to understand; they listen with the intent to reply",
     author = "Stephen R. Covey",
-    book = the7HabitsBook
+    book = the7HabitsBook,
+    position = 1
   )
   private val theOneThingBook = Book(
     title = "The majority of what you want will come from the minority of what you do",
@@ -63,7 +64,9 @@ class H2DatabaseTest {
   private val theOneThingBookQuote = Quote(
     text = "the majority of what you want will come from the minority of what you do",
     author = "Gary Keller",
-    book = theOneThingBook
+    book = theOneThingBook,
+    position = 2
+
   )
 
   @Before
@@ -89,13 +92,13 @@ class H2DatabaseTest {
 
   @Test
   fun `get all quotes`() = runBlocking<Unit> {
-    assertTrue(database.getAllQuotes().isEmpty())
+    assertTrue(database.getAllQuotes(-1).isEmpty())
 
     database.insertOrUpdateQuotes(listOf(the7HabitsQuote))
-    assertEquals(1, database.getAllQuotes().size)
+    assertEquals(1, database.getAllQuotes(-1).size)
 
     database.insertOrUpdateQuotes(listOf(the7HabitsQuote))
-    assertEquals(1, database.getAllQuotes().size)
+    assertEquals(1, database.getAllQuotes(-1).size)
   }
 
   @Test
@@ -109,11 +112,11 @@ class H2DatabaseTest {
   @Test
   fun `insert quote`() = runBlocking<Unit> {
     //database.insertBook(the7HabitsBook)
-    assertTrue(database.getAllQuotes().isEmpty())
+    assertTrue(database.getAllQuotes(-1).isEmpty())
     database.insertOrUpdateQuotes(listOf(the7HabitsQuote))
 
-    assertEquals(1, database.getAllQuotes().size)
-    val actual = database.getAllQuotes()[0]
+    assertEquals(1, database.getAllQuotes(-1).size)
+    val actual = database.getAllQuotes(-1)[0]
 
     assertEquals(the7HabitsQuote.text, actual.text)
     assertEquals(the7HabitsQuote.author, actual.author)
@@ -123,12 +126,12 @@ class H2DatabaseTest {
   @Test
   fun `insert quote connected to book`() = runBlocking<Unit> {
     database.insertOrUpdateBooks(listOf(the7HabitsBook))
-    assertTrue(database.getAllQuotes().isEmpty())
+    assertTrue(database.getAllQuotes(-1).isEmpty())
 
     database.insertOrUpdateQuotes(listOf(the7HabitsQuote))
-    assertEquals(1, database.getAllQuotes().size)
+    assertEquals(1, database.getAllQuotes(-1).size)
 
-    val actual = database.getAllQuotes()[0]
+    val actual = database.getAllQuotes(-1)[0]
     assertEquals(the7HabitsQuote, actual)
   }
 
@@ -145,7 +148,7 @@ class H2DatabaseTest {
     database.insertOrUpdateBooks(books)
     val quotes = listOf(the7HabitsQuote, theOneThingBookQuote)
     database.insertOrUpdateQuotes(quotes)
-    assertEquals(quotes, database.getAllQuotes())
+    assertEquals(quotes, database.getAllQuotes(-1))
   }
 
   @Test
