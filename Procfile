@@ -1,1 +1,1 @@
-web:	java -jar backend/build/libs/backend.jar
+web:	java -jar backend/build/libs/backend.jar -port=$PORT
