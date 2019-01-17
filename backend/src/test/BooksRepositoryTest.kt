@@ -25,7 +25,6 @@
 
 import com.stasbar.app.BooksRepository
 import com.stasbar.app.di.testModules
-import com.stasbar.app.googlebooks.GoogleBooksApi
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
@@ -40,11 +39,10 @@ import java.net.URL
 
 class BooksRepositoryTest : KoinTest {
   private val booksRepository: BooksRepository by inject()
-  private val googleBooksApi: GoogleBooksApi by inject()
 
   @Before
   fun setUp() {
-    startKoin(testModules, properties = KoinProperties(useKoinPropertiesFile = true))
+    startKoin(testModules, properties = KoinProperties(useKoinPropertiesFile = true, useEnvironmentProperties = true))
   }
 
   @After
