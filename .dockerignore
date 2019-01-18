@@ -1,3 +1,4 @@
+.env
 build
 .gradle
 .idea/*
@@ -16,5 +17,5 @@ local.properties
 .DS_Store
 .externalNativeBuild
 .database
-
-.env
+.gitignore
+android
