@@ -48,7 +48,7 @@ dependencies {
   implementation "io.ktor:ktor-server-servlet:$ktor_version"
   implementation "io.ktor:ktor-html-builder:$ktor_version"
   implementation "io.ktor:ktor-jackson:$ktor_version"
-  
+
   // Retrofit
   def retrofit_version = "2.5.0"
   // https://search.maven.org/search?q=g:com.squareup.retrofit2%20a:retrofit
@@ -98,5 +98,6 @@ compileKotlin {
   }
 }
 
-
 task run(dependsOn: appengineRun)
+
+

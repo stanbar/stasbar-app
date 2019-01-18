@@ -1,0 +1,31 @@
+task buildWebapp(type: Exec) {
+  workingDir "frontend"
+  commandLine "npm"
+  args = ["run", "build"]
+}
+
+task removeOldAssets(type: Delete) {
+  delete 'backend/src/main/resources/assets'
+}
+
+task copyWebapp(type: Copy) {
+  from 'frontend/build'
+  into 'backend/src/main/resources/assets'
+}
+task replaceWebapp(description: "replace webapp")
+replaceWebapp.dependsOn removeOldAssets
+replaceWebapp.dependsOn copyWebapp
+copyWebapp.mustRunAfter removeOldAssets
+
+task addAssetsToGit(type: Exec) {
+  commandLine "git"
+  args = ["add", "backend/src/main/resources/assets"]
+}
+
+task buildAndCopyWebapp(description: "build and copy webapp")
+buildAndCopyWebapp.dependsOn buildWebapp
+buildAndCopyWebapp.dependsOn replaceWebapp
+buildAndCopyWebapp.dependsOn addAssetsToGit
+
+replaceWebapp.mustRunAfter buildWebapp
+addAssetsToGit.mustRunAfter replaceWebapp

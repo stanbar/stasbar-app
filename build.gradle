@@ -1,5 +1,6 @@
 apply from: './versionsPlugin.gradle'
 apply from: './spotless.gradle'
+apply from: './scripts/integrations.gradle'
 
 buildscript {
   repositories {

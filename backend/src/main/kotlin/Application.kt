@@ -33,7 +33,10 @@ import io.ktor.features.CallLogging
 import io.ktor.features.ContentNegotiation
 import io.ktor.features.DefaultHeaders
 import io.ktor.html.respondHtml
-import io.ktor.http.content.*
+import io.ktor.http.content.defaultResource
+import io.ktor.http.content.resources
+import io.ktor.http.content.static
+import io.ktor.http.content.staticBasePackage
 import io.ktor.jackson.jackson
 import io.ktor.response.respond
 import io.ktor.routing.get
@@ -122,25 +125,15 @@ fun Application.module() {
       }
     }
     static("") {
+      resources("assets")
       staticBasePackage = "assets"
       resources("static")
-      resource("favicon.ico")
-      resource("index.html")
-      resource("manifest.json")
-      resource("asset-manifest.json")
-      resource("precache-manifest.dda713ef7b7da8071a67b9f0dfb5a4f8.js")
-      resource("service-worker.js")
       defaultResource("index.html")
     }
     static("*") {
+      resources("assets")
       staticBasePackage = "assets"
       resources("static")
-      resource("favicon.ico")
-      resource("index.html")
-      resource("manifest.json")
-      resource("asset-manifest.json")
-      resource("precache-manifest.dda713ef7b7da8071a67b9f0dfb5a4f8.js")
-      resource("service-worker.js")
       defaultResource("index.html")
     }
   }
