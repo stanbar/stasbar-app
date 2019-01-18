@@ -116,7 +116,7 @@ class BestBooks extends Component<RouteComponentProps & WithStyles<typeof styles
             </Grid>
             }
             {books.map((book: Book) =>
-              <Grid key={book.hash} item={true} xs={6} sm={4} md={3} lg={2} style={{height: "auto", width: "100%"}}>
+              <Grid key={book.hash} item={true} xs={6} sm={3} md={2} lg={2} style={{height: "auto", width: "100%"}}>
                 <GridListTile
                   component={(props: any) => <Link {...props} to={`${match.url}/${book.hash}`}/>}>
                   <img src={book.imageUrl} alt={book.title} className={classes.img}/>

@@ -54,6 +54,7 @@ const styles = (theme: Theme) => createStyles({
     padding: `${theme.spacing.unit * 8}px 0`,
   },
   cardQuote: {
+    backgroundColor: theme.palette.primary.light,
     textDecoration: "none",
     margin: `${theme.spacing.unit}px 0`,
     padding: `${theme.spacing.unit}px`,
@@ -108,11 +109,11 @@ class BestQuotes extends Component<RouteComponentProps & WithStyles<typeof style
           }
           {quotes.map((quote: Quote) =>
             <Card
-              elevation={0}
+              key={quote.hash}
               className={classes.cardQuote}
               component={(props: any) => <Link {...props} to={`${match.url}/${quote.hash}`}/>}>
               <Typography variant="body1">
-                {quote.text} ~{quote.author}
+                <i>{quote.text}</i> ~{quote.author}
               </Typography>
             </Card>
           )}

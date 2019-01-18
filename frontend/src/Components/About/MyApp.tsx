@@ -56,7 +56,10 @@ const styles = (theme: Theme) => createStyles({
     textDecoration: "none",
     borderBottom: ".1rem solid currentColor",
     paddingBottom: "0.05rem",
-    color: theme.palette.text.primary
+    color: theme.palette.text.primary,
+    '&:hover': {
+      color: theme.palette.secondary.main,
+    }
   }
 });
 

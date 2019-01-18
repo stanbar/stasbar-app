@@ -29,7 +29,7 @@ import {Component} from "react";
 const styles = (theme: Theme) => createStyles({
 
   heroContent: {
-    maxWidth: 600,
+    maxWidth: 700,
     margin: '0 auto',
     padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
   },
@@ -44,7 +44,8 @@ class Introduction extends Component<WithStyles<typeof styles>> {
         <Typography variant="h6" align="center" color="textSecondary" paragraph={true}>
           Motivated by the newest technologies and business opportunities. Currently focusing on blockchain
           technology.
-          Key values in my life: Efficiency, Development, Adaptation, Freedom and Simplicity
+          Key values in my life:<br></br>
+          Efficiency🏍️, Development🚀, Adaptation🦎, Freedom🌎 and Simplicity
         </Typography>
       </div>
     );

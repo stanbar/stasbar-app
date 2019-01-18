@@ -76,7 +76,7 @@ class AppsGallery extends Component<IAppsGallery> {
         <div className={classes.layout}>
           <Grid container={true} justify={"center"} spacing={40}
                 style={{alignContent: "flex-start", alignItems: "stretch", flexGrow: 1}}>
-            {this.props.apps.map((app) => <MyApp app={app}/>)}
+            {this.props.apps.map((app) => <MyApp key={app.name} app={app}/>)}
           </Grid>
         </div>
       </div>

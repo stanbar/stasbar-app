@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import ReactGA from 'react-ga';
 import App from "./App";
 import "./index.css"
-
 import 'typeface-roboto-mono';
 import * as serviceWorker from "./serviceWorker";
+
+ReactGA.initialize('UA-123888398-1');
 
 ReactDOM.render(<App/>, document.getElementById("root"));
 

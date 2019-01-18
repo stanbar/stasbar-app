@@ -31,6 +31,7 @@ import KeybaseIcon from "../../assets/svg/KeybaseLogo.svg";
 import StackOverflowIcon from "../../assets/svg/StackOverflowIcon.svg";
 import VapeToolIcon from "../../assets/svg/VapeToolLogo.svg";
 import TaxLedgerIcon from "../../assets/svg/TaxLedgerLogo.svg";
+import {OutboundLink} from "react-ga";
 
 const styles = (theme: Theme) => createStyles({
   nameTitle: {
@@ -46,6 +47,9 @@ const styles = (theme: Theme) => createStyles({
   buttons: {
     marginTop: theme.spacing.unit * 4,
   },
+  intentButton: {
+    margin: theme.spacing.unit,
+  },
   specs: {
     marginTop: theme.spacing.unit * 4,
   },
@@ -58,6 +62,7 @@ const styles = (theme: Theme) => createStyles({
   },
   specGridItem: {
     background: "inherit",
+    padding: theme.spacing.unit
   },
   specName: {
     color: theme.palette.secondary.main,
@@ -65,24 +70,8 @@ const styles = (theme: Theme) => createStyles({
     fontSize: "1rem",
     fontWeight: 700,
     textAlign: "center"
-  },
+  }
 });
-
-const IntentButton: React.FunctionComponent<{
-  name: string,
-  Icon: any,
-  href: string,
-  textColor: string,
-  backgroundColor: string
-}> = (props) =>
-  <Grid item={true}>
-    <Button href={props.href}
-            variant="contained" color="primary"
-            style={{color: props.textColor, backgroundColor: props.backgroundColor}}>
-      {props.name}
-      {props.Icon}
-    </Button>
-  </Grid>;
 
 class Header extends Component<WithStyles<typeof styles>> {
 
@@ -95,6 +84,24 @@ class Header extends Component<WithStyles<typeof styles>> {
       return current.getUTCFullYear() - 1995 + monthsDiff
     }
 
+    const LinkImageButton: React.FunctionComponent<{
+      name: string,
+      Icon: any,
+      href: string,
+      textColor: string,
+      backgroundColor: string
+    }> = (props) =>
+      <Grid item={true} className={classes.intentButton}>
+        <OutboundLink to={props.href} eventLabel={props.name} target="_blank" style={{textDecoration: "none"}}>
+          <Button
+            variant="contained" color="primary"
+            style={{color: props.textColor, backgroundColor: props.backgroundColor}}>
+            {props.name}
+            {props.Icon}
+          </Button>
+        </OutboundLink>
+      </Grid>;
+
     return (
       <div className={classes.content}>
         <Typography variant="h1" align="center" color="textPrimary" gutterBottom={true} className={classes.nameTitle}>
@@ -102,65 +109,66 @@ class Header extends Component<WithStyles<typeof styles>> {
         </Typography>
         <Typography variant="h6" align="center" gutterBottom={true}>
           <u className={classes.keyword}>full stack software developer</u>, <u className={classes.keyword}>beginner
-          entrepreneur</u>, <u className={classes.keyword}>B.S. in Computer Science</u>, <u
+          entrepreneur</u>, <u className={classes.keyword}>b.s. in computer science</u>, <u
           className={classes.keyword}>{getMyAge()} years old</u>
         </Typography>
 
 
-        <Grid container={true} spacing={16} justify="center" className={classes.buttons}>
-          <IntentButton name={"LinkedIn"}
-                        href={"https://www.linkedin.com/in/stasbar/"}
-                        Icon={<LinkedinIcon/>}
-                        textColor={"#243641"}
-                        backgroundColor={"#FFF"}/>
-          <IntentButton name={"Github"}
-                        href={"https://www.linkedin.com/in/stasbar/"}
-                        Icon={<GithubIcon/>}
-                        textColor={"#FFF"}
-                        backgroundColor={"#212529"}/>
-          <IntentButton name={"StackOverflow"}
-                        href={"https://www.linkedin.com/in/stasbar/"}
-                        Icon={<img src={StackOverflowIcon} width={20}/>}
-                        textColor={"#343536"}
-                        backgroundColor={"#F9F9FA"}/>
-          <IntentButton name={"Keybase"}
-                        href={"https://www.linkedin.com/in/stasbar/"}
-                        Icon={<img src={KeybaseIcon} width={20}/>}
-                        textColor={"#FFF"}
-                        backgroundColor={"#3095F4"}/>
-          <IntentButton name={"TaxLedger"}
-                        href={"https://www.linkedin.com/in/stasbar/"}
-                        Icon={<img src={TaxLedgerIcon} width={20}/>}
-                        textColor={"#243641"}
-                        backgroundColor={"#FFF"}/>
-          <IntentButton name={"VapeTool"}
-                        href={"https://www.linkedin.com/in/stasbar/"}
-                        Icon={<img src={VapeToolIcon} width={20}/>}
-                        textColor={"#FFF"}
-                        backgroundColor={"#3546A7"}/>
+        <Grid container={true} spacing={0} justify="center" className={classes.buttons}>
+          <LinkImageButton name={"LinkedIn"}
+                           href={"https://www.linkedin.com/in/stasbar/"}
+                           Icon={<LinkedinIcon/>}
+                           textColor={"#243641"}
+                           backgroundColor={"#FFF"}/>
+          <LinkImageButton name={"Github"}
+                           href={"https://www.linkedin.com/in/stasbar/"}
+                           Icon={<GithubIcon/>}
+                           textColor={"#FFF"}
+                           backgroundColor={"#212529"}/>
+          <LinkImageButton name={"StackOverflow"}
+                           href={"https://www.linkedin.com/in/stasbar/"}
+                           Icon={<img src={StackOverflowIcon} width={20}/>}
+                           textColor={"#343536"}
+                           backgroundColor={"#F9F9FA"}/>
+          <LinkImageButton name={"Keybase"}
+                           href={"https://www.linkedin.com/in/stasbar/"}
+                           Icon={<img src={KeybaseIcon} width={20}/>}
+                           textColor={"#FFF"}
+                           backgroundColor={"#3095F4"}/>
+          <LinkImageButton name={"TaxLedger"}
+                           href={"https://www.linkedin.com/in/stasbar/"}
+                           Icon={<img src={TaxLedgerIcon} width={20}/>}
+                           textColor={"#243641"}
+                           backgroundColor={"#FFF"}/>
+          <LinkImageButton name={"VapeTool"}
+                           href={"https://www.linkedin.com/in/stasbar/"}
+                           Icon={<img src={VapeToolIcon} width={20}/>}
+                           textColor={"#FFF"}
+                           backgroundColor={"#3546A7"}/>
         </Grid>
 
-        <Grid container={true} spacing={16} justify="center" className={classes.specs}>
+        <Grid container={true} spacing={0} justify="center"
+              className={classes.specs}>
 
-          <Grid item={true} sm={3} md={3} lg={3} className={classes.specGridItem}>
+          <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
             <Typography className={classes.specName}>Android</Typography>
             <Typography component="p" color={"textSecondary"}>My main specialty is mobile applications for Android
-              in Java and <b>Kotlin</b>.</Typography>
+              in Java and Kotlin.</Typography>
           </Grid>
 
-          <Grid item={true} sm={3} md={3} lg={3}>
+          <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
             <Typography className={classes.specName}>Backend</Typography>
             <Typography component="p" color={"textSecondary"}>I chose Firebase whenever it's possible.
-              Otherwise <b>Kotlin</b> with ktor</Typography>
+              Otherwise Kotlin with ktor</Typography>
           </Grid>
 
-          <Grid item={true} sm={3} md={3} lg={3}>
+          <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
             <Typography className={classes.specName}>Frontend</Typography>
             <Typography component="p" color={"textSecondary"}>I prefer reusability over simplicity, that's why I use
               React with TypeScript</Typography>
           </Grid>
 
-          <Grid item={true} sm={3} md={3} lg={3}>
+          <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
             <Typography className={classes.specName}>Tools</Typography>
             <Typography component="p" color={"textSecondary"}>When it comes to tools I love IntelliJ & Android Studio
               running on macOS</Typography>

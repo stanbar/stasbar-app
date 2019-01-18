@@ -92,13 +92,13 @@ class Books extends Component<RouteComponentProps & WithStyles<typeof styles>, I
 
     return (
       <div className={classes.root}>
-        <Grid container={true} spacing={40}>
+        <Grid container={true} spacing={16}>
           {loading && <Grid item={true} sm={12}>
             <Typography variant="h5">Loading...</Typography>
           </Grid>
           }
           {books.map((book: Book) =>
-            <Grid key={book.hash} item={true} sm={4} md={3} lg={2} style={{height: "auto", width: "100%"}}>
+            <Grid key={book.hash} item={true} xs={4} sm={3} md={3} lg={2} style={{height: "auto", width: "100%"}}>
               <GridListTile
                 component={(props: any) => <Link {...props} to={`${match.url}/${book.hash}`}/>}>
                 <img src={book.imageUrl} alt={book.title} className={classes.img}/>

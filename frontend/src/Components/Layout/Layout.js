@@ -43,16 +43,24 @@ const styles = (theme) => ({
     flexGrow: 1,
   },
   logoText: {
+    [theme.breakpoints.down(500 + theme.spacing.unit * 3 * 2)]: {
+      marginRight: 20,
+      marginLeft: -12,
+    },
     textDecoration: "none",
     fontFamily: 'B612Mono, monospace',
     whiteSpace: 'pre',
     fontStyle: 'bold',
     flexGrow: 1,
-    fontSize: 7
+    fontSize: 5
   },
   menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
+    marginRight: 0,
+    marginLeft: 0,
+    [theme.breakpoints.up(500 + theme.spacing.unit * 3 * 2)]: {
+      marginRight: 20,
+      marginLeft: -12,
+    }
   },
   rightIcon: {
     marginLeft: theme.spacing.unit,
