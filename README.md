@@ -1,10 +1,38 @@
-# stasbar pet-project
+# stasbar.com
 
-All pieces of the application are implemented in *Kotlin*.
-Backend, Frontend, Android Application are all writen in Kotlin and sharing common [kotlin-multiplatform](https://kotlinlang.org/docs/reference/multiplatform.html) module.
+### Technology Stack
+<pre>
++Heroku+----------------------------------+
+|                                         |
+| +Docker+------------------------------+ |
+| |                                     | |
+| | +ktor+----------------------------+ | |   +------------+
+| | |                                 | | | +->Google|Books|
+| | |        +backend+----------+     | | | | +------------+
+| | |        |                  |     | | | |
+| | |        | kotlin/java      |     | | | | +---------+
+| | |        | +-----------+    +------------->Goodreads|
+| | |        | |H2|database|    |     | | | | +---------+
+| | |        | +-----------+    |     | | | |
+| | |        |                  |     | | | | +-----------+
+| | |        +-^--------------^-+     | | | +->openlibrary|
+| | |          |              |       | | |   +-----------+
+| | +---------------------------------+ | |
+| +-------------------------------------+ |
++-----------------------------------------+
+               |              |
+ +Android+-----+-+ +frontend+-+----+
+ |               | |               |
+ | +Instant-App+ | | +Reactjs+---+ |
+ | |kotlin     | | | |typescript | |
+ | +-----------+ | | +-----------+ |
+ |               | |               |
+ +---------------+ +---------------+
+</pre>
+
 
 ### Backend Server
-- PaaS [Google App Engine](https://cloud.google.com/appengine/)
+- Docker PaaS [Heroku](heroku.com)
 - HTTP Server [Ktor](https://github.com/ktorio/ktor)
 - HTTP Client [Retrofit](https://github.com/square/retrofit)
 - Books and shelves repository from [Goodreads API](https://www.goodreads.com/api)
