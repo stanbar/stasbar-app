@@ -24,22 +24,132 @@
 
 package com.stasbar.app.android
 
+import android.app.AlarmManager
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_header.*
+import java.util.*
+import android.text.style.UnderlineSpan
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
+import android.util.DisplayMetrics
+import android.widget.TextView
+import androidx.core.content.ContextCompat
+import com.google.android.material.button.MaterialButton
+import com.stasbar.app.android.aboutme.LinkImageButton
+import com.stasbar.app.android.core.extensions.toSp
+import java.time.Month
+import kotlin.math.roundToInt
+import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.PorterDuff
+import android.net.Uri
+
 
 class MainActivity : AppCompatActivity() {
 
+  fun getAge(): Int {
+    val current = Calendar.getInstance();
+    val monthsDiff = Math.signum(current.get(Calendar.MONTH) - 3.0).toInt()
+    return current.get(Calendar.YEAR) - 1995 + monthsDiff
+  }
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
-    val logoText = """
-   _____
-  / ___/
- (__  )
-/____/"""
+    val logoText = """         __             __
+   _____/ /_____ ______/ /_  ____ ______
+  / ___/ __/ __ `/ ___/ __ \/ __ `/ ___/
+ (__  ) /_/ /_/ (__  ) /_/ / /_/ / /
+/____/\__/\__,_/____/_.___/\__,_/_/"""
 
     tvLogo.text = logoText
+
+    val tags = listOf(
+      "full stack software developer, ",
+      "beginner entrepreneur, ",
+      "blockchain enthusiast, ",
+      "b.s. computer science, ",
+      "%d years old  ".format(getAge())
+    )
+
+    tags.forEach { tag ->
+      val textView = layoutInflater.inflate(R.layout.text_view_tag, null) as TextView
+      val text = SpannableString(tag)
+      text.setSpan(UnderlineSpan(), 0, text.length - 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+      text.setSpan(ForegroundColorSpan(ContextCompat.getColor(this, R.color.colorAccent)), 0, text.length - 2, 0)
+      textView.text = text
+      flexBoxTagline.addView(textView)
+    }
+
+
+    val buttons = listOf(
+      LinkImageButton(
+        "LinkedIn",
+        "https://www.linkedin.com/in/stasbar/",
+        R.drawable.ic_linkedin,
+        Color.parseColor("#243641"),
+        Color.parseColor("#FFFFFF")
+      ),
+      LinkImageButton(
+        "Github",
+        "https://github.com/stasbar",
+        R.drawable.ic_github,
+        Color.parseColor("#FFFFFF"),
+        Color.parseColor("#212529")
+      ),
+      LinkImageButton(
+        "Keybase",
+        "https://keybase.io/stasbar",
+        R.drawable.ic_keybase,
+        Color.parseColor("#FFFFFF"),
+        Color.parseColor("#3095F4")
+      ),
+      LinkImageButton(
+        "StackOverflow",
+        "https://stackoverflow.com/story/stasbar",
+        R.drawable.ic_stackoverflowicon,
+        Color.parseColor("#343536"),
+        Color.parseColor("#F9F9FA")
+      ),
+      LinkImageButton(
+        "TaxLedger",
+        "https://tax-ledger.com",
+        R.drawable.ic_taxledger,
+        Color.parseColor("#243641"),
+        Color.parseColor("#FFFFFF")
+      ),
+      LinkImageButton(
+        "VapeTool",
+        "http://vapetool.stasbar.com",
+        R.drawable.ic_vapetool,
+        Color.parseColor("#FFFFFF"),
+        Color.parseColor("#3546A7")
+      )
+    )
+
+    buttons.forEach {
+      val button = layoutInflater.inflate(R.layout.link_image_button, null) as MaterialButton
+      //button.icon = getDrawable(it.icon)
+      button.setIconResource(it.icon)
+      button.text = it.name
+      button.setTextColor(it.textColor)
+      button.iconTintMode = PorterDuff.Mode.DST
+      button.backgroundTintList = ColorStateList.valueOf(it.backgroundColor)
+      button.setOnClickListener { view ->
+        handleLinkImageButtonClick(it)
+      }
+      flexBoxButtons.addView(button)
+    }
   }
+
+  private fun handleLinkImageButtonClick(button: LinkImageButton) {
+    // todo analytics
+    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(button.href)))
+
+  }
+
 }

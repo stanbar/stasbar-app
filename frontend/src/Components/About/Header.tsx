@@ -96,8 +96,8 @@ class Header extends Component<WithStyles<typeof styles>> {
           <Button
             variant="contained" color="primary"
             style={{color: props.textColor, backgroundColor: props.backgroundColor}}>
-            {props.name}
             {props.Icon}
+            {props.name}
           </Button>
         </OutboundLink>
       </Grid>;
@@ -111,7 +111,7 @@ class Header extends Component<WithStyles<typeof styles>> {
           <u className={classes.keyword}>full stack software developer</u>, &nbsp;
           <u className={classes.keyword}>beginner entrepreneur</u>, &nbsp;
           <u className={classes.keyword}>blockchain enthusiast</u>, &nbsp;
-          <u className={classes.keyword}>b.s. in computer science</u>, &nbsp;
+          <u className={classes.keyword}>b.s. computer science</u>, &nbsp;
           <u className={classes.keyword}>{getMyAge()} years old</u>
         </Typography>
 
