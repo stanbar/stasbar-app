@@ -4,12 +4,12 @@ self.__precacheManifest = [
     "url": "/static/media/RaspberryWalletFramed.72714878.webp"
   },
   {
-    "revision": "217be02ab869f3996a66",
+    "revision": "4a4f16d7e45c921a26c9",
     "url": "/static/css/main.678d82a8.chunk.css"
   },
   {
-    "revision": "7324e30e83c2d31fddc3281766f07943",
-    "url": "/static/media/roboto-mono-latin-700italic.7324e30e.woff"
+    "revision": "5eca10b5e58c4e2a8164f89bef5dbd7e",
+    "url": "/static/media/roboto-mono-latin-700italic.5eca10b5.woff2"
   },
   {
     "revision": "10c914df2faab6856a5f",
@@ -92,8 +92,8 @@ self.__precacheManifest = [
     "url": "/static/media/RaspberryWalletFramed.fa91ab95.png"
   },
   {
-    "revision": "217be02ab869f3996a66",
-    "url": "/static/js/main.217be02a.chunk.js"
+    "revision": "4a4f16d7e45c921a26c9",
+    "url": "/static/js/main.4a4f16d7.chunk.js"
   },
   {
     "revision": "f8c0e62d70b705a18ac211b9cb5593fa",
@@ -108,52 +108,48 @@ self.__precacheManifest = [
     "url": "/static/media/roboto-mono-latin-100.d6c0b24c.woff2"
   },
   {
-    "revision": "0599391c16bcaf0974d98b5d7024e7d3",
-    "url": "/static/media/roboto-mono-latin-100.0599391c.woff"
-  },
-  {
     "revision": "09ccd02230bd8f7a5a2d504ddbceb21a",
     "url": "/static/media/roboto-mono-latin-100italic.09ccd022.woff2"
+  },
+  {
+    "revision": "0599391c16bcaf0974d98b5d7024e7d3",
+    "url": "/static/media/roboto-mono-latin-100.0599391c.woff"
   },
   {
     "revision": "0c62fd54d535f2c86d5ea67a38a1bbb3",
     "url": "/static/media/roboto-mono-latin-100italic.0c62fd54.woff"
   },
   {
-    "revision": "db95b37ec6ef04cd349d098941e5f70b",
-    "url": "/static/media/roboto-mono-latin-300.db95b37e.woff2"
-  },
-  {
     "revision": "4f691391d5a34cc629a83e82091d5b3c",
     "url": "/static/media/roboto-mono-latin-300.4f691391.woff"
   },
   {
-    "revision": "18357ddaddc4d4f13c5f49985327a2db",
-    "url": "/static/media/roboto-mono-latin-300italic.18357dda.woff2"
+    "revision": "db95b37ec6ef04cd349d098941e5f70b",
+    "url": "/static/media/roboto-mono-latin-300.db95b37e.woff2"
   },
   {
     "revision": "8debb2d5f4dfc8732c97f38e47904cb9",
     "url": "/static/media/roboto-mono-latin-300italic.8debb2d5.woff"
   },
   {
-    "revision": "55befc28b6c06f712a38e2f4153967e1",
-    "url": "/static/media/roboto-mono-latin-400italic.55befc28.woff2"
+    "revision": "18357ddaddc4d4f13c5f49985327a2db",
+    "url": "/static/media/roboto-mono-latin-300italic.18357dda.woff2"
   },
   {
     "revision": "e92cc0fb9e1a7debc138224fd02a462a",
     "url": "/static/media/roboto-mono-latin-400.e92cc0fb.woff2"
   },
   {
-    "revision": "1db1469bf7acbd08f97df4f18046a50f",
-    "url": "/static/media/roboto-mono-latin-400.1db1469b.woff"
-  },
-  {
     "revision": "5711b84f6506b02f585ba40860d4f1a0",
     "url": "/static/media/roboto-mono-latin-400italic.5711b84f.woff"
   },
   {
-    "revision": "077525e5ca30c27e6709adf6ca296b48",
-    "url": "/static/media/roboto-mono-latin-500.077525e5.woff"
+    "revision": "1db1469bf7acbd08f97df4f18046a50f",
+    "url": "/static/media/roboto-mono-latin-400.1db1469b.woff"
+  },
+  {
+    "revision": "55befc28b6c06f712a38e2f4153967e1",
+    "url": "/static/media/roboto-mono-latin-400italic.55befc28.woff2"
   },
   {
     "revision": "c5465264d55124f161cffe17e7790e7b",
@@ -164,27 +160,31 @@ self.__precacheManifest = [
     "url": "/static/media/roboto-mono-latin-500.f70f506c.woff2"
   },
   {
-    "revision": "93b351bdb383554dbe2db6c8e33a6101",
-    "url": "/static/media/roboto-mono-latin-500italic.93b351bd.woff"
+    "revision": "077525e5ca30c27e6709adf6ca296b48",
+    "url": "/static/media/roboto-mono-latin-500.077525e5.woff"
   },
   {
-    "revision": "f61e5a8dfaad2adb9479f8013b9bb101",
-    "url": "/static/media/roboto-mono-latin-700.f61e5a8d.woff"
+    "revision": "93b351bdb383554dbe2db6c8e33a6101",
+    "url": "/static/media/roboto-mono-latin-500italic.93b351bd.woff"
   },
   {
     "revision": "4bc0bd04b8b2f6730b5997503fa4ce5a",
     "url": "/static/media/roboto-mono-latin-700.4bc0bd04.woff2"
   },
   {
-    "revision": "5eca10b5e58c4e2a8164f89bef5dbd7e",
-    "url": "/static/media/roboto-mono-latin-700italic.5eca10b5.woff2"
+    "revision": "f61e5a8dfaad2adb9479f8013b9bb101",
+    "url": "/static/media/roboto-mono-latin-700.f61e5a8d.woff"
+  },
+  {
+    "revision": "7324e30e83c2d31fddc3281766f07943",
+    "url": "/static/media/roboto-mono-latin-700italic.7324e30e.woff"
   },
   {
     "revision": "10c914df2faab6856a5f",
     "url": "/static/css/1.555242bd.chunk.css"
   },
   {
-    "revision": "893d002c6777bd33d8b6a23a12e114ba",
+    "revision": "7da3bcd5b6ed349d6d859c9e9630c86d",
     "url": "/index.html"
   }
 ];
