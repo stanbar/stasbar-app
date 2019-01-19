@@ -121,27 +121,27 @@ class Header extends Component<WithStyles<typeof styles>> {
                            textColor={"#243641"}
                            backgroundColor={"#FFF"}/>
           <LinkImageButton name={"Github"}
-                           href={"https://www.linkedin.com/in/stasbar/"}
+                           href={"https://github.com/stasbar"}
                            Icon={<GithubIcon/>}
                            textColor={"#FFF"}
                            backgroundColor={"#212529"}/>
-          <LinkImageButton name={"StackOverflow"}
-                           href={"https://www.linkedin.com/in/stasbar/"}
-                           Icon={<img src={StackOverflowIcon} width={20}/>}
-                           textColor={"#343536"}
-                           backgroundColor={"#F9F9FA"}/>
           <LinkImageButton name={"Keybase"}
-                           href={"https://www.linkedin.com/in/stasbar/"}
+                           href={"https://keybase.io/stasbar"}
                            Icon={<img src={KeybaseIcon} width={20}/>}
                            textColor={"#FFF"}
                            backgroundColor={"#3095F4"}/>
+          <LinkImageButton name={"StackOverflow"}
+                           href={"https://stackoverflow.com/story/stasbar"}
+                           Icon={<img src={StackOverflowIcon} width={20}/>}
+                           textColor={"#343536"}
+                           backgroundColor={"#F9F9FA"}/>
           <LinkImageButton name={"TaxLedger"}
-                           href={"https://www.linkedin.com/in/stasbar/"}
+                           href={"https://tax-ledger.com"}
                            Icon={<img src={TaxLedgerIcon} width={20}/>}
                            textColor={"#243641"}
                            backgroundColor={"#FFF"}/>
           <LinkImageButton name={"VapeTool"}
-                           href={"https://www.linkedin.com/in/stasbar/"}
+                           href={"http://vapetool.stasbar.com"}
                            Icon={<img src={VapeToolIcon} width={20}/>}
                            textColor={"#FFF"}
                            backgroundColor={"#3546A7"}/>

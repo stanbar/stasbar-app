@@ -45,7 +45,7 @@ class Introduction extends Component<WithStyles<typeof styles>> {
           Motivated by the newest technologies and business opportunities. Currently focusing on blockchain
           technology.
           Key values in my life:<br></br>
-          Efficiency🏍️, Development🚀, Adaptation🦎, Freedom🌎 and Simplicity
+          Efficiency🏍️, Development🚀, Adaptation🦎, Freedom🌎 and Simplicity🍎
         </Typography>
       </div>
     );
