@@ -108,9 +108,11 @@ class Header extends Component<WithStyles<typeof styles>> {
           STANISLAW BARANSKI
         </Typography>
         <Typography variant="h6" align="center" gutterBottom={true}>
-          <u className={classes.keyword}>full stack software developer</u>, <u className={classes.keyword}>beginner
-          entrepreneur</u>, <u className={classes.keyword}>b.s. in computer science</u>, <u
-          className={classes.keyword}>{getMyAge()} years old</u>
+          <u className={classes.keyword}>full stack software developer</u>,
+          <u className={classes.keyword}>beginner entrepreneur</u>,
+          <u className={classes.keyword}>blockchain enthusiast</u>,
+          <u className={classes.keyword}>b.s. in computer science</u>,
+          <u className={classes.keyword}>{getMyAge()} years old</u>
         </Typography>
 
 
