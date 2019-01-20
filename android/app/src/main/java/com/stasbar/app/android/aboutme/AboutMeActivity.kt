@@ -34,8 +34,6 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
 import android.text.style.UnderlineSpan
-import android.view.Gravity
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -60,7 +58,6 @@ class AboutMeActivity : AppCompatActivity() {
     setLogo()
     setTags()
     setButtons()
-    //setSpecs()
   }
 
   private fun setLogo() {
@@ -162,30 +159,6 @@ class AboutMeActivity : AppCompatActivity() {
     // todo analytics
     startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(button.href)))
 
-  }
-
-  private fun setSpecs() {
-    data class Spec(val name: String, val description: String)
-
-    arrayOf(
-      Spec("Android", "My main specialty is mobile applications for Android in Java and Kotlin."),
-      Spec("Backend", "I chose Firebase whenever it's possible. Otherwise Kotlin with ktor"),
-      Spec("Frontend", "I prefer reusability over simplicity, that's why I use React with TypeScript"),
-      Spec("Tools", "When it comes to tools I love IntelliJ & Android Studio running on macOS")
-    ).forEachIndexed { position, spec ->
-      val specView = layoutInflater.inflate(R.layout.spec, null) as LinearLayout
-      val tvSpecName = specView.findViewById<TextView>(R.id.tvSpecName)
-      tvSpecName.text = spec.name
-      val tvSpecDescription = specView.findViewById<TextView>(R.id.tvSpecDescription)
-      tvSpecDescription.text = spec.description
-
-      specView.gravity = if (position % 2 == 0) Gravity.END else Gravity.START
-      if (position <= 2) {
-
-      } else {
-
-      }
-    }
   }
 
 
