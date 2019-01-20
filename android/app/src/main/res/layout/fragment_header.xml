@@ -1,41 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  android:orientation="vertical"
   android:padding="16dp"
-  tools:context=".MainActivity"
+  tools:context=".aboutme.AboutMeActivity"
   tools:showIn="@layout/activity_main">
 
   <TextView
     android:id="@+id/tvMyName"
-
-    style="@style/TextAppearance.MaterialComponents.Headline4"
-    android:textStyle="bold"
+    style="@style/TextAppearance.MaterialComponents.Headline5"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_gravity="center"
     android:layout_marginStart="8dp"
     android:layout_marginTop="32dp"
     android:layout_marginEnd="8dp"
     android:text="@string/my_name"
     android:textAllCaps="true"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    android:textStyle="bold" />
 
   <com.google.android.flexbox.FlexboxLayout
     android:id="@+id/flexBoxTagline"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="32dp"
     app:flexWrap="wrap"
-    app:justifyContent="center"
-    app:layout_constraintTop_toBottomOf="@+id/tvMyName"/>
+    app:justifyContent="center" />
+
   <com.google.android.flexbox.FlexboxLayout
     android:id="@+id/flexBoxButtons"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="32dp"
     app:flexWrap="wrap"
-    app:justifyContent="center"
-    app:layout_constraintTop_toBottomOf="@+id/flexBoxTagline"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    app:justifyContent="center" />
+
+
+  <com.google.android.flexbox.FlexboxLayout
+    android:id="@+id/flexBoxSpecs"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="32dp"
+    app:alignContent="stretch"
+    app:alignItems="stretch"
+    app:flexWrap="wrap"
+    app:justifyContent="center">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_flexBasisPercent="50%"
+      app:layout_maxWidth="200dp">
+
+      <TextView
+        android:id="@+id/tvSpecName1"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Android"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold" />
+
+      <TextView
+        android:id="@+id/tvSpecDescription1"
+        style="@style/TextAppearance.MaterialComponents.Body2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My main speciality is mobile applications for Android in Java and Kotlin"
+        android:textColor="@color/textColorSecondary" />
+
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_flexBasisPercent="50%"
+      app:layout_maxWidth="200dp"
+
+      >
+
+      <TextView
+        android:id="@+id/tvSpecName2"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Backend"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold" />
+
+      <TextView
+        android:id="@+id/tvSpecDescription2"
+        style="@style/TextAppearance.MaterialComponents.Body2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I chose Firebase whenever it's possible. Otherwise Kotlin with ktor"
+        android:textColor="@color/textColorSecondary" />
+
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/colorPrimaryDark"
+      android:orientation="vertical"
+      app:layout_flexBasisPercent="50%"
+      app:layout_maxWidth="200dp">
+
+      <TextView
+        android:id="@+id/tvSpecName3"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Frontend"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold" />
+
+      <TextView
+        android:id="@+id/tvSpecDescription3"
+        style="@style/TextAppearance.MaterialComponents.Body2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I prefer reusability over simplicity, that's why I use React with TypeScript"
+        android:textColor="@color/textColorSecondary" />
+
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/colorPrimaryDark"
+      android:orientation="vertical"
+      app:layout_flexBasisPercent="50%"
+      app:layout_maxWidth="200dp">
+
+      <TextView
+        android:id="@+id/tvSpecName4"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Tools"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold" />
+
+      <TextView
+        android:id="@+id/tvSpecDescription4"
+        style="@style/TextAppearance.MaterialComponents.Body2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="When it comes to tools I love IntelliJ &amp; Android Studio running on macOS"
+        android:textColor="@color/textColorSecondary" />
+
+    </LinearLayout>
+
+  </com.google.android.flexbox.FlexboxLayout>
+
+
+</LinearLayout>

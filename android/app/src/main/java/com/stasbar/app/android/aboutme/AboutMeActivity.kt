@@ -22,34 +22,31 @@
  *            stasbar@stasbar.com
  */
 
-package com.stasbar.app.android
+package com.stasbar.app.android.aboutme
 
-import android.app.AlarmManager
+import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.PorterDuff
+import android.net.Uri
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_header.*
-import java.util.*
-import android.text.style.UnderlineSpan
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
-import android.util.DisplayMetrics
+import android.text.style.UnderlineSpan
+import android.view.Gravity
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.android.material.button.MaterialButton
-import com.stasbar.app.android.aboutme.LinkImageButton
-import com.stasbar.app.android.core.extensions.toSp
-import java.time.Month
-import kotlin.math.roundToInt
-import android.content.Intent
-import android.content.res.ColorStateList
-import android.graphics.PorterDuff
-import android.net.Uri
+import com.stasbar.app.android.R
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_header.*
+import java.util.*
 
 
-class MainActivity : AppCompatActivity() {
+class AboutMeActivity : AppCompatActivity() {
 
   fun getAge(): Int {
     val current = Calendar.getInstance();
@@ -60,23 +57,30 @@ class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
-    val logoText = """         __             __
-   _____/ /_____ ______/ /_  ____ ______
-  / ___/ __/ __ `/ ___/ __ \/ __ `/ ___/
- (__  ) /_/ /_/ (__  ) /_/ / /_/ / /
-/____/\__/\__,_/____/_.___/\__,_/_/"""
+    setLogo()
+    setTags()
+    setButtons()
+    //setSpecs()
+  }
+
+  private fun setLogo() {
+    val logoText = """           __             __
+     _____/ /_____ ______/ /_  ____ ______
+    / ___/ __/ __ `/ ___/ __ \/ __ `/ ___/
+   (__  ) /_/ /_/ (__  ) /_/ / /_/ / /
+  /____/\__/\__,_/____/_.___/\__,_/_/"""
 
     tvLogo.text = logoText
+  }
 
-    val tags = listOf(
+  private fun setTags() {
+    arrayOf(
       "full stack software developer, ",
       "beginner entrepreneur, ",
       "blockchain enthusiast, ",
       "b.s. computer science, ",
       "%d years old  ".format(getAge())
-    )
-
-    tags.forEach { tag ->
+    ).forEach { tag ->
       val textView = layoutInflater.inflate(R.layout.text_view_tag, null) as TextView
       val text = SpannableString(tag)
       text.setSpan(UnderlineSpan(), 0, text.length - 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
@@ -84,9 +88,18 @@ class MainActivity : AppCompatActivity() {
       textView.text = text
       flexBoxTagline.addView(textView)
     }
+  }
 
+  data class LinkImageButton(
+    val name: String,
+    val href: String,
+    val icon: Int,
+    val textColor: Int,
+    val backgroundColor: Int
+  )
 
-    val buttons = listOf(
+  private fun setButtons() {
+    arrayOf(
       LinkImageButton(
         "LinkedIn",
         "https://www.linkedin.com/in/stasbar/",
@@ -129,9 +142,7 @@ class MainActivity : AppCompatActivity() {
         Color.parseColor("#FFFFFF"),
         Color.parseColor("#3546A7")
       )
-    )
-
-    buttons.forEach {
+    ).forEach {
       val button = layoutInflater.inflate(R.layout.link_image_button, null) as MaterialButton
       //button.icon = getDrawable(it.icon)
       button.setIconResource(it.icon)
@@ -146,10 +157,37 @@ class MainActivity : AppCompatActivity() {
     }
   }
 
+
   private fun handleLinkImageButtonClick(button: LinkImageButton) {
     // todo analytics
     startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(button.href)))
 
   }
 
+  private fun setSpecs() {
+    data class Spec(val name: String, val description: String)
+
+    arrayOf(
+      Spec("Android", "My main specialty is mobile applications for Android in Java and Kotlin."),
+      Spec("Backend", "I chose Firebase whenever it's possible. Otherwise Kotlin with ktor"),
+      Spec("Frontend", "I prefer reusability over simplicity, that's why I use React with TypeScript"),
+      Spec("Tools", "When it comes to tools I love IntelliJ & Android Studio running on macOS")
+    ).forEachIndexed { position, spec ->
+      val specView = layoutInflater.inflate(R.layout.spec, null) as LinearLayout
+      val tvSpecName = specView.findViewById<TextView>(R.id.tvSpecName)
+      tvSpecName.text = spec.name
+      val tvSpecDescription = specView.findViewById<TextView>(R.id.tvSpecDescription)
+      tvSpecDescription.text = spec.description
+
+      specView.gravity = if (position % 2 == 0) Gravity.END else Gravity.START
+      if (position <= 2) {
+
+      } else {
+
+      }
+    }
+  }
+
+
 }
+
