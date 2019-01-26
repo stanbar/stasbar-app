@@ -146,7 +146,6 @@ class BestBooks extends Component<RouteComponentProps & WithStyles<typeof styles
   private async fetchBooks() {
     try {
       const books: Book[] = await Api.fetchFeaturedBooks();
-      console.log(books);
       this.setState({books, loading: false});
     } catch (e) {
       console.error(e);

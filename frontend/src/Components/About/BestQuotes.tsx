@@ -133,7 +133,6 @@ class BestQuotes extends Component<RouteComponentProps & WithStyles<typeof style
   private async fetchQuotes() {
     try {
       const quotes: Quote[] = await Api.fetchFeaturedQuotes();
-      console.log(quotes);
       this.setState({quotes, loading: false});
     } catch (e) {
       console.error(e);

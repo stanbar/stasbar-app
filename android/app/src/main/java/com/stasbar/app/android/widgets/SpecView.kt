@@ -8,8 +8,6 @@ import android.widget.TextView
 import com.stasbar.app.android.R
 
 class SpecView : LinearLayout {
-  val tvName: TextView
-  val tvDescription: TextView
 
   constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
     orientation = LinearLayout.VERTICAL
@@ -18,8 +16,8 @@ class SpecView : LinearLayout {
     val description = params.getString(R.styleable.SpecView_description)
     params.recycle()
     LayoutInflater.from(context).inflate(R.layout.spec, this, true)
-    tvName = getChildAt(0) as TextView
-    tvDescription = getChildAt(1) as TextView
+    val tvName = getChildAt(0) as TextView
+    val tvDescription = getChildAt(1) as TextView
     tvName.text = name
     tvDescription.text = description
   }

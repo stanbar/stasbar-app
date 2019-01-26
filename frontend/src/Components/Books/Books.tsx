@@ -124,7 +124,6 @@ class Books extends Component<RouteComponentProps & WithStyles<typeof styles>, I
     try {
 
       const books: Book[] = await Api.fetchAllBooks();
-      console.log(books);
       this.setState({books, loading: false});
     } catch (e) {
       console.error(e);

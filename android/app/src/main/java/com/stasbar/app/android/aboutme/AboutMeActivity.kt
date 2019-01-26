@@ -30,33 +30,29 @@ import android.graphics.Color
 import android.graphics.PorterDuff
 import android.net.Uri
 import android.os.Bundle
-import android.text.SpannableString
-import android.text.Spanned
-import android.text.style.ForegroundColorSpan
-import android.text.style.UnderlineSpan
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
 import com.google.android.material.button.MaterialButton
 import com.stasbar.app.android.R
+import com.stasbar.app.android.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_header.*
+import kotlinx.android.synthetic.main.header.*
 import java.util.*
 
 
 class AboutMeActivity : AppCompatActivity() {
 
   fun getAge(): Int {
-    val current = Calendar.getInstance();
-    val monthsDiff = Math.signum(current.get(Calendar.MONTH) - 3.0).toInt()
-    return current.get(Calendar.YEAR) - 1995 + monthsDiff
+    val current = Calendar.getInstance()
+    val diff = Math.signum(current.get(Calendar.MONTH) - 3.0).toInt()
+    return current.get(Calendar.YEAR) - 1995 + diff
   }
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
+    val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+    binding.activity = this
     setLogo()
-    setTags()
     setButtons()
   }
 
@@ -68,23 +64,6 @@ class AboutMeActivity : AppCompatActivity() {
   /____/\__/\__,_/____/_.___/\__,_/_/"""
 
     tvLogo.text = logoText
-  }
-
-  private fun setTags() {
-    arrayOf(
-      "full stack software developer, ",
-      "beginner entrepreneur, ",
-      "blockchain enthusiast, ",
-      "b.s. computer science, ",
-      "%d years old  ".format(getAge())
-    ).forEach { tag ->
-      val textView = layoutInflater.inflate(R.layout.text_view_tag, null) as TextView
-      val text = SpannableString(tag)
-      text.setSpan(UnderlineSpan(), 0, text.length - 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-      text.setSpan(ForegroundColorSpan(ContextCompat.getColor(this, R.color.colorAccent)), 0, text.length - 2, 0)
-      textView.text = text
-      flexBoxTagline.addView(textView)
-    }
   }
 
   data class LinkImageButton(

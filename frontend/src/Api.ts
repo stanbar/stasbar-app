@@ -25,7 +25,6 @@ import {serverHttpUrl} from "./config";
 
 export default {
   async fetchAllBooks() {
-    console.log(`fetching books`);
     const response = await fetch(serverHttpUrl + "/api/books?shelf=read");
     if (response.ok) {
       return await response.json();
@@ -35,7 +34,6 @@ export default {
     }
   },
   async fetchFeaturedBooks() {
-    console.log(`fetching website books`);
     const response = await fetch(serverHttpUrl + "/api/books?shelf=featured");
     if (response.ok) {
       return await response.json();
@@ -45,7 +43,6 @@ export default {
     }
   },
   async fetchProgrammingBooks() {
-    console.log(`fetching programming books`);
     const response = await fetch(serverHttpUrl + "/api/books?shelf=programming");
     if (response.ok) {
       return await response.json();
@@ -55,7 +52,6 @@ export default {
     }
   },
   async fetchAllQuotes() {
-    console.log(`fetching quotes`);
     const response = await fetch(serverHttpUrl + "/api/quotes");
     if (response.ok) {
       return await response.json();
@@ -65,7 +61,6 @@ export default {
     }
   },
   async fetchFeaturedQuotes() {
-    console.log(`fetching quotes`);
     const response = await fetch(serverHttpUrl + "/api/quotes?limit=10");
     if (response.ok) {
       return await response.json();

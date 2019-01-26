@@ -103,7 +103,6 @@ class Quotes extends Component<RouteComponentProps<IQuotesProps> & WithStyles<ty
   private async fetchQuotes() {
     try {
       const quotes: Quote[] = await Api.fetchAllQuotes();
-      console.log(quotes);
       this.setState({quotes, loading: false});
     } catch (e) {
       console.error(e);

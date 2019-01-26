@@ -27,7 +27,7 @@ package com.stasbar.app.di
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.stasbar.app.BooksRepository
 import com.stasbar.app.database.BooksDatabase
-import com.stasbar.app.database.H2Database
+import com.stasbar.app.database.PostgresDatabase
 import com.stasbar.app.goodreads.GoodreadsApi
 import com.stasbar.app.goodreads.GoodreadsService
 import com.stasbar.app.googlebooks.GoogleBooksApi
@@ -38,7 +38,7 @@ import org.koin.dsl.module.module
 import retrofit2.Retrofit
 import retrofit2.converter.jaxb.JaxbConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
-
+import java.net.URI
 
 val testCommonModule = module {
   single<OkHttpClient> {
@@ -46,23 +46,33 @@ val testCommonModule = module {
       .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
       .build()
   }
+
   single<BooksDatabase> {
-    H2Database(4, "jdbc:h2:file:./.database/test-stasbarapp", "root", "")
+    val dbUri = URI(getProperty("DATABASE_URL"))
+    val username = dbUri.userInfo?.split(":")?.getOrNull(0) ?: ""
+    val password = dbUri.userInfo?.split(":")?.getOrNull(1) ?: ""
+    val address = if (dbUri.port != -1) "${dbUri.host}:${dbUri.port}" else dbUri.host
+    val dbUrl = "jdbc:postgresql://$address${dbUri.path}"
+    PostgresDatabase(4, dbUrl, username, password)
   }
 }
+
 val commonModule = module {
   single<OkHttpClient> {
     OkHttpClient.Builder()
       .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
       .build()
   }
-  single<BooksDatabase> {
-    H2Database(
-      getProperty("db_thread_pool", 4),
-      getProperty("jdbc_connection_url", "jdbc:h2:file:./.database/stasbarapp"),
-      getProperty("DATABASE_USER"),
-      getProperty("DATABASE_PASSWORD")
-    )
+
+  single {
+    val dbUri = URI(getProperty("DATABASE_URL"))
+    val username = dbUri.userInfo?.split(":")?.getOrNull(0) ?: ""
+    val password = dbUri.userInfo?.split(":")?.getOrNull(1) ?: ""
+    val address = if (dbUri.port != -1) "${dbUri.host}:${dbUri.port}" else dbUri.host
+    val dbUrl = "jdbc:postgresql://$address${dbUri.path}?sslmode=require"
+
+    PostgresDatabase(4, dbUrl, username, password)
+
   }
 }
 val goodreadsModule = module {

@@ -62,7 +62,6 @@ fun Application.module() {
   }
 
   val booksRepository: BooksRepository by inject()
-
   // Registers routes
   routing {
 
