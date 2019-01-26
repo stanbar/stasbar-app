@@ -40,6 +40,7 @@ import retrofit2.converter.jaxb.JaxbConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.net.URI
 
+
 val testCommonModule = module {
   single<OkHttpClient> {
     OkHttpClient.Builder()
@@ -48,18 +49,8 @@ val testCommonModule = module {
   }
 
   single<BooksDatabase> {
-    val dbUrl = URI(getProperty("DATABASE_URL"))
-    val username = dbUrl.userInfo?.split(":")?.getOrNull(0) ?: ""
-    val password = dbUrl.userInfo?.split(":")?.getOrNull(1) ?: ""
-    val address = if (dbUrl.port != -1) "${dbUrl.host}:${dbUrl.port}" else dbUrl.host
-    val dbUri = StringBuilder()
-      .append("jdbc:postgresql://")
-      .append(address)
-      .append(dbUrl.path)
-      .apply {
-        if (getProperty<String>("ENV") == "heroku")
-          append("?sslmode=require")
-      }.toString()
+    val (dbUri, username, password)
+      = parseDatabaseCredentials(getProperty("DATABASE_URL"), getProperty("ENV"))
 
     PostgresDatabase(4, dbUri, username, password)
   }
@@ -73,18 +64,8 @@ val commonModule = module {
   }
 
   single<BooksDatabase> {
-    val dbUrl = URI(getProperty("DATABASE_URL"))
-    val username = dbUrl.userInfo?.split(":")?.getOrNull(0) ?: ""
-    val password = dbUrl.userInfo?.split(":")?.getOrNull(1) ?: ""
-    val address = if (dbUrl.port != -1) "${dbUrl.host}:${dbUrl.port}" else dbUrl.host
-    val dbUri = StringBuilder()
-      .append("jdbc:postgresql://")
-      .append(address)
-      .append(dbUrl.path)
-      .apply {
-        if (getProperty<String>("ENV") == "heroku")
-          append("?sslmode=require")
-      }.toString()
+    val (dbUri, username, password)
+      = parseDatabaseCredentials(getProperty("DATABASE_URL"), getProperty("ENV"))
 
     PostgresDatabase(4, dbUri, username, password)
   }
@@ -127,3 +108,23 @@ val googleBooksModule = module {
 }
 val prodModules = listOf(commonModule, goodreadsModule, googleBooksModule)
 val testModules = listOf(testCommonModule, goodreadsModule, googleBooksModule)
+
+
+data class DatabaseCredentials(val dbUri: String, val username: String, val password: String)
+
+fun parseDatabaseCredentials(databaseUrl: String, environment: String): DatabaseCredentials {
+  val dbUrl = URI(databaseUrl)
+  val username = dbUrl.userInfo?.split(":")?.getOrNull(0) ?: ""
+  val password = dbUrl.userInfo?.split(":")?.getOrNull(1) ?: ""
+  val address = if (dbUrl.port != -1) "${dbUrl.host}:${dbUrl.port}" else dbUrl.host
+  val dbUri = StringBuilder()
+    .append("jdbc:postgresql://")
+    .append(address)
+    .append(dbUrl.path)
+    .apply {
+      if (environment == "heroku")
+        append("?sslmode=require")
+    }.toString()
+
+  return DatabaseCredentials(dbUri, username, password)
+}
