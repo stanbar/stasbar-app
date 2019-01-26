@@ -24,7 +24,7 @@ abstract class DatabaseImpl(
   private val dispatcher: ExecutorCoroutineDispatcher = Executors.newFixedThreadPool(poolSize).asCoroutineDispatcher()
 
   init {
-    logger.info("Using JDBC Url: $jdbcConnectionUrl")
+    logger.info("Using JDBC Url: $jdbcConnectionUrl username $username")
     Database.connect(
       jdbcConnectionUrl,
       driver,

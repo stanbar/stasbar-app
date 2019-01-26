@@ -64,12 +64,12 @@ val commonModule = module {
       .build()
   }
 
-  single {
+  single<BooksDatabase> {
     val dbUri = URI(getProperty("DATABASE_URL"))
     val username = dbUri.userInfo?.split(":")?.getOrNull(0) ?: ""
     val password = dbUri.userInfo?.split(":")?.getOrNull(1) ?: ""
     val address = if (dbUri.port != -1) "${dbUri.host}:${dbUri.port}" else dbUri.host
-    val dbUrl = "jdbc:postgresql://$address${dbUri.path}?sslmode=require"
+    val dbUrl = "jdbc:postgresql://$address${dbUri.path}?sslmode=require" //TODO enable ssl on local server
 
     PostgresDatabase(4, dbUrl, username, password)
 
