@@ -125,6 +125,6 @@ fun parseDatabaseCredentials(databaseUrl: String, environment: String): Database
       if (environment == "heroku")
         append("?sslmode=require")
     }.toString()
-
+  println(dbUri)
   return DatabaseCredentials(dbUri, username, password)
 }
