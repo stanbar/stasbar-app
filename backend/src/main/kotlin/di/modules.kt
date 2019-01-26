@@ -48,12 +48,20 @@ val testCommonModule = module {
   }
 
   single<BooksDatabase> {
-    val dbUri = URI(getProperty("DATABASE_URL"))
-    val username = dbUri.userInfo?.split(":")?.getOrNull(0) ?: ""
-    val password = dbUri.userInfo?.split(":")?.getOrNull(1) ?: ""
-    val address = if (dbUri.port != -1) "${dbUri.host}:${dbUri.port}" else dbUri.host
-    val dbUrl = "jdbc:postgresql://$address${dbUri.path}"
-    PostgresDatabase(4, dbUrl, username, password)
+    val dbUrl = URI(getProperty("DATABASE_URL"))
+    val username = dbUrl.userInfo?.split(":")?.getOrNull(0) ?: ""
+    val password = dbUrl.userInfo?.split(":")?.getOrNull(1) ?: ""
+    val address = if (dbUrl.port != -1) "${dbUrl.host}:${dbUrl.port}" else dbUrl.host
+    val dbUri = StringBuilder()
+      .append("jdbc:postgresql://")
+      .append(address)
+      .append(dbUrl.path)
+      .apply {
+        if (getProperty<String>("DATABASE_URL") == "Heroku")
+          append("?sslmode=require")
+      }.toString()
+
+    PostgresDatabase(4, dbUri, username, password)
   }
 }
 
@@ -65,14 +73,20 @@ val commonModule = module {
   }
 
   single<BooksDatabase> {
-    val dbUri = URI(getProperty("DATABASE_URL"))
-    val username = dbUri.userInfo?.split(":")?.getOrNull(0) ?: ""
-    val password = dbUri.userInfo?.split(":")?.getOrNull(1) ?: ""
-    val address = if (dbUri.port != -1) "${dbUri.host}:${dbUri.port}" else dbUri.host
-    val dbUrl = "jdbc:postgresql://$address${dbUri.path}?sslmode=require" //TODO enable ssl on local server
+    val dbUrl = URI(getProperty("DATABASE_URL"))
+    val username = dbUrl.userInfo?.split(":")?.getOrNull(0) ?: ""
+    val password = dbUrl.userInfo?.split(":")?.getOrNull(1) ?: ""
+    val address = if (dbUrl.port != -1) "${dbUrl.host}:${dbUrl.port}" else dbUrl.host
+    val dbUri = StringBuilder()
+      .append("jdbc:postgresql://")
+      .append(address)
+      .append(dbUrl.path)
+      .apply {
+        if (getProperty<String>("DATABASE_URL") == "Heroku")
+          append("?sslmode=require")
+      }.toString()
 
-    PostgresDatabase(4, dbUrl, username, password)
-
+    PostgresDatabase(4, dbUri, username, password)
   }
 }
 val goodreadsModule = module {
