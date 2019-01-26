@@ -57,7 +57,7 @@ val testCommonModule = module {
       .append(address)
       .append(dbUrl.path)
       .apply {
-        if (getProperty<String>("ENV") == "Heroku")
+        if (getProperty<String>("ENV") == "heroku")
           append("?sslmode=require")
       }.toString()
 
@@ -82,7 +82,7 @@ val commonModule = module {
       .append(address)
       .append(dbUrl.path)
       .apply {
-        if (getProperty<String>("ENV") == "Heroku")
+        if (getProperty<String>("ENV") == "heroku")
           append("?sslmode=require")
       }.toString()
 
