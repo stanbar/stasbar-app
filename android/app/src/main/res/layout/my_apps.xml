@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <TextView
+    android:id="@+id/tvMyApps"
+    style="@style/TextAppearance.MaterialComponents.Headline4"
+    android:textColor="@color/textColorPrimary"
+    android:text="@string/my_apps"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <com.google.android.flexbox.FlexboxLayout
+    android:layout_marginTop="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:alignContent="stretch"
+    app:alignItems="stretch"
+    app:flexDirection="row"
+    app:justifyContent="center"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tvMyApps">
+
+    <com.stasbar.app.android.widgets.AppView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:appStore="https://itunes.apple.com/us/app/coil-builder/id1210289983?mt=8"
+      app:description="Fully fledged utility arsenal and social media for Vapers. Over 1M downloads and 300k active users"
+      app:googlePlay="https://play.google.com/store/apps/details?id=com.stasbar.vape_tool"
+      app:img="@drawable/vape_tool_long_framed"
+      app:layout_flexBasisPercent="50%"
+      app:layout_maxWidth="200dp"
+      app:name="Vape Tool"
+      app:website="https://vapetool.stasbar.com/" />
+
+    <com.stasbar.app.android.widgets.AppView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:description="High resolution wallpapers"
+      app:googlePlay="https://play.google.com/store/apps/details?id=com.wallpapers.new_wallpapers4k"
+      app:img="@drawable/wallpapers_4k_long_framed"
+      app:layout_flexBasisPercent="50%"
+      app:layout_maxWidth="200dp"
+      app:name="Wallpapers 4K" />
+  </com.google.android.flexbox.FlexboxLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

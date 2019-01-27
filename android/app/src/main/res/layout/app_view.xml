@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <TextView
+    android:id="@+id/tvAppName"
+    style="@style/TextAppearance.MaterialComponents.Headline6"
+    android:layout_gravity="center"
+    android:textColor="@color/colorAccent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:text="Vape Tool" />
+
+  <ImageView
+    android:id="@+id/ivAppImage"
+    android:adjustViewBounds="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:src="@drawable/vape_tool_long_framed" />
+
+  <TextView
+    android:id="@+id/tvAppDescription"
+    android:layout_margin="16dp"
+    android:textColor="@color/textColorSecondary"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:text="Fully fledged utility arsenal and social media for Vapers. Over 1M downloads and 300k active users. Both on Android and iOS. See website" />
+</merge>

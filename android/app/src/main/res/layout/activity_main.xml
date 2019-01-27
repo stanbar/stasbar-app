@@ -88,6 +88,13 @@
           layout="@layout/header"
           app:activity="@{activity}" />
 
+        <include
+          layout="@layout/introduction"
+          app:activity="@{activity}" />
+
+        <include
+          layout="@layout/my_apps"
+          app:activity="@{activity}" />
       </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

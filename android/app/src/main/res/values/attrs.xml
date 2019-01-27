@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <attr name="name" format="string" />
+  <attr name="description" format="string" />
+
   <declare-styleable name="SpecView">
-    <attr name="name" format="string" />
-    <attr name="description" format="string" />
+    <attr name="name" />
+    <attr name="description" />
+  </declare-styleable>
+
+  <declare-styleable name="AppView">
+    <attr name="name" />
+    <attr name="description" />
+    <attr name="img" format="reference" />
+    <attr name="platform" format="enum">
+      <enum name="mobile" value="0" />
+      <enum name="desktop" value="1" />
+    </attr>
+    <attr name="googlePlay" format="string" />
+    <attr name="appStore" format="string" />
+    <attr name="website" format="string" />
+    <attr name="github" format="string" />
   </declare-styleable>
 </resources>
