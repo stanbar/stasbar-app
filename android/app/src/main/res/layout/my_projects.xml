@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <TextView
+    android:id="@+id/tvMyProjects"
+    style="@style/TextAppearance.MaterialComponents.Headline4"
+    android:textColor="@color/textColorPrimary"
+    android:text="@string/my_projects"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <com.google.android.flexbox.FlexboxLayout
+    android:layout_marginTop="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:alignContent="stretch"
+    app:alignItems="stretch"
+    app:flexDirection="row"
+    app:flexWrap="wrap"
+    app:justifyContent="center"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tvMyProjects">
+
+
+    <com.stasbar.app.android.widgets.AppView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:description="Desktop application for settle taxes from cryptocurrencies exchanges"
+      app:img="@drawable/tax_ledger_framed"
+      app:name="Tax Ledger"
+      app:platform="desktop"
+      app:website="https://tax-ledger.com/" />
+
+    <com.stasbar.app.android.widgets.AppView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:description="Bitcoin hardware wallet on Raspberry Pi Zero"
+      app:github="https://github.com/RaspberryWallet"
+      app:img="@drawable/raspberry_wallet_framed"
+      app:name="Raspberry Wallet"
+      app:platform="desktop"
+      app:website="https://raspberrywallet.github.io/readme.html" />
+
+    <com.stasbar.app.android.widgets.AppView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:description="This website &amp; android app itself are good pieces of software, so I think it's worth mention here"
+      app:github="https://github.com/stasbar/stasbar-app"
+      app:img="@drawable/website_framed"
+      app:name="stasbar.com"
+      app:platform="desktop"
+      app:website="https://stasbar.com" />
+
+  </com.google.android.flexbox.FlexboxLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

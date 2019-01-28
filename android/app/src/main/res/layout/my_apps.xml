@@ -23,6 +23,7 @@
     app:alignContent="stretch"
     app:alignItems="stretch"
     app:flexDirection="row"
+    app:flexWrap="wrap"
     app:justifyContent="center"
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent"
@@ -36,8 +37,9 @@
       app:googlePlay="https://play.google.com/store/apps/details?id=com.stasbar.vape_tool"
       app:img="@drawable/vape_tool_long_framed"
       app:layout_flexBasisPercent="50%"
-      app:layout_maxWidth="200dp"
+      app:layout_maxWidth="300dp"
       app:name="Vape Tool"
+      app:platform="mobile"
       app:website="https://vapetool.stasbar.com/" />
 
     <com.stasbar.app.android.widgets.AppView
@@ -47,8 +49,45 @@
       app:googlePlay="https://play.google.com/store/apps/details?id=com.wallpapers.new_wallpapers4k"
       app:img="@drawable/wallpapers_4k_long_framed"
       app:layout_flexBasisPercent="50%"
-      app:layout_maxWidth="200dp"
-      app:name="Wallpapers 4K" />
+      app:layout_maxWidth="300dp"
+      app:name="Wallpapers 4K"
+      app:platform="mobile" />
+
+    <com.stasbar.app.android.widgets.AppView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:description="Catching the Pokemon Go hype, with addon scheduler for lure module party on a map"
+      app:googlePlay="https://play.google.com/store/apps/details?id=com.stasbar.golure"
+      app:img="@drawable/go_lure_long_framed"
+      app:layout_flexBasisPercent="50%"
+      app:layout_maxWidth="300dp"
+      app:name="Go Lure"
+      app:platform="mobile" />
+
+    <com.stasbar.app.android.widgets.AppView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:description="Easy to use wallpaper apps build with many category flavors"
+      app:googlePlay="https://play.google.com/store/apps/details?id=com.david_wallpapers.city_night"
+      app:img="@drawable/wallpapers_one_click_long_framed"
+      app:layout_flexBasisPercent="50%"
+      app:layout_maxWidth="300dp"
+
+      app:name="Easy Wallpapers"
+      app:platform="mobile" />
+
+    <com.stasbar.app.android.widgets.AppView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:description="Wishes application for many occasion flavors"
+      app:googlePlay="https://play.google.com/store/apps/details?id=com.allwishes.christmas"
+      app:img="@drawable/wishes_long_framed"
+      app:layout_flexBasisPercent="50%"
+      app:layout_maxWidth="300dp"
+      app:name="Wishes"
+      app:platform="mobile" />
+
+
   </com.google.android.flexbox.FlexboxLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
