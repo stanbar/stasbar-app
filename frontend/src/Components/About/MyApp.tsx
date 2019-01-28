@@ -47,6 +47,7 @@ const styles = (theme: Theme) => createStyles({
     width: "100%"
   },
   description: {
+    textAlign: "justify",
     textDecoration: "none",
     color: theme.palette.text.secondary,
     fontSize: "1rem"

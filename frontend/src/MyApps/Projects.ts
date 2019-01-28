@@ -23,8 +23,8 @@
  */
 import RaspberryWalletFramedPng from "../assets/png/RaspberryWallet/RaspberryWalletFramed.png"
 import RaspberryWalletFramedWebp from "../assets/webp/RaspberryWallet/RaspberryWalletFramed.webp"
-import MyWebsiteRecurrenceFramedPng from "../assets/png/MyWebsite/MyWebsiteRecurrenceFramed.png"
-import MyWebsiteRecurrenceFramedWebp from "../assets/webp/MyWebsite/MyWebsiteRecurrenceFramed.webp"
+import MyWebsiteFramedPng from "../assets/png/MyWebsite/WebsiteFramed.png"
+import MyWebsiteFramedWebp from "../assets/webp/MyWebsite/WebsiteFramed.webp"
 import IApp from "./IApp";
 
 
@@ -44,8 +44,8 @@ const Projects: IApp[] = [
   },
   {
     name: "website",
-    imgSrc: MyWebsiteRecurrenceFramedPng,
-    imgWebp: MyWebsiteRecurrenceFramedWebp,
+    imgSrc: MyWebsiteFramedPng,
+    imgWebp: MyWebsiteFramedWebp,
     description: "This website & android app itself are good pieces of software, so I think it's worth mention here",
     platform: "desktop",
     links: {
