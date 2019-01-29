@@ -39,6 +39,7 @@ import io.ktor.http.content.static
 import io.ktor.http.content.staticBasePackage
 import io.ktor.jackson.jackson
 import io.ktor.response.respond
+import io.ktor.routing.Route
 import io.ktor.routing.get
 import io.ktor.routing.route
 import io.ktor.routing.routing
@@ -124,16 +125,19 @@ fun Application.module() {
       }
     }
     static("") {
-      resources("assets")
-      staticBasePackage = "assets"
-      resources("static")
-      defaultResource("index.html")
+      webapp()
     }
     static("*") {
-      resources("assets")
-      staticBasePackage = "assets"
-      resources("static")
-      defaultResource("index.html")
+      webapp()
     }
   }
 }
+
+private fun Route.webapp() {
+  resources("assets")
+  staticBasePackage = "assets"
+  resources("static")
+  defaultResource("index.html")
+}
+
+
