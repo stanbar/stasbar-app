@@ -8,6 +8,11 @@
     <attr name="description" />
   </declare-styleable>
 
+  <declare-styleable name="TagView">
+    <attr name="tagText" />
+  </declare-styleable>
+
+
   <declare-styleable name="AppView">
     <attr name="name" />
     <attr name="description" />

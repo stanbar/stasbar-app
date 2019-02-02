@@ -45,15 +45,19 @@ import io.ktor.routing.route
 import io.ktor.routing.routing
 import kotlinx.html.*
 import mu.KotlinLogging
-import org.koin.core.KoinProperties
 import org.koin.ktor.ext.inject
 import org.koin.ktor.ext.installKoin
+
 
 fun main(args: Array<String>) = io.ktor.server.netty.EngineMain.main(args)
 private val logger = KotlinLogging.logger {}
 @Suppress("unused") // Referenced in application.conf
 fun Application.module() {
-  installKoin(prodModules, KoinProperties(useKoinPropertiesFile = true, useEnvironmentProperties = true))
+  installKoin {
+    modules(prodModules)
+    fileProperties()
+    environmentProperties()
+  }
   install(DefaultHeaders)
   install(CallLogging)
   install(ContentNegotiation) {

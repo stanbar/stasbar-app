@@ -1,104 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
 
-  <data>
 
-    <variable
-      name="activity"
-      type="com.stasbar.app.android.aboutme.AboutMeActivity" />
-  </data>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
 
-  <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+  <com.google.android.material.appbar.AppBarLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary">
 
-    <com.google.android.material.appbar.AppBarLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:background="?attr/colorPrimary">
+      android:layout_height="wrap_content">
 
-
-      <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-          android:id="@+id/tvLogo"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="8dp"
-          android:layout_marginTop="8dp"
-          android:layout_marginBottom="8dp"
-          android:fontFamily="@font/mono"
-          android:text="@string/logo"
-          android:textColor="@color/colorAccent"
-          android:textSize="5sp"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.button.MaterialButton
-          android:id="@+id/materialButton"
-          style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="8dp"
-          android:layout_marginTop="8dp"
-          android:layout_marginEnd="8dp"
-          android:layout_marginBottom="8dp"
-          android:text="Books"
-          app:icon="@drawable/ic_books"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintEnd_toStartOf="@+id/materialButton2"
-          app:layout_constraintHorizontal_bias="1.0"
-          app:layout_constraintStart_toEndOf="@+id/tvLogo"
-          app:layout_constraintTop_toTopOf="parent"
-          app:strokeColor="@color/colorAccent" />
-
-        <com.google.android.material.button.MaterialButton
-          android:id="@+id/materialButton2"
-          style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="8dp"
-          android:layout_marginEnd="8dp"
-          android:layout_marginBottom="8dp"
-          android:text="Quotes"
-          app:icon="@drawable/ic_quotes"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintTop_toTopOf="parent"
-          app:strokeColor="@color/colorAccent" />
-      </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.appbar.AppBarLayout>
-
-
-    <androidx.core.widget.NestedScrollView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-      <LinearLayout
-        android:layout_width="match_parent"
+      <TextView
+        android:id="@+id/tvLogo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/mono"
+        android:text="@string/logo"
+        android:textColor="@color/colorAccent"
+        android:textSize="5sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <include
-          layout="@layout/header"
-          app:activity="@{activity}" />
+      <com.google.android.material.button.MaterialButton
+        android:id="@+id/materialButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Books"
+        app:icon="@drawable/ic_books"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/materialButton2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tvLogo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/colorAccent" />
 
-        <include layout="@layout/introduction" />
+      <com.google.android.material.button.MaterialButton
+        android:id="@+id/materialButton2"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Quotes"
+        app:icon="@drawable/ic_quotes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/colorAccent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </com.google.android.material.appbar.AppBarLayout>
 
-        <include layout="@layout/my_apps" />
 
-        <include layout="@layout/my_projects" />
+  <androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <include layout="@layout/best_books" />
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
 
-        <include layout="@layout/best_quotes" />
-      </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+      <include layout="@layout/header" />
 
-  </androidx.coordinatorlayout.widget.CoordinatorLayout>
-</layout>
+      <include layout="@layout/introduction" />
+
+      <include layout="@layout/my_apps" />
+
+      <include layout="@layout/my_projects" />
+
+      <include layout="@layout/best_books" />
+
+      <include layout="@layout/best_quotes" />
+    </LinearLayout>
+  </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

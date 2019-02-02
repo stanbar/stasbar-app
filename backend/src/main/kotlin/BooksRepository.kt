@@ -35,6 +35,7 @@ import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
+
 import retrofit2.HttpException
 import java.net.HttpURLConnection
 import java.net.URL
@@ -66,7 +67,6 @@ class BooksRepository(
     val googleBooksCall = lazy { googleBooksApi.getBookByIsbn(isbn) }
     val smallImageUrl = findBestCoverImageAvailable(isbn, "S", googleBooksCall, review)
     val imageUrl = findBestCoverImageAvailable(isbn, "L", googleBooksCall, review)
-
     return Book(
       title = review.book.titleWithoutSeries,
       rating = review.rating,

@@ -31,27 +31,33 @@ import android.graphics.PorterDuff
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import com.google.android.material.button.MaterialButton
 import com.stasbar.app.android.R
-import com.stasbar.app.android.databinding.ActivityMainBinding
+import com.stasbar.app.android.features.books.BooksAdapter
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.best_books.*
 import kotlinx.android.synthetic.main.header.*
+import kotlinx.coroutines.androidx.lifecycle.coroutineScope
+import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 import java.util.*
 
-
 class AboutMeActivity : AppCompatActivity() {
-
-  fun getAge(): Int {
-    val current = Calendar.getInstance()
-    val diff = Math.signum(current.get(Calendar.MONTH) - 3.0).toInt()
-    return current.get(Calendar.YEAR) - 1995 + diff
-  }
+  private val viewModel: AboutMeViewModel by inject()
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-    binding.activity = this
+    setContentView(R.layout.activity_main)
+    tvMyAge.setTagText(getString(R.string.my_age, getAge()))
+    val adapter = BooksAdapter()
+    rvBestBooks.adapter = adapter
+    viewModel.bestBooks.observe(this, androidx.lifecycle.Observer {
+      coroutineScope.launch {
+        adapter.replaceAll(it)
+      }
+    })
+
+    viewModel.requestBestBooks()
     setLogo()
     setButtons()
   }
@@ -126,13 +132,18 @@ class AboutMeActivity : AppCompatActivity() {
       button.setTextColor(it.textColor)
       button.iconTintMode = PorterDuff.Mode.DST
       button.backgroundTintList = ColorStateList.valueOf(it.backgroundColor)
-      button.setOnClickListener { view ->
+      button.setOnClickListener { _ ->
         handleLinkImageButtonClick(it)
       }
       flexBoxButtons.addView(button)
     }
   }
 
+  fun getAge(): Int {
+    val current = Calendar.getInstance()
+    val diff = Math.signum(current.get(Calendar.MONTH) - 3.0).toInt()
+    return current.get(Calendar.YEAR) - 1995 + diff
+  }
 
   private fun handleLinkImageButtonClick(button: LinkImageButton) {
     // todo analytics

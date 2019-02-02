@@ -32,14 +32,14 @@ import com.stasbar.app.goodreads.GoodreadsApi
 import com.stasbar.app.goodreads.GoodreadsService
 import com.stasbar.app.googlebooks.GoogleBooksApi
 import com.stasbar.app.googlebooks.GoogleBooksService
+import com.stasbar.app.models.extensions.getPropertyOrDefault
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.dsl.module.module
+import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.jaxb.JaxbConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.net.URI
-
 
 val testCommonModule = module {
   single<OkHttpClient> {
@@ -73,7 +73,7 @@ val commonModule = module {
 val goodreadsModule = module {
   single<GoodreadsService> {
     Retrofit.Builder()
-      .baseUrl(getProperty("goodreads_base_url", "https://www.goodreads.com"))
+      .baseUrl(getPropertyOrDefault("goodreads_base_url", "https://www.goodreads.com"))
       .client(get())
       .addConverterFactory(JaxbConverterFactory.create())
       .addCallAdapterFactory(CoroutineCallAdapterFactory())
@@ -94,8 +94,9 @@ val goodreadsModule = module {
 
 val googleBooksModule = module {
   single<GoogleBooksService> {
+
     Retrofit.Builder()
-      .baseUrl(getProperty("googlebooks_base_url", "https://www.googleapis.com"))
+      .baseUrl(getPropertyOrDefault("googlebooks_base_url", "https://www.googleapis.com"))
       .client(get())
       .addConverterFactory(MoshiConverterFactory.create())
       .addCallAdapterFactory(CoroutineCallAdapterFactory())
@@ -108,7 +109,6 @@ val googleBooksModule = module {
 }
 val prodModules = listOf(commonModule, goodreadsModule, googleBooksModule)
 val testModules = listOf(testCommonModule, goodreadsModule, googleBooksModule)
-
 
 data class DatabaseCredentials(val dbUri: String, val username: String, val password: String)
 
