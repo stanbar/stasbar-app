@@ -8,8 +8,8 @@
 
   <TextView
     android:id="@+id/tvMyProjects"
-    style="@style/TextAppearance.MaterialComponents.Headline4"
-    android:textColor="@color/textColorPrimary"
+    android:textAppearance="@style/SectionTitleTextAppearance"
+    android:layout_marginTop="@dimen/section_title_margin"
     android:text="@string/my_projects"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
     app:layout_constraintTop_toTopOf="parent" />
 
   <com.google.android.flexbox.FlexboxLayout
-    android:layout_marginTop="16dp"
+    android:layout_marginTop="@dimen/section_title_margin"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:alignContent="stretch"

@@ -10,9 +10,8 @@
 
   <TextView
     android:id="@+id/tvBestQuotes"
-    style="@style/TextAppearance.MaterialComponents.Headline4"
-    android:layout_marginTop="32dp"
-    android:textColor="@color/textColorPrimary"
+    android:textAppearance="@style/SectionTitleTextAppearance"
+    android:layout_marginTop="@dimen/section_title_margin"
     android:text="@string/best_quotes_title"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -22,8 +21,8 @@
 
   <TextView
     android:id="@+id/tvNoBestQuotes"
-    style="@style/TextAppearance.MaterialComponents.Headline6"
-    android:layout_marginTop="32dp"
+    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+    android:layout_marginTop="@dimen/section_title_margin"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="@string/could_not_load_data"

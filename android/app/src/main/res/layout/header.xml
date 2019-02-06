@@ -12,7 +12,7 @@
 
   <TextView
     android:id="@+id/tvMyName"
-    style="@style/TextAppearance.MaterialComponents.Headline5"
+    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
@@ -32,28 +32,28 @@
     app:justifyContent="center">
 
     <com.stasbar.app.android.widgets.TagView
-      style="@style/TextAppearance.MaterialComponents.Headline6"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       app:tagText='@string/full_stack_software'
       tools:text="@string/full_stack_software" />
 
     <com.stasbar.app.android.widgets.TagView
-      style="@style/TextAppearance.MaterialComponents.Headline6"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       app:tagText='@string/entrepreneur'
       tools:text="@string/entrepreneur" />
 
     <com.stasbar.app.android.widgets.TagView
-      style="@style/TextAppearance.MaterialComponents.Headline6"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       app:tagText='@string/blockchain_enthusiast'
       tools:text="@string/blockchain_enthusiast" />
 
     <com.stasbar.app.android.widgets.TagView
-      style="@style/TextAppearance.MaterialComponents.Headline6"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       app:tagText='@string/computer_science'
@@ -61,7 +61,7 @@
 
     <com.stasbar.app.android.widgets.TagView
       android:id="@+id/tvMyAge"
-      style="@style/TextAppearance.MaterialComponents.Headline6"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       tools:text="@string/my_age" />

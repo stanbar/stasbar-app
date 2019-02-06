@@ -16,4 +16,7 @@
     <item name="iconSize">20dp</item>
   </style>
 
+  <style name="SectionTitleTextAppearance" parent="TextAppearance.MaterialComponents.Headline4">
+    <item name="android:textColor">@color/textColorPrimary</item>
+  </style>
 </resources>
