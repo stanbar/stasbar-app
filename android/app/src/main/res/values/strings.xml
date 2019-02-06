@@ -44,4 +44,8 @@
   <string name="my_apps">My Apps</string>
   <string name="my_projects">My Projects</string>
   <string name="best_books_title">My favorite books</string>
+  <string name="could_not_load_data">Could not load data 😞</string>
+  <string name="best_quotes_title">My favorite quotes</string>
+  <string name="quotes">Quotes</string>
+  <string name="books">Books</string>
 </resources>

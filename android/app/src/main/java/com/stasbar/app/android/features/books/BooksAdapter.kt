@@ -13,20 +13,9 @@ import com.stasbar.app.models.Book
 class BooksAdapter : RecyclerView.Adapter<BooksAdapter.BookVH>() {
   private val list = mutableListOf<Book>()
 
-  fun addBooks(books: List<Book>) {
-    val prevSize = list.size
-    list.addAll(books)
-    notifyItemRangeInserted(prevSize, books.size)
-  }
-
-  fun addBook(book: Book) {
-    list.add(book)
-    notifyItemInserted(list.size - 1)
-  }
-
-  fun replaceAll(books: List<Book>) {
+  fun replaceAll(newItems: List<Book>) {
     list.clear()
-    list.addAll(books)
+    list.addAll(newItems)
     notifyDataSetChanged()
   }
 

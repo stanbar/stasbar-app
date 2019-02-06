@@ -5,7 +5,10 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import com.stasbar.app.android.aboutme.AboutMeViewModel
 import com.stasbar.app.android.features.BackendApi
 import com.stasbar.app.android.features.BackendService
+import com.stasbar.app.android.features.books.BooksAdapter
 import com.stasbar.app.android.features.books.GetFeaturedBooks
+import com.stasbar.app.android.features.quotes.GetFeaturedQuotes
+import com.stasbar.app.android.features.quotes.QuotesAdapter
 import com.stasbar.app.models.extensions.getPropertyOrDefault
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -48,5 +51,8 @@ val mainModule = module {
   }
   single { BackendService(get()) }
   single { GetFeaturedBooks(get()) }
-  viewModel { AboutMeViewModel(get()) }
+  single { GetFeaturedQuotes(get()) }
+  factory { QuotesAdapter() }
+  factory { BooksAdapter() }
+  viewModel { AboutMeViewModel(get(), get()) }
 }

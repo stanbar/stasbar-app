@@ -17,6 +17,18 @@
     app:layout_constraintRight_toRightOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
 
+  <TextView
+    android:id="@+id/tvNoBestBooks"
+    style="@style/TextAppearance.MaterialComponents.Headline6"
+    android:layout_margin="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/could_not_load_data"
+    android:visibility="gone"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tvBestBooks" />
+
   <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/rvBestBooks"
     android:nestedScrollingEnabled="false"
@@ -29,6 +41,23 @@
     tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
     tools:listitem="@layout/book_view_holder"
     tools:spanCount="2" />
+
+  <com.google.android.material.button.MaterialButton
+    android:id="@+id/btnMoreBooks"
+    style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="16dp"
+    android:text="@string/books"
+    android:layout_marginStart="8dp"
+    app:icon="@drawable/ic_books"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/rvBestBooks"
+    app:strokeColor="@color/colorAccent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

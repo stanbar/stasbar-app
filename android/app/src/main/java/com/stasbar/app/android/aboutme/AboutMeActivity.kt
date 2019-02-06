@@ -28,38 +28,53 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.stasbar.app.android.R
+import com.stasbar.app.android.core.extenstion.gone
+import com.stasbar.app.android.core.extenstion.show
 import com.stasbar.app.android.features.books.BooksAdapter
+import com.stasbar.app.android.features.quotes.QuotesAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.best_books.*
+import kotlinx.android.synthetic.main.best_quotes.*
 import kotlinx.android.synthetic.main.header.*
-import kotlinx.coroutines.androidx.lifecycle.coroutineScope
-import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import java.util.*
 
 class AboutMeActivity : AppCompatActivity() {
   private val viewModel: AboutMeViewModel by inject()
+  private val quotesAdapter: QuotesAdapter by inject()
+  private val booksAdapter: BooksAdapter by inject()
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
     tvMyAge.setTagText(getString(R.string.my_age, getAge()))
-    val adapter = setupBestBooks()
+
+    rvBestBooks.layoutManager = GridLayoutManager(this, resources.getInteger(R.integer.best_books_span_count))
+    rvBestBooks.adapter = booksAdapter
+
+    rvBestQuotes.adapter = quotesAdapter
+
     viewModel.bestBooks.observe(this, androidx.lifecycle.Observer {
-      coroutineScope.launch {
-        adapter.replaceAll(it)
-      }
+      booksAdapter.replaceAll(it)
+      tvNoBestBooks.gone()
+
+    })
+    viewModel.bestBooksFailure.observe(this, androidx.lifecycle.Observer {
+      tvNoBestBooks.show()
+    })
+
+    viewModel.bestQuotes.observe(this, androidx.lifecycle.Observer {
+      quotesAdapter.replaceAll(it)
+      tvNoBestQuotes.gone()
+
+    })
+    viewModel.bestQuotesFailure.observe(this, androidx.lifecycle.Observer {
+      tvNoBestQuotes.show()
     })
 
     viewModel.requestBestBooks()
+    viewModel.requestBestQuotes()
     setLogo()
-  }
-
-  private fun setupBestBooks(): BooksAdapter {
-    val adapter = BooksAdapter()
-    rvBestBooks.adapter = adapter
-    rvBestBooks.layoutManager = GridLayoutManager(this, resources.getInteger(R.integer.best_books_span_count))
-    return adapter
   }
 
   private fun setLogo() {
