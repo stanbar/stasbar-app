@@ -74,7 +74,77 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="32dp"
     app:flexWrap="wrap"
-    app:justifyContent="center" />
+    app:justifyContent="center">
+
+    <com.stasbar.app.android.widgets.LinkButton
+      android:text="LinkedIn"
+      android:tag="https://www.linkedin.com/in/stasbar/"
+      android:backgroundTint="#FFFFFF"
+      android:textColor="#243641"
+      android:layout_marginLeft="8dp"
+      android:layout_marginRight="8dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:icon="@drawable/ic_linkedin" />
+
+    <com.stasbar.app.android.widgets.LinkButton
+      android:text="Github"
+      android:tag="https://github.com/stasbar"
+      android:backgroundTint="#212529"
+      android:textColor="#FFFFFF"
+      android:layout_marginLeft="8dp"
+      android:layout_marginRight="8dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:icon="@drawable/ic_github" />
+
+
+    <com.stasbar.app.android.widgets.LinkButton
+      android:text="Keybase"
+      android:tag="https://keybase.io/stasbar"
+      android:backgroundTint="#3095F4"
+      android:textColor="#FFFFFF"
+      android:layout_marginLeft="8dp"
+      android:layout_marginRight="8dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:icon="@drawable/ic_keybase" />
+
+    <com.stasbar.app.android.widgets.LinkButton
+      android:layout_marginLeft="8dp"
+      android:layout_marginRight="8dp"
+      android:text="StackOverflow"
+      android:tag="https://stackoverflow.com/story/stasbar"
+      android:backgroundTint="#F9F9FA"
+      android:textColor="#343536"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:icon="@drawable/ic_stackoverflowicon" />
+
+    <com.stasbar.app.android.widgets.LinkButton
+      android:layout_marginLeft="8dp"
+      android:layout_marginRight="8dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="TaxLedger"
+      android:tag="https://tax-ledger.com"
+      android:backgroundTint="#FFFFFF"
+      android:textColor="#243641"
+
+      app:icon="@drawable/ic_taxledger" />
+
+    <com.stasbar.app.android.widgets.LinkButton
+      android:layout_marginLeft="8dp"
+      android:layout_marginRight="8dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="VapeTool"
+      android:tag="http://vapetool.stasbar.com"
+      android:backgroundTint="#3546A7"
+      android:textColor="#FFFFFF"
+      app:icon="@drawable/ic_vapetool" />
+
+  </com.google.android.flexbox.FlexboxLayout>
 
 
   <com.google.android.flexbox.FlexboxLayout

@@ -26,6 +26,7 @@ plugins {
   id 'com.android.application'
   id 'kotlin-android'
   id 'kotlin-android-extensions'
+  id 'com.github.triplet.play' version '2.1.0'
 }
 
 android {
@@ -49,6 +50,11 @@ android {
   packagingOptions {
     exclude 'META-INF/common.kotlin_module'
   }
+}
+
+//https://github.com/Triple-T/gradle-play-publisher
+play{
+  serviceAccountCredentials = file(STASBAR_GOOGLE_PLAY_API_KEY_PATH)
 }
 
 dependencies {

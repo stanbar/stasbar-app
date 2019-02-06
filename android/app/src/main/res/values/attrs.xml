@@ -12,7 +12,6 @@
     <attr name="tagText" />
   </declare-styleable>
 
-
   <declare-styleable name="AppView">
     <attr name="name" />
     <attr name="description" />
@@ -26,4 +25,6 @@
     <attr name="website" format="string" />
     <attr name="github" format="string" />
   </declare-styleable>
+
+
 </resources>
