@@ -25,9 +25,14 @@
 package com.stasbar.app.android.aboutme
 
 import android.os.Bundle
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.stasbar.app.android.R
+import com.stasbar.app.android.core.extenstion.browse
 import com.stasbar.app.android.core.extenstion.gone
 import com.stasbar.app.android.core.extenstion.show
 import com.stasbar.app.android.features.books.BooksAdapter
@@ -35,6 +40,7 @@ import com.stasbar.app.android.features.quotes.QuotesAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.best_books.*
 import kotlinx.android.synthetic.main.best_quotes.*
+import kotlinx.android.synthetic.main.footer.*
 import kotlinx.android.synthetic.main.header.*
 import org.koin.android.ext.android.inject
 import java.util.*
@@ -75,6 +81,7 @@ class AboutMeActivity : AppCompatActivity() {
     viewModel.requestBestBooks()
     viewModel.requestBestQuotes()
     setLogo()
+    setFooter()
   }
 
   private fun setLogo() {
@@ -85,6 +92,16 @@ class AboutMeActivity : AppCompatActivity() {
   /____/\__/\__,_/____/_.___/\__,_/_/"""
 
     tvLogo.text = logoText
+  }
+
+  private fun setFooter() {
+    val footerSpannable = SpannableStringBuilder()
+    tvFooterSourceCode.setOnClickListener {
+      browse("https://github.com/stasbar/stasbar-app")
+    }
+    footerSpannable.append("build with ")
+    footerSpannable.append("Kotlin ❤️", ForegroundColorSpan(ContextCompat.getColor(this, R.color.textColorPrimary)), 0)
+    tvFooter.setText(footerSpannable, TextView.BufferType.SPANNABLE)
   }
 
   fun getAge(): Int {

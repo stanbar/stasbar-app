@@ -1,8 +1,6 @@
 package com.stasbar.app.android.widgets
 
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.text.SpannableStringBuilder
 import android.text.method.LinkMovementMethod
 import android.text.style.ForegroundColorSpan
@@ -16,6 +14,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.stasbar.app.android.R
+import com.stasbar.app.android.core.extenstion.browse
 
 
 class AppView : LinearLayout {
@@ -69,15 +68,13 @@ class AppView : LinearLayout {
     ivAppImage.setImageDrawable(image)
   }
 
-  fun SpannableStringBuilder.appendLink(name: String, href: String): SpannableStringBuilder {
+  private fun SpannableStringBuilder.appendLink(name: String, href: String): SpannableStringBuilder {
     val start = length
     append(name)
     val end = length
     val urlSpan = object : URLSpan(href) {
       override fun onClick(view: View) {
-        val urlIntent = Intent(Intent.ACTION_VIEW)
-        urlIntent.data = Uri.parse(url)
-        context.startActivity(urlIntent)
+        context.browse(url)
       }
     }
     setSpan(urlSpan, start, end, 0)
