@@ -35,15 +35,29 @@ android {
     applicationId 'com.stasbar.app.android'
     minSdkVersion 21
     targetSdkVersion 28
-    versionCode 1
+    versionCode 3
     versionName '1.0.0'
     testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
   }
-
+  signingConfigs {
+    release {
+      keyAlias 'stasbar-app'
+      keyPassword STASBAR_APP_KEYSTORE_PASSWORD
+      storeFile file(STASBAR_APP_KEYSTORE_PATH)
+      storePassword STASBAR_APP_KEYSTORE_PASSWORD
+    }
+  }
   buildTypes {
     release {
-      minifyEnabled false
+      minifyEnabled true
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      signingConfig signingConfigs.release
+    }
+    releaseDebug {
+      debuggable true
+      minifyEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      signingConfig signingConfigs.release
     }
   }
 
@@ -53,8 +67,11 @@ android {
 }
 
 //https://github.com/Triple-T/gradle-play-publisher
-play{
+play {
   serviceAccountCredentials = file(STASBAR_GOOGLE_PLAY_API_KEY_PATH)
+  defaultToAppBundles = true
+  track = "production"
+  releaseStatus = "draft"
 }
 
 dependencies {
@@ -93,3 +110,4 @@ dependencies {
   androidTestImplementation 'androidx.test:runner:1.1.1'
   androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 }
+

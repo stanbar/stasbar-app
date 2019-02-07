@@ -19,6 +19,14 @@ task clean(type: Delete) {
   delete rootProject.buildDir
 }
 
+task installRelease(type : Exec){
+  dependsOn = ['assembleRelease']
+  commandLine "adb"
+  args = ["install", "android/app/build/outputs/apk/release/app-release.apk"]
+}
+
+
+
 dependencies {
 }
 

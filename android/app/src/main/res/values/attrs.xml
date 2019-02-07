@@ -15,7 +15,7 @@
   <declare-styleable name="AppView">
     <attr name="name" />
     <attr name="description" />
-    <attr name="img" format="reference" />
+    <attr name="imgUrl" format="string" />
     <attr name="platform" format="enum">
       <enum name="mobile" value="0" />
       <enum name="desktop" value="1" />

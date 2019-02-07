@@ -35,7 +35,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       app:description="Desktop application for settle taxes from cryptocurrencies exchanges"
-      app:img="@drawable/tax_ledger_framed"
+      app:imgUrl="https://stasbar.com/static/media/TaxLedgerFramed.7e25a979.png"
       app:name="Tax Ledger"
       app:platform="desktop"
       app:website="https://tax-ledger.com/" />
@@ -45,7 +45,7 @@
       android:layout_height="wrap_content"
       app:description="Bitcoin hardware wallet on Raspberry Pi Zero"
       app:github="https://github.com/RaspberryWallet"
-      app:img="@drawable/raspberry_wallet_framed"
+      app:imgUrl="https://stasbar.com/static/media/RaspberryWalletFramed.f9f589d5.png"
       app:name="Raspberry Wallet"
       app:platform="desktop"
       app:website="https://raspberrywallet.github.io/readme.html" />
@@ -55,7 +55,7 @@
       android:layout_height="wrap_content"
       app:description="This website &amp; android app itself are good pieces of software, so I think it's worth mention here"
       app:github="https://github.com/stasbar/stasbar-app"
-      app:img="@drawable/website_framed"
+      app:imgUrl="https://stasbar.com/static/media/WebsiteFramed.ad986fb9.png"
       app:name="stasbar.com"
       app:platform="desktop"
       app:website="https://stasbar.com" />

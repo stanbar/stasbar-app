@@ -24,7 +24,7 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
-
+-keep class com.stasbar.app.** { *; }
 -keep class io.ktor.** { *; }
 -keep class android.arch.** { *; }
 -keep class kotlin.reflect.** { *; }

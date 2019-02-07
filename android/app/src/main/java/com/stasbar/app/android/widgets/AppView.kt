@@ -13,6 +13,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.squareup.picasso.Picasso
 import com.stasbar.app.android.R
 import com.stasbar.app.android.core.extenstion.browse
 
@@ -28,7 +29,7 @@ class AppView : LinearLayout {
     val params = context.obtainStyledAttributes(attrs, R.styleable.AppView, 0, 0)
     val name = checkNotNull(params.getString(R.styleable.AppView_name)) { "Can not be empty" }
     val description = checkNotNull(params.getString(R.styleable.AppView_description)) { "Can not be empty" }
-    val image = checkNotNull(params.getDrawable(R.styleable.AppView_img)) { "Can not be empty" }
+    val imgUrl = checkNotNull(params.getString(R.styleable.AppView_imgUrl)) { "Can not be empty" }
     val platform = Platform.values()[params.getInt(R.styleable.AppView_platform, Platform.MOBILE.ordinal)]
     val github = params.getString(R.styleable.AppView_github)
     val googlePlay = params.getString(R.styleable.AppView_googlePlay)
@@ -64,8 +65,7 @@ class AppView : LinearLayout {
 
     tvDescription.setText(spann, TextView.BufferType.SPANNABLE)
     tvDescription.movementMethod = LinkMovementMethod.getInstance()
-
-    ivAppImage.setImageDrawable(image)
+    Picasso.get().load(imgUrl).into(ivAppImage)
   }
 
   private fun SpannableStringBuilder.appendLink(name: String, href: String): SpannableStringBuilder {
