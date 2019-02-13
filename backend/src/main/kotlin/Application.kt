@@ -128,6 +128,10 @@ fun Application.module() {
         call.respond(books)
       }
     }
+    static(".well-known") {
+      staticBasePackage = "assets"
+      resources("wellknown")
+    }
     static("") {
       webapp()
     }
