@@ -2,24 +2,29 @@
 
 ### Technology Stack
 <pre>
-                    +------------Heroku------------+
-                    | +---------|Docker|---------+ |
-                    | | +---------Ktor---------+ | |
+                    +-----------+Heroku+-----------+
+                    | +---------|Docker+---------+ |
+                    | | +-------+Backend+------+ | |
 +Frontend+------+   | | |                      | | |
 |               |   | | |     Kotlin/Java      | | |     +-------------+
 | +Reactjs+---+ |   | | |                      | | |  +--> Google|Books|
-| |TypeScript | |   | | |  +-----Backend----+  | | |  |  +-------------+
+| |TypeScript | |   | | |  +-----+Ktor+-----+  | | |  |  +-------------+
 | +-----------+ +---------->                |  | | |  |
-+---------------+   | | |  | +-----------+  |  | | |  |  +----------+
-                    | | |  | |H2|database|  +------------> Goodreads|
-+Android+-------+   | | |  | +-----------+  |  | | |  |  +----------+
++---------------+   | | |  |                |  | | |  |  +----------+
+                    | | |  |                +------------> Goodreads|
++Android+-------+   | | |  |                |  | | |  |  +----------+
 |               +---------->                |  | | |  |
 | +Instant+App+ |   | | |  +----------------+  | | |  |  +------------+
-| |  Kotlin   | |   | | |                      | | |  +--> openlibrary|
-| +-----------+ |   | | +------------------------+ |     +------------+
-+---------------+   | +--------------------------| |
+| |  Kotlin   | |   | | +----------------------+ | |  +--> openlibrary|
+| +-----------+ |   | +--------------------------+ |     +------------+
++---------------+   |                   |          |
+                    |        +-Database-v+         |
+                    |        | Postgres  |         |
+                    |        +-----------+         |
                     +------------------------------+
+
 </pre>
+
 
 
 ### Backend Server
@@ -29,18 +34,25 @@
 - Books and shelves repository from [Goodreads API](https://www.goodreads.com/api)
 - Book covers from [Google Books API](https://developers.google.com/books)
 - HTML DOM scraper [Jsoup](https://github.com/jhy/jsoup)
-- Database [H2](https://github.com/h2database/h2database)
+- Database [Postgres](https://www.postgresql.org/)
 - ORM/DAO [Kotlin Exposed](https://github.com/JetBrains/Exposed)
+- Dependency Injection [koin](https://github.com/InsertKoinIO/koin)
+- Multi-threading [coroutines](https://github.com/Kotlin/kotlinx.coroutines)
 
 
 ### Frontend WebApp
-- TypeScript
+- [TypeScript](https://www.typescriptlang.org/)
 - [React](https://github.com/facebook/react)
 - [Material-UI](https://material-ui.com/)
 
 
 ### Android Application
-- Instant App
+- [Instant App](https://developer.android.com/topic/google-play-instant/)
+- HTTP Client [Retrofit](https://github.com/square/retrofit)
+- Dependency Injection [koin](https://github.com/InsertKoinIO/koin)
+- Multi-threading [coroutines](https://github.com/Kotlin/kotlinx.coroutines)
+- [Android Arch](https://developer.android.com/topic/libraries/architecture/)
+- Logging [Timber](https://github.com/JakeWharton/timber)
 
 
 ## How to build and run
@@ -57,10 +69,9 @@
  * Run `./gradlew backend:run` from the command line or from Gradle tool window
  * The backend will start serving on localhost:8888
 
-### Deploying the backend
+### Deploying the backend to heroku
 
- * Run `./gradlew backend:appengineDeploy` from the command line or from Gradle tool window
- * The backend will be published on Google App Engine run `gcloud app browse` to open it in browser
++ Run `heroku stack:set container && git push heroku master` 
 
 ### Running the Android app
 
