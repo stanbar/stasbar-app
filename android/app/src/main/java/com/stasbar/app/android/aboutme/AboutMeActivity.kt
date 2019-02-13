@@ -53,6 +53,11 @@ class AboutMeActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
+
+    val appLinkIntent = intent
+    val appLinkAction = appLinkIntent.action
+    val appLinkData = appLinkIntent.data
+
     tvMyAge.setTagText(getString(R.string.my_age, getAge()))
 
     rvBestBooks.layoutManager = GridLayoutManager(this, resources.getInteger(R.integer.best_books_span_count))

@@ -18,3 +18,7 @@ local.properties
 .database
 
 .env
+src/main/resources/assets/.well-known/
+.gitignore
+app/release/
+app/src/main/res/untitled folder/
