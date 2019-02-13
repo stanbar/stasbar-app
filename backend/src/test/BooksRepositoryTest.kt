@@ -29,11 +29,10 @@ import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-import org.koin.core.KoinProperties
-import org.koin.standalone.StandAloneContext.startKoin
-import org.koin.standalone.StandAloneContext.stopKoin
-import org.koin.standalone.inject
+import org.koin.core.context.startKoin
+import org.koin.core.context.stopKoin
 import org.koin.test.KoinTest
+import org.koin.test.inject
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -42,7 +41,11 @@ class BooksRepositoryTest : KoinTest {
 
   @Before
   fun setUp() {
-    startKoin(testModules, properties = KoinProperties(useKoinPropertiesFile = true, useEnvironmentProperties = true))
+    startKoin {
+      modules(testModules)
+      environmentProperties()
+      fileProperties()
+    }
   }
 
   @After

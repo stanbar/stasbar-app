@@ -1,36 +1,29 @@
 package database
 
+import com.stasbar.BaseKoinTest
 import com.stasbar.app.database.BooksDatabase
 import com.stasbar.app.database.models.BookShelves
 import com.stasbar.app.database.models.Books
 import com.stasbar.app.database.models.Quotes
 import com.stasbar.app.database.models.Shelves
-import com.stasbar.app.di.testModules
 import com.stasbar.app.models.Book
 import com.stasbar.app.models.Quote
 import com.stasbar.app.models.Shelf
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.exposed.sql.deleteAll
 import org.jetbrains.exposed.sql.transactions.transaction
-import org.junit.After
 import org.junit.Before
 import org.junit.Test
-import org.koin.core.KoinProperties
-import org.koin.standalone.StandAloneContext
-import org.koin.standalone.inject
-import org.koin.test.KoinTest
+import org.koin.test.inject
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-class PostgresDatabaseTest : KoinTest {
+class PostgresDatabaseTest : BaseKoinTest() {
   private val database: BooksDatabase by inject()
 
   @Before
-  fun setUp() {
-    StandAloneContext.startKoin(
-      testModules,
-      properties = KoinProperties(useKoinPropertiesFile = true, useEnvironmentProperties = true)
-    )
+  override fun setUp() {
+    super.setUp()
     database
     transaction {
       Quotes.deleteAll()
@@ -38,11 +31,6 @@ class PostgresDatabaseTest : KoinTest {
       Shelves.deleteAll()
       Books.deleteAll()
     }
-  }
-
-  @After
-  fun tearDown() {
-    StandAloneContext.stopKoin()
   }
 
   private val the7HabitsBook = Book(

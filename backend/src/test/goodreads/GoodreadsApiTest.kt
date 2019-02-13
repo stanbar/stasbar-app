@@ -24,36 +24,19 @@
 
 package goodreads
 
-import com.stasbar.app.di.testModules
+import com.stasbar.BaseKoinTest
 import com.stasbar.app.goodreads.GoodreadsApi
 import kotlinx.coroutines.runBlocking
 import org.jsoup.Jsoup
-import org.junit.After
-import org.junit.Before
 import org.junit.Test
-import org.koin.core.KoinProperties
-import org.koin.standalone.StandAloneContext.startKoin
-import org.koin.standalone.StandAloneContext.stopKoin
-import org.koin.standalone.getProperty
-import org.koin.standalone.inject
-import org.koin.test.KoinTest
+import org.koin.test.get
+import org.koin.test.inject
 import kotlin.test.assertTrue
 
-class GoodreadsApiTest : KoinTest {
+class GoodreadsApiTest : BaseKoinTest() {
   private val goodreadsApi: GoodreadsApi by inject()
-  private val goodReadsApiKey: String by lazy { getProperty<String>("GOODREADS_API_KEY") }
-  private val goodReadsUserId: String by lazy { getProperty<String>("GOODREADS_USER_ID") }
-
-  @Before
-  fun setUp() {
-    startKoin(testModules, properties = KoinProperties(useKoinPropertiesFile = true, useEnvironmentProperties = true))
-  }
-
-
-  @After
-  fun tearDown() {
-    stopKoin()
-  }
+  private val goodReadsApiKey: String by lazy { get<String>("GOODREADS_API_KEY") }
+  private val goodReadsUserId: String by lazy { get<String>("GOODREADS_USER_ID") }
 
   @Test
   fun getAllReviews() {

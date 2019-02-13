@@ -24,33 +24,16 @@
 
 package googlebooks
 
-import com.stasbar.app.di.testModules
+import com.stasbar.BaseKoinTest
 import com.stasbar.app.googlebooks.GoogleBooksApi
 import kotlinx.coroutines.runBlocking
-import org.junit.After
-import org.junit.Before
 import org.junit.Test
-import org.koin.core.KoinProperties
-import org.koin.standalone.StandAloneContext.startKoin
-import org.koin.standalone.StandAloneContext.stopKoin
-import org.koin.standalone.inject
-import org.koin.test.KoinTest
+import org.koin.test.inject
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
-class GoogleBooksApiTest : KoinTest {
+class GoogleBooksApiTest : BaseKoinTest() {
   private val googleBooksApi: GoogleBooksApi by inject()
-
-  @Before
-  fun setUp() {
-    startKoin(testModules, properties = KoinProperties(useKoinPropertiesFile = true, useEnvironmentProperties = true))
-  }
-
-
-  @After
-  fun tearDown() {
-    stopKoin()
-  }
 
   @Test
   fun getBookByIsbn() = runBlocking<Unit> {
