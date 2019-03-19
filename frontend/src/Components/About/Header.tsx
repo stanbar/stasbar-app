@@ -161,7 +161,7 @@ class Header extends Component<WithStyles<typeof styles>> {
           <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
             <Typography className={classes.specName}>Backend</Typography>
             <Typography component="p" color={"textSecondary"}>I chose Firebase whenever it's possible.
-              Otherwise Kotlin with ktor</Typography>
+              Otherwise Kotlin with ktor. And Python for scripting</Typography>
           </Grid>
 
           <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>

@@ -52,7 +52,6 @@
 - Dependency Injection [koin](https://github.com/InsertKoinIO/koin)
 - Multi-threading [coroutines](https://github.com/Kotlin/kotlinx.coroutines)
 - [Android Arch](https://developer.android.com/topic/libraries/architecture/)
-- Logging [Timber](https://github.com/JakeWharton/timber)
 
 
 ## How to build and run
@@ -79,6 +78,11 @@
  * Select module "app" in the run configuration settings
  * Run the configuration
  * Select the emulator or connected device, as normal
+
+### Deploying on heroku
+ * `./gradlew buildAndCopyWebapp` build webApp and copy webapp to ktor static assets  
+ * `heroku container:push web` build an image and push it to Container Registry
+ * `heroku container:release web` release the image to the app
 
 ### Licences
 ```
