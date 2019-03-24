@@ -138,7 +138,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="Vape Tool"
-      android:tag="http://vapetool.stasbar.com"
+      android:tag="https://vapetool.app"
       android:backgroundTint="#3546A7"
       android:textColor="#FFFFFF"
       app:icon="@drawable/ic_vapetool" />

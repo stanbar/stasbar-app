@@ -143,7 +143,7 @@ class Header extends Component<WithStyles<typeof styles>> {
                            textColor={"#243641"}
                            backgroundColor={"#FFF"}/>
           <LinkImageButton name={"VapeTool"}
-                           href={"http://vapetool.stasbar.com"}
+                           href={"https://vapetool.app"}
                            Icon={<img src={VapeToolIcon} width={20}/>}
                            textColor={"#FFF"}
                            backgroundColor={"#3546A7"}/>
