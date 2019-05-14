@@ -29,3 +29,9 @@ buildAndCopyWebapp.dependsOn addAssetsToGit
 
 replaceWebapp.mustRunAfter buildWebapp
 addAssetsToGit.mustRunAfter replaceWebapp
+
+
+task deployToHeroku(description: "deploy app container on heroku", type: Exec) {
+  commandLine "./deployToHeroku.sh"
+}
+
