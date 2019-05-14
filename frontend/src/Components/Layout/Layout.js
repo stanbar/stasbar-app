@@ -89,7 +89,9 @@ class Layout extends Component {
     const appBar = <AppBar position="static" className={classes.appBar}>
       <Toolbar>
         <div style={{flexGrow: 1}}>
-          <img className={classes.logoImg} src={logoPng}/>
+          <Link to={"/"}>
+            <img className={classes.logoImg} src={logoPng}/>
+          </Link>
         </div>
         <Button
           className={classes.menuButton}
