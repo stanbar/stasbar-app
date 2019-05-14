@@ -10,9 +10,13 @@ import Quotes from "./Components/Quotes/Quotes";
 
 const theme = createMuiTheme({
   palette: {
-    type: "dark",
-    primary: {main: '#343B3A', light: "#343838", dark: "#2E3231"},
-    secondary: {main: '#04C78E'},
+    type: "light",
+    primary: {main: '#f7f7f7', light: "#ffffff", dark: "#c4c4c4"},
+    secondary: {main: '#3dacd1', light: "#CEEBF6", dark: "#3dacd1"},
+    text: { primary: "#5b6a72" },
+    // type: "dark",
+    // primary: {main: '#343B3A', light: "#343838", dark: "#2E3231"},
+    // secondary: {main: '#04C78E'},
   },
   typography: {
     useNextVariants: true,
@@ -28,7 +32,7 @@ const logPageView = () => {
 const NoMatch = () => (
   <div>
     <Typography variant={"h2"}>Whoops</Typography>
-    <Typography variant={"body1"}>Sorry but {location.pathname} didn’t match any pages</Typography>
+    <Typography variant={"body1"}>Sorry but {window.location.pathname} didn’t match any pages</Typography>
   </div>
 );
 

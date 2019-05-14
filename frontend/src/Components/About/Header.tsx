@@ -38,6 +38,7 @@ const styles = (theme: Theme) => createStyles({
     fontSize: "2rem",
     fontWeight: 600,
     marginBottom: "1rem",
+    color: theme.palette.text.primary
   },
   content: {
     maxWidth: 600,
@@ -80,8 +81,7 @@ class Header extends Component<WithStyles<typeof styles>> {
 
     function getMyAge(): number {
       const current = new Date();
-      const monthsDiff = Math.sign(current.getUTCMonth() - 3);
-      return current.getUTCFullYear() - 1995 + monthsDiff
+      return current.getUTCFullYear() - 1995;
     }
 
     const LinkImageButton: React.FunctionComponent<{
@@ -104,14 +104,14 @@ class Header extends Component<WithStyles<typeof styles>> {
 
     return (
       <div className={classes.content}>
-        <Typography variant="h1" align="center" color="textPrimary" gutterBottom={true} className={classes.nameTitle}>
+        <Typography variant="h1" align="center" gutterBottom={true} className={classes.nameTitle}>
           STANISLAW BARANSKI
         </Typography>
         <Typography variant="h6" align="center" gutterBottom={true}>
-          <u className={classes.keyword}>full stack software developer</u>, &nbsp;
+          <u className={classes.keyword}>full stack android developer</u>, &nbsp;
           <u className={classes.keyword}>beginner entrepreneur</u>, &nbsp;
           <u className={classes.keyword}>blockchain enthusiast</u>, &nbsp;
-          <u className={classes.keyword}>b.s. computer science</u>, &nbsp;
+          <u className={classes.keyword}>b.s.eng. computer science</u>, &nbsp;
           <u className={classes.keyword}>{getMyAge()} years old</u>
         </Typography>
 

@@ -39,7 +39,7 @@ const styles = (theme: Theme) => createStyles({
     backgroundColor: theme.palette.primary.light
   },
   even: {
-    backgroundColor: theme.palette.primary.dark
+    backgroundColor: theme.palette.primary.main
   }
 });
 

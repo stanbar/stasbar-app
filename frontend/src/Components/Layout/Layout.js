@@ -33,7 +33,7 @@ import LibraryBookIcon from '@material-ui/icons/LibraryBooks'
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote'
 import Footer from "./Footer";
 import "../../index.css"
-import Typography from "@material-ui/core/Typography";
+import logoPng from '../../assets/png/logo.png'
 
 const styles = (theme) => ({
   appBar: {
@@ -42,21 +42,18 @@ const styles = (theme) => ({
   main: {
     flexGrow: 1,
   },
-  logoText: {
+  logoImg: {
     [theme.breakpoints.down(500 + theme.spacing.unit * 3 * 2)]: {
       marginRight: 20,
       marginLeft: -12,
     },
-    textDecoration: "none",
-    fontFamily: 'B612Mono, monospace',
-    whiteSpace: 'pre',
-    fontStyle: 'bold',
-    flexGrow: 1,
-    fontSize: 5
+
+    maxHeight: 50,
   },
   menuButton: {
     marginRight: 0,
     marginLeft: 0,
+    color: theme.palette.secondary.dark,
     [theme.breakpoints.up(500 + theme.spacing.unit * 3 * 2)]: {
       marginRight: 20,
       marginLeft: -12,
@@ -87,27 +84,18 @@ const styles = (theme) => ({
 class Layout extends Component {
 
   render() {
-    const logoString = `
-          __             __
-    _____/ /_____ ______/ /_  ____ ______
-   / ___/ __/ __ \`/ ___/ __ \\/ __ \`/ ___/
-  (__  ) /_/ /_/ (__  ) /_/ / /_/ / /
- /____/\\__/\\__,_/____/_.___/\\__,_/_/
-            `;
     const {classes, children} = this.props;
 
     const appBar = <AppBar position="static" className={classes.appBar}>
       <Toolbar>
-        <Typography
-          component={Link}
-          to={"/"}
-          className={classes.logoText} color="secondary">{logoString}</Typography>
+        <div style={{flexGrow: 1}}>
+          <img className={classes.logoImg} src={logoPng}/>
+        </div>
         <Button
           className={classes.menuButton}
           variant="outlined"
           component={Link}
-          to="/books"
-          color="secondary">
+          to="/books">
           Books
           <LibraryBookIcon className={classes.rightIcon}/>
 
@@ -116,8 +104,7 @@ class Layout extends Component {
           className={classes.menuButton}
           variant="outlined"
           component={Link}
-          to="/quotes"
-          color="secondary">
+          to="/quotes">
           Quotes
           <FormatQuoteIcon className={classes.rightIcon}/>
         </Button>

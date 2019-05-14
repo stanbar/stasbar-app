@@ -46,7 +46,7 @@ const Projects: IApp[] = [
     name: "website",
     imgSrc: MyWebsiteFramedPng,
     imgWebp: MyWebsiteFramedWebp,
-    description: "This website & android app itself are good pieces of software, so I think it's worth mention here",
+    description: "This website & android app itself is my pet-project, so I think it's worth mention here",
     platform: "desktop",
     links: {
       website: null,
