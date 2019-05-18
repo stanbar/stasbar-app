@@ -85,18 +85,7 @@ class AboutMeActivity : AppCompatActivity() {
 
     viewModel.requestBestBooks()
     viewModel.requestBestQuotes()
-    setLogo()
     setFooter()
-  }
-
-  private fun setLogo() {
-    val logoText = """           __             __
-     _____/ /_____ ______/ /_  ____ ______
-    / ___/ __/ __ `/ ___/ __ \/ __ `/ ___/
-   (__  ) /_/ /_/ (__  ) /_/ / /_/ / /
-  /____/\__/\__,_/____/_.___/\__,_/_/"""
-
-    tvLogo.text = logoText
   }
 
   private fun setFooter() {
@@ -109,10 +98,9 @@ class AboutMeActivity : AppCompatActivity() {
     tvFooter.setText(footerSpannable, TextView.BufferType.SPANNABLE)
   }
 
-  fun getAge(): Int {
+  private fun getAge(): Int {
     val current = Calendar.getInstance()
-    val diff = Math.signum(current.get(Calendar.MONTH) - 3.0).toInt()
-    return current.get(Calendar.YEAR) - 1995 + diff
+    return current.get(Calendar.YEAR) - 1995
   }
 
 }
