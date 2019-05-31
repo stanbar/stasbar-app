@@ -35,8 +35,8 @@ android {
     applicationId 'com.stasbar.app.android'
     minSdkVersion 21
     targetSdkVersion 28
-    versionCode 6
-    versionName '1.0.3'
+    versionCode 7
+    versionName '1.0.4'
     testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
   }
   signingConfigs {
@@ -71,7 +71,6 @@ play {
   serviceAccountCredentials = file(STASBAR_GOOGLE_PLAY_API_KEY_PATH)
   defaultToAppBundles = true
   track = "production"
-  releaseStatus = "draft"
 }
 
 dependencies {

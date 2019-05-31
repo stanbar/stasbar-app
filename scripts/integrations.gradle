@@ -5,7 +5,8 @@ task buildWebapp(type: Exec) {
 }
 
 task removeOldAssets(type: Delete) {
-  delete 'backend/src/main/resources/assets'
+  def dirName = "backend/src/main/resources/assets"
+  delete fileTree(dir: dirName, exclude: "wellknown")
 }
 
 task copyWebapp(type: Copy) {
