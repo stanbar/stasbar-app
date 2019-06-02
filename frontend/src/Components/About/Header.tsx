@@ -111,7 +111,7 @@ class Header extends Component<WithStyles<typeof styles>> {
           <u className={classes.keyword}>full stack android developer</u>, &nbsp;
           <u className={classes.keyword}>beginner entrepreneur</u>, &nbsp;
           <u className={classes.keyword}>blockchain enthusiast</u>, &nbsp;
-          <u className={classes.keyword}>b.s.eng. computer science</u>, &nbsp;
+          <u className={classes.keyword}>b.eng. computer science</u>, &nbsp;
           <u className={classes.keyword}>{getMyAge()} years old</u>
         </Typography>
 
