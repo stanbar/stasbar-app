@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "84373ddc2234772826064e281ea67250",
+    "revision": "ba998900c7e1455ac5a48450b20322bf",
     "url": "/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/css/2.52da1176.chunk.css"
   },
   {
-    "revision": "6852376b96b3e9252730",
+    "revision": "0a1e71619e894f74a87d",
     "url": "/static/css/main.3faeb14c.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.4bff7648.chunk.js"
   },
   {
-    "revision": "6852376b96b3e9252730",
-    "url": "/static/js/main.4161ba08.chunk.js"
+    "revision": "0a1e71619e894f74a87d",
+    "url": "/static/js/main.9e7db82f.chunk.js"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -40,24 +40,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/KeybaseLogo.256c7062.svg"
   },
   {
-    "revision": "ccecf37c4a754b8b0b7418fb3b986ab0",
-    "url": "/static/media/RaspberryWalletFramed.ccecf37c.webp"
+    "revision": "955059753e816340c20906be43d695e0",
+    "url": "/static/media/RaspberryWalletFramed.95505975.png"
   },
   {
-    "revision": "f9f589d5841363a565a3af83574d5cbb",
-    "url": "/static/media/RaspberryWalletFramed.f9f589d5.png"
+    "revision": "b2a1bcf16af389b01ee88c180cbaa624",
+    "url": "/static/media/RaspberryWalletFramed.b2a1bcf1.webp"
   },
   {
     "revision": "3ae582d506b04d1b6f32ef7aa64780b0",
     "url": "/static/media/StackOverflowIcon.3ae582d5.svg"
   },
   {
-    "revision": "2c4365ee84b282e78841dca365eb6cbc",
-    "url": "/static/media/TaxLedgerFramed.2c4365ee.webp"
+    "revision": "3853b80d47876ddb307cddb7c6e42a0d",
+    "url": "/static/media/TaxLedgerFramed.3853b80d.png"
   },
   {
-    "revision": "7e25a9796b1c03f26c0ef86c868b982b",
-    "url": "/static/media/TaxLedgerFramed.7e25a979.png"
+    "revision": "98a1d6021fc10be5a56bc850a215125c",
+    "url": "/static/media/TaxLedgerFramed.98a1d602.webp"
   },
   {
     "revision": "7fc1e6f1fdb533b2cd8dae1702f1a485",
@@ -92,12 +92,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/WallpapersOneClickLongFramed.dc77aea2.png"
   },
   {
-    "revision": "ad986fb98e1a3c76b48153ece1f44cde",
-    "url": "/static/media/WebsiteFramed.ad986fb9.png"
+    "revision": "7628754260accff8d414e9e0aa3a397e",
+    "url": "/static/media/WebsiteFramed.76287542.webp"
   },
   {
-    "revision": "bab27de6c28a1250fc0b931d8322b89f",
-    "url": "/static/media/WebsiteFramed.bab27de6.webp"
+    "revision": "8668a4c04143243484e42501e6465fde",
+    "url": "/static/media/WebsiteFramed.8668a4c0.png"
   },
   {
     "revision": "16c18fde65a7b18af8441aab47ec71ce",
