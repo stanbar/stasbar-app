@@ -1,5 +1,9 @@
 [{
   "relation": ["delegate_permission/common.handle_all_urls"],
-  "target" : { "namespace": "android_app", "package_name": "com.stasbar.app.android",
-    "sha256_cert_fingerprints": ["SHA256: DE:35:9B:EC:A0:3F:BA:C4:6A:4D:70:19:46:3A:36:A5:CB:51:90:45:B0:0C:43:3E:BE:E8:C1:7C:CB:92:C0:02"] }
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.stasbar.app.android",
+    "sha256_cert_fingerprints":
+    ["DE:35:9B:EC:A0:3F:BA:C4:6A:4D:70:19:46:3A:36:A5:CB:51:90:45:B0:0C:43:3E:BE:E8:C1:7C:CB:92:C0:02"]
+  }
 }]
