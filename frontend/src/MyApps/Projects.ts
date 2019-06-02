@@ -43,7 +43,7 @@ const Projects: IApp[] = [
     }
   },
   {
-    name: "website",
+    name: "stasbar.com",
     imgSrc: MyWebsiteFramedPng,
     imgWebp: MyWebsiteFramedWebp,
     description: "This website & android app itself is my pet-project, so I think it's worth mention here",
