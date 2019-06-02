@@ -183,7 +183,7 @@
     <com.stasbar.app.android.widgets.SpecView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      app:description="When it comes to tools I love IntelliJ &amp; Android Studio running on macOS"
+      app:description="When it comes to tools I love IntelliJ, Android Studio and vim running on macOS"
       app:layout_flexBasisPercent="50%"
       app:layout_maxWidth="200dp"
       app:name="Tools" />

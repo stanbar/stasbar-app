@@ -172,8 +172,8 @@ class Header extends Component<WithStyles<typeof styles>> {
 
           <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
             <Typography className={classes.specName}>Tools</Typography>
-            <Typography component="p" color={"textSecondary"}>When it comes to tools I love IntelliJ & Android Studio
-              running on macOS</Typography>
+            <Typography component="p" color={"textSecondary"}>When it comes to tools I love IntelliJ, Android Studio
+              and vim running on macOS.</Typography>
           </Grid>
 
         </Grid>
