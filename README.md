@@ -68,9 +68,12 @@
  * Run `./gradlew backend:run` from the command line or from Gradle tool window
  * The backend will start serving on localhost:8888
 
-### Deploying the backend to heroku
-
-+ Run `heroku stack:set container && git push heroku master` 
+### Deploying on heroku
+ * `./gradlew buildAndCopyWebapp` build webApp and copy webapp to ktor static assets  
+ * `heroku container:push web` build an image and push it to Container Registry
+ * `heroku container:release web` release the image to the app
+or 
+ * `heroku stack:set container && git push heroku master` 
 
 ### Running the Android app
 
@@ -79,10 +82,6 @@
  * Run the configuration
  * Select the emulator or connected device, as normal
 
-### Deploying on heroku
- * `./gradlew buildAndCopyWebapp` build webApp and copy webapp to ktor static assets  
- * `heroku container:push web` build an image and push it to Container Registry
- * `heroku container:release web` release the image to the app
 
 ### Licences
 ```
