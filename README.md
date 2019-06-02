@@ -1,9 +1,8 @@
 # stasbar.com
 
-![android app 1](frontend/src/assets/png/MyWebsite/AndroidApp1Framed.png)
-
-![android app 2](frontend/src/assets/png/MyWebsite/AndroidApp2Framed.png)
-
+| Desktop | Mobile1 | Mobile2 |
+| --- | --- | --- |
+| ![Desktop Screen](frontend/src/assets/png/MyWebsite/WebsiteFramed.png) | ![Desktop Screen](frontend/src/assets/png/MyWebsite/AndroidApp1Framed.png) | ![Desktop Screen](frontend/src/assets/png/MyWebsite/AndroidApp2Framed.png) |
 ### Technology Stack
 <pre>
                     +-----------+Heroku+-----------+
