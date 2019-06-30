@@ -1,5 +1,7 @@
 # stasbar.com
 
+Enterprise ready, personal webpage pet project. 
+
 | Desktop | Mobile1 | Mobile2 |
 | --- | --- | --- |
 | ![Desktop Screen](frontend/src/assets/png/MyWebsite/WebsiteFramed.png) | ![Desktop Screen](frontend/src/assets/png/MyWebsite/AndroidApp1Framed.png) | ![Desktop Screen](frontend/src/assets/png/MyWebsite/AndroidApp2Framed.png) |
