@@ -90,7 +90,8 @@ or
 ### TODO
 
  - menu item selection mechanism [from](https://github.com/google/iosched/blob/65ac452d9c722c84480756ba6218d1062c8f2387/android/src/main/java/com/google/samples/apps/iosched/ui/BaseActivity.java)
- - redirect `stasbar.com/` to `stasbar.com/me` so it doesn't match `stasbar.com/*` pattern  
+ - redirect `stasbar.com/` to `stasbar.com/me` so it doesn't match `stasbar.com/*` pattern
+ - Use JetPack [Navigation Component](https://developer.android.com/guide/navigation) [how](https://www.youtube.com/watch?v=JFGq0asqSuA)  
 
 ### Licences
 ```
