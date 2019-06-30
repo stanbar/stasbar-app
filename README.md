@@ -87,6 +87,10 @@ or
  * Run the configuration
  * Select the emulator or connected device, as normal
 
+### TODO
+
+ - menu item selection mechanism [from](https://github.com/google/iosched/blob/65ac452d9c722c84480756ba6218d1062c8f2387/android/src/main/java/com/google/samples/apps/iosched/ui/BaseActivity.java)
+ - redirect `stasbar.com/` to `stasbar.com/me` so it doesn't match `stasbar.com/*` pattern  
 
 ### Licences
 ```
