@@ -4,6 +4,7 @@
   package="com.stasbar.app.android">
 
   <uses-permission android:name="android.permission.INTERNET" />
+
   <dist:module dist:instant="true" />
 
   <application
@@ -15,16 +16,38 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     android:usesCleartextTraffic="true">
+
     <activity
       android:name=".aboutme.AboutMeActivity"
       android:label="@string/app_name">
       <meta-data
         android:name="default-url"
         android:value="https://stasbar.com" />
+
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
+
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
+      <intent-filter android:autoVerify="true">
+        <action android:name="android.intent.action.VIEW" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <data
+          android:host="stasbar.com"
+          android:scheme="http" />
+        <data android:scheme="https" />
+      </intent-filter>
+    </activity>
+
+    <activity
+      android:name=".books.BooksActivity"
+      android:label="@string/books">
+      <meta-data
+        android:name="default-url"
+        android:value="https://stasbar.com" />
 
       <intent-filter android:autoVerify="true">
         <action android:name="android.intent.action.VIEW" />
@@ -33,11 +56,38 @@
         <category android:name="android.intent.category.BROWSABLE" />
 
         <data
-          android:scheme="http"
-          android:host="stasbar.com" />
-        <data android:scheme="https" />
+          android:host="stasbar.com"
+          android:pathPrefix="/books"
+          android:scheme="http" />
+        <data
+          android:pathPrefix="/books"
+          android:scheme="https" />
       </intent-filter>
     </activity>
+
+    <activity
+      android:name=".quotes.QuotesActivity"
+      android:label="@string/quotes">
+      <meta-data
+        android:name="default-url"
+        android:value="https://stasbar.com" />
+
+      <intent-filter android:autoVerify="true">
+        <action android:name="android.intent.action.VIEW" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <data
+          android:host="stasbar.com"
+          android:pathPrefix="/quotes"
+          android:scheme="http" />
+        <data
+          android:pathPrefix="/quotes"
+          android:scheme="https" />
+      </intent-filter>
+    </activity>
+
   </application>
 
 </manifest>

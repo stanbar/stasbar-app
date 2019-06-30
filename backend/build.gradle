@@ -35,8 +35,8 @@ shadowJar {
 dependencies {
   implementation project(':common')
 
-  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
 
   implementation "commons-codec:commons-codec:1.11"
 
@@ -48,23 +48,23 @@ dependencies {
   implementation "org.apache.logging.log4j:log4j-to-slf4j:2.11.1"
 
   // Koin
-  implementation "org.koin:koin-ktor:$koin_version"
-  implementation "org.koin:koin-core:$koin_version"
-  implementation "org.koin:koin-core-ext:$koin_version"
-  testImplementation "org.koin:koin-test:$koin_version"
+  implementation "org.koin:koin-ktor:${versions.koin}"
+  implementation "org.koin:koin-core:${versions.koin}"
+  implementation "org.koin:koin-core-ext:${versions.koin}"
+  testImplementation "org.koin:koin-test:${versions.koin}"
 
   // Ktor
-  implementation "io.ktor:ktor-server-netty:$ktor_version"
-  implementation "io.ktor:ktor-server-servlet:$ktor_version"
-  implementation "io.ktor:ktor-html-builder:$ktor_version"
-  implementation "io.ktor:ktor-jackson:$ktor_version"
+  implementation "io.ktor:ktor-server-netty:${versions.ktor}"
+  implementation "io.ktor:ktor-server-servlet:${versions.ktor}"
+  implementation "io.ktor:ktor-html-builder:${versions.ktor}"
+  implementation "io.ktor:ktor-jackson:${versions.ktor}"
 
   // Retrofit
-  implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-  implementation "com.squareup.retrofit2:converter-jaxb:$retrofit_version"
-  implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
-  implementation "com.squareup.retrofit2:converter-jackson:$retrofit_version"
-  implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+  implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+  implementation "com.squareup.retrofit2:converter-jaxb:${versions.retrofit}"
+  implementation "com.squareup.retrofit2:converter-moshi:${versions.retrofit}"
+  implementation "com.squareup.retrofit2:converter-jackson:${versions.retrofit}"
+  implementation "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
 
   // Jackson
   implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.9.8'
@@ -86,8 +86,8 @@ dependencies {
   implementation "us.codecraft:xsoup:0.3.1"
 
   testImplementation 'junit:junit:4.12'
-  testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
-  testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+  testImplementation "org.jetbrains.kotlin:kotlin-test-junit:${versions.kotlin}"
+  testImplementation "org.jetbrains.kotlin:kotlin-test:${versions.kotlin}"
 
 }
 

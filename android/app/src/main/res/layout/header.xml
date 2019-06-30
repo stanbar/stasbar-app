@@ -8,7 +8,7 @@
   android:orientation="vertical"
   android:padding="16dp"
   tools:context=".aboutme.AboutMeActivity"
-  tools:showIn="@layout/activity_main">
+  tools:showIn="@layout/activity_aboutme">
 
   <TextView
     android:id="@+id/tvMyName"

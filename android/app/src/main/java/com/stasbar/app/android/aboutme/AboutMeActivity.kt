@@ -28,16 +28,17 @@ import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.stasbar.app.android.R
+import com.stasbar.app.android.books.BooksViewModel
 import com.stasbar.app.android.core.extenstion.browse
 import com.stasbar.app.android.core.extenstion.gone
 import com.stasbar.app.android.core.extenstion.show
+import com.stasbar.app.android.core.platform.BaseActivity
 import com.stasbar.app.android.features.books.BooksAdapter
 import com.stasbar.app.android.features.quotes.QuotesAdapter
-import kotlinx.android.synthetic.main.activity_main.*
+import com.stasbar.app.android.quotes.QuotesViewModel
 import kotlinx.android.synthetic.main.best_books.*
 import kotlinx.android.synthetic.main.best_quotes.*
 import kotlinx.android.synthetic.main.footer.*
@@ -45,18 +46,17 @@ import kotlinx.android.synthetic.main.header.*
 import org.koin.android.ext.android.inject
 import java.util.*
 
-class AboutMeActivity : AppCompatActivity() {
-  private val viewModel: AboutMeViewModel by inject()
+class AboutMeActivity : BaseActivity() {
+  override val selfMenuItemId = R.id.navigation_aboutme
+
+  private val quotesViewModel: QuotesViewModel by inject()
+  private val booksViewModel: BooksViewModel by inject()
   private val quotesAdapter: QuotesAdapter by inject()
   private val booksAdapter: BooksAdapter by inject()
 
   override fun onCreate(savedInstanceState: Bundle?) {
+    setContentView(R.layout.activity_aboutme)
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
-
-    val appLinkIntent = intent
-    val appLinkAction = appLinkIntent.action
-    val appLinkData = appLinkIntent.data
 
     tvMyAge.setTagText(getString(R.string.my_age, getAge()))
 
@@ -65,27 +65,29 @@ class AboutMeActivity : AppCompatActivity() {
 
     rvBestQuotes.adapter = quotesAdapter
 
-    viewModel.bestBooks.observe(this, androidx.lifecycle.Observer {
+    booksViewModel.bestBooks.observe(this, androidx.lifecycle.Observer {
       booksAdapter.replaceAll(it)
       tvNoBestBooks.gone()
 
     })
-    viewModel.bestBooksFailure.observe(this, androidx.lifecycle.Observer {
+    booksViewModel.bestBooksFailure.observe(this, androidx.lifecycle.Observer {
       tvNoBestBooks.show()
     })
 
-    viewModel.bestQuotes.observe(this, androidx.lifecycle.Observer {
+    quotesViewModel.bestQuotes.observe(this, androidx.lifecycle.Observer {
       quotesAdapter.replaceAll(it)
       tvNoBestQuotes.gone()
 
     })
-    viewModel.bestQuotesFailure.observe(this, androidx.lifecycle.Observer {
+    quotesViewModel.bestQuotesFailure.observe(this, androidx.lifecycle.Observer {
       tvNoBestQuotes.show()
     })
 
-    viewModel.requestBestBooks()
-    viewModel.requestBestQuotes()
+    booksViewModel.requestBestBooks()
+    quotesViewModel.requestBestQuotes()
     setFooter()
+
+
   }
 
   private fun setFooter() {

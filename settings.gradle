@@ -6,5 +6,5 @@ include 'backend'
 enableFeaturePreview('GRADLE_METADATA')
 
 if (INCLUDE_ANDROID == "true") {
-    include 'android', 'android:app'
+    include 'android', 'android:app', 'android:notifications'
 }

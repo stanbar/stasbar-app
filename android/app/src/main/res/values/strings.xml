@@ -24,9 +24,10 @@
 
 <resources>
   <string name="app_name">stasbar</string>
-  <string name="title_home">Home</string>
-  <string name="title_dashboard">Dashboard</string>
-  <string name="title_notifications">Notifications</string>
+  <string name="quotes">Quotes</string>
+  <string name="books">Books</string>
+  <string name="notifications">Notifications</string>
+
   <string name="logo">
 "         __             __
    _____/ /_____ ______/ /_  ____ ______
@@ -46,7 +47,8 @@
   <string name="best_books_title">My favorite books</string>
   <string name="could_not_load_data">Could not load data 😞</string>
   <string name="best_quotes_title">My favorite quotes</string>
-  <string name="quotes">Quotes</string>
-  <string name="books">Books</string>
+
   <string name="source_code">SOURCE CODE</string>
+  <string name="all_books_title">My read books</string>
+  <string name="aboutme">About me</string>
 </resources>

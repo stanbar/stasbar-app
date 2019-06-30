@@ -32,7 +32,6 @@ import com.stasbar.app.goodreads.GoodreadsApi
 import com.stasbar.app.goodreads.GoodreadsService
 import com.stasbar.app.googlebooks.GoogleBooksApi
 import com.stasbar.app.googlebooks.GoogleBooksService
-import com.stasbar.app.models.extensions.getPropertyOrDefault
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -73,7 +72,7 @@ val commonModule = module {
 val goodreadsModule = module {
   single<GoodreadsService> {
     Retrofit.Builder()
-      .baseUrl(getPropertyOrDefault("goodreads_base_url", "https://www.goodreads.com"))
+      .baseUrl(getProperty("goodreads_base_url", "https://www.goodreads.com"))
       .client(get())
       .addConverterFactory(JaxbConverterFactory.create())
       .addCallAdapterFactory(CoroutineCallAdapterFactory())
@@ -96,7 +95,7 @@ val googleBooksModule = module {
   single<GoogleBooksService> {
 
     Retrofit.Builder()
-      .baseUrl(getPropertyOrDefault("googlebooks_base_url", "https://www.googleapis.com"))
+      .baseUrl(getProperty("googlebooks_base_url", "https://www.googleapis.com"))
       .client(get())
       .addConverterFactory(MoshiConverterFactory.create())
       .addCallAdapterFactory(CoroutineCallAdapterFactory())

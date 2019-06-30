@@ -73,13 +73,13 @@ val Lifecycle.job: Job
  * already cancelled job.
  */
 fun Lifecycle.createJob(activeWhile: Lifecycle.State = INITIALIZED): Job {
-  require(activeWhile != Lifecycle.State.DESTROYED) {
+  require(activeWhile != DESTROYED) {
     "DESTROYED is a terminal state that is forbidden for createJob(…), to avoid leaks."
   }
   return SupervisorJob().also { job ->
     if (!currentState.isAtLeast(activeWhile)) job.cancel()
     else addObserver(object : GenericLifecycleObserver {
-      override fun onStateChanged(source: LifecycleOwner?, event: Lifecycle.Event) {
+      override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
         if (!currentState.isAtLeast(activeWhile)) {
           removeObserver(this)
           job.cancel()

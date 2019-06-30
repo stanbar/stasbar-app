@@ -1,11 +1,6 @@
 build
 .gradle
-.idea/*
-!.idea/runConfigurations
-!.idea/runConfigurations/*
-!.idea/vcs.xml
-!.idea/dictionaries
-!.idea/dictionaries/*
+.idea/
 out
 *.iml
 *.log
@@ -19,6 +14,6 @@ local.properties
 
 .env
 src/main/resources/assets/.well-known/
-.gitignore
 app/release/
 app/src/main/res/untitled folder/
+books/src/main/java/

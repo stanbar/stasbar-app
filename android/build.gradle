@@ -1,6 +1,6 @@
 buildscript {
   dependencies {
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
   }
   repositories {
     maven { url "https://plugins.gradle.org/m2/" }
@@ -19,12 +19,11 @@ task clean(type: Delete) {
   delete rootProject.buildDir
 }
 
-task installRelease(type : Exec){
+task installRelease(type: Exec) {
   dependsOn = ['assembleRelease']
   commandLine "adb"
   args = ["install", "android/app/build/outputs/apk/release/app-release.apk"]
 }
-
 
 
 dependencies {

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  tools:showIn="@layout/activity_aboutme"
+  android:layout_height="wrap_content">
+
+  <include layout="@layout/header" />
+
+  <include layout="@layout/introduction" />
+
+  <include layout="@layout/my_apps" />
+
+  <include layout="@layout/my_projects" />
+
+  <include layout="@layout/best_books" />
+
+  <include layout="@layout/best_quotes" />
+
+  <include layout="@layout/footer" />
+
+</LinearLayout>

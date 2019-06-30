@@ -3,16 +3,29 @@ apply from: './spotless.gradle'
 apply from: './scripts/integrations.gradle'
 
 buildscript {
+
+  ext.versions = [
+    'kotlin'    : '1.3.40',
+    'versionSdk': 28,
+    'minSdk'    : 21,
+    'coroutines': '1.1.1',
+    'koin' : '2.0.1',
+    'ktor' : '1.1.2',
+    'serialization' : '0.9.1',
+    'retrofit' : '2.5.0',
+    'okhttp' : '3.12.1',
+  ]
+
   repositories {
     jcenter()
     google()
   }
 
   dependencies {
-    classpath "com.diffplug.spotless:spotless-plugin-gradle:3.17.0"
-    classpath "com.github.ben-manes:gradle-versions-plugin:0.20.0"
+    classpath "com.diffplug.spotless:spotless-plugin-gradle:3.23.1"
+    classpath "com.github.ben-manes:gradle-versions-plugin:0.21.0"
     classpath 'com.android.tools.build:gradle:3.4.1'
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
     classpath "com.google.cloud.tools:appengine-gradle-plugin:1.3.5"
     classpath 'com.github.jengelman.gradle.plugins:shadow:4.0.4'
   }
