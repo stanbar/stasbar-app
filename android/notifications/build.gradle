@@ -21,7 +21,7 @@ dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
   implementation 'androidx.preference:preference:1.1.0-rc01'
   implementation 'androidx.preference:preference-ktx:1.1.0-rc01'
-  implementation "androidx.work:work-runtime-ktx:2.1.0-rc01"
+
   implementation "com.afollestad.material-dialogs:core:${versions.materialDialogs}"
   implementation "com.afollestad.material-dialogs:datetime:${versions.materialDialogs}"
 
