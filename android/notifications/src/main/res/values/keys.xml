@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="enable_notifications_key">enable_notifications</string>
+  <string name="notification_time_key">notification_time</string>
+</resources>
