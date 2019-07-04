@@ -47,6 +47,10 @@ class NotificationWorker(context: Context, params: WorkerParameters) : Coroutine
         .setContentTitle(applicationContext.getString(R.string.golden_nugget))
         .setContentText(quote.text)
         .setAutoCancel(true)
+        .setStyle(
+          NotificationCompat.BigTextStyle()
+            .bigText(quote.text)
+        )
         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
     NotificationManagerCompat.from(applicationContext).notify(GOLDEN_NUGGET_NOTIFICATION_ID, builder.build())
