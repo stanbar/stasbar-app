@@ -35,7 +35,6 @@ import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
-
 import retrofit2.HttpException
 import java.net.HttpURLConnection
 import java.net.URL
@@ -49,6 +48,7 @@ class BooksRepository(
   suspend fun getAllQuotes(limit: Int = -1) = database.getAllQuotes(limit)
   suspend fun getAllBooks() = database.getAllBooks()
   suspend fun getBooksFromShelf(shelf: String) = database.getBooksFromShelf(shelf)
+  suspend fun getGoldenNugget() = getAllQuotes().random()
 
   suspend fun fetchAllQuotes() {
     val quotes = goodreadsApi.getAllQuotes()

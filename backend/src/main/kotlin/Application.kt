@@ -127,6 +127,9 @@ fun Application.module() {
         logger.info("queried ${books.size} books")
         call.respond(books)
       }
+      get("/goldenNugget") {
+        call.respond(booksRepository.getGoldenNugget())
+      }
     }
     static(".well-known") {
       staticBasePackage = "assets"
