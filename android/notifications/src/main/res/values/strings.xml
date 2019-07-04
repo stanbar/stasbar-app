@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="golden_nugget">Golden Nugget</string>
+  <string name="golden_nugget_channel_name">Daily Golden Nugget Notification</string>
+  <string name="golden_nugget_channel_description">Sends daily quote notification</string>
+</resources>

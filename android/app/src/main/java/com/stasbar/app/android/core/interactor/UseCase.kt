@@ -27,5 +27,5 @@ abstract class UseCase<in Params, out Type> where Type : Any {
     }
   }
 
-  class None
+  object None
 }

@@ -2,4 +2,6 @@
 <resources>
   <string name="enable_notifications_key">enable_notifications</string>
   <string name="notification_time_key">notification_time</string>
+  <string name="golden_nugget_notification_work_name">golden_nuggets_notification</string>
+  <string name="golden_nuggets_channel_id">golden_nugget</string>
 </resources>

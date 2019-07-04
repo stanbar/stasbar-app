@@ -12,6 +12,9 @@ interface BackendApi {
 
   @GET("/api/quotes")
   fun getQuotes(@Query("limit") limit: Int? = null): Deferred<List<Quote>>
+
+  @GET("/api/goldenNugget")
+  fun getGoldenNugget(): Deferred<Quote>
 }
 
 class BackendService(private val service: BackendApi) {
@@ -20,4 +23,5 @@ class BackendService(private val service: BackendApi) {
   fun getProgrammingBooks() = service.getBooks("programming")
   fun getAllQuotes() = service.getQuotes()
   fun getFeaturedQuotes() = service.getQuotes(10)
+  fun getGoldenNugget() = service.getGoldenNugget()
 }

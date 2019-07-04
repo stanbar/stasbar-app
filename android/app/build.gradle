@@ -113,6 +113,10 @@ dependencies {
   api "commons-codec:commons-codec:1.11"
   api 'com.jakewharton.timber:timber:4.7.1'
 
+  api "com.afollestad.material-dialogs:core:${versions.materialDialogs}"
+  api "com.afollestad.material-dialogs:datetime:${versions.materialDialogs}"
+
+
   testImplementation 'junit:junit:4.12'
   androidTestImplementation 'androidx.test:runner:1.2.0'
   androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

@@ -20,14 +20,14 @@ class BooksViewModel(
 
   fun requestAllBooks() {
     getAllBooks.execute(
-      this, UseCase.None(),
+      this, UseCase.None,
       { books -> allBooks.value = books },
       { failure -> allBooksFailure.value = failure })
   }
 
   fun requestBestBooks() {
     getFeaturedBooks.execute(
-      this, UseCase.None(),
+      this, UseCase.None,
       { books -> bestBooks.value = books },
       { failure -> bestBooksFailure.value = failure })
   }

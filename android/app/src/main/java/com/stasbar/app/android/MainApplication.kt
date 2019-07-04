@@ -58,6 +58,7 @@ val mainModule = module {
   factory { BooksAdapter() }
   single { GetAllBooks(get()) }
   single { GetAllQuotes(get()) }
+  single { }
   viewModel { BooksViewModel(get(), get()) }
   viewModel { QuotesViewModel(get(), get()) }
 }

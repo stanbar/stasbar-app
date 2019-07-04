@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
 
   <SwitchPreferenceCompat
+    android:defaultValue="false"
     app:key="@string/enable_notifications_key"
     app:title="Enable daily golden nugget notifications" />
   <Preference
     app:key="@string/notification_time_key"
     app:title="Time at which fire notification" />
 
-</PreferenceScreen>
+</androidx.preference.PreferenceScreen>

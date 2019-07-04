@@ -1,14 +1,15 @@
 <resources>
-
   <!-- Base application theme. -->
-  <style name="Base" parent="Theme.MaterialComponents.Light.NoActionBar">
-    <!-- Customize your theme here. -->
+  <style name="Base" parent="Theme.MaterialComponents.Light.NoActionBar"></style>
+
+  <style name="AppTheme" parent="Base">
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     <item name="colorAccent">@color/colorAccent</item>
-  </style>
-  <style name="AppTheme" parent="Base">
 
+    <!--Material Dialogs-->
+    <item name="md_color_button_text">@color/colorAccent</item>
+    <item name="md_corner_radius">16dp</item>
   </style>
 
   <style name="tag">

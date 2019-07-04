@@ -20,13 +20,14 @@ class QuotesViewModel(
 
   fun requestAllQuotes() {
     getAllQuotes.execute(
-      this, UseCase.None(),
+      this, UseCase.None,
       { books -> allQuotes.value = books },
       { failure -> allQuotesFailure.value = failure })
   }
 
   fun requestBestQuotes() {
-    getFeaturedQuotes.execute(this, UseCase.None(),
+    getFeaturedQuotes.execute(
+      this, UseCase.None,
       { quotes -> bestQuotes.value = quotes },
       { failure -> bestQuotesFailure.value = failure })
   }
