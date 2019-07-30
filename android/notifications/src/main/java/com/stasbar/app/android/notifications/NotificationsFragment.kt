@@ -66,7 +66,7 @@ class NotificationsFragment : PreferenceFragmentCompat() {
 
     val initialDelayMinutes = calculateInitialDelayMinutes(targetTime)
 
-    val sendNotification = PeriodicWorkRequestBuilder<NotificationWorker>(1, TimeUnit.DAYS)
+    val sendNotification = PeriodicWorkRequestBuilder<NotificationWorker>(1, TimeUnit.HOURS)
       .setInitialDelay(initialDelayMinutes.toLong(), TimeUnit.MINUTES)
       .build()
 

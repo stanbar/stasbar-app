@@ -9,12 +9,14 @@ import timber.log.Timber
 
 class GetGoldenNugget(private val backendService: BackendService) : UseCase<UseCase.None, Quote>() {
   override suspend fun run(params: None): Either<Quote, Failure> {
+    Timber.d("GetGoldenNugget.run called")
     val goldenNugget = try {
       backendService.getGoldenNugget().await()
     } catch (e: Exception) {
       Timber.e(e)
       return Either.Failure(Failure.ServerError)
     }
+    Timber.d("GetGoldenNugget success %s", goldenNugget.toString())
     return Either.Success(goldenNugget)
   }
 }

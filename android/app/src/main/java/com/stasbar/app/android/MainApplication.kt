@@ -27,7 +27,13 @@ import timber.log.Timber
 class MainApplication : SplitCompatApplication() {
   override fun onCreate() {
     super.onCreate()
-    Timber.plant(Timber.DebugTree())
+
+    // Print logs only in debug mode
+    if (BuildConfig.DEBUG) {
+      Timber.plant(Timber.DebugTree())
+      Timber.plant(FileLoggingTree())
+    }
+
     startKoin {
       androidContext(this@MainApplication)
       androidFileProperties()
@@ -35,6 +41,7 @@ class MainApplication : SplitCompatApplication() {
     }
   }
 }
+
 
 val mainModule = module {
   single<OkHttpClient> {

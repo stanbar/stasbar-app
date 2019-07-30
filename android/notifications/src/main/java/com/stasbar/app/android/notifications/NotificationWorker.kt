@@ -17,6 +17,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.koin.core.KoinComponent
 import org.koin.core.inject
+import timber.log.Timber
 
 class NotificationWorker(context: Context, params: WorkerParameters) : CoroutineWorker(context, params), KoinComponent,
   CoroutineScope {
@@ -25,8 +26,14 @@ class NotificationWorker(context: Context, params: WorkerParameters) : Coroutine
   private val getGoldenNugget = GetGoldenNugget(backendService)
 
   override suspend fun doWork(): Result = withContext(Dispatchers.IO) {
-    val quote = getQuote() ?: return@withContext Result.failure()
+    Timber.d("doWork called")
+    val quote = getQuote()
+    if (quote == null) {
+      Timber.w("getQuote returned null")
+      return@withContext Result.failure()
+    }
     sendNotification(quote)
+
 
     Result.success()
   }
@@ -53,10 +60,12 @@ class NotificationWorker(context: Context, params: WorkerParameters) : Coroutine
         )
         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
+    Timber.d("notify")
     NotificationManagerCompat.from(applicationContext).notify(GOLDEN_NUGGET_NOTIFICATION_ID, builder.build())
   }
 
   private fun createNotificationChannel() {
+    Timber.d("createNotificationChannel")
     // Create the NotificationChannel, but only on API 26+ because
     // the NotificationChannel class is new and not in the support library
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
