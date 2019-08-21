@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/stasbar
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://stasbar.com
+  * I am stasbar (https://keybase.io/stasbar) on keybase.
+  * I have a public key ASDoC0PasUaZgADa88T2Ng0ghE5R8T6C5Dz3gCBqfVIlHwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120e80b43dab146998000daf3c4f6360d20844e51f13e82e43cf780206a7d52251f0a",
+      "host": "keybase.io",
+      "kid": "0120e80b43dab146998000daf3c4f6360d20844e51f13e82e43cf780206a7d52251f0a",
+      "uid": "e12b4b671b7ccd4ba29d77c9333e7c19",
+      "username": "stasbar"
+    },
+    "merkle_root": {
+      "ctime": 1566416317,
+      "hash": "4da466fb6eba22c67b81c1605d1a0916248469253e6941ddb647bb82e7cb5c2f4e3cc8e4bd23ef89061e796005c2334ce84e238fc1a805e98f8c1de623bb9a0f",
+      "hash_meta": "6abca2a0bbfac687cbb4a53bde99962232cbfab8d573ad123d5c21a9cad21913",
+      "seqno": 6067992
+    },
+    "service": {
+      "entropy": "xrHk8RGuSWsd2dVtm26gUj4E",
+      "hostname": "stasbar.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "4.3.2"
+  },
+  "ctime": 1566416329,
+  "expire_in": 504576000,
+  "prev": "8912903a73026a712dcc6b8fbd7abee58f804378dfec7905525ceef9f2681b42",
+  "seqno": 39,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg6AtD2rFGmYAA2vPE9jYNIIROUfE+guQ894Agan1SJR8Kp3BheWxvYWTESpcCJ8QgiRKQOnMCanEtzGuPvXq+5Y+AQ3jf7HkFUlzu+fJoG0LEIOG7MHUPXPTjkp2Z1OEYUhJFvKb1Qn9yodIjG0s7c5wAAgHCo3NpZ8RAERDukJ8ZvdCZI5AYp95cS72Tia53REMmR0FAXmkoUPRrW12yRCxQktethhlCWv81nPvu1zGRjipgmslcDgBeCKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIDFqDK80b1MvJ7Tn2EK2Dr7WOddOgOIt3YTVlk6sjBs9o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/stasbar
+
+==================================================================
