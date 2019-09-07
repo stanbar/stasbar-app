@@ -160,20 +160,20 @@ class Header extends Component<WithStyles<typeof styles>> {
 
           <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
             <Typography className={classes.specName}>Backend</Typography>
-            <Typography component="p" color={"textSecondary"}>I chose Firebase whenever it's possible.
-              Otherwise Kotlin with ktor. And Python for scripting</Typography>
+            <Typography component="p" color={"textSecondary"}>I chose Firebase whenever possible.
+              Kotlin with ktor, Typescript with Nodejs, and Python for scripting.</Typography>
           </Grid>
 
           <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
             <Typography className={classes.specName}>Frontend</Typography>
-            <Typography component="p" color={"textSecondary"}>I prefer reusability over simplicity, that's why I use
-              React with TypeScript</Typography>
+            <Typography component="p" color={"textSecondary"}>My favorite framework is React/TS. Concept of components
+              composition combined with JSX seduced me.</Typography>
           </Grid>
 
           <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
             <Typography className={classes.specName}>Tools</Typography>
-            <Typography component="p" color={"textSecondary"}>When it comes to tools I love IntelliJ, Android Studio
-              and vim running on macOS.</Typography>
+            <Typography component="p" color={"textSecondary"}>When it comes to tools, I love IntelliJ/AS and Vim running
+              on macOS.</Typography>
           </Grid>
 
         </Grid>
