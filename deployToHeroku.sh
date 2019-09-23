@@ -1,3 +1,8 @@
 #!/usr/bin/env bash
 
-heroku stack:set container && git push heroku master
+origins=$(git remote show)
+if [[ $origins != *"heroku"* ]]; then
+    heroku git:remote -a stasbar-app
+fi
+
+heroku stack:set container --app stasbar-app && git push heroku master
