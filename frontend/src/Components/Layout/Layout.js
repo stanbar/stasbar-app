@@ -93,23 +93,6 @@ class Layout extends Component {
             <img className={classes.logoImg} src={logoPng}/>
           </Link>
         </div>
-        <Button
-          className={classes.menuButton}
-          variant="outlined"
-          component={Link}
-          to="/books">
-          Books
-          <LibraryBookIcon className={classes.rightIcon}/>
-
-        </Button>
-        <Button
-          className={classes.menuButton}
-          variant="outlined"
-          component={Link}
-          to="/quotes">
-          Quotes
-          <FormatQuoteIcon className={classes.rightIcon}/>
-        </Button>
       </Toolbar>
     </AppBar>;
 

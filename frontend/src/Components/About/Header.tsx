@@ -71,6 +71,9 @@ const styles = (theme: Theme) => createStyles({
     fontSize: "1rem",
     fontWeight: 700,
     textAlign: "center"
+  },
+  specDesc: {
+    align: "justify",
   }
 });
 
@@ -154,25 +157,25 @@ class Header extends Component<WithStyles<typeof styles>> {
 
           <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
             <Typography className={classes.specName}>Android</Typography>
-            <Typography component="p" color={"textSecondary"}>My main specialty is mobile applications for Android
+            <Typography component="p" color={"textSecondary"} className={classes.specDesc}>My main specialty is mobile applications for Android
               in Java and Kotlin.</Typography>
           </Grid>
 
           <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
             <Typography className={classes.specName}>Backend</Typography>
-            <Typography component="p" color={"textSecondary"}>I chose Firebase whenever possible.
+            <Typography component="p" color={"textSecondary"} className={classes.specDesc}>I chose Firebase whenever possible.
               Kotlin with ktor, Typescript with Nodejs, and Python for scripting.</Typography>
           </Grid>
 
           <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
             <Typography className={classes.specName}>Frontend</Typography>
-            <Typography component="p" color={"textSecondary"}>My favorite framework is React/TS. Concept of components
+            <Typography component="p" color={"textSecondary"} className={classes.specDesc}>My favorite framework is React/TS. Concept of components
               composition combined with JSX seduced me.</Typography>
           </Grid>
 
           <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
             <Typography className={classes.specName}>Tools</Typography>
-            <Typography component="p" color={"textSecondary"}>When it comes to tools, I love IntelliJ/AS and Vim running
+            <Typography component="p" color={"textSecondary"} className={classes.specDesc}>When it comes to tools, I love IntelliJ/AS and Vim running
               on macOS.</Typography>
           </Grid>
 
