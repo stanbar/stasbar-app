@@ -31,14 +31,8 @@ import io.ktor.application.call
 import io.ktor.application.install
 import io.ktor.features.*
 import io.ktor.html.respondHtml
-import io.ktor.http.HttpMethod
-import io.ktor.http.content.defaultResource
-import io.ktor.http.content.resources
-import io.ktor.http.content.static
-import io.ktor.http.content.staticBasePackage
 import io.ktor.jackson.jackson
 import io.ktor.response.respond
-import io.ktor.routing.Route
 import io.ktor.routing.get
 import io.ktor.routing.route
 import io.ktor.routing.routing
@@ -134,24 +128,5 @@ fun Application.module() {
         call.respond(booksRepository.getGoldenNugget())
       }
     }
-    static(".well-known") {
-      staticBasePackage = "assets"
-      resources("wellknown")
-    }
-    static("") {
-      webapp()
-    }
-    static("*") {
-      webapp()
-    }
   }
 }
-
-private fun Route.webapp() {
-  resources("assets")
-  staticBasePackage = "assets"
-  resources("static")
-  defaultResource("index.html")
-}
-
-
