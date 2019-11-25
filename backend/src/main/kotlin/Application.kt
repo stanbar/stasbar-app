@@ -31,6 +31,7 @@ import io.ktor.application.call
 import io.ktor.application.install
 import io.ktor.features.*
 import io.ktor.html.respondHtml
+import io.ktor.http.HttpMethod
 import io.ktor.http.content.defaultResource
 import io.ktor.http.content.resources
 import io.ktor.http.content.static
@@ -59,7 +60,10 @@ fun Application.module() {
   install(DefaultHeaders)
   install(CallLogging)
   install(AutoHeadResponse)
-  install(CORS)
+  install(CORS){
+    anyHost()
+    method(HttpMethod.Get)
+  }
   install(ContentNegotiation) {
     jackson {
       enable(SerializationFeature.INDENT_OUTPUT)
