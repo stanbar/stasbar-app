@@ -4,7 +4,8 @@
   "private": true,
   "main": "n/a",
   "scripts": {
-    "render": "gatsby build",
+    "build": "gatsby build",
+    "postbuild": "mv public ../docs",
     "develop": "gatsby develop",
     "format": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.ts*\""
   },
