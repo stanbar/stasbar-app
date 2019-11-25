@@ -38,6 +38,7 @@ dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
   implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
 
+
   implementation "commons-codec:commons-codec:1.11"
 
   implementation "ch.qos.logback:logback-classic:1.2.3"
@@ -80,7 +81,7 @@ dependencies {
 
   // Exposed
   implementation 'org.jetbrains.exposed:exposed:0.12.1'
-  
+
   // Misc
   implementation 'org.jsoup:jsoup:1.11.3'
   implementation "us.codecraft:xsoup:0.3.1"
