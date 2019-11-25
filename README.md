@@ -1,11 +1,13 @@
 # stasbar.com
 
-Enterprise ready, personal webpage pet project. 
+Enterprise ready, personal webpage pet project.
 
-| Desktop | Mobile1 | Mobile2 |
-| --- | --- | --- |
+| Desktop                                                                | Mobile1                                                                    | Mobile2                                                                    |
+| ---------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
 | ![Desktop Screen](frontend/src/assets/png/MyWebsite/WebsiteFramed.png) | ![Desktop Screen](frontend/src/assets/png/MyWebsite/AndroidApp1Framed.png) | ![Desktop Screen](frontend/src/assets/png/MyWebsite/AndroidApp2Framed.png) |
-### Technology Stack
+
+## Technology Stack
+
 <pre>
                     +-----------+Heroku+-----------+
                     | +---------|Docker+---------+ |
@@ -30,9 +32,8 @@ Enterprise ready, personal webpage pet project.
 
 </pre>
 
-
-
 ### Backend Server
+
 - Docker PaaS [Heroku](heroku.com)
 - HTTP Server [Ktor](https://github.com/ktorio/ktor)
 - HTTP Client [Retrofit](https://github.com/square/retrofit)
@@ -44,57 +45,71 @@ Enterprise ready, personal webpage pet project.
 - Dependency Injection [koin](https://github.com/InsertKoinIO/koin)
 - Multi-threading [coroutines](https://github.com/Kotlin/kotlinx.coroutines)
 
-
 ### Frontend WebApp
+
 - [TypeScript](https://www.typescriptlang.org/)
 - [React](https://github.com/facebook/react)
 - [Material-UI](https://material-ui.com/)
-
+- SSR [Gatsby](https://www.gatsbyjs.org/)
 
 ### Android Application
+
 - [Instant App](https://developer.android.com/topic/google-play-instant/)
 - HTTP Client [Retrofit](https://github.com/square/retrofit)
 - Dependency Injection [koin](https://github.com/InsertKoinIO/koin)
 - Multi-threading [coroutines](https://github.com/Kotlin/kotlinx.coroutines)
 - [Android Arch](https://developer.android.com/topic/libraries/architecture/)
 
-
 ## How to build and run
 
 ### Building the code
 
- * Make sure you have the Android SDK installed
- * Open the project in IntelliJ IDEA
- * Create a file `local.properties` in the root directory of the project, pointing to your Android SDK installation. On Mac OS, the contents should be `sdk.dir=/Users/<your username>/Library/Android/sdk`. On other OSes, please adjust accordingly.
- * Run `./gradlew build`
+- Make sure you have the Android SDK installed
+- Open the project in IntelliJ IDEA
+- Create a file `local.properties` in the root directory of the project,
+  pointing to your Android SDK installation. On Mac OS, the contents should be
+  `sdk.dir=/Users/<your username>/Library/Android/sdk`. On other OSes, please
+  adjust accordingly.
+- Run `./gradlew build`
 
 ### Running the backend
- * Add file `api.properties` with your Goodreads and Database credentials `GOODREADS_API_KEY`, `GOODREADS_USER_ID`, `DATABASE_USER` and `DATABASE_PASSWORD`
- * Run `./gradlew backend:run` from the command line or from Gradle tool window
- * The backend will start serving on localhost:8888
+
+- Add file `api.properties` with your Goodreads and Database credentials
+  `GOODREADS_API_KEY`, `GOODREADS_USER_ID`, `DATABASE_USER` and
+  `DATABASE_PASSWORD`
+- Run `./gradlew backend:run` from the command line or from Gradle tool window
+- The backend will start serving on localhost:8888
 
 ### Deploying on heroku
- * `./gradlew buildAndCopyWebapp` build webApp and copy webapp to ktor static assets  
- * `heroku container:push web` build an image and push it to Container Registry
- * `heroku container:release web` release the image to the app
-or 
- * `heroku stack:set container && git push heroku master` 
+
+- `./deployToHeroku.sh`
+  or manually
+- `heroku container:push web` build an image and push it to Container Registry
+- `heroku container:release web` release the image to the app
+  or
+- `heroku stack:set container && git push heroku master`
 
 ### Running the Android app
 
- * Create a run configuration of type "Android App"
- * Select module "app" in the run configuration settings
- * Run the configuration
- * Select the emulator or connected device, as normal
+- Create a run configuration of type "Android App"
+- Select module "app" in the run configuration settings
+- Run the configuration
+- Select the emulator or connected device, as normal
 
 ### TODO
 
- - menu item selection mechanism [from](https://github.com/google/iosched/blob/65ac452d9c722c84480756ba6218d1062c8f2387/android/src/main/java/com/google/samples/apps/iosched/ui/BaseActivity.java)
- - redirect `stasbar.com/` to `stasbar.com/me` so it doesn't match `stasbar.com/*` pattern
- - Use JetPack [Navigation Component](https://developer.android.com/guide/navigation) [how](https://www.youtube.com/watch?v=JFGq0asqSuA)  
+- menu item selection mechanism
+  [from](https://github.com/google/iosched/blob/65ac452d9c722c84480756ba6218d1062c8f2387/android/src/main/java/com/google/samples/apps/iosched/ui/BaseActivity.java)
+- redirect `stasbar.com/` to `stasbar.com/me` so it doesn't match
+  `stasbar.com/*` pattern
+- Use JetPack [Navigation
+  Component](https://developer.android.com/guide/navigation)
+  [how](https://www.youtube.com/watch?v=JFGq0asqSuA)
 
 ### Licences
-```
+
+```text
+
 Copyright 2019 Stanislaw stasbar Baranski
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -117,5 +132,3 @@ limitations under the License.
 /____/\__/\__,_/____/_.___/\__,_/_/
            stasbar@stasbar.com
 ```
-
-
