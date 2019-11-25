@@ -13,6 +13,10 @@ module.exports = {
     }
   ],
   siteMetadata: {
-    title: 'My page',
+    title: 'stasbar',
+  },
+  proxy: {
+    prefix: "/api",
+    url: "https://stasbar.com/api/",
   },
 };
