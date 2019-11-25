@@ -44,6 +44,6 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "homepage": "https://stasbar.com",
+  "homepage": "https://stasbar.github.io/stasbar-app",
   "proxy": "http://localhost:8080"
 }
