@@ -15,8 +15,4 @@ module.exports = {
   siteMetadata: {
     title: 'stasbar',
   },
-  proxy: {
-    prefix: "/api",
-    url: "https://stasbar.com/api/",
-  },
 };
