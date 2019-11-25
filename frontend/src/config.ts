@@ -24,5 +24,5 @@
 
 export const serverHttpUrl =
   process.env.GATSBY_STAGE === 'production' ?
-    window.location.origin :
-    "https://stasbar.com";
+    "" :
+    "";
