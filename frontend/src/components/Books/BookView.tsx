@@ -22,22 +22,22 @@
  *            stasbar@stasbar.com
  */
 
-import React, {Component} from "react";
-import Book from "../../models/Book";
+import React, { Component } from 'react'
+import Book from '../../models/Book'
 
 interface IBookViewProps {
-  book: Book;
+  book: Book
 }
 
 export default class BookView extends Component<IBookViewProps, {}> {
   public render() {
-    const {book} = this.props;
+    const { book } = this.props
     return (
       <div id={book.hash}>
         <h3>Title: {book.title}</h3>
         <h3>Author: {book.author}</h3>
         <h3>Rating: {book.rating}</h3>
       </div>
-    );
+    )
   }
 }

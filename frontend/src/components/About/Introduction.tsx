@@ -22,33 +22,43 @@
  *            stasbar@stasbar.com
  */
 
-import {createStyles, Theme, Typography, withStyles, WithStyles} from "@material-ui/core";
-import * as React from "react";
-import {Component} from "react";
+import {
+  createStyles,
+  Theme,
+  Typography,
+  withStyles,
+  WithStyles,
+} from '@material-ui/core'
+import * as React from 'react'
+import { Component } from 'react'
 
-const styles = (theme: Theme) => createStyles({
-
-  heroContent: {
-    maxWidth: 700,
-    margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
-  },
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    heroContent: {
+      maxWidth: 700,
+      margin: '0 auto',
+      padding: `${theme.spacing(8)}px 0 ${theme.spacing(6)}px`,
+    },
+  })
 
 class Introduction extends Component<WithStyles<typeof styles>> {
-
   public render() {
-    const {classes} = this.props;
+    const { classes } = this.props
     return (
       <div className={classes.heroContent}>
-        <Typography variant="h6" align="center" color="textSecondary" paragraph={true}>
-          Motivated by the newest technologies and business opportunities. Currently focusing on blockchain
-          technology.
-          Key values in my life:<br></br>
+        <Typography
+          variant="h6"
+          align="center"
+          color="textSecondary"
+          paragraph={true}
+        >
+          Motivated by the newest technologies and business opportunities.
+          Currently focusing on blockchain technology. Key values in my life:
+          <br></br>
           Efficiency🏍️, Development🚀, Adaptation🦎, Freedom🌎 and Simplicity🍎
         </Typography>
       </div>
-    );
+    )
   }
 }
 

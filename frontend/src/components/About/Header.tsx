@@ -22,171 +22,262 @@
  *            stasbar@stasbar.com
  */
 
-import {Button, createStyles, Grid, Theme, Typography, withStyles, WithStyles} from "@material-ui/core";
-import * as React from "react";
-import {Component} from "react";
-import LinkedinIcon from "../../icons/LinkedinIcon";
-import GithubIcon from "../../icons/GithubIcon";
+import {
+  Button,
+  createStyles,
+  Grid,
+  Theme,
+  Typography,
+  withStyles,
+  WithStyles,
+} from '@material-ui/core'
+import * as React from 'react'
+import { Component } from 'react'
+import LinkedinIcon from '../../icons/LinkedinIcon'
+import GithubIcon from '../../icons/GithubIcon'
 
-const KeybaseIcon = require("../../assets/svg/KeybaseLogo.svg");
-const StackOverflowIcon = require("../../assets/svg/StackOverflowIcon.svg");
-const VapeToolIcon = require("../../assets/svg/VapeToolLogo.svg");
-const TaxLedgerIcon = require("../../assets/svg/TaxLedgerLogo.svg");
-const {OutboundLink} = require('gatsby-plugin-google-analytics');
+const KeybaseIcon = require('../../assets/svg/KeybaseLogo.svg')
+const StackOverflowIcon = require('../../assets/svg/StackOverflowIcon.svg')
+const VapeToolIcon = require('../../assets/svg/VapeToolLogo.svg')
+const TaxLedgerIcon = require('../../assets/svg/TaxLedgerLogo.svg')
+const { OutboundLink } = require('gatsby-plugin-google-analytics')
 
-const styles = (theme: Theme) => createStyles({
-  nameTitle: {
-    fontSize: "2rem",
-    fontWeight: 600,
-    marginBottom: "1rem",
-    color: theme.palette.text.primary
-  },
-  content: {
-    maxWidth: 600,
-    margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
-  },
-  buttons: {
-    marginTop: theme.spacing.unit * 4,
-  },
-  intentButton: {
-    margin: theme.spacing.unit,
-  },
-  specs: {
-    marginTop: theme.spacing.unit * 4,
-  },
-  keyword: {
-    color: theme.palette.secondary.main,
-    borderBottom: ".1rem solid currentColor",
-    textDecoration: "none",
-    textOverflow: "ellipsis",
-    whiteSpace: "nowrap",
-  },
-  specGridItem: {
-    background: "inherit",
-    padding: theme.spacing.unit
-  },
-  specName: {
-    color: theme.palette.secondary.main,
-    margin: theme.spacing.unit,
-    fontSize: "1rem",
-    fontWeight: 700,
-    textAlign: "center"
-  },
-  specDesc: {
-    align: "justify",
-  }
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    nameTitle: {
+      fontSize: '2rem',
+      fontWeight: 600,
+      marginBottom: '1rem',
+      color: theme.palette.text.primary,
+    },
+    content: {
+      maxWidth: 600,
+      margin: '0 auto',
+      padding: `${theme.spacing(8)}px 0 ${theme.spacing(6)}px`,
+    },
+    buttons: {
+      marginTop: theme.spacing(4),
+    },
+    intentButton: {
+      margin: theme.spacing(1),
+    },
+    specs: {
+      marginTop: theme.spacing(4),
+    },
+    keyword: {
+      color: theme.palette.secondary.main,
+      borderBottom: '.1rem solid currentColor',
+      textDecoration: 'none',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
+    },
+    specGridItem: {
+      background: 'inherit',
+      padding: theme.spacing(1),
+    },
+    specName: {
+      color: theme.palette.secondary.main,
+      margin: theme.spacing(1),
+      fontSize: '1rem',
+      fontWeight: 700,
+      textAlign: 'center',
+    },
+    specDesc: {
+      align: 'justify',
+    },
+  })
 
 class Header extends Component<WithStyles<typeof styles>> {
-
   public render() {
-    const {classes} = this.props;
+    const { classes } = this.props
 
     function getMyAge(): number {
-      const current = new Date();
-      return current.getUTCFullYear() - 1995;
+      const current = new Date()
+      return current.getUTCFullYear() - 1995
     }
 
     const LinkImageButton: React.FunctionComponent<{
-      name: string,
-      Icon: any,
-      href: string,
-      textColor: string,
+      name: string
+      Icon: any
+      href: string
+      textColor: string
       backgroundColor: string
-    }> = (props) =>
+    }> = props => (
       <Grid item={true} className={classes.intentButton}>
-        <OutboundLink href={props.href} label={props.name} target="_blank" style={{textDecoration: "none"}}>
+        <OutboundLink
+          href={props.href}
+          label={props.name}
+          target="_blank"
+          style={{ textDecoration: 'none' }}
+        >
           <Button
-            variant="contained" color="primary"
-            style={{color: props.textColor, backgroundColor: props.backgroundColor}}>
+            variant="contained"
+            color="primary"
+            style={{
+              color: props.textColor,
+              backgroundColor: props.backgroundColor,
+            }}
+          >
             {props.Icon}
             {props.name}
           </Button>
         </OutboundLink>
-      </Grid>;
+      </Grid>
+    )
 
     return (
       <div className={classes.content}>
-        <Typography variant="h1" align="center" gutterBottom={true} className={classes.nameTitle}>
+        <Typography
+          variant="h1"
+          align="center"
+          gutterBottom={true}
+          className={classes.nameTitle}
+        >
           STANISLAW BARANSKI
         </Typography>
         <Typography variant="h6" align="center" gutterBottom={true}>
-          <u className={classes.keyword}>full stack android developer</u>, &nbsp;
+          <u className={classes.keyword}>full stack android developer</u>,
+          &nbsp;
           <u className={classes.keyword}>beginner entrepreneur</u>, &nbsp;
           <u className={classes.keyword}>blockchain enthusiast</u>, &nbsp;
           <u className={classes.keyword}>b.eng. computer science</u>, &nbsp;
           <u className={classes.keyword}>{getMyAge()} years old</u>
         </Typography>
 
-
-        <Grid container={true} spacing={0} justify="center" className={classes.buttons}>
-          <LinkImageButton name={"LinkedIn"}
-                           href={"https://www.linkedin.com/in/stasbar/"}
-                           Icon={<LinkedinIcon/>}
-                           textColor={"#243641"}
-                           backgroundColor={"#FFF"}/>
-          <LinkImageButton name={"Github"}
-                           href={"https://github.com/stasbar"}
-                           Icon={<GithubIcon/>}
-                           textColor={"#FFF"}
-                           backgroundColor={"#212529"}/>
-          <LinkImageButton name={"Keybase"}
-                           href={"https://keybase.io/stasbar"}
-                           Icon={<img src={KeybaseIcon} width={20}/>}
-                           textColor={"#FFF"}
-                           backgroundColor={"#3095F4"}/>
-          <LinkImageButton name={"StackOverflow"}
-                           href={"https://stackoverflow.com/story/stasbar"}
-                           Icon={<img src={StackOverflowIcon} width={20}/>}
-                           textColor={"#343536"}
-                           backgroundColor={"#F9F9FA"}/>
-          <LinkImageButton name={"TaxLedger"}
-                           href={"https://tax-ledger.com"}
-                           Icon={<img src={TaxLedgerIcon} width={20}/>}
-                           textColor={"#243641"}
-                           backgroundColor={"#FFF"}/>
-          <LinkImageButton name={"VapeTool"}
-                           href={"https://vapetool.app"}
-                           Icon={<img src={VapeToolIcon} width={20}/>}
-                           textColor={"#FFF"}
-                           backgroundColor={"#3546A7"}/>
+        <Grid
+          container={true}
+          spacing={0}
+          justify="center"
+          className={classes.buttons}
+        >
+          <LinkImageButton
+            name={'LinkedIn'}
+            href={'https://www.linkedin.com/in/stasbar/'}
+            Icon={<LinkedinIcon />}
+            textColor={'#243641'}
+            backgroundColor={'#FFF'}
+          />
+          <LinkImageButton
+            name={'Github'}
+            href={'https://github.com/stasbar'}
+            Icon={<GithubIcon />}
+            textColor={'#FFF'}
+            backgroundColor={'#212529'}
+          />
+          <LinkImageButton
+            name={'Keybase'}
+            href={'https://keybase.io/stasbar'}
+            Icon={<img src={KeybaseIcon} width={20} />}
+            textColor={'#FFF'}
+            backgroundColor={'#3095F4'}
+          />
+          <LinkImageButton
+            name={'StackOverflow'}
+            href={'https://stackoverflow.com/story/stasbar'}
+            Icon={<img src={StackOverflowIcon} width={20} />}
+            textColor={'#343536'}
+            backgroundColor={'#F9F9FA'}
+          />
+          <LinkImageButton
+            name={'TaxLedger'}
+            href={'https://tax-ledger.com'}
+            Icon={<img src={TaxLedgerIcon} width={20} />}
+            textColor={'#243641'}
+            backgroundColor={'#FFF'}
+          />
+          <LinkImageButton
+            name={'VapeTool'}
+            href={'https://vapetool.app'}
+            Icon={<img src={VapeToolIcon} width={20} />}
+            textColor={'#FFF'}
+            backgroundColor={'#3546A7'}
+          />
         </Grid>
 
-        <Grid container={true} spacing={0} justify="center"
-              className={classes.specs}>
-
-          <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
+        <Grid
+          container={true}
+          spacing={0}
+          justify="center"
+          className={classes.specs}
+        >
+          <Grid
+            item={true}
+            xs={6}
+            sm={6}
+            md={3}
+            lg={3}
+            className={classes.specGridItem}
+          >
             <Typography className={classes.specName}>Android</Typography>
-            <Typography component="p" color={"textSecondary"} className={classes.specDesc}>My main specialty is mobile
-              applications for Android
-              in Java and Kotlin.</Typography>
+            <Typography
+              component="p"
+              color={'textSecondary'}
+              className={classes.specDesc}
+            >
+              My main specialty is mobile applications for Android in Java and
+              Kotlin.
+            </Typography>
           </Grid>
 
-          <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
+          <Grid
+            item={true}
+            xs={6}
+            sm={6}
+            md={3}
+            lg={3}
+            className={classes.specGridItem}
+          >
             <Typography className={classes.specName}>Backend</Typography>
-            <Typography component="p" color={"textSecondary"} className={classes.specDesc}>I chose Firebase whenever
-              possible.
-              Kotlin with ktor, Typescript with Nodejs, and Python for scripting.</Typography>
+            <Typography
+              component="p"
+              color={'textSecondary'}
+              className={classes.specDesc}
+            >
+              I chose Firebase whenever possible. Kotlin with ktor, Typescript
+              with Nodejs, and Python for scripting.
+            </Typography>
           </Grid>
 
-          <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
+          <Grid
+            item={true}
+            xs={6}
+            sm={6}
+            md={3}
+            lg={3}
+            className={classes.specGridItem}
+          >
             <Typography className={classes.specName}>Frontend</Typography>
-            <Typography component="p" color={"textSecondary"} className={classes.specDesc}>My favorite framework is
-              React/TS. Concept of components
-              composition combined with JSX seduced me.</Typography>
+            <Typography
+              component="p"
+              color={'textSecondary'}
+              className={classes.specDesc}
+            >
+              My favorite framework is React/TS. Concept of components
+              composition combined with JSX seduced me.
+            </Typography>
           </Grid>
 
-          <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
+          <Grid
+            item={true}
+            xs={6}
+            sm={6}
+            md={3}
+            lg={3}
+            className={classes.specGridItem}
+          >
             <Typography className={classes.specName}>Tools</Typography>
-            <Typography component="p" color={"textSecondary"} className={classes.specDesc}>When it comes to tools, I
-              love IntelliJ/AS and Vim running
-              on macOS.</Typography>
+            <Typography
+              component="p"
+              color={'textSecondary'}
+              className={classes.specDesc}
+            >
+              When it comes to tools, I love IntelliJ/AS and Vim running on
+              macOS.
+            </Typography>
           </Grid>
-
         </Grid>
       </div>
-    );
+    )
   }
 }
 

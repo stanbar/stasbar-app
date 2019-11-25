@@ -22,22 +22,22 @@
  *            stasbar@stasbar.com
  */
 
-import React, {Component} from "react";
-import Quote from "../../models/Quote";
+import React, { Component } from 'react'
+import Quote from '../../models/Quote'
 
 interface IQuoteViewProps {
-  quote: Quote;
+  quote: Quote
 }
 
 export default class QuoteView extends Component<IQuoteViewProps, {}> {
   public render() {
-    const {quote} = this.props;
+    const { quote } = this.props
     return (
       <div id={quote.hash.toString()}>
         <h3>Text: {quote.text}</h3>
         <h3>Author: {quote.author}</h3>
         {quote.book && <h3>Book: {quote.book.title}</h3>}
       </div>
-    );
+    )
   }
 }

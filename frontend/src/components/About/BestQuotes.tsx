@@ -22,122 +22,135 @@
  *            stasbar@stasbar.com
  */
 
-import React, {Component} from "react";
-import {Button, Card, createStyles, Grid, Theme, Typography, withStyles, WithStyles} from "@material-ui/core";
-import {Link} from 'gatsby';
-import Api from "../../Api";
-import Quote from "../../models/Quote";
+import React, {Component} from 'react'
+import {
+  Button,
+  Card,
+  createStyles,
+  Grid,
+  Theme,
+  Typography,
+  withStyles,
+  WithStyles,
+} from '@material-ui/core'
+import {Link} from 'gatsby'
+import Api from '../../Api'
+import Quote from '../../models/Quote'
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote'
 
-const styles = (theme: Theme) => createStyles({
-  root: {
-    margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
-  },
-  layout: {
-    width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
-      width: 1100,
-      marginLeft: 'auto',
-      marginRight: 'auto',
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      margin: '0 auto',
+      padding: theme.spacing(8, 6),
     },
+    layout: {
+      width: 'auto',
+      marginLeft: theme.spacing(3),
+      marginRight: theme.spacing(3),
+      [theme.breakpoints.up(1100 + theme.spacing(6))]: {
+        width: 1100,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+      },
 
-    display: "flex",
-    flexWrap: "wrap",
-    flexGrow: 1,
-    flexDirection: "column",
-    justifyContent: "space-around",
-    overflow: "hidden",
-    padding: `${theme.spacing.unit * 8}px 0`,
-  },
-  cardQuote: {
-    backgroundColor: theme.palette.primary.light,
-    textDecoration: "none",
-    margin: `${theme.spacing.unit}px 0`,
-    padding: `${theme.spacing.unit}px`,
-  },
-  nameTitle: {
-    fontWeight: 500,
-    fontSize: "2rem"
-  },
-  moreQuotesButton: {
-    width: "auto",
-    alignSelf: "center",
-    marginTop: 50,
-    marginLeft: -12,
-    marginRight: 20,
-  },
-  rightIcon: {
-    marginLeft: theme.spacing.unit,
-  },
-});
+      display: 'flex',
+      flexWrap: 'wrap',
+      flexGrow: 1,
+      flexDirection: 'column',
+      justifyContent: 'space-around',
+      overflow: 'hidden',
+      padding: `${theme.spacing(8)}px 0`,
+    },
+    cardQuote: {
+      backgroundColor: theme.palette.primary.light,
+      textDecoration: 'none',
+      margin: `${theme.spacing(1)}px 0`,
+      padding: `${theme.spacing(1)}px`,
+    },
+    nameTitle: {
+      fontWeight: 500,
+      fontSize: '2rem',
+    },
+    moreQuotesButton: {
+      width: 'auto',
+      alignSelf: 'center',
+      marginTop: 50,
+      marginLeft: -12,
+      marginRight: 20,
+    },
+    rightIcon: {
+      marginLeft: theme.spacing(1),
+    },
+  })
 
 interface IBestQuotesState {
-  quotes: Quote[];
-  loading: boolean;
+  quotes: Quote[]
+  loading: boolean
 }
 
-class BestQuotes extends Component<WithStyles<typeof styles>, IBestQuotesState> {
-
+class BestQuotes extends Component<WithStyles<typeof styles>,
+  IBestQuotesState> {
   public state: IBestQuotesState = {
     quotes: new Array<Quote>(),
-    loading: true
-  };
+    loading: true,
+  }
 
   componentDidMount(): void {
-    this.fetchQuotes();
+    this.fetchQuotes()
   }
 
   public render() {
-    const {classes} = this.props;
-    const {quotes, loading} = this.state;
+    const {classes} = this.props
+    const {quotes, loading} = this.state
 
     return (
       <div className={classes.root}>
-        <Typography variant="h2" align="center" color="textPrimary" gutterBottom={true} className={classes.nameTitle}>
+        <Typography
+          variant="h2"
+          align="center"
+          color="textPrimary"
+          gutterBottom={true}
+          className={classes.nameTitle}
+        >
           My favorite quotes
         </Typography>
         <div className={classes.layout}>
-
-          {loading && <Grid item={true} sm={12}>
+          {loading && (
+            <Grid item={true} sm={12}>
               <Typography variant="h5">Loading...</Typography>
-          </Grid>
-          }
-          {quotes.map((quote: Quote) =>
-            <Card
-              key={quote.hash}
-              className={classes.cardQuote}
-            >
+            </Grid>
+          )}
+          {quotes.map((quote: Quote) => (
+            <Card key={quote.hash} className={classes.cardQuote}>
               <Typography variant="body1">
                 <i>{quote.text}</i> ~{quote.author}
               </Typography>
             </Card>
-          )}
+          ))}
           <Button
             className={classes.moreQuotesButton}
             variant="outlined"
             component={(props: any) => <Link {...props} to="/quotes"/>}
-            color="secondary">
+            color="secondary"
+          >
             Quotes
             <FormatQuoteIcon className={classes.rightIcon}/>
           </Button>
         </div>
       </div>
-    );
+    )
   }
 
   private async fetchQuotes() {
     try {
-      const quotes: Quote[] = await Api.fetchFeaturedQuotes();
-      this.setState({quotes, loading: false});
+      const quotes: Quote[] = await Api.fetchFeaturedQuotes()
+      this.setState({quotes, loading: false})
     } catch (e) {
-      console.error(e);
-      this.setState({loading: false});
+      console.error(e)
+      this.setState({loading: false})
     }
   }
 }
 
 export default withStyles(styles)(BestQuotes)
-
