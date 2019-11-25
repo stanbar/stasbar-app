@@ -23,15 +23,15 @@
  */
 
 export default interface IApp {
-  name: string;
-  imgSrc: string;
-  imgWebp: string;
-  description: any;
-  platform: "mobile" | "desktop";
+  name: string
+  imgSrc: string
+  imgWebp: string
+  description: any
+  platform: 'mobile' | 'desktop'
   links: {
-    github: string | null;
-    website: string | null;
-    googlePlay: string | null;
-    appStore: string | null;
-  };
+    github: string | null
+    website: string | null
+    googlePlay: string | null
+    appStore: string | null
+  }
 }

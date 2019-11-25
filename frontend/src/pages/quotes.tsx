@@ -22,88 +22,92 @@
  *            stasbar@stasbar.com
  */
 
-import {Card, createStyles, Grid, Theme, Typography, WithStyles, withStyles} from "@material-ui/core";
-import * as React from "react";
-import {Component} from "react";
-import Api from "../Api";
-import Quote from "../models/Quote";
+import {
+  Card,
+  createStyles,
+  Grid,
+  Theme,
+  Typography,
+  WithStyles,
+  withStyles,
+} from '@material-ui/core'
+import * as React from 'react'
+import { Component } from 'react'
+import Api from '../Api'
+import Quote from '../models/Quote'
 
-const styles = (theme: Theme) => createStyles({
-  root: {
-    width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
-      width: 1100,
-      marginLeft: 'auto',
-      marginRight: 'auto',
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      width: 'auto',
+      marginLeft: theme.spacing(3),
+      marginRight: theme.spacing(3),
+      [theme.breakpoints.up(1100 + theme.spacing(6))]: {
+        width: 1100,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+      },
+
+      display: 'flex',
+      flexWrap: 'wrap',
+      flexGrow: 1,
+      flexDirection: 'column',
+      justifyContent: 'space-around',
+      overflow: 'hidden',
+      padding: `${theme.spacing(8)}px 0`,
     },
+    cardQuote: {
+      textDecoration: 'none',
+      margin: `${theme.spacing(1)}px 0`,
+      padding: `${theme.spacing(1)}px`,
+    },
+  })
 
-    display: "flex",
-    flexWrap: "wrap",
-    flexGrow: 1,
-    flexDirection: "column",
-    justifyContent: "space-around",
-    overflow: "hidden",
-    padding: `${theme.spacing.unit * 8}px 0`,
-  },
-  cardQuote: {
-    textDecoration: "none",
-    margin: `${theme.spacing.unit}px 0`,
-    padding: `${theme.spacing.unit}px`,
-  }
-});
-
-
-interface IQuotesProps {
-
-}
+interface IQuotesProps {}
 
 interface IQuotesState {
-  quotes: Quote[];
-  loading: boolean;
+  quotes: Quote[]
+  loading: boolean
 }
 
 class Quotes extends Component<WithStyles<typeof styles>, IQuotesState> {
-
   public state: IQuotesState = {
     quotes: new Array<Quote>(),
-    loading: true
-  };
+    loading: true,
+  }
 
   componentDidMount(): void {
-    this.fetchQuotes();
+    this.fetchQuotes()
   }
 
   public render() {
-    const {classes} = this.props;
-    const {quotes, loading} = this.state;
+    const { classes } = this.props
+    const { quotes, loading } = this.state
     return (
       <div className={classes.root}>
-
-        {loading && <Grid item={true} sm={12}>
+        {loading && (
+          <Grid item={true} sm={12}>
             <Typography variant="h5">Loading...</Typography>
-        </Grid>
-        }
-        {quotes.map((quote: Quote) =>
+          </Grid>
+        )}
+        {quotes.map((quote: Quote) => (
           <Card className={classes.cardQuote} key={quote.hash}>
             <Typography variant="body1">
               {quote.text} ~{quote.author}
             </Typography>
           </Card>
-        )}
+        ))}
       </div>
-    );
+    )
   }
 
   private async fetchQuotes() {
     try {
-      const quotes: Quote[] = await Api.fetchAllQuotes();
-      this.setState({quotes, loading: false});
+      const quotes: Quote[] = await Api.fetchAllQuotes()
+      this.setState({ quotes, loading: false })
     } catch (e) {
-      console.error(e);
-      this.setState({loading: false});
-
+      console.error(e)
+      this.setState({ loading: false })
     }
   }
 }

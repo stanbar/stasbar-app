@@ -22,65 +22,86 @@
  *            stasbar@stasbar.com
  */
 
-import {createStyles, Grid, Theme, Typography, withStyles, WithStyles} from "@material-ui/core";
-import * as React from "react";
-import {Component} from "react";
-import IApp from "../../myapps/IApp";
-import MyApp from "./MyApp";
+import {
+  createStyles,
+  Grid,
+  Theme,
+  Typography,
+  withStyles,
+  WithStyles,
+} from '@material-ui/core'
+import * as React from 'react'
+import {Component} from 'react'
+import IApp from '../../myapps/IApp'
+import MyApp from './MyApp'
 
-
-const styles = (theme: Theme) => createStyles({
-  root: {
-    margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
-  },
-  nameTitle: {
-    fontWeight: 500,
-    fontSize: "2rem"
-  },
-  layout: {
-    width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    padding: `${theme.spacing.unit * 8}px 0`,
-    [theme.breakpoints.up(800 + theme.spacing.unit * 3 * 2)]: {
-      width: 800,
-      marginLeft: 'auto',
-      marginRight: 'auto',
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      margin: '0 auto',
+      padding: `${theme.spacing(1)}px 0 ${theme.spacing(6)}px`,
     },
-    display: "flex",
-    flexWrap: "wrap",
-    flexGrow: 1,
-    flexDirection: "column",
-    justifyContent: "space-around",
-    overflow: "hidden",
-  },
-
-});
+    nameTitle: {
+      fontWeight: 500,
+      fontSize: '2rem',
+    },
+    layout: {
+      width: 'auto',
+      marginLeft: theme.spacing(3),
+      marginRight: theme.spacing(3),
+      padding: `${theme.spacing(8)}px 0`,
+      [theme.breakpoints.up(800 + theme.spacing(6))]: {
+        width: 800,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+      },
+      display: 'flex',
+      flexWrap: 'wrap',
+      flexGrow: 1,
+      flexDirection: 'column',
+      justifyContent: 'space-around',
+      overflow: 'hidden',
+    },
+  })
 
 interface IAppsGallery extends WithStyles<typeof styles> {
-  title: string,
-  apps: IApp[],
+  title: string
+  apps: IApp[]
 }
 
 class AppsGallery extends Component<IAppsGallery> {
-
   public render() {
-    const {classes} = this.props;
+    const {classes} = this.props
     return (
       <div className={classes.root}>
-        <Typography variant="h2" align="center" color="textPrimary" gutterBottom={true} className={classes.nameTitle}>
+        <Typography
+          variant="h2"
+          align="center"
+          color="textPrimary"
+          gutterBottom={true}
+          className={classes.nameTitle}
+        >
           {this.props.title}
         </Typography>
 
         <div className={classes.layout}>
-          <Grid container={true} justify={"center"} spacing={40}
-                style={{alignContent: "flex-start", alignItems: "stretch", flexGrow: 1}}>
-            {this.props.apps.map((app) => <MyApp key={app.name} app={app}/>)}
+          <Grid
+            container={true}
+            justify={'center'}
+            spacing={5}
+            style={{
+              alignContent: 'flex-start',
+              alignItems: 'stretch',
+              flexGrow: 1,
+            }}
+          >
+            {this.props.apps.map(app => (
+              <MyApp key={app.name} app={app}/>
+            ))}
           </Grid>
         </div>
       </div>
-    );
+    )
   }
 }
 

@@ -21,52 +21,52 @@
  * /____/\__/\__,_/____/_.___/\__,_/_/
  *            stasbar@stasbar.com
  */
-import {serverHttpUrl} from "./config";
+import { serverHttpUrl } from './config'
 
 export default {
   async fetchAllBooks() {
-    const response = await fetch(serverHttpUrl + "/api/books?shelf=read");
+    const response = await fetch(serverHttpUrl + '/api/books?shelf=read')
     if (response.ok) {
-      return await response.json();
+      return await response.json()
     } else {
-      console.error(response);
-      throw Error(response.statusText);
+      console.error(response)
+      throw Error(response.statusText)
     }
   },
   async fetchFeaturedBooks() {
-    const response = await fetch(serverHttpUrl + "/api/books?shelf=featured");
+    const response = await fetch(serverHttpUrl + '/api/books?shelf=featured')
     if (response.ok) {
-      return await response.json();
+      return await response.json()
     } else {
-      console.error(response);
-      throw Error(response.statusText);
+      console.error(response)
+      throw Error(response.statusText)
     }
   },
   async fetchProgrammingBooks() {
-    const response = await fetch(serverHttpUrl + "/api/books?shelf=programming");
+    const response = await fetch(serverHttpUrl + '/api/books?shelf=programming')
     if (response.ok) {
-      return await response.json();
+      return await response.json()
     } else {
-      console.error(response);
-      throw Error(response.statusText);
+      console.error(response)
+      throw Error(response.statusText)
     }
   },
   async fetchAllQuotes() {
-    const response = await fetch(serverHttpUrl + "/api/quotes");
+    const response = await fetch(serverHttpUrl + '/api/quotes')
     if (response.ok) {
-      return await response.json();
+      return await response.json()
     } else {
-      console.error(response);
-      throw Error(response.statusText);
+      console.error(response)
+      throw Error(response.statusText)
     }
   },
   async fetchFeaturedQuotes() {
-    const response = await fetch(serverHttpUrl + "/api/quotes?limit=10");
+    const response = await fetch(serverHttpUrl + '/api/quotes?limit=10')
     if (response.ok) {
-      return await response.json();
+      return await response.json()
     } else {
-      console.error(response);
-      throw Error(response.statusText);
+      console.error(response)
+      throw Error(response.statusText)
     }
   },
-};
+}

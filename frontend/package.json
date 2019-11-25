@@ -7,11 +7,13 @@
     "build": "gatsby build",
     "postbuild": "/bin/rm -r ../docs 2> /dev/null; mv public ../docs",
     "develop": "gatsby develop",
-    "format": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.ts*\""
+    "serve": "gatsby serve",
+    "format": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.ts*\"",
+    "clean": "gatsby  clean"
   },
   "dependencies": {
-    "@material-ui/core": "^3.9.3",
-    "@material-ui/icons": "^3.0.2",
+    "@material-ui/core": "^4.7.0",
+    "@material-ui/icons": "^4.5.1",
     "@material-ui/styles": "^4.6.0",
     "gatsby": "latest",
     "gatsby-plugin-google-analytics": "^2.1.28",
@@ -21,7 +23,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "latest",
-    "react-image-webp": "^0.2.2",
+    "react-image-webp": "^0.6.0",
     "typeface-roboto": "0.0.54",
     "typeface-roboto-mono": "0.0.54",
     "typescript": "^3.7.2"
@@ -33,7 +35,9 @@
     "@types/react-dom": "^16.9.4",
     "@types/react-router-dom": "^4.3.5",
     "@types/recompose": "^0.30.7",
-    "prettier": "^1.8.2"
+    "prettier": "^1.19.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.1"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,6 +48,6 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "homepage": "https://github.stasbar.com",
+  "homepage": "https://stasbar.com",
   "proxy": "http://localhost:8080"
 }

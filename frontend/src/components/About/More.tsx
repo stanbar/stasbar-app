@@ -22,37 +22,42 @@
  *            stasbar@stasbar.com
  */
 
-import {Button, createStyles, Theme, withStyles, WithStyles} from "@material-ui/core";
-import * as React from "react";
-import {Component} from "react";
-import {Link} from 'gatsby';
+import {
+  Button,
+  createStyles,
+  Theme,
+  withStyles,
+  WithStyles,
+} from '@material-ui/core'
+import * as React from 'react'
+import {Component} from 'react'
+import {Link} from 'gatsby'
 import LibraryBookIcon from '@material-ui/icons/LibraryBooks'
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote'
 
-
-const styles = (theme: Theme) => createStyles({
-  heroContent: {
-    display: 'flex',
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    maxWidth: 600,
-    margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
-  rightIcon: {
-    marginLeft: theme.spacing.unit,
-  },
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    heroContent: {
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      maxWidth: 600,
+      margin: '0 auto',
+      padding: theme.spacing(8, 6),
+    },
+    menuButton: {
+      marginLeft: -12,
+      marginRight: 20,
+    },
+    rightIcon: {
+      marginLeft: theme.spacing(1),
+    },
+  })
 
 class More extends Component<WithStyles<typeof styles>> {
-
   public render() {
-    const {classes} = this.props;
+    const {classes} = this.props
 
     return (
       <div className={classes.heroContent}>
@@ -60,7 +65,8 @@ class More extends Component<WithStyles<typeof styles>> {
           className={classes.menuButton}
           variant="outlined"
           component={(props: any) => <Link {...props} to="/books"/>}
-          color="secondary">
+          color="secondary"
+        >
           Books
           <LibraryBookIcon className={classes.rightIcon}/>
         </Button>
@@ -68,13 +74,15 @@ class More extends Component<WithStyles<typeof styles>> {
           className={classes.menuButton}
           variant="outlined"
           component={(props: any) => <Link {...props} to="/quotes"/>}
-          color="secondary">
+          color="secondary"
+        >
           Quotes
           <FormatQuoteIcon className={classes.rightIcon}/>
         </Button>
       </div>
-    );
+    )
   }
 }
 
+// @ts-ignore
 export default withStyles(styles)(More)
