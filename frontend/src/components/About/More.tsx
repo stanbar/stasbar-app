@@ -25,7 +25,7 @@
 import {Button, createStyles, Theme, withStyles, WithStyles} from "@material-ui/core";
 import * as React from "react";
 import {Component} from "react";
-import {Link} from "react-router-dom";
+import {Link} from 'gatsby';
 import LibraryBookIcon from '@material-ui/icons/LibraryBooks'
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote'
 

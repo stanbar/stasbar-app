@@ -25,7 +25,7 @@
 import {createStyles, Grid, Theme, Typography, withStyles, WithStyles} from "@material-ui/core";
 import * as React from "react";
 import {Component} from "react";
-import IApp from "../../MyApps/IApp";
+import IApp from "../../myapps/IApp";
 import MyApp from "./MyApp";
 
 

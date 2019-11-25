@@ -27,11 +27,12 @@ import * as React from "react";
 import {Component} from "react";
 import LinkedinIcon from "../../icons/LinkedinIcon";
 import GithubIcon from "../../icons/GithubIcon";
-import KeybaseIcon from "../../assets/svg/KeybaseLogo.svg";
-import StackOverflowIcon from "../../assets/svg/StackOverflowIcon.svg";
-import VapeToolIcon from "../../assets/svg/VapeToolLogo.svg";
-import TaxLedgerIcon from "../../assets/svg/TaxLedgerLogo.svg";
-import {OutboundLink} from "react-ga";
+
+const KeybaseIcon = require("../../assets/svg/KeybaseLogo.svg");
+const StackOverflowIcon = require("../../assets/svg/StackOverflowIcon.svg");
+const VapeToolIcon = require("../../assets/svg/VapeToolLogo.svg");
+const TaxLedgerIcon = require("../../assets/svg/TaxLedgerLogo.svg");
+const {OutboundLink} = require('gatsby-plugin-google-analytics');
 
 const styles = (theme: Theme) => createStyles({
   nameTitle: {
@@ -95,7 +96,7 @@ class Header extends Component<WithStyles<typeof styles>> {
       backgroundColor: string
     }> = (props) =>
       <Grid item={true} className={classes.intentButton}>
-        <OutboundLink to={props.href} eventLabel={props.name} target="_blank" style={{textDecoration: "none"}}>
+        <OutboundLink href={props.href} label={props.name} target="_blank" style={{textDecoration: "none"}}>
           <Button
             variant="contained" color="primary"
             style={{color: props.textColor, backgroundColor: props.backgroundColor}}>
@@ -157,25 +158,29 @@ class Header extends Component<WithStyles<typeof styles>> {
 
           <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
             <Typography className={classes.specName}>Android</Typography>
-            <Typography component="p" color={"textSecondary"} className={classes.specDesc}>My main specialty is mobile applications for Android
+            <Typography component="p" color={"textSecondary"} className={classes.specDesc}>My main specialty is mobile
+              applications for Android
               in Java and Kotlin.</Typography>
           </Grid>
 
           <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
             <Typography className={classes.specName}>Backend</Typography>
-            <Typography component="p" color={"textSecondary"} className={classes.specDesc}>I chose Firebase whenever possible.
+            <Typography component="p" color={"textSecondary"} className={classes.specDesc}>I chose Firebase whenever
+              possible.
               Kotlin with ktor, Typescript with Nodejs, and Python for scripting.</Typography>
           </Grid>
 
           <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
             <Typography className={classes.specName}>Frontend</Typography>
-            <Typography component="p" color={"textSecondary"} className={classes.specDesc}>My favorite framework is React/TS. Concept of components
+            <Typography component="p" color={"textSecondary"} className={classes.specDesc}>My favorite framework is
+              React/TS. Concept of components
               composition combined with JSX seduced me.</Typography>
           </Grid>
 
           <Grid item={true} xs={6} sm={6} md={3} lg={3} className={classes.specGridItem}>
             <Typography className={classes.specName}>Tools</Typography>
-            <Typography component="p" color={"textSecondary"} className={classes.specDesc}>When it comes to tools, I love IntelliJ/AS and Vim running
+            <Typography component="p" color={"textSecondary"} className={classes.specDesc}>When it comes to tools, I
+              love IntelliJ/AS and Vim running
               on macOS.</Typography>
           </Grid>
 

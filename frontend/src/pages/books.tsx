@@ -33,11 +33,9 @@ import {
   WithStyles
 } from "@material-ui/core";
 import React, {Component} from "react";
-import {Route, RouteComponentProps} from "react-router";
-import {Link} from "react-router-dom";
-import Api from "../../Api";
-import Book from "../../Models/Book";
-import BookView from "./BookView";
+import Api from "../Api";
+import Book from "../models/Book";
+import BookView from "../components/Books/BookView";
 
 const styles = (theme: Theme) => createStyles({
   root: {
@@ -69,20 +67,19 @@ interface IBooksState {
   loading: boolean;
 }
 
-class Books extends Component<RouteComponentProps & WithStyles<typeof styles>, IBooksState> {
+class Books extends Component<WithStyles<typeof styles>, IBooksState> {
 
   public state: IBooksState = {
     books: new Array<Book>(),
     loading: true
   };
 
-  constructor(props: Readonly<RouteComponentProps & WithStyles<typeof styles>>) {
-    super(props);
+  componentDidMount(): void {
     this.fetchBooks();
   }
 
   public render() {
-    const {match, classes} = this.props;
+    const {classes} = this.props;
     const {books, loading} = this.state;
     const bookView = (props: any) =>
       <BookView
@@ -94,13 +91,12 @@ class Books extends Component<RouteComponentProps & WithStyles<typeof styles>, I
       <div className={classes.root}>
         <Grid container={true} spacing={16}>
           {loading && <Grid item={true} sm={12}>
-            <Typography variant="h5">Loading...</Typography>
+              <Typography variant="h5">Loading...</Typography>
           </Grid>
           }
           {books.map((book: Book) =>
             <Grid key={book.hash} item={true} xs={4} sm={3} md={3} lg={2} style={{height: "auto", width: "100%"}}>
-              <GridListTile
-                component={(props: any) => <Link {...props} to={`${match.url}/${book.hash}`}/>}>
+              <GridListTile>
                 <img src={book.imageUrl} alt={book.title} className={classes.img}/>
                 <GridListTileBar
                   title={book.title}
@@ -111,18 +107,12 @@ class Books extends Component<RouteComponentProps & WithStyles<typeof styles>, I
           )}
 
         </Grid>
-
-        <Route
-          path={`${match.path}/:hash`}
-          component={bookView}
-        />
       </div>
     );
   }
 
   private async fetchBooks() {
     try {
-
       const books: Book[] = await Api.fetchAllBooks();
       this.setState({books, loading: false});
     } catch (e) {

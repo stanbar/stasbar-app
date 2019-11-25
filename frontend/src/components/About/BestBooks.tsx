@@ -34,9 +34,8 @@ import {
   withStyles,
   WithStyles
 } from "@material-ui/core";
-import Book from "../../Models/Book";
-import {RouteComponentProps} from "react-router";
-import {Link} from 'react-router-dom'
+import Book from "../../models/Book";
+import {Link} from 'gatsby';
 import Api from "../../Api";
 import LibraryBookIcon from '@material-ui/icons/LibraryBooks'
 
@@ -88,20 +87,19 @@ interface IBestBooksState {
   loading: boolean;
 }
 
-class BestBooks extends Component<RouteComponentProps & WithStyles<typeof styles>, IBestBooksState> {
+class BestBooks extends Component<WithStyles<typeof styles>, IBestBooksState> {
 
   public state: IBestBooksState = {
     books: new Array<Book>(),
     loading: true
   };
 
-  constructor(props: Readonly<RouteComponentProps & WithStyles<typeof styles>>) {
-    super(props);
+  componentDidMount(): void {
     this.fetchBooks();
   }
 
   public render() {
-    const {match, classes} = this.props;
+    const {classes} = this.props;
     const {books, loading} = this.state;
 
     return (
@@ -112,13 +110,12 @@ class BestBooks extends Component<RouteComponentProps & WithStyles<typeof styles
         <div className={classes.layout}>
           <Grid container={true} spacing={40} justify={"center"}>
             {loading && <Grid item={true} sm={12}>
-              <Typography variant="h5">Loading...</Typography>
+                <Typography variant="h5">Loading...</Typography>
             </Grid>
             }
             {books.map((book: Book) =>
               <Grid key={book.hash} item={true} xs={6} sm={3} md={2} lg={2} style={{height: "auto", width: "100%"}}>
-                <GridListTile
-                  component={(props: any) => <Link {...props} to={`${match.url}/${book.hash}`}/>}>
+                <GridListTile>
                   <img src={book.imageUrl} alt={book.title} className={classes.img}/>
                   <GridListTileBar
                     title={book.title}

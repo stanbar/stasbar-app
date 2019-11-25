@@ -23,10 +23,9 @@
  */
 
 import React, {Component} from "react";
-import {RouteComponentProps} from "react-router";
-import Quote from "../../Models/Quote";
+import Quote from "../../models/Quote";
 
-interface IQuoteViewProps extends RouteComponentProps {
+interface IQuoteViewProps {
   quote: Quote;
 }
 
