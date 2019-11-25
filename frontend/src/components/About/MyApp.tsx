@@ -108,7 +108,7 @@ class MyApp extends Component<IAppsGallery> {
           />
           <source
             srcSet={app.imgWebp}
-            type={'image/webp'}
+            type={'image/'}
             className={classes.img}
           />
           <img src={app.imgSrc} alt={app.name} className={classes.img} />
