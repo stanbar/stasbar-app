@@ -2,41 +2,37 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "main": "n/a",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "lint": "tslint src/**/*.{ts,tsx}",
-    "lint:fix": "tslint --fix src/**/*.{ts,tsx}",
-    "tslint-check": "tslint-config-prettier-check ./tslint.json",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "render": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.ts*\""
   },
   "dependencies": {
-    "@material-ui/core": "^3.8.3",
+    "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
-    "@types/classnames": "^2.2.7",
-    "classnames": "^2.2.6",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-ga": "^2.5.6",
+    "@material-ui/styles": "^4.6.0",
+    "gatsby": "latest",
+    "gatsby-plugin-google-analytics": "^2.1.28",
+    "gatsby-plugin-material-ui": "latest",
+    "gatsby-plugin-react-helmet": "latest",
+    "gatsby-plugin-typescript": "^2.1.19",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "latest",
     "react-image-webp": "^0.2.2",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "^3.0.1",
-    "recompose": "latest",
     "typeface-roboto": "0.0.54",
     "typeface-roboto-mono": "0.0.54",
-    "typescript": "^3.2.2"
+    "typescript": "^3.7.2"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.12",
-    "@types/node": "^10.12.18",
-    "@types/react": "^16.7.18",
-    "@types/react-dom": "^16.0.11",
-    "@types/react-router-dom": "^4.3.1",
-    "@types/recompose": "^0.30.2",
-    "tslint": "^5.12.1",
-    "tslint-config-prettier": "^1.17.0",
-    "tslint-react": "^3.6.0"
+    "@types/jest": "^23.3.14",
+    "@types/node": "^10.17.5",
+    "@types/react": "^16.9.13",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-router-dom": "^4.3.5",
+    "@types/recompose": "^0.30.7",
+    "prettier": "^1.8.2"
   },
   "eslintConfig": {
     "extends": "react-app"

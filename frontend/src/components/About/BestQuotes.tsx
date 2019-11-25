@@ -24,10 +24,9 @@
 
 import React, {Component} from "react";
 import {Button, Card, createStyles, Grid, Theme, Typography, withStyles, WithStyles} from "@material-ui/core";
-import {RouteComponentProps} from "react-router";
-import {Link} from 'react-router-dom'
+import {Link} from 'gatsby';
 import Api from "../../Api";
-import Quote from "../../Models/Quote";
+import Quote from "../../models/Quote";
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote'
 
 const styles = (theme: Theme) => createStyles({
@@ -80,20 +79,19 @@ interface IBestQuotesState {
   loading: boolean;
 }
 
-class BestQuotes extends Component<RouteComponentProps & WithStyles<typeof styles>, IBestQuotesState> {
+class BestQuotes extends Component<WithStyles<typeof styles>, IBestQuotesState> {
 
   public state: IBestQuotesState = {
     quotes: new Array<Quote>(),
     loading: true
   };
 
-  constructor(props: Readonly<RouteComponentProps & WithStyles<typeof styles>>) {
-    super(props);
+  componentDidMount(): void {
     this.fetchQuotes();
   }
 
   public render() {
-    const {match, classes} = this.props;
+    const {classes} = this.props;
     const {quotes, loading} = this.state;
 
     return (
@@ -104,14 +102,14 @@ class BestQuotes extends Component<RouteComponentProps & WithStyles<typeof style
         <div className={classes.layout}>
 
           {loading && <Grid item={true} sm={12}>
-            <Typography variant="h5">Loading...</Typography>
+              <Typography variant="h5">Loading...</Typography>
           </Grid>
           }
           {quotes.map((quote: Quote) =>
             <Card
               key={quote.hash}
               className={classes.cardQuote}
-              component={(props: any) => <Link {...props} to={`${match.url}/${quote.hash}`}/>}>
+            >
               <Typography variant="body1">
                 <i>{quote.text}</i> ~{quote.author}
               </Typography>

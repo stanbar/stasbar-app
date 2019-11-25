@@ -23,10 +23,9 @@
  */
 
 import React, {Component} from "react";
-import {RouteComponentProps} from "react-router";
-import Book from "../../Models/Book";
+import Book from "../../models/Book";
 
-interface IBookViewProps extends RouteComponentProps {
+interface IBookViewProps {
   book: Book;
 }
 

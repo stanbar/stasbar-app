@@ -25,14 +25,13 @@
 import {createStyles, Theme, withStyles, WithStyles} from "@material-ui/core";
 import * as React from "react";
 import {Component} from "react";
-import Header from "./Header";
-import Introduction from "./Introduction";
-import AppsGallery from "./AppsGallery";
-import Apps from "../../MyApps/Apps"
-import Projects from "../../MyApps/Projects"
-import BestBooks from "./BestBooks";
-import {RouteComponentProps} from "react-router";
-import BestQuotes from "./BestQuotes";
+import Introduction from "../components/About/Introduction";
+import Header from "../components/About/Header";
+import AppsGallery from "../components/About/AppsGallery";
+import BestBooks from "../components/About/BestBooks";
+import BestQuotes from "../components/About/BestQuotes";
+import Apps from "../myapps/Apps";
+import Projects from "../myapps/Projects";
 
 const styles = (theme: Theme) => createStyles({
   odd: {
@@ -43,7 +42,7 @@ const styles = (theme: Theme) => createStyles({
   }
 });
 
-class AboutMe extends Component<RouteComponentProps & WithStyles<typeof styles>> {
+class Index extends Component<WithStyles<typeof styles>> {
 
   public render() {
 
@@ -63,14 +62,14 @@ class AboutMe extends Component<RouteComponentProps & WithStyles<typeof styles>>
           <AppsGallery title={"Other Projects"} apps={Projects}/>
         </div>
         <div className={classes.odd}>
-          <BestBooks match={this.props.match} history={this.props.history} location={this.props.location}/>
+          <BestBooks/>
         </div>
         <div className={classes.even}>
-          <BestQuotes match={this.props.match} history={this.props.history} location={this.props.location}/>
+          <BestQuotes/>
         </div>
       </div>
     );
   }
 }
 
-export default withStyles(styles)(AboutMe)
+export default withStyles(styles)(Index)

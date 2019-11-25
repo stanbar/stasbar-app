@@ -21,11 +21,12 @@
  * /____/\__/\__,_/____/_.___/\__,_/_/
  *            stasbar@stasbar.com
  */
-import RaspberryWalletFramedPng from "../assets/png/RaspberryWallet/RaspberryWalletFramed.png"
-import RaspberryWalletFramedWebp from "../assets/webp/RaspberryWallet/RaspberryWalletFramed.webp"
-import MyWebsiteFramedPng from "../assets/png/MyWebsite/WebsiteFramed.png"
-import MyWebsiteFramedWebp from "../assets/webp/MyWebsite/WebsiteFramed.webp"
 import IApp from "./IApp";
+
+const RaspberryWalletFramedPng = require("../assets/png/RaspberryWallet/RaspberryWalletFramed.png")
+const RaspberryWalletFramedWebp = require("../assets/webp/RaspberryWallet/RaspberryWalletFramed.webp")
+const MyWebsiteFramedPng = require("../assets/png/MyWebsite/WebsiteFramed.png")
+const MyWebsiteFramedWebp = require("../assets/webp/MyWebsite/WebsiteFramed.webp")
 
 
 const Projects: IApp[] = [

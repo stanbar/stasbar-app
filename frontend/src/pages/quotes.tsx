@@ -25,10 +25,8 @@
 import {Card, createStyles, Grid, Theme, Typography, WithStyles, withStyles} from "@material-ui/core";
 import * as React from "react";
 import {Component} from "react";
-import {RouteComponentProps} from "react-router";
-import {Link} from "react-router-dom";
-import Api from "../../Api";
-import Quote from "../../Models/Quote";
+import Api from "../Api";
+import Quote from "../models/Quote";
 
 const styles = (theme: Theme) => createStyles({
   root: {
@@ -66,31 +64,29 @@ interface IQuotesState {
   loading: boolean;
 }
 
-class Quotes extends Component<RouteComponentProps<IQuotesProps> & WithStyles<typeof styles>, IQuotesState> {
+class Quotes extends Component<WithStyles<typeof styles>, IQuotesState> {
 
   public state: IQuotesState = {
     quotes: new Array<Quote>(),
     loading: true
   };
 
-  constructor(props: Readonly<RouteComponentProps<IQuotesProps> & WithStyles<typeof styles>>) {
-    super(props);
+  componentDidMount(): void {
     this.fetchQuotes();
   }
 
   public render() {
-    const {match, classes} = this.props;
+    const {classes} = this.props;
     const {quotes, loading} = this.state;
     return (
       <div className={classes.root}>
 
         {loading && <Grid item={true} sm={12}>
-          <Typography variant="h5">Loading...</Typography>
+            <Typography variant="h5">Loading...</Typography>
         </Grid>
         }
         {quotes.map((quote: Quote) =>
-          <Card className={classes.cardQuote}
-                component={(props: any) => <Link {...props} to={`${match.url}/${quote.hash}`}/>}>
+          <Card className={classes.cardQuote}>
             <Typography variant="body1">
               {quote.text} ~{quote.author}
             </Typography>

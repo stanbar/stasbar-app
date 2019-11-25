@@ -29,10 +29,7 @@ import com.stasbar.app.di.prodModules
 import io.ktor.application.Application
 import io.ktor.application.call
 import io.ktor.application.install
-import io.ktor.features.CallLogging
-import io.ktor.features.AutoHeadResponse
-import io.ktor.features.ContentNegotiation
-import io.ktor.features.DefaultHeaders
+import io.ktor.features.*
 import io.ktor.html.respondHtml
 import io.ktor.http.content.defaultResource
 import io.ktor.http.content.resources
@@ -62,6 +59,7 @@ fun Application.module() {
   install(DefaultHeaders)
   install(CallLogging)
   install(AutoHeadResponse)
+  install(CORS)
   install(ContentNegotiation) {
     jackson {
       enable(SerializationFeature.INDENT_OUTPUT)
