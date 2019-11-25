@@ -86,7 +86,7 @@ class Quotes extends Component<WithStyles<typeof styles>, IQuotesState> {
         </Grid>
         }
         {quotes.map((quote: Quote) =>
-          <Card className={classes.cardQuote}>
+          <Card className={classes.cardQuote} key={quote.hash}>
             <Typography variant="body1">
               {quote.text} ~{quote.author}
             </Typography>
