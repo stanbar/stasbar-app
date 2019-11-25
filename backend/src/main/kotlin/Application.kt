@@ -62,7 +62,6 @@ fun Application.module() {
   install(AutoHeadResponse)
   install(CORS){
     anyHost()
-    method(HttpMethod.Get)
   }
   install(ContentNegotiation) {
     jackson {
