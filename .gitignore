@@ -11,6 +11,7 @@ local.properties
 .DS_Store
 .externalNativeBuild
 .database
+database
 
 .env
 src/main/resources/assets/.well-known/

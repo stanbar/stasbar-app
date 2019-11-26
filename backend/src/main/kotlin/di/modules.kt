@@ -27,11 +27,13 @@ package com.stasbar.app.di
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.stasbar.app.BooksRepository
 import com.stasbar.app.database.BooksDatabase
+import com.stasbar.app.database.H2Database
 import com.stasbar.app.database.PostgresDatabase
 import com.stasbar.app.goodreads.GoodreadsApi
 import com.stasbar.app.goodreads.GoodreadsService
 import com.stasbar.app.googlebooks.GoogleBooksApi
 import com.stasbar.app.googlebooks.GoogleBooksService
+import io.github.cdimascio.dotenv.dotenv
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -40,19 +42,9 @@ import retrofit2.converter.jaxb.JaxbConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.net.URI
 
-val testCommonModule = module {
-  single<OkHttpClient> {
-    OkHttpClient.Builder()
-      .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
-      .build()
-  }
-
-  single<BooksDatabase> {
-    val (dbUri, username, password)
-      = parseDatabaseCredentials(getProperty("DATABASE_URL"), getProperty("ENV"))
-
-    PostgresDatabase(4, dbUri, username, password)
-  }
+val dotenv = dotenv() {
+  directory = "../"
+  ignoreIfMissing = true
 }
 
 val commonModule = module {
@@ -63,16 +55,22 @@ val commonModule = module {
   }
 
   single<BooksDatabase> {
-    val (dbUri, username, password)
-      = parseDatabaseCredentials(getProperty("DATABASE_URL"), getProperty("ENV"))
-
-    PostgresDatabase(4, dbUri, username, password)
+    if (dotenv["DATABASE_URL"] != null) {
+      val (dbUri, username, password)
+        = parseDatabaseCredentials(dotenv["DATABASE_URL"]!!, dotenv.get("ENV", ""))
+      PostgresDatabase(4, dbUri, username, password)
+    } else {
+      H2Database(
+        4, "jdbc:h2:file:./database/stasbarapp",
+        dotenv["DATABASE_USER"]!!, dotenv["DATABASE_PASSWORD"]!!
+      )
+    }
   }
 }
 val goodreadsModule = module {
   single<GoodreadsService> {
     Retrofit.Builder()
-      .baseUrl(getProperty("goodreads_base_url", "https://www.goodreads.com"))
+      .baseUrl("https://www.goodreads.com")
       .client(get())
       .addConverterFactory(JaxbConverterFactory.create())
       .addCallAdapterFactory(CoroutineCallAdapterFactory())
@@ -83,9 +81,9 @@ val goodreadsModule = module {
   single {
     GoodreadsApi(
       get(),
-      getProperty("goodreads_base_url"),
-      getProperty("GOODREADS_USER_ID"),
-      getProperty("GOODREADS_API_KEY")
+      "https://www.goodreads.com",
+      dotenv["GOODREADS_USER_ID"]!!,
+      dotenv["GOODREADS_API_KEY"]!!
     )
   }
   single { BooksRepository(get(), get(), get()) }
@@ -95,7 +93,7 @@ val googleBooksModule = module {
   single<GoogleBooksService> {
 
     Retrofit.Builder()
-      .baseUrl(getProperty("googlebooks_base_url", "https://www.googleapis.com"))
+      .baseUrl("https://www.googleapis.com")
       .client(get())
       .addConverterFactory(MoshiConverterFactory.create())
       .addCallAdapterFactory(CoroutineCallAdapterFactory())
@@ -103,15 +101,15 @@ val googleBooksModule = module {
       .create(GoogleBooksService::class.java)
   }
   single {
-    GoogleBooksApi(get(), getProperty("GOOGLEBOOKS_API_KEY"))
+    GoogleBooksApi(get(), dotenv["GOOGLEBOOKS_API_KEY"]!!)
   }
 }
-val prodModules = listOf(commonModule, goodreadsModule, googleBooksModule)
-val testModules = listOf(testCommonModule, goodreadsModule, googleBooksModule)
+val modules = listOf(commonModule, goodreadsModule, googleBooksModule)
 
 data class DatabaseCredentials(val dbUri: String, val username: String, val password: String)
 
 fun parseDatabaseCredentials(databaseUrl: String, environment: String): DatabaseCredentials {
+  println(databaseUrl)
   val dbUrl = URI(databaseUrl)
   val username = dbUrl.userInfo?.split(":")?.getOrNull(0) ?: ""
   val password = dbUrl.userInfo?.split(":")?.getOrNull(1) ?: ""

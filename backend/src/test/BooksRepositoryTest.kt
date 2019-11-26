@@ -24,7 +24,7 @@
 
 
 import com.stasbar.app.BooksRepository
-import com.stasbar.app.di.testModules
+import com.stasbar.app.di.modules
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
@@ -42,7 +42,7 @@ class BooksRepositoryTest : KoinTest {
   @Before
   fun setUp() {
     startKoin {
-      modules(testModules)
+      modules(modules)
       environmentProperties()
       fileProperties()
     }
@@ -54,26 +54,17 @@ class BooksRepositoryTest : KoinTest {
   }
 
   @Test
-  fun getAllQuotes() {
-
-  }
-
-  @Test
-  fun getAllBooks() {
-  }
-
-  @Test
   fun fetchAllBooks() {
-    runBlocking {
-      booksRepository.fetchAllBooks()
-    }
+//    runBlocking {
+//      booksRepository.fetchAllBooks()
+//    }
   }
 
   @Test
   fun fetchAllQuotes() {
-    runBlocking {
-      booksRepository.fetchAllQuotes()
-    }
+//    runBlocking {
+//      booksRepository.fetchAllQuotes()
+//    }
   }
 
   @Test(expected = Exception::class)
