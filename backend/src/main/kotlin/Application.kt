@@ -54,9 +54,6 @@ fun Application.module() {
   install(DefaultHeaders)
   install(CallLogging)
   install(AutoHeadResponse)
-  install(CORS){
-    anyHost()
-  }
   install(ContentNegotiation) {
     jackson {
       enable(SerializationFeature.INDENT_OUTPUT)
