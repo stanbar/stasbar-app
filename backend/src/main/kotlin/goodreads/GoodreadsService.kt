@@ -118,7 +118,7 @@ class GoodreadsApi(
   }
 
   private suspend fun mapElementToQuote(quoteElement: Element): Quote {
-    val position = quoteElement.parent()
+    val position = quoteElement.parent().parent()
       .selectFirst(".leftAlignedImage")
       .ownText()
       .substring(1)
