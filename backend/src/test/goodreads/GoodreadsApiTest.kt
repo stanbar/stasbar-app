@@ -25,6 +25,7 @@
 package goodreads
 
 import com.stasbar.BaseKoinTest
+import com.stasbar.app.di.dotenv
 import com.stasbar.app.goodreads.GoodreadsApi
 import kotlinx.coroutines.runBlocking
 import org.jsoup.Jsoup
@@ -34,8 +35,8 @@ import kotlin.test.assertTrue
 
 class GoodreadsApiTest : BaseKoinTest() {
   private val goodreadsApi: GoodreadsApi by inject()
-  private val goodReadsApiKey: String by lazy { getKoin().getProperty<String>("GOODREADS_API_KEY") ?: throw Error() }
-  private val goodReadsUserId: String by lazy { getKoin().getProperty<String>("GOODREADS_USER_ID") ?: throw Error() }
+  private val goodReadsApiKey: String by lazy { dotenv["GOODREADS_API_KEY"] ?: throw Error() }
+  private val goodReadsUserId: String by lazy { dotenv["GOODREADS_USER_ID"] ?: throw Error() }
 
   @Test
   fun getAllReviews() {

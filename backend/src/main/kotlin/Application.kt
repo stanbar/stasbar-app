@@ -25,7 +25,7 @@
 package com.stasbar.app
 
 import com.fasterxml.jackson.databind.SerializationFeature
-import com.stasbar.app.di.prodModules
+import com.stasbar.app.di.modules
 import io.ktor.application.Application
 import io.ktor.application.call
 import io.ktor.application.install
@@ -47,7 +47,7 @@ private val logger = KotlinLogging.logger {}
 @Suppress("unused") // Referenced in application.conf
 fun Application.module() {
   startKoin {
-    modules(prodModules)
+    modules(modules)
     fileProperties()
     environmentProperties()
   }

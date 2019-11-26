@@ -1,4 +1,3 @@
-.env
 build
 .gradle
 .idea/*
@@ -13,9 +12,12 @@ out
 .directory
 node_modules
 local.properties
-
+database
 .DS_Store
 .externalNativeBuild
 .database
 .gitignore
 android
+frontend
+docs
+
