@@ -87,7 +87,7 @@ class BooksRepository(
     review: GoodreadsReview
   ): String {
     return try {
-      val openLibraryLink = "http://covers.openlibrary.org/b/isbn/$isbn-$size.jpg?default=false"
+      val openLibraryLink = "https://covers.openlibrary.org/b/isbn/$isbn-$size.jpg?default=false"
       if (isCoverAvailableOnOpenLibrary(openLibraryLink))
         openLibraryLink
       else throw Exception("Could not find image with this ISBN code")
