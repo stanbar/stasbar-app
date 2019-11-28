@@ -8,7 +8,7 @@ services:
     environment:
       PORT: "8080"
       DATABASE_URL: "postgresql://${DATABASE_USER}:${DATABASE_PASSWORD}@stasbar-db:5432/${DATABASE_USER}"
-      GPLAYAPI_URL: "http://stasbar-gplay-api:8001"
+      GPLAYAPI_URL: "http://stasbar-gplay-api:8080"
     ports:
       - 8000:8080
     depends_on:
@@ -30,5 +30,3 @@ services:
     restart: unless-stopped
     environment:
       PORT: "8080"
-    ports:
-      - 8001:8080
