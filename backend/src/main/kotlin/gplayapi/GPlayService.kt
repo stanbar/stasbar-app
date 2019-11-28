@@ -4,6 +4,7 @@ import com.stasbar.app.googlebooks.GoogleBooksService
 import googlebooks.GoogleBooksSearchResult
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.coroutineScope
+import mu.KotlinLogging
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path
@@ -38,18 +39,24 @@ interface GPlayService {
 }
 
 class GPlayApi(private val service: GPlayService) {
-  suspend fun getAppDownloads(packageName: String): Int {
+  private val logger = KotlinLogging.logger {}
+  suspend fun getAppDownloads(packageName: String): AppStat {
     val response = service.getBookByIsbnAsync(packageName).await()
-    return response.minInstalls
+    return AppStat(response.minInstalls, response.score)
   }
 
-  suspend fun getTotalDeveloperAppsDownloads(developerName: String): Int {
+  suspend fun getTotalDeveloperAppsDownloads(developerName: String): AppStat {
     val response = service.getDeveloperAppsAsync(developerName).await()
     val appDownloads = coroutineScope {
       response.apps.map {
         getAppDownloads(it.appId)
       }
     }
-    return appDownloads.sum()
+    val totalDownloads = appDownloads.sumBy { it.downloads }
+    val weightedAvgScore =
+      appDownloads.sumByDouble { it.downloads * it.score } /
+        totalDownloads
+
+    return AppStat(totalDownloads, weightedAvgScore)
   }
 }

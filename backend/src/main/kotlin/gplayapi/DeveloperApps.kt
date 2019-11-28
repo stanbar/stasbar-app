@@ -13,7 +13,7 @@ data class App(
   val url: String,
   val icon: String,
   val developer: Developer,
-  val developerId: Int,
+  val developerId: String,
   val priceText: String,
   val free: Boolean,
   val summary: String,

@@ -118,7 +118,6 @@ fun Application.module() {
       }
       get("/books") {
         val shelf = call.parameters["shelf"]
-
         val books = if (shelf == null)
           booksRepository.getAllBooks()
         else
@@ -128,16 +127,21 @@ fun Application.module() {
         call.respond(books)
       }
       get("/goldenNugget") {
-        call.respond(booksRepository.getGoldenNugget())
+        val goldenNugget = booksRepository.getGoldenNugget()
+        if (goldenNugget == null) {
+          call.respond(HttpStatusCode.NotFound)
+        } else {
+          call.respond(goldenNugget)
+        }
       }
-      get("/appStats/:packageName") {
+      get("/appStats/{packageName}") {
         val packageName = call.parameters["packageName"]
         if (packageName == null)
           call.respond(HttpStatusCode.BadRequest)
         else
           call.respond(gplayApi.getAppDownloads(packageName))
       }
-      get("/totalDeveloperAppsStats/:developerName") {
+      get("/totalDeveloperAppsStats/{developerName}") {
         val developerName = call.parameters["developerName"]
         if (developerName == null)
           call.respond(HttpStatusCode.BadRequest)

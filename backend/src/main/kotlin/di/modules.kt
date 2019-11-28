@@ -33,6 +33,7 @@ import com.stasbar.app.goodreads.GoodreadsApi
 import com.stasbar.app.goodreads.GoodreadsService
 import com.stasbar.app.googlebooks.GoogleBooksApi
 import com.stasbar.app.googlebooks.GoogleBooksService
+import com.stasbar.app.gplayapi.GPlayApi
 import com.stasbar.app.gplayapi.GPlayService
 import io.github.cdimascio.dotenv.dotenv
 import okhttp3.OkHttpClient
@@ -117,6 +118,9 @@ val gplayModule = module {
       .create(GPlayService::class.java)
   }
 
+  single {
+    GPlayApi(get())
+  }
 }
 
 val modules = listOf(commonModule, goodreadsModule, googleBooksModule, gplayModule)
