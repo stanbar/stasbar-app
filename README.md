@@ -47,6 +47,11 @@ Enterprise ready, personal webpage pet project.
 - Dependency Injection [koin](https://github.com/InsertKoinIO/koin)
 - Multi-threading [coroutines](https://github.com/Kotlin/kotlinx.coroutines)
 
+#### Google Play Api
+
+- [Google Play Scraper](https://github.com/facundoolano/google-play-scraper)
+- HTTP Server [ExpressJS](https://expressjs.com/)
+
 ### Frontend WebApp
 
 - [TypeScript](https://www.typescriptlang.org/)
