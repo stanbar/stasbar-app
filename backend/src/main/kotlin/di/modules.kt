@@ -33,6 +33,7 @@ import com.stasbar.app.goodreads.GoodreadsApi
 import com.stasbar.app.goodreads.GoodreadsService
 import com.stasbar.app.googlebooks.GoogleBooksApi
 import com.stasbar.app.googlebooks.GoogleBooksService
+import com.stasbar.app.gplayapi.GPlayService
 import io.github.cdimascio.dotenv.dotenv
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -91,7 +92,6 @@ val goodreadsModule = module {
 
 val googleBooksModule = module {
   single<GoogleBooksService> {
-
     Retrofit.Builder()
       .baseUrl("https://www.googleapis.com")
       .client(get())
@@ -100,11 +100,26 @@ val googleBooksModule = module {
       .build()
       .create(GoogleBooksService::class.java)
   }
+
   single {
     GoogleBooksApi(get(), dotenv["GOOGLEBOOKS_API_KEY"]!!)
   }
 }
-val modules = listOf(commonModule, goodreadsModule, googleBooksModule)
+
+val gplayModule = module {
+  single<GPlayService> {
+    Retrofit.Builder()
+      .baseUrl(dotenv["GPLAYAPI_URL"]!!)
+      .client(get())
+      .addConverterFactory(MoshiConverterFactory.create())
+      .addCallAdapterFactory(CoroutineCallAdapterFactory())
+      .build()
+      .create(GPlayService::class.java)
+  }
+
+}
+
+val modules = listOf(commonModule, goodreadsModule, googleBooksModule, gplayModule)
 
 data class DatabaseCredentials(val dbUri: String, val username: String, val password: String)
 

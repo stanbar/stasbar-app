@@ -26,11 +26,16 @@ package com.stasbar.app
 
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.stasbar.app.di.modules
+import com.stasbar.app.gplayapi.GPlayApi
 import io.ktor.application.Application
 import io.ktor.application.call
 import io.ktor.application.install
-import io.ktor.features.*
+import io.ktor.features.AutoHeadResponse
+import io.ktor.features.CallLogging
+import io.ktor.features.ContentNegotiation
+import io.ktor.features.DefaultHeaders
 import io.ktor.html.respondHtml
+import io.ktor.http.HttpStatusCode
 import io.ktor.jackson.jackson
 import io.ktor.response.respond
 import io.ktor.routing.get
@@ -61,6 +66,7 @@ fun Application.module() {
   }
 
   val booksRepository: BooksRepository by inject()
+  val gplayApi: GPlayApi by inject()
   // Registers routes
   routing {
 
@@ -123,6 +129,20 @@ fun Application.module() {
       }
       get("/goldenNugget") {
         call.respond(booksRepository.getGoldenNugget())
+      }
+      get("/appStats/:packageName") {
+        val packageName = call.parameters["packageName"]
+        if (packageName == null)
+          call.respond(HttpStatusCode.BadRequest)
+        else
+          call.respond(gplayApi.getAppDownloads(packageName))
+      }
+      get("/totalDeveloperAppsStats/:developerName") {
+        val developerName = call.parameters["developerName"]
+        if (developerName == null)
+          call.respond(HttpStatusCode.BadRequest)
+        else
+          call.respond(gplayApi.getTotalDeveloperAppsDownloads(developerName))
       }
     }
   }
