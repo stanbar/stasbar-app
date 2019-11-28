@@ -48,7 +48,11 @@ class BooksRepository(
   suspend fun getAllQuotes(limit: Int = -1) = database.getAllQuotes(limit)
   suspend fun getAllBooks() = database.getAllBooks()
   suspend fun getBooksFromShelf(shelf: String) = database.getBooksFromShelf(shelf)
-  suspend fun getGoldenNugget() = getAllQuotes().random()
+  suspend fun getGoldenNugget() = try {
+    getAllQuotes().random()
+  } catch (e: NoSuchElementException) {
+    null
+  }
 
   suspend fun fetchAllQuotes() {
     val quotes = goodreadsApi.getAllQuotes()
@@ -100,11 +104,15 @@ class BooksRepository(
       if (size == "M" || size == "L")
         if (isbn != null)
           googleSearchResult?.items?.get(0)?.volumeInfo?.imageLinks?.thumbnail
-            ?: review.book.imageUrl else review.book.imageUrl
+            ?: review.book.imageUrl
+        else
+          review.book.imageUrl
       else
         if (isbn != null)
           googleSearchResult?.items?.get(0)?.volumeInfo?.imageLinks?.smallThumbnail
-            ?: review.book.smallImageUrl else review.book.smallImageUrl
+            ?: review.book.smallImageUrl
+        else
+          review.book.smallImageUrl
 
     }
   }
