@@ -29,93 +29,93 @@ import {
   Theme,
   Typography,
   withStyles,
-  WithStyles,
-} from '@material-ui/core'
-import * as React from 'react'
-import { Component } from 'react'
-import LinkedinIcon from '../../icons/LinkedinIcon'
-import GithubIcon from '../../icons/GithubIcon'
+  WithStyles
+} from "@material-ui/core";
+import * as React from "react";
+import { Component } from "react";
+import LinkedinIcon from "../../icons/LinkedinIcon";
+import GithubIcon from "../../icons/GithubIcon";
 
-const KeybaseIcon = require('../../assets/svg/KeybaseLogo.svg')
-const StackOverflowIcon = require('../../assets/svg/StackOverflowIcon.svg')
-const VapeToolIcon = require('../../assets/svg/VapeToolLogo.svg')
-const TaxLedgerIcon = require('../../assets/svg/TaxLedgerLogo.svg')
-const { OutboundLink } = require('gatsby-plugin-google-analytics')
+const KeybaseIcon = require("../../assets/svg/KeybaseLogo.svg");
+const StackOverflowIcon = require("../../assets/svg/StackOverflowIcon.svg");
+const VapeToolIcon = require("../../assets/svg/VapeToolLogo.svg");
+const TaxLedgerIcon = require("../../assets/svg/TaxLedgerLogo.svg");
+const { OutboundLink } = require("gatsby-plugin-google-analytics");
 
 const styles = (theme: Theme) =>
   createStyles({
     nameTitle: {
-      fontSize: '2rem',
+      fontSize: "2rem",
       fontWeight: 600,
-      marginBottom: '1rem',
-      color: theme.palette.text.primary,
+      marginBottom: "1rem",
+      color: theme.palette.text.primary
     },
     content: {
       maxWidth: 600,
-      margin: '0 auto',
-      padding: `${theme.spacing(8)}px 0 ${theme.spacing(6)}px`,
+      margin: "0 auto",
+      padding: `${theme.spacing(8)}px 0 ${theme.spacing(6)}px`
     },
     buttons: {
-      marginTop: theme.spacing(4),
+      marginTop: theme.spacing(4)
     },
     intentButton: {
-      margin: theme.spacing(1),
+      margin: theme.spacing(1)
     },
     specs: {
-      marginTop: theme.spacing(4),
+      marginTop: theme.spacing(4)
     },
     keyword: {
       color: theme.palette.secondary.main,
-      borderBottom: '.1rem solid currentColor',
-      textDecoration: 'none',
-      textOverflow: 'ellipsis',
-      whiteSpace: 'nowrap',
+      borderBottom: ".1rem solid currentColor",
+      textDecoration: "none",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap"
     },
     specGridItem: {
-      background: 'inherit',
-      padding: theme.spacing(1),
+      background: "inherit",
+      padding: theme.spacing(1)
     },
     specName: {
       color: theme.palette.secondary.main,
       margin: theme.spacing(1),
-      fontSize: '1rem',
+      fontSize: "1rem",
       fontWeight: 700,
-      textAlign: 'center',
+      textAlign: "center"
     },
     specDesc: {
-      align: 'justify',
-    },
-  })
+      align: "justify"
+    }
+  });
 
 class Header extends Component<WithStyles<typeof styles>> {
   public render() {
-    const { classes } = this.props
+    const { classes } = this.props;
 
     function getMyAge(): number {
-      const current = new Date()
-      return current.getUTCFullYear() - 1995
+      const current = new Date();
+      return current.getUTCFullYear() - 1995;
     }
 
     const LinkImageButton: React.FunctionComponent<{
-      name: string
-      Icon: any
-      href: string
-      textColor: string
-      backgroundColor: string
+      name: string;
+      Icon: any;
+      href: string;
+      textColor: string;
+      backgroundColor: string;
     }> = props => (
       <Grid item={true} className={classes.intentButton}>
         <OutboundLink
           href={props.href}
           label={props.name}
           target="_blank"
-          style={{ textDecoration: 'none' }}
+          style={{ textDecoration: "none" }}
         >
           <Button
             variant="contained"
             color="primary"
             style={{
               color: props.textColor,
-              backgroundColor: props.backgroundColor,
+              backgroundColor: props.backgroundColor
             }}
           >
             {props.Icon}
@@ -123,7 +123,7 @@ class Header extends Component<WithStyles<typeof styles>> {
           </Button>
         </OutboundLink>
       </Grid>
-    )
+    );
 
     return (
       <div className={classes.content}>
@@ -151,46 +151,46 @@ class Header extends Component<WithStyles<typeof styles>> {
           className={classes.buttons}
         >
           <LinkImageButton
-            name={'LinkedIn'}
-            href={'https://www.linkedin.com/in/stasbar/'}
+            name={"LinkedIn"}
+            href={"https://www.linkedin.com/in/stasbar/"}
             Icon={<LinkedinIcon />}
-            textColor={'#243641'}
-            backgroundColor={'#FFF'}
+            textColor={"#243641"}
+            backgroundColor={"#FFF"}
           />
           <LinkImageButton
-            name={'Github'}
-            href={'https://github.com/stasbar'}
+            name={"Github"}
+            href={"https://github.com/stasbar"}
             Icon={<GithubIcon />}
-            textColor={'#FFF'}
-            backgroundColor={'#212529'}
+            textColor={"#FFF"}
+            backgroundColor={"#212529"}
           />
           <LinkImageButton
-            name={'Keybase'}
-            href={'https://keybase.io/stasbar'}
+            name={"Keybase"}
+            href={"https://keybase.io/stasbar"}
             Icon={<img src={KeybaseIcon} width={20} />}
-            textColor={'#FFF'}
-            backgroundColor={'#3095F4'}
+            textColor={"#FFF"}
+            backgroundColor={"#3095F4"}
           />
           <LinkImageButton
-            name={'StackOverflow'}
-            href={'https://stackoverflow.com/story/stasbar'}
+            name={"StackOverflow"}
+            href={"https://stackoverflow.com/story/stasbar"}
             Icon={<img src={StackOverflowIcon} width={20} />}
-            textColor={'#343536'}
-            backgroundColor={'#F9F9FA'}
+            textColor={"#343536"}
+            backgroundColor={"#F9F9FA"}
           />
           <LinkImageButton
-            name={'TaxLedger'}
-            href={'https://tax-ledger.com'}
+            name={"TaxLedger"}
+            href={"https://tax-ledger.com"}
             Icon={<img src={TaxLedgerIcon} width={20} />}
-            textColor={'#243641'}
-            backgroundColor={'#FFF'}
+            textColor={"#243641"}
+            backgroundColor={"#FFF"}
           />
           <LinkImageButton
-            name={'VapeTool'}
-            href={'https://vapetool.app'}
+            name={"VapeTool"}
+            href={"https://vapetool.app"}
             Icon={<img src={VapeToolIcon} width={20} />}
-            textColor={'#FFF'}
-            backgroundColor={'#3546A7'}
+            textColor={"#FFF"}
+            backgroundColor={"#3546A7"}
           />
         </Grid>
 
@@ -211,7 +211,7 @@ class Header extends Component<WithStyles<typeof styles>> {
             <Typography className={classes.specName}>Android</Typography>
             <Typography
               component="p"
-              color={'textSecondary'}
+              color={"textSecondary"}
               className={classes.specDesc}
             >
               My main specialty is mobile applications for Android in Java and
@@ -230,11 +230,12 @@ class Header extends Component<WithStyles<typeof styles>> {
             <Typography className={classes.specName}>Backend</Typography>
             <Typography
               component="p"
-              color={'textSecondary'}
+              color={"textSecondary"}
               className={classes.specDesc}
             >
-              I chose Firebase whenever possible. Kotlin with ktor, Typescript
-              with Nodejs, and Python for scripting.
+              I chose Firebase when I need working product ASAP. Then I chose
+              Nodejs with Typescript, Kotlin with ktor if JVM is required,
+              golang when performance matters, and Python for scripting.
             </Typography>
           </Grid>
 
@@ -249,11 +250,11 @@ class Header extends Component<WithStyles<typeof styles>> {
             <Typography className={classes.specName}>Frontend</Typography>
             <Typography
               component="p"
-              color={'textSecondary'}
+              color={"textSecondary"}
               className={classes.specDesc}
             >
-              My favorite framework is React/TS. Concept of components
-              composition combined with JSX seduced me.
+              My favorite framework is React with TS. Concept of all-in-js
+              combined with JSX seduced me.
             </Typography>
           </Grid>
 
@@ -268,17 +269,17 @@ class Header extends Component<WithStyles<typeof styles>> {
             <Typography className={classes.specName}>Tools</Typography>
             <Typography
               component="p"
-              color={'textSecondary'}
+              color={"textSecondary"}
               className={classes.specDesc}
             >
-              When it comes to tools, I love IntelliJ/AS and Vim running on
-              macOS.
+              When it comes to tools, I prefer IntelliJ/AS for JVM based
+              languages, and Vim/Tmux otherwise. Running on macOS or Arch Linux.
             </Typography>
           </Grid>
         </Grid>
       </div>
-    )
+    );
   }
 }
 
-export default withStyles(styles)(Header)
+export default withStyles(styles)(Header);
