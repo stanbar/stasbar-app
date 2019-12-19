@@ -22,30 +22,30 @@
  *            stasbar@stasbar.com
  */
 
-import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core'
-import * as React from 'react'
-import { Component } from 'react'
-import Introduction from '../components/About/Introduction'
-import Header from '../components/About/Header'
-import AppsGallery from '../components/About/AppsGallery'
-import BestBooks from '../components/About/BestBooks'
-import BestQuotes from '../components/About/BestQuotes'
-import Apps from '../myapps/Apps'
-import Projects from '../myapps/Projects'
+import { createStyles, Theme, withStyles, WithStyles } from "@material-ui/core";
+import * as React from "react";
+import { Component } from "react";
+import Introduction from "../components/About/Introduction";
+import Header from "../components/About/Header";
+import AppsGallery from "../components/About/AppsGallery";
+import BestBooks from "../components/About/BestBooks";
+import BestQuotes from "../components/About/BestQuotes";
+import Apps from "../myapps/Apps";
+import Projects from "../myapps/Projects";
 
 const styles = (theme: Theme) =>
   createStyles({
     odd: {
-      backgroundColor: theme.palette.primary.light,
+      backgroundColor: theme.palette.primary.light
     },
     even: {
-      backgroundColor: theme.palette.primary.main,
-    },
-  })
+      backgroundColor: theme.palette.primary.main
+    }
+  });
 
 class Index extends Component<WithStyles<typeof styles>> {
   public render() {
-    const { classes } = this.props
+    const { classes } = this.props;
     return (
       <div>
         <div className={classes.odd}>
@@ -55,10 +55,10 @@ class Index extends Component<WithStyles<typeof styles>> {
           <Introduction />
         </div>
         <div className={classes.odd}>
-          <AppsGallery title={'My Apps'} apps={Apps} />
+          <AppsGallery title={"My Apps"} apps={Apps} />
         </div>
         <div className={classes.even}>
-          <AppsGallery title={'Other Projects'} apps={Projects} />
+          <AppsGallery title={"Other Projects"} apps={Projects} />
         </div>
         <div className={classes.odd}>
           <BestBooks />
@@ -67,8 +67,8 @@ class Index extends Component<WithStyles<typeof styles>> {
           <BestQuotes />
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default withStyles(styles)(Index)
+export default withStyles(styles)(Index);

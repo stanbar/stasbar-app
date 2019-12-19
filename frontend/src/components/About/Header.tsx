@@ -29,7 +29,8 @@ import {
   Theme,
   Typography,
   withStyles,
-  WithStyles
+  WithStyles,
+  Container
 } from "@material-ui/core";
 import * as React from "react";
 import { Component } from "react";
@@ -51,7 +52,7 @@ const styles = (theme: Theme) =>
       color: theme.palette.text.primary
     },
     content: {
-      maxWidth: 600,
+      maxWidth: 700,
       margin: "0 auto",
       padding: `${theme.spacing(8)}px 0 ${theme.spacing(6)}px`
     },
@@ -126,7 +127,7 @@ class Header extends Component<WithStyles<typeof styles>> {
     );
 
     return (
-      <div className={classes.content}>
+      <Container className={classes.content} maxWidth="lg">
         <Typography
           variant="h1"
           align="center"
@@ -277,7 +278,7 @@ class Header extends Component<WithStyles<typeof styles>> {
             </Typography>
           </Grid>
         </Grid>
-      </div>
+      </Container>
     );
   }
 }

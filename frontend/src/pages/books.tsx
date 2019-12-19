@@ -30,63 +30,64 @@ import {
   Theme,
   Typography,
   withStyles,
-  WithStyles,
-} from '@material-ui/core'
-import React, { Component } from 'react'
-import Api from '../Api'
-import Book from '../models/Book'
-import BookView from '../components/Books/BookView'
+  WithStyles
+} from "@material-ui/core";
+import React, { Component } from "react";
+import Api from "../Api";
+import Book from "../models/Book";
+import BookView from "../components/Books/BookView";
 
 const styles = (theme: Theme) =>
   createStyles({
     root: {
-      width: 'auto',
+      minHeight: "100vh",
+      width: "auto",
       marginLeft: theme.spacing(3),
       marginRight: theme.spacing(3),
       [theme.breakpoints.up(1100 + theme.spacing(6))]: {
         width: 1100,
-        marginLeft: 'auto',
-        marginRight: 'auto',
+        marginLeft: "auto",
+        marginRight: "auto"
       },
 
-      display: 'flex',
-      flexWrap: 'wrap',
+      display: "flex",
+      flexWrap: "wrap",
       flexGrow: 1,
-      flexDirection: 'column',
-      justifyContent: 'space-around',
-      overflow: 'hidden',
-      padding: `${theme.spacing(8)}px 0`,
+      flexDirection: "column",
+      justifyContent: "space-around",
+      overflow: "hidden",
+      padding: `${theme.spacing(8)}px 0`
     },
     img: {
-      width: '100%',
-      height: 'auto',
-    },
-  })
+      width: "100%",
+      height: "auto"
+    }
+  });
 
 interface IBooksState {
-  books: Book[]
-  loading: boolean
+  books: Book[];
+  loading: boolean;
 }
 
 class Books extends Component<WithStyles<typeof styles>, IBooksState> {
   public state: IBooksState = {
     books: new Array<Book>(),
-    loading: true,
-  }
+    loading: true
+  };
 
   componentDidMount(): void {
-    this.fetchBooks()
+    this.fetchBooks();
   }
 
   public render() {
-    const { classes } = this.props
-    const { books, loading } = this.state
+    const { classes } = this.props;
+    const { books, loading } = this.state;
     const bookView = (props: any) => (
       <BookView
         {...props}
         book={books.find((book: Book) => book.hash === props.match.params.hash)}
       />
-    )
+    );
 
     return (
       <div className={classes.root}>
@@ -104,7 +105,7 @@ class Books extends Component<WithStyles<typeof styles>, IBooksState> {
               sm={3}
               md={3}
               lg={2}
-              style={{ height: 'auto', width: '100%' }}
+              style={{ height: "auto", width: "100%" }}
             >
               <GridListTile>
                 <img
@@ -121,18 +122,18 @@ class Books extends Component<WithStyles<typeof styles>, IBooksState> {
           ))}
         </Grid>
       </div>
-    )
+    );
   }
 
   private async fetchBooks() {
     try {
-      const books: Book[] = await Api.fetchAllBooks()
-      this.setState({ books, loading: false })
+      const books: Book[] = await Api.fetchAllBooks();
+      this.setState({ books, loading: false });
     } catch (e) {
-      console.error(e)
-      this.setState({ loading: false })
+      console.error(e);
+      this.setState({ loading: false });
     }
   }
 }
 
-export default withStyles(styles)(Books)
+export default withStyles(styles)(Books);

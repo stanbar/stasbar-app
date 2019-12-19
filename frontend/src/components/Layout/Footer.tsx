@@ -22,57 +22,72 @@
  *            stasbar@stasbar.com
  */
 
-import * as React from 'react'
-import { Component } from 'react'
+import * as React from "react";
+import { Component } from "react";
 import {
   Button,
   createStyles,
   Theme,
   Typography,
   withStyles,
-  WithStyles,
-} from '@material-ui/core'
+  WithStyles
+} from "@material-ui/core";
 
 const styles = (theme: Theme) =>
   createStyles({
     footer: {
-      backgroundColor: theme.palette.background.paper,
-      padding: theme.spacing(6),
+      position: "absolute",
+      bottom: 0,
+      width: "100%",
+      height: "4rem",
+      backgroundColor: theme.palette.background.paper
     },
     link: {
-      textDecoration: 'none',
-      color: theme.palette.text.primary,
+      textDecoration: "none",
+      color: theme.palette.text.primary
     },
-  })
+    button: {
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1)
+    },
+    footerText: {
+      position: "relative",
+      top: "50%",
+      transform: "translateY(-50%)",
+      "-webkit-transform": "translateY(-50%)",
+      "-ms-transform": "translateY(-50%)"
+    }
+  });
 
 class Footer extends Component<WithStyles<typeof styles>, {}> {
   public render() {
-    const { classes } = this.props
+    const { classes } = this.props;
     return (
       <footer className={this.props.classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom={true}>
-          <Button href={'https://github.com/stasbar/stasbar-app'}>
-            Source Code
-          </Button>
-        </Typography>
         <Typography
           variant="subtitle1"
           align="center"
           color="textSecondary"
           component="p"
+          className={this.props.classes.footerText}
         >
-          build with{' '}
-          <a className={classes.link} href="https://kotlinlang.org/">
-            Kotlin ❤️
-          </a>{' '}
-          hosted on{' '}
-          <a className={classes.link} href="https://ipfs.io/">
-            IPFS
+          <a
+            className={[classes.link, classes.button].join(" ")}
+            href="https://github.com/stasbar/stasbar-app"
+          >
+            Source code
+          </a>
+          |
+          <a
+            className={[classes.link, classes.button].join(" ")}
+            href="/careers"
+          >
+            Careers
           </a>
         </Typography>
       </footer>
-    )
+    );
   }
 }
 
-export default withStyles(styles)(Footer)
+export default withStyles(styles)(Footer);
