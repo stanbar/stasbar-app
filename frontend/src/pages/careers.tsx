@@ -8,6 +8,7 @@ import {
 import * as React from "react";
 import "typeface-roboto";
 import CareersJpg from "../assets/jpg/careers.jpg";
+import CooperationJpg from "../assets/jpg/cooperation.jpg";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -80,13 +81,19 @@ const Careers: React.FC = ({ classes }: { classes: any }) => (
 
       <img className={classes.image} src={CareersJpg} alt="Careers" />
 
+      <Typography variant="subtitle1" className={classes.slogan}>
+        Cooperate to achieve common goal.
+      </Typography>
+
+      <img className={classes.image} src={CooperationJpg} alt="Cooperation" />
+
       <Typography variant="h2" className={classes.subtitle}>
         Open positions
       </Typography>
 
       <div>
         <Typography variant="body1" className={classes.positionTitle}>
-          Android Developer
+          📱Android Developer
         </Typography>
 
         <Typography variant="body2" className={classes.positionPart}>
@@ -100,7 +107,7 @@ const Careers: React.FC = ({ classes }: { classes: any }) => (
 
       <div>
         <Typography variant="body1" className={classes.positionTitle}>
-          Flutter Developer
+          🍃Flutter Developer
         </Typography>
 
         <Typography variant="body2" className={classes.positionPart}>
@@ -114,7 +121,7 @@ const Careers: React.FC = ({ classes }: { classes: any }) => (
 
       <div>
         <Typography variant="body1" className={classes.positionTitle}>
-          Frontend Developer
+          🎨Frontend Developer
         </Typography>
 
         <Typography variant="body2" className={classes.positionPart}>
@@ -123,6 +130,20 @@ const Careers: React.FC = ({ classes }: { classes: any }) => (
 
         <Typography variant="body2" className={classes.positionPrice}>
           0 - 2000 PLN
+        </Typography>
+      </div>
+
+      <div>
+        <Typography variant="body1" className={classes.positionTitle}>
+          🛠️ Embedded Software Developer
+        </Typography>
+
+        <Typography variant="body2" className={classes.positionPart}>
+          Intern
+        </Typography>
+
+        <Typography variant="body2" className={classes.positionPrice}>
+          0 - 0 PLN
         </Typography>
       </div>
     </Container>
