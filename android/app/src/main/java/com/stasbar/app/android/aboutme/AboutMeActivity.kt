@@ -86,8 +86,6 @@ class AboutMeActivity : BaseActivity() {
     booksViewModel.requestBestBooks()
     quotesViewModel.requestBestQuotes()
     setFooter()
-
-
   }
 
   private fun setFooter() {

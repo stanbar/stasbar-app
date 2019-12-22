@@ -31,7 +31,6 @@ class MainApplication : SplitCompatApplication() {
     // Print logs only in debug mode
     if (BuildConfig.DEBUG) {
       Timber.plant(Timber.DebugTree())
-      Timber.plant(FileLoggingTree())
     }
 
     startKoin {
@@ -51,7 +50,7 @@ val mainModule = module {
   }
   single<BackendApi> {
     Retrofit.Builder()
-      .baseUrl(getProperty("stasbar_base_url", "https://stasbar.com/"))
+      .baseUrl(getProperty("stasbar_base_url", "https://backend.stasbar.com/"))
       .client(get<OkHttpClient>())
       .addConverterFactory(MoshiConverterFactory.create())
       .addCallAdapterFactory(CoroutineCallAdapterFactory())

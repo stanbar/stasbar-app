@@ -11,6 +11,7 @@ import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.datetime.timePicker
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -21,7 +22,12 @@ import java.util.concurrent.TimeUnit
 class NotificationsFragment : PreferenceFragmentCompat() {
 
   private val timeFormatter = SimpleDateFormat("HH:mm")
-  private val sharedPreferences: SharedPreferences by lazy { PreferenceManager.getDefaultSharedPreferences(context) }
+  private val sharedPreferences: SharedPreferences by lazy {
+    PreferenceManager.getDefaultSharedPreferences(
+      context
+    )
+  }
+
   override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
     setPreferencesFromResource(R.xml.notification_preferences, rootKey)
 
@@ -37,9 +43,11 @@ class NotificationsFragment : PreferenceFragmentCompat() {
         cornerRadius(16f)
 
         timePicker(targetTime()) { dialog, time ->
-          sharedPreferences.edit().putCalendar(getString(R.string.notification_time_key), time).apply()
+          sharedPreferences.edit().putCalendar(getString(R.string.notification_time_key), time)
+            .apply()
           preference.summary = timeFormatter.format(time.time)
-          val enabled = sharedPreferences.getBoolean(getString(R.string.enable_notifications_key), false)
+          val enabled =
+            sharedPreferences.getBoolean(getString(R.string.enable_notifications_key), false)
           refreshRecurringWork(enabled, time)
         }
       }
@@ -57,17 +65,19 @@ class NotificationsFragment : PreferenceFragmentCompat() {
     val workName = getString(R.string.golden_nugget_notification_work_name)
 
     if (!enabled) {
-      GlobalScope.launch {
+      GlobalScope.launch(Dispatchers.Default) {
         WorkManager.getInstance(context!!).cancelUniqueWork(workName).result.get()
         Timber.d("Successfully canceled work $workName")
       }
       return
     }
 
-    val initialDelayMinutes = calculateInitialDelayMinutes(targetTime)
+    val periodMs = TimeUnit.MILLISECONDS.convert(30, TimeUnit.SECONDS)
+    val initialDelayMinutes = calculateInitialDelayMinutes(targetTime, periodMs)
 
-    val sendNotification = PeriodicWorkRequestBuilder<NotificationWorker>(1, TimeUnit.HOURS)
-      .setInitialDelay(initialDelayMinutes.toLong(), TimeUnit.MINUTES)
+    val sendNotification =
+      PeriodicWorkRequestBuilder<NotificationWorker>(periodMs, TimeUnit.MILLISECONDS)
+        .setInitialDelay(initialDelayMinutes, TimeUnit.MILLISECONDS)
       .build()
 
     WorkManager.getInstance(context!!)
@@ -81,15 +91,11 @@ class NotificationsFragment : PreferenceFragmentCompat() {
 
   }
 
-  private fun calculateInitialDelayMinutes(target: Calendar): Int {
+  private fun calculateInitialDelayMinutes(target: Calendar, peroidMs: Long): Long {
     val now = Calendar.getInstance()
-    val nowTimeInMinutes = now.get(Calendar.HOUR_OF_DAY) * 60 + now.get(Calendar.MINUTE)
-    val targetTimeInMinutes = target.get(Calendar.HOUR_OF_DAY) * 60 + target.get(Calendar.MINUTE)
-
-    return if (targetTimeInMinutes >= nowTimeInMinutes)
-      targetTimeInMinutes - nowTimeInMinutes
-    else
-      24 * 60 - nowTimeInMinutes + targetTimeInMinutes
+    val differenceMs = now.timeInMillis - target.timeInMillis
+    return if (differenceMs < 0) differenceMs + peroidMs
+    else differenceMs
   }
 
   private fun SharedPreferences.getCalendar(key: String, defaultValue: Calendar): Calendar {
@@ -100,7 +106,10 @@ class NotificationsFragment : PreferenceFragmentCompat() {
       defaultValue
   }
 
-  private fun SharedPreferences.Editor.putCalendar(key: String, value: Calendar): SharedPreferences.Editor {
+  private fun SharedPreferences.Editor.putCalendar(
+    key: String,
+    value: Calendar
+  ): SharedPreferences.Editor {
     return putString(key, timeFormatter.format(value.time))
   }
 

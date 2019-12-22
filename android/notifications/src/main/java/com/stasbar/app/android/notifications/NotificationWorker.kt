@@ -33,8 +33,6 @@ class NotificationWorker(context: Context, params: WorkerParameters) : Coroutine
       return@withContext Result.failure()
     }
     sendNotification(quote)
-
-
     Result.success()
   }
 
@@ -58,7 +56,7 @@ class NotificationWorker(context: Context, params: WorkerParameters) : Coroutine
           NotificationCompat.BigTextStyle()
             .bigText(quote.text)
         )
-        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+        .setPriority(NotificationCompat.PRIORITY_LOW)
 
     Timber.d("notify")
     NotificationManagerCompat.from(applicationContext).notify(GOLDEN_NUGGET_NOTIFICATION_ID, builder.build())
