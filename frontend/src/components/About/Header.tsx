@@ -37,10 +37,10 @@ import { Component } from "react";
 import LinkedinIcon from "../../icons/LinkedinIcon";
 import GithubIcon from "../../icons/GithubIcon";
 
-const KeybaseIcon = require("../../assets/svg/KeybaseLogo.svg");
-const StackOverflowIcon = require("../../assets/svg/StackOverflowIcon.svg");
-const VapeToolIcon = require("../../assets/svg/VapeToolLogo.svg");
-const TaxLedgerIcon = require("../../assets/svg/TaxLedgerLogo.svg");
+const KeybaseIcon = "assets/svg/KeybaseLogo.svg";
+const StackOverflowIcon = "assets/svg/StackOverflowIcon.svg";
+const VapeToolIcon = "assets/svg/VapeToolLogo.svg";
+const TaxLedgerIcon = "assets/svg/TaxLedgerLogo.svg";
 const { OutboundLink } = require("gatsby-plugin-google-analytics");
 
 const styles = (theme: Theme) =>

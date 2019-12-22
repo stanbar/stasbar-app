@@ -16,8 +16,11 @@
     "noEmit": true,
     "jsx": "preserve",
     "paths": {
-      "@/*": ["./src/*"]
+      "@src/*": ["./src/*"],
+      "@static/*": ["./static/*"],
+      "@assets/*": ["./static/assets/*"]
     }
   },
-  "exclude": ["node_modules", "public", ".cache"]
+  "exclude": ["node_modules", "public", ".cache"],
+  "include": ["src/**/*"]
 }

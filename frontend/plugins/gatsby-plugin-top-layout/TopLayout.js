@@ -6,7 +6,8 @@ import theme from "../../src/theme";
 import Footer from "../../src/components/Layout/Footer";
 import { AppBar, Toolbar } from "@material-ui/core";
 import { Link } from "gatsby";
-import logoPng from "../../src/assets/png/logo.png";
+
+const logoPng = "assets/png/logo.png";
 
 const styles = theme => ({
   logoImg: {

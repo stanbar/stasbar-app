@@ -21,41 +21,43 @@
  * /____/\__/\__,_/____/_.___/\__,_/_/
  *            stasbar@stasbar.com
  */
-import IApp from './IApp'
+import IApp from "./IApp";
 
-const RaspberryWalletFramedPng = require('../assets/png/RaspberryWallet/RaspberryWalletFramed.png')
-const RaspberryWalletFramedWebp = require('../assets/webp/RaspberryWallet/RaspberryWalletFramed.webp')
-const MyWebsiteFramedPng = require('../assets/png/MyWebsite/WebsiteFramed.png')
-const MyWebsiteFramedWebp = require('../assets/webp/MyWebsite/WebsiteFramed.webp')
+const RaspberryWalletFramedPng =
+  "assets/png/RaspberryWallet/RaspberryWalletFramed.png";
+const RaspberryWalletFramedWebp =
+  "assets/webp/RaspberryWallet/RaspberryWalletFramed.webp";
+const MyWebsiteFramedPng = "assets/png/MyWebsite/WebsiteFramed.png";
+const MyWebsiteFramedWebp = "assets/webp/MyWebsite/WebsiteFramed.webp";
 
 const Projects: IApp[] = [
   {
-    name: 'Raspberry Wallet',
+    name: "Raspberry Wallet",
     imgSrc: RaspberryWalletFramedPng,
     imgWebp: RaspberryWalletFramedWebp,
-    description: 'Bitcoin hardware wallet on Raspberry Pi Zero',
-    platform: 'desktop',
+    description: "Bitcoin hardware wallet on Raspberry Pi Zero",
+    platform: "desktop",
     links: {
-      website: 'https://raspberrywallet.github.io/readme.html',
-      github: 'https://github.com/RaspberryWallet',
+      website: "https://raspberrywallet.github.io/readme.html",
+      github: "https://github.com/RaspberryWallet",
       googlePlay: null,
-      appStore: null,
-    },
+      appStore: null
+    }
   },
   {
-    name: 'stasbar.com',
+    name: "stasbar.com",
     imgSrc: MyWebsiteFramedPng,
     imgWebp: MyWebsiteFramedWebp,
     description:
       "This website & android app itself is my pet-project, so I think it's worth mention here",
-    platform: 'desktop',
+    platform: "desktop",
     links: {
       website: null,
-      github: 'https://github.com/stasbar/stasbar-app',
+      github: "https://github.com/stasbar/stasbar-app",
       googlePlay: null,
-      appStore: null,
-    },
-  },
-]
+      appStore: null
+    }
+  }
+];
 
-export default Projects
+export default Projects;
