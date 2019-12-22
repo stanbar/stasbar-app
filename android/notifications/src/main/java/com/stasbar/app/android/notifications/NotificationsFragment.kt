@@ -72,13 +72,13 @@ class NotificationsFragment : PreferenceFragmentCompat() {
       return
     }
 
-    val periodMs = TimeUnit.MILLISECONDS.convert(30, TimeUnit.SECONDS)
+    val periodMs = TimeUnit.MILLISECONDS.convert(4, TimeUnit.HOURS)
     val initialDelayMinutes = calculateInitialDelayMinutes(targetTime, periodMs)
 
     val sendNotification =
       PeriodicWorkRequestBuilder<NotificationWorker>(periodMs, TimeUnit.MILLISECONDS)
         .setInitialDelay(initialDelayMinutes, TimeUnit.MILLISECONDS)
-      .build()
+        .build()
 
     WorkManager.getInstance(context!!)
       .enqueueUniquePeriodicWork(workName, ExistingPeriodicWorkPolicy.REPLACE, sendNotification)
