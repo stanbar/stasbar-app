@@ -5,6 +5,7 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
+    "build-ipfs": "gatsby build --prefix-paths",
     "postbuild": "/bin/rm -r ../docs 2> /dev/null; mv public ../docs",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
@@ -17,6 +18,7 @@
     "@material-ui/styles": "^4.6.0",
     "gatsby": "latest",
     "gatsby-plugin-google-analytics": "^2.1.28",
+    "gatsby-plugin-ipfs": "^2.0.2",
     "gatsby-plugin-material-ui": "latest",
     "gatsby-plugin-react-helmet": "latest",
     "gatsby-plugin-typescript": "^2.1.19",
