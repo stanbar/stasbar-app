@@ -10,7 +10,7 @@
     "develop": "gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.ts*\"",
-    "clean": "gatsby  clean"
+    "clean": "gatsby clean"
   },
   "dependencies": {
     "@material-ui/core": "^4.7.0",

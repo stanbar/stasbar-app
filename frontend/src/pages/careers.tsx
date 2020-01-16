@@ -7,8 +7,8 @@ import {
 } from "@material-ui/core";
 import * as React from "react";
 import "typeface-roboto";
-const CareersJpg = "assets/jpg/careers.jpg";
-const CooperationJpg =  "assets/jpg/cooperation.jpg";
+const CareersJpg = "/assets/jpg/careers.jpg";
+const CooperationJpg = "/assets/jpg/cooperation.jpg";
 
 const styles = (theme: Theme) =>
   createStyles({

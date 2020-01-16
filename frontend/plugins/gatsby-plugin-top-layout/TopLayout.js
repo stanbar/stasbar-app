@@ -7,7 +7,7 @@ import Footer from "../../src/components/Layout/Footer";
 import { AppBar, Toolbar } from "@material-ui/core";
 import { Link } from "gatsby";
 
-const logoPng = "assets/png/logo.png";
+const logoPng = "/assets/png/logo.png";
 
 const styles = theme => ({
   logoImg: {
