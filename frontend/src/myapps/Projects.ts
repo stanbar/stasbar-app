@@ -23,6 +23,10 @@
  */
 import IApp from "./IApp";
 
+const StellotFramedPng =
+  "assets/png/Stellot/StellotFramed.png";
+const StellotFramedWebp =
+  "assets/webp/Stellot/StellotFramed.webp";
 const RaspberryWalletFramedPng =
   "assets/png/RaspberryWallet/RaspberryWalletFramed.png";
 const RaspberryWalletFramedWebp =
@@ -31,6 +35,19 @@ const MyWebsiteFramedPng = "assets/png/MyWebsite/WebsiteFramed.png";
 const MyWebsiteFramedWebp = "assets/webp/MyWebsite/WebsiteFramed.webp";
 
 const Projects: IApp[] = [
+  {
+    name: "Stellot",
+    imgSrc: StellotFramedPng,
+    imgWebp: StellotFramedWebp,
+    description: "privacy-first e-Voting platform powered by Stellar blockchain",
+    platform: "desktop",
+    links: {
+      website: "https://voting.stasbar.com/",
+      github: "https://github.com/stasbar/stellar-voting",
+      googlePlay: null,
+      appStore: null
+    }
+  },
   {
     name: "Raspberry Wallet",
     imgSrc: RaspberryWalletFramedPng,
