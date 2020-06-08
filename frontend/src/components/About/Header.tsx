@@ -40,6 +40,7 @@ import GithubIcon from "../../icons/GithubIcon";
 const KeybaseIcon = "assets/svg/KeybaseLogo.svg";
 const StackOverflowIcon = "assets/svg/StackOverflowIcon.svg";
 const VapeToolIcon = "assets/svg/VapeToolLogo.svg";
+const StellotIcon = "assets/svg/StellotLogo.svg";
 const TaxLedgerIcon = "assets/svg/TaxLedgerLogo.svg";
 const { OutboundLink } = require("gatsby-plugin-google-analytics");
 
@@ -137,12 +138,11 @@ class Header extends Component<WithStyles<typeof styles>> {
           STANISLAW BARANSKI
         </Typography>
         <Typography variant="h6" align="center" gutterBottom={true}>
-          <u className={classes.keyword}>full stack android developer</u>,
+          <u className={classes.keyword}>full stack software developer</u>,
           &nbsp;
           <u className={classes.keyword}>beginner entrepreneur</u>, &nbsp;
           <u className={classes.keyword}>blockchain enthusiast</u>, &nbsp;
-          <u className={classes.keyword}>b.eng. computer science</u>, &nbsp;
-          <u className={classes.keyword}>{getMyAge()} years old</u>
+          <u className={classes.keyword}>b.eng. computer science</u>
         </Typography>
 
         <Grid
@@ -180,9 +180,9 @@ class Header extends Component<WithStyles<typeof styles>> {
             backgroundColor={"#F9F9FA"}
           />
           <LinkImageButton
-            name={"TaxLedger"}
-            href={"https://tax-ledger.com"}
-            Icon={<img src={TaxLedgerIcon} width={20} />}
+            name={"Stellot"}
+            href={"https://stellot.com"}
+            Icon={<img src={StellotIcon} width={20} />}
             textColor={"#243641"}
             backgroundColor={"#FFF"}
           />
@@ -192,6 +192,13 @@ class Header extends Component<WithStyles<typeof styles>> {
             Icon={<img src={VapeToolIcon} width={20} />}
             textColor={"#FFF"}
             backgroundColor={"#3546A7"}
+          />
+          <LinkImageButton
+            name={"TaxLedger"}
+            href={"https://tax-ledger.com"}
+            Icon={<img src={TaxLedgerIcon} width={20} />}
+            textColor={"#243641"}
+            backgroundColor={"#FFF"}
           />
         </Grid>
 

@@ -31,7 +31,6 @@ import AppsGallery from "../components/About/AppsGallery";
 import BestBooks from "../components/About/BestBooks";
 import BestQuotes from "../components/About/BestQuotes";
 import Apps from "../myapps/Apps";
-import Projects from "../myapps/Projects";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -55,10 +54,7 @@ class Index extends Component<WithStyles<typeof styles>> {
           <Introduction />
         </div>
         <div className={classes.odd}>
-          <AppsGallery title={"My Apps"} apps={Apps} />
-        </div>
-        <div className={classes.even}>
-          <AppsGallery title={"Other Projects"} apps={Projects} />
+          <AppsGallery title={"Portfolio"} apps={Apps} />
         </div>
         <div className={classes.odd}>
           <BestBooks />

@@ -39,8 +39,82 @@ const WallpapersOneClickLongFramedWebp =
   "assets/webp/WallpapersOneClick/WallpapersOneClickLongFramed.webp";
 const WishesLongFramedWebp = "assets/webp/Wishes/WishesLongFramed.webp";
 const TaxLedgerFramedWebp = "assets/webp/TaxLedger/TaxLedgerFramed.webp";
+const RaspberryWalletFramedPng =
+  "assets/png/RaspberryWallet/RaspberryWalletFramed.png";
+const RaspberryWalletFramedWebp =
+  "assets/webp/RaspberryWallet/RaspberryWalletFramed.webp";
+const StellotFramedPng =
+  "assets/png/Stellot/StellotFramed.png";
+const StellotFramedWebp =
+  "assets/webp/Stellot/StellotFramed.webp";
+
 
 const Apps: IApp[] = [
+  {
+    name: "Stellot",
+    imgSrc: StellotFramedPng,
+    imgWebp: StellotFramedWebp,
+    description: "i-Voting platform powered by Stellar blockchain network",
+    platform: "desktop",
+    links: {
+      website: "https://stellot.com/",
+      github: "https://github.com/stasbar/stellot",
+      googlePlay: null,
+      appStore: null
+    }
+  },
+  // {
+  //   name: "MASTI",
+  //   imgSrc: RaspberryWalletFramedPng,
+  //   imgWebp: RaspberryWalletFramedWebp,
+  //   description: "Bitcoin hardware wallet on Raspberry Pi Zero",
+  //   platform: "desktop",
+  //   links: {
+  //     website: "https://raspberrywallet.github.io/readme.html",
+  //     github: "https://github.com/RaspberryWallet",
+  //     googlePlay: null,
+  //     appStore: null
+  //   }
+  // },
+  {
+    name: "Tax Ledger",
+    imgSrc: TaxLedgerFramedPng,
+    imgWebp: TaxLedgerFramedWebp,
+    description: `Desktop application for settle taxes from cryptocurrencies exchanges`,
+    platform: "desktop",
+    links: {
+      website: "https://tax-ledger.com",
+      github: null,
+      googlePlay: null,
+      appStore: null
+    }
+  },
+  {
+    name: "Raspberry Wallet",
+    imgSrc: RaspberryWalletFramedPng,
+    imgWebp: RaspberryWalletFramedWebp,
+    description: "Bitcoin hardware wallet on Raspberry Pi Zero",
+    platform: "desktop",
+    links: {
+      website: "https://raspberrywallet.github.io/readme.html",
+      github: "https://github.com/RaspberryWallet",
+      googlePlay: null,
+      appStore: null
+    }
+  },
+  // {
+  //   name: "VT Webpage",
+  //   imgSrc: RaspberryWalletFramedPng,
+  //   imgWebp: RaspberryWalletFramedWebp,
+  //   description: "Bitcoin hardware wallet on Raspberry Pi Zero",
+  //   platform: "desktop",
+  //   links: {
+  //     website: "https://raspberrywallet.github.io/readme.html",
+  //     github: "https://github.com/RaspberryWallet",
+  //     googlePlay: null,
+  //     appStore: null
+  //   }
+  // },
   {
     name: "Vape Tool",
     imgSrc: VapeToolLongFramedPng,
@@ -53,19 +127,6 @@ const Apps: IApp[] = [
       googlePlay:
         "https://play.google.com/store/apps/details?id=com.stasbar.vape_tool",
       appStore: "https://itunes.apple.com/us/app/coil-builder/id1210289983?mt=8"
-    }
-  },
-  {
-    name: "Tax Ledger",
-    imgSrc: TaxLedgerFramedPng,
-    imgWebp: TaxLedgerFramedWebp,
-    description: `Desktop application for settle taxes from cryptocurrencies exchanges`,
-    platform: "desktop",
-    links: {
-      website: "https://tax-ledger.com",
-      github: null,
-      googlePlay: null,
-      appStore: null
     }
   },
   {
