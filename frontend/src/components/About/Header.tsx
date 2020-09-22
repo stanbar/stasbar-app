@@ -138,11 +138,10 @@ class Header extends Component<WithStyles<typeof styles>> {
           STANISLAW BARANSKI
         </Typography>
         <Typography variant="h6" align="center" gutterBottom={true}>
-          <u className={classes.keyword}>full stack software developer</u>,
-          &nbsp;
-          <u className={classes.keyword}>beginner entrepreneur</u>, &nbsp;
+          <u className={classes.keyword}>software developer</u>, &nbsp;
           <u className={classes.keyword}>blockchain enthusiast</u>, &nbsp;
-          <u className={classes.keyword}>b.eng. computer science</u>
+          <u className={classes.keyword}>entrepreneur</u>, &nbsp;
+          <u className={classes.keyword}>m.sc. eng. computer science</u>
         </Typography>
 
         <Grid
@@ -202,89 +201,6 @@ class Header extends Component<WithStyles<typeof styles>> {
           />
         </Grid>
 
-        <Grid
-          container={true}
-          spacing={0}
-          justify="center"
-          className={classes.specs}
-        >
-          <Grid
-            item={true}
-            xs={6}
-            sm={6}
-            md={3}
-            lg={3}
-            className={classes.specGridItem}
-          >
-            <Typography className={classes.specName}>Android</Typography>
-            <Typography
-              component="p"
-              color={"textSecondary"}
-              className={classes.specDesc}
-            >
-              My main specialty is mobile applications for Android in Java and
-              Kotlin.
-            </Typography>
-          </Grid>
-
-          <Grid
-            item={true}
-            xs={6}
-            sm={6}
-            md={3}
-            lg={3}
-            className={classes.specGridItem}
-          >
-            <Typography className={classes.specName}>Backend</Typography>
-            <Typography
-              component="p"
-              color={"textSecondary"}
-              className={classes.specDesc}
-            >
-              I chose Firebase when I need working product ASAP. Then I chose
-              Nodejs with Typescript, Kotlin with ktor if JVM is required,
-              golang when performance matters, and Python for scripting.
-            </Typography>
-          </Grid>
-
-          <Grid
-            item={true}
-            xs={6}
-            sm={6}
-            md={3}
-            lg={3}
-            className={classes.specGridItem}
-          >
-            <Typography className={classes.specName}>Frontend</Typography>
-            <Typography
-              component="p"
-              color={"textSecondary"}
-              className={classes.specDesc}
-            >
-              My favorite framework is React with TS. Concept of all-in-js
-              combined with JSX seduced me.
-            </Typography>
-          </Grid>
-
-          <Grid
-            item={true}
-            xs={6}
-            sm={6}
-            md={3}
-            lg={3}
-            className={classes.specGridItem}
-          >
-            <Typography className={classes.specName}>Tools</Typography>
-            <Typography
-              component="p"
-              color={"textSecondary"}
-              className={classes.specDesc}
-            >
-              When it comes to tools, I prefer IntelliJ/AS for JVM based
-              languages, and Vim/Tmux otherwise. Running on macOS or Arch Linux.
-            </Typography>
-          </Grid>
-        </Grid>
       </Container>
     );
   }
