@@ -1,0 +1,6 @@
+version: 2.0
+shards:
+  sendgrid:
+    git: https://github.com/dlanileonardo/sendgrid.cr.git
+    version: 0.1.1+git.commit.5aa892c1ec9bd483d1586e66ab819f4c92cf3983
+

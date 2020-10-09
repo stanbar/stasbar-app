@@ -1,0 +1,17 @@
+name: mailer
+version: 0.1.0
+
+authors:
+  - Stanislaw Baranski <stasbar@stasbar.com>
+
+targets:
+  your_app:
+    main: src/your_app.cr
+
+dependencies:
+  sendgrid:
+    github: dlanileonardo/sendgrid.cr
+
+crystal: 0.35.1
+
+license: MIT
