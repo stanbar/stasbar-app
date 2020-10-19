@@ -25,7 +25,7 @@
 package com.stasbar.app.database.models
 
 import com.stasbar.app.models.Shelf
-import org.jetbrains.exposed.dao.IntIdTable
+import org.jetbrains.exposed.dao.id.IntIdTable
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.Table
 
@@ -38,6 +38,7 @@ fun ResultRow.toShelf() = Shelf(
 )
 
 object BookShelves : Table() {
-  val shelf = reference("shelf", Shelves).primaryKey(0)
-  val book = reference("bookHash", Books.hash).primaryKey(1)
+  val shelf = reference("shelf", Shelves)
+  val book = reference("bookHash", Books.hash)
+  override val primaryKey = PrimaryKey(shelf, book)
 }

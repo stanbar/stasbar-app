@@ -30,18 +30,19 @@ import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.Table
 
 object Quotes : Table() {
-  val hash = varchar("hash", 32).primaryKey()
+  val hash = varchar("hash", 32)
   val text = text("text")
   val author = varchar("author", 64)
   val position = integer("position")
   val bookHash = (varchar("bookHash", 32) references Books.hash).nullable()
+  override val primaryKey = PrimaryKey(hash)
 }
 
 fun ResultRow.toQuote(books: List<Shelf>) = Quote(
   text = get(Quotes.text),
   author = get(Quotes.author),
   position = get(Quotes.position),
-  book = if (hasValue(Books.rating) && this.tryGet(Books.rating) != null) toBook(books) else null
+  book = if (hasValue(Books.rating) && this.getOrNull(Books.rating) != null) toBook(books) else null
 )
 
 

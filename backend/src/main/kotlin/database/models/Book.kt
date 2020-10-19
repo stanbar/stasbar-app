@@ -30,7 +30,7 @@ import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.Table
 
 object Books : Table() {
-  val hash = varchar("hash", 32).primaryKey()
+  val hash = varchar("hash", 32)
   val title = varchar("title", 256)
   val author = varchar("author", 64)
   val rating = integer("rating")
@@ -39,6 +39,7 @@ object Books : Table() {
   val isbn13 = varchar("isbn13", 32).nullable()
   val imageUrl = varchar("imageUrl", 256)
   val smallImageUrl = varchar("smallImageUrl", 256)
+  override val primaryKey = PrimaryKey(hash)
 }
 
 fun ResultRow.toBook(shelves: List<Shelf>) = Book(
