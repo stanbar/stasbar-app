@@ -53,15 +53,6 @@ class Index extends Component<WithStyles<typeof styles>> {
         <div className={classes.even}>
           <Introduction />
         </div>
-        <div className={classes.odd}>
-          <AppsGallery title={"Portfolio"} apps={Apps} />
-        </div>
-        <div className={classes.odd}>
-          <BestBooks />
-        </div>
-        <div className={classes.even}>
-          <BestQuotes />
-        </div>
       </div>
     );
   }
