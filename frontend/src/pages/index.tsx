@@ -27,10 +27,9 @@ import * as React from "react";
 import { Component } from "react";
 import Introduction from "../components/About/Introduction";
 import Header from "../components/About/Header";
-import AppsGallery from "../components/About/AppsGallery";
 import BestBooks from "../components/About/BestBooks";
 import BestQuotes from "../components/About/BestQuotes";
-import Apps from "../myapps/Apps";
+import Publications from "../components/About/Publications";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -52,6 +51,15 @@ class Index extends Component<WithStyles<typeof styles>> {
         </div>
         <div className={classes.even}>
           <Introduction />
+        </div>
+        <div className={classes.odd}>
+          <Publications />
+        </div>
+        <div className={classes.even}>
+          <BestQuotes />
+        </div>
+        <div className={classes.odd}>
+          <BestBooks />
         </div>
       </div>
     );

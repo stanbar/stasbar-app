@@ -53,9 +53,9 @@ const styles = (theme: Theme) =>
       color: theme.palette.text.primary
     },
     content: {
-      maxWidth: 700,
+      maxWidth: "40em",
       margin: "0 auto",
-      padding: `${theme.spacing(8)}px 0 ${theme.spacing(6)}px`
+      padding: theme.spacing(2, 2, 6, 2)
     },
     buttons: {
       marginTop: theme.spacing(4)
@@ -129,19 +129,11 @@ class Header extends Component<WithStyles<typeof styles>> {
 
     return (
       <Container className={classes.content} maxWidth="lg">
-        <Typography
-          variant="h1"
-          align="center"
-          gutterBottom={true}
-          className={classes.nameTitle}
-        >
-          STANISLAW BARANSKI
-        </Typography>
         <Typography variant="h6" align="center" gutterBottom={true}>
           <u className={classes.keyword}>software developer</u>, &nbsp;
           <u className={classes.keyword}>blockchain enthusiast</u>, &nbsp;
           <u className={classes.keyword}>entrepreneur</u>, &nbsp;
-          <u className={classes.keyword}>m.sc. eng. computer science</u>
+          <u className={classes.keyword}>phd student in informatics</u>
         </Typography>
 
         <Grid
