@@ -27,39 +27,42 @@ import {
   Theme,
   Typography,
   withStyles,
-  WithStyles,
-} from '@material-ui/core'
-import * as React from 'react'
-import { Component } from 'react'
+  WithStyles
+} from "@material-ui/core";
+import * as React from "react";
+import { Component } from "react";
 
 const styles = (theme: Theme) =>
   createStyles({
     heroContent: {
       maxWidth: 700,
-      margin: '0 auto',
-      padding: `${theme.spacing(8)}px 0 ${theme.spacing(6)}px`,
-    },
-  })
+      // textAlign: "justify",
+      // textJustify: "inter-word",
+      margin: "0 auto",
+      padding: theme.spacing(6, 2)
+    }
+  });
 
 class Introduction extends Component<WithStyles<typeof styles>> {
   public render() {
-    const { classes } = this.props
+    const { classes } = this.props;
     return (
-      <div className={classes.heroContent}>
-        <Typography
-          variant="h6"
-          align="center"
-          color="textSecondary"
-          paragraph={true}
-        >
-          Motivated by the newest technologies and business opportunities.
-          Currently focusing on blockchain technology. Key values in my life:
-          <br></br>
-          Efficiency🏍️, Development🚀, Adaptation🦎, Freedom🌎 and Simplicity🍎
-        </Typography>
-      </div>
-    )
+      <Typography
+        className={classes.heroContent}
+        variant="h6"
+        align="center"
+        color="textSecondary"
+        paragraph={true}
+      >
+        Software developer, entrepreneur, and researcher. Full stack experience
+        with building the most popular mobile application in the category.
+        Motivated by the newest technologies and business opportunities. Currently focusing on blockchain technology.
+        <br></br>
+        Key values in my life 🏍️Efficiency, 🦎Adaptation, 🌎Freedom,
+        🍎Simplicity, and 💡Usefulness.
+      </Typography>
+    );
   }
 }
 
-export default withStyles(styles)(Introduction)
+export default withStyles(styles)(Introduction);

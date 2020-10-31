@@ -22,21 +22,14 @@
  *            stasbar@stasbar.com
  */
 
-import React, { Component } from "react";
+import React from "react";
 import {
-  Button,
-  Card,
   createStyles,
-  Grid,
   Theme,
   Typography,
-  withStyles,
-  WithStyles
+  withStyles
 } from "@material-ui/core";
-import { Link } from "gatsby";
-import Api from "../../Api";
-import Quote from "../../models/Quote";
-import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
+import publications, { Publication } from "../../myapps/Publications";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -90,77 +83,34 @@ const styles = (theme: Theme) =>
     }
   });
 
-interface IBestQuotesState {
-  quotes: Quote[];
-  loading: boolean;
-}
-
-class BestQuotes extends Component<
-  WithStyles<typeof styles>,
-  IBestQuotesState
-> {
-  public state: IBestQuotesState = {
-    quotes: new Array<Quote>(),
-    loading: true
-  };
-
-  componentDidMount(): void {
-    this.fetchQuotes();
-  }
-
-  public render() {
-    const { classes } = this.props;
-    const { quotes, loading } = this.state;
-
-    return (
-      <div className={classes.root}>
-        <Typography
-          variant="h2"
-          align="center"
-          color="textPrimary"
-          gutterBottom={true}
-          className={classes.nameTitle}
-        >
-          My favorite quotes
-        </Typography>
-        <div className={classes.layout}>
-          {loading && (
-            <Grid item={true} sm={12}>
-              <Typography variant="h5">Loading...</Typography>
-            </Grid>
-          )}
-
-          <dl>
-            {quotes.map((quote: Quote) => (
-              <>
-                <dt className={classes.dt}>{quote.text}</dt>
-                <dd>{quote.author}</dd>
-              </>
-            ))}
-          </dl>
-          <Button
-            className={classes.moreQuotesButton}
-            variant="outlined"
-            component={(props: any) => <Link {...props} to="/quotes" />}
-            color="secondary"
-          >
-            Quotes
-            <FormatQuoteIcon className={classes.rightIcon} />
-          </Button>
-        </div>
+const Publications: React.FC = ({ classes }: { classes: any }) => {
+  return (
+    <div className={classes.root}>
+      <Typography
+        variant="h2"
+        align="center"
+        color="textPrimary"
+        gutterBottom={true}
+        className={classes.nameTitle}
+      >
+        Publications
+      </Typography>
+      <div className={classes.layout}>
+        <dl>
+          {publications.map((pub: Publication) => (
+            <>
+              <a style={{textDecoration: "none", color: "#3dacd1"}} href={pub.link}>
+                <dt className={classes.dt}>{pub.title}</dt>
+              </a>
+              <dd>
+                {pub.what}, {pub.when}, {pub.where}
+              </dd>
+            </>
+          ))}
+        </dl>
       </div>
-    );
-  }
+    </div>
+  );
+};
 
-  private async fetchQuotes() {
-    try {
-      const quotes: Quote[] = await Api.fetchFeaturedQuotes();
-      this.setState({ quotes, loading: false });
-    } catch (e) {
-      console.error(e);
-      this.setState({ loading: false });
-    }
-  }
-}
-
-export default withStyles(styles)(BestQuotes);
+export default withStyles(styles)(Publications);

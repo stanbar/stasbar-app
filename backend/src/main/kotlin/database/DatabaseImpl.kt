@@ -82,7 +82,7 @@ abstract class DatabaseImpl(
       } get Shelves.id
 
       BookShelves.insert {
-        it[BookShelves.shelf] = shelfId!!
+        it[BookShelves.shelf] = shelfId
         it[BookShelves.book] = book.hash
       }
     }
@@ -109,7 +109,7 @@ abstract class DatabaseImpl(
       } get Shelves.id
 
       BookShelves.insert {
-        it[BookShelves.shelf] = shelfId!!
+        it[BookShelves.shelf] = shelfId
         it[BookShelves.book] = book.hash
       }
     }
@@ -136,7 +136,7 @@ abstract class DatabaseImpl(
   override suspend fun getAllQuotes(limit: Int): List<Quote> = withContext(dispatcher) {
     transaction {
       (Quotes leftJoin Books).selectAll()
-        .orderBy(Quotes.position to true)
+        .orderBy(Quotes.position to SortOrder.ASC)
         .also {
           if (limit != -1) it.limit(limit)
         }

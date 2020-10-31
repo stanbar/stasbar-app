@@ -42,8 +42,8 @@ import LibraryBookIcon from '@material-ui/icons/LibraryBooks'
 const styles = (theme: Theme) =>
   createStyles({
     root: {
-      margin: '0 auto',
-      padding: `${theme.spacing(8)}px 0 ${theme.spacing(6)}px`,
+      margin: "0 auto",
+      padding: theme.spacing(8, 6)
     },
     layout: {
       width: 'auto',

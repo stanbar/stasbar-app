@@ -7,6 +7,7 @@
     "build": "gatsby build",
     "build-ipfs": "gatsby build --prefix-paths",
     "publish:docs": "gh-pages -d public",
+    "deploy": "npm run build && npm run publish:docs",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.ts*\"",
