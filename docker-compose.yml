@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 services:
   ktor:
     container_name: stasbar-ktor
@@ -11,6 +11,9 @@ services:
       GPLAYAPI_URL: "http://stasbar-gplay-api:8080"
     ports:
       - 8081:8080
+    links:
+       - db
+       - gplayapi
     depends_on:
       - db
       - gplayapi
@@ -30,3 +33,19 @@ services:
     restart: unless-stopped
     environment:
       PORT: "8080"
+
+  # mailer:
+  #   container_name: stasbar-mailer
+  #   build: mailer
+  #   env_file: .env
+  #   restart: unless-stopped
+  #   links:
+  #     - ktor
+
+  cron:
+    container_name: stasbar-cron
+    build: cron
+    env_file: .env
+    restart: unless-stopped
+    links:
+      - ktor

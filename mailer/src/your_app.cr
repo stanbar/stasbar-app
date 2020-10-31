@@ -1,5 +1,8 @@
 # TODO: Write documentation for `YourApp`
 require "sendgrid"
+require "dotenv"
+Dotenv.load ".env"
+
 module YourApp
   VERSION = "0.1.0"
 

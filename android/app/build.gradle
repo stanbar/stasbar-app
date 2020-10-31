@@ -86,7 +86,7 @@ dependencies {
   implementation project(':common')
   implementation fileTree(include: ['*.jar'], dir: 'libs')
   // Kotlin
-  api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
+  api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
   api "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
 
   // AndroidX

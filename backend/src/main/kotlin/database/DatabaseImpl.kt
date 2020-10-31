@@ -136,10 +136,10 @@ abstract class DatabaseImpl(
   override suspend fun getAllQuotes(limit: Int): List<Quote> = withContext(dispatcher) {
     transaction {
       (Quotes leftJoin Books).selectAll()
+        .orderBy(Quotes.position to SortOrder.ASC)
         .also {
           if (limit != -1) it.limit(limit)
         }
-        .sortedBy { Quotes.position }
         .also { println("selected ${it.count()} quotes") }
         .map {
           it.toQuote(runBlocking { getBookShelves(it[Books.hash]) })

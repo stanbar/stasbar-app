@@ -11,6 +11,8 @@ targets:
 dependencies:
   sendgrid:
     github: dlanileonardo/sendgrid.cr
+  dotenv:
+    github: gdotdesign/cr-dotenv
 
 crystal: 0.35.1
 
